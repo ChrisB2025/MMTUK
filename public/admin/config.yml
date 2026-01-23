@@ -1,0 +1,80 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# For local development, uncomment these lines:
+# local_backend: true
+
+media_folder: "public/images"
+public_folder: "/images"
+
+collections:
+  - name: "articles"
+    label: "Articles"
+    folder: "src/content/articles"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Slug", name: "slug", widget: "string" }
+      - { label: "Category", name: "category", widget: "select", options: ["Article", "Commentary", "Research"] }
+      - { label: "Sector", name: "sector", widget: "string", default: "Economics" }
+      - { label: "Author", name: "author", widget: "string" }
+      - { label: "Author Title", name: "authorTitle", widget: "string", required: false }
+      - { label: "Publication Date", name: "pubDate", widget: "datetime" }
+      - { label: "Read Time", name: "readTime", widget: "number", default: 5 }
+      - { label: "Executive Summary", name: "summary", widget: "text" }
+      - { label: "Thumbnail", name: "thumbnail", widget: "image", required: false }
+      - { label: "Main Image", name: "mainImage", widget: "image", required: false }
+      - { label: "Featured", name: "featured", widget: "boolean", default: false }
+      - { label: "Accent Color", name: "color", widget: "color", required: false }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "news"
+    label: "News"
+    folder: "src/content/news"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Slug", name: "slug", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Category", name: "category", widget: "select", options: ["Announcement", "Event", "Press Release", "Update"] }
+      - { label: "Summary", name: "summary", widget: "text", required: false }
+      - { label: "Thumbnail", name: "thumbnail", widget: "image", required: false }
+      - { label: "Main Image", name: "mainImage", widget: "image", required: false }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "bios"
+    label: "Team Bios"
+    folder: "src/content/bios"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Name", name: "name", widget: "string" }
+      - { label: "Slug", name: "slug", widget: "string" }
+      - { label: "Role", name: "role", widget: "string" }
+      - { label: "Photo", name: "photo", widget: "image", required: false }
+      - { label: "LinkedIn URL", name: "linkedin", widget: "string", required: false }
+      - { label: "Advisory Board", name: "advisoryBoard", widget: "boolean", default: false }
+      - { label: "Description", name: "body", widget: "markdown" }
+
+  - name: "ecosystem"
+    label: "Ecosystem Profiles"
+    folder: "src/content/ecosystem"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Name", name: "name", widget: "string" }
+      - { label: "Slug", name: "slug", widget: "string" }
+      - { label: "Country", name: "country", widget: "string", default: "UK" }
+      - { label: "Types", name: "types", widget: "list", required: false }
+      - { label: "Summary", name: "summary", widget: "text", required: false }
+      - { label: "Logo", name: "logo", widget: "image", required: false }
+      - { label: "Website", name: "website", widget: "string", required: false }
+      - { label: "Twitter/X", name: "twitter", widget: "string", required: false }
+      - { label: "Facebook", name: "facebook", widget: "string", required: false }
+      - { label: "YouTube", name: "youtube", widget: "string", required: false }
+      - { label: "Discord", name: "discord", widget: "string", required: false }
+      - { label: "Status", name: "status", widget: "select", options: ["Active", "Inactive", "Archived"], default: "Active" }
+      - { label: "Description", name: "body", widget: "markdown" }

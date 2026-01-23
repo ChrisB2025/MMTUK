@@ -1,0 +1,101 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const articles = await getCollection('articles');
+const sortedArticles = articles.sort((a, b) =>
+  new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
+);
+---
+
+<BaseLayout title="Articles" description="Read our latest articles on MMT and economics." currentPage="articles">
+  <header class="section_header54 text-color-white">
+    <div class="padding-global">
+      <div class="container-large">
+        <div class="padding-section-large">
+          <div class="header54_component">
+            <div class="max-width-large">
+              <div class="margin-bottom margin-small">
+                <h1 class="heading-style-h1">Articles</h1>
+              </div>
+              <p class="text-size-medium-2">Explore our collection of articles, commentary, and research on Modern Monetary Theory.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="header54_background-image-wrapper">
+      <div class="image-overlay-layer"></div>
+      <img sizes="(max-width: 2400px) 100vw, 2400px" srcset="/images/Library-p-500.avif 500w, /images/Library-p-800.avif 800w, /images/Library-p-1080.avif 1080w, /images/Library.avif 2400w" alt="" src="/images/Library.avif" loading="eager" class="header54_background-image">
+    </div>
+  </header>
+
+  <section class="section_blog1">
+    <div class="padding-global">
+      <div class="container-large">
+        <div class="padding-section-large">
+          <div class="blog1_component">
+            <div class="w-layout-grid blog1_list">
+              {sortedArticles.map((article) => (
+                <a href={`/articles/${article.data.slug}`} class="blog1_item w-inline-block">
+                  <div class="blog1_image-wrapper">
+                    <img
+                      src={article.data.thumbnail || '/images/placeholder-image.svg'}
+                      loading="lazy"
+                      alt={article.data.title}
+                      class="blog1_image"
+                    />
+                  </div>
+                  <div class="blog1_content">
+                    <div class="blog1_content-top">
+                      <div class="blog1_category-wrapper">
+                        <div class="text-size-small text-weight-semibold text-color-primary">{article.data.category}</div>
+                      </div>
+                      <div class="margin-top margin-xsmall">
+                        <h3 class="heading-style-h5">{article.data.title}</h3>
+                      </div>
+                      <div class="margin-top margin-xsmall">
+                        <p class="text-size-regular">{article.data.summary?.substring(0, 150)}...</p>
+                      </div>
+                    </div>
+                    <div class="blog1_content-bottom">
+                      <div class="blog1_author-wrapper">
+                        <div class="blog1_author-text">
+                          <div class="text-size-small text-weight-semibold">{article.data.author}</div>
+                          <div class="text-size-small">{new Date(article.data.pubDate).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</div>
+                        </div>
+                      </div>
+                      <div class="blog1_read-time">
+                        <div class="text-size-small">{article.data.readTime} min read</div>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer4_component">
+    <div class="padding-global">
+      <div class="container-large">
+        <div class="padding-vertical padding-xxlarge">
+          <div class="divider-horizontal footer_divider"></div>
+          <div class="padding-top padding-medium">
+            <div class="footer8_bottom-wrapper">
+              <div class="footer8_credit-text">© 2025 MMTUK Policy Group Ltd</div>
+              <div class="w-layout-grid footer8_legal-list">
+                <a href="/privacy-policy" class="footer8_legal-link">Privacy policy</a>
+                <a href="/terms-of-engagement" class="footer8_legal-link">Terms of engagement</a>
+                <a href="/cookie-preferences" class="footer8_legal-link">Cookie preferences</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</BaseLayout>

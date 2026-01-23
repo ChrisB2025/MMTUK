@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Unauthorized" description="Access denied" currentPage="401">
+  <div class="utility_component">
+    <div class="utility_form-block">
+      <div class="utility_form">
+        <img width="106" src="https://d3e54v103j8qbb.cloudfront.net/static/utility-lock.ae54711958.svg" alt="Protected" class="utility_image">
+        <h3>Unauthorized Access</h3>
+        <div class="padding-xxsmall"></div>
+        <p class="text-size-medium">You don't have permission to access this page.</p>
+        <div class="padding-medium"></div>
+        <a href="/" class="button w-button">Return to Homepage</a>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .utility_component {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 2rem;
+  }
+  .utility_form-block {
+    max-width: 400px;
+    text-align: center;
+  }
+  .utility_form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  .utility_image {
+    margin-bottom: 1rem;
+  }
+</style>

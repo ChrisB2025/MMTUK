@@ -1,0 +1,546 @@
+---
+// Navbar component - Complex mega menu navigation
+interface Props {
+  currentPage?: string;
+}
+
+const { currentPage = '' } = Astro.props;
+
+// Helper to determine if a link is current
+const isCurrentPage = (page: string) => currentPage === page;
+---
+
+<div fs-scrolldisable-element="smart-nav" data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar5_component color-scheme-1 w-nav">
+  <div class="navbar5_container">
+    <a href="/" class:list={["navbar5_logo-link", "w-nav-brand", { "w--current": isCurrentPage('home') }]}>
+      <img loading="eager" height="32px" alt="MMT UK Logo" src="/images/relume-438483.avif" class="navbar5_logo">
+    </a>
+    <nav role="navigation" class="navbar5_menu w-nav-menu">
+      <div class="navbar5_menu-left">
+        <!-- Research Dropdown -->
+        <div data-delay="200" data-hover="false" class="navbar5_menu-dropdown w-dropdown">
+          <div class="navbar5_dropdown-toggle w-dropdown-toggle">
+            <div class="text-block-2">Research</div>
+            <div class="dropdown-chevron w-embed">
+              <svg width="100%" height="100%" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M2.55806 6.29544C2.46043 6.19781 2.46043 6.03952 2.55806 5.94189L3.44195 5.058C3.53958 4.96037 3.69787 4.96037 3.7955 5.058L8.00001 9.26251L12.2045 5.058C12.3021 4.96037 12.4604 4.96037 12.5581 5.058L13.4419 5.94189C13.5396 6.03952 13.5396 6.19781 13.4419 6.29544L8.17678 11.5606C8.07915 11.6582 7.92086 11.6582 7.82323 11.5606L2.55806 6.29544Z" fill="currentColor"></path>
+              </svg>
+            </div>
+          </div>
+          <nav class="navbar5_dropdown-list w-dropdown-list">
+            <div class="navbar5_container">
+              <div class="navbar5_dropdown-content">
+                <div class="navbar5_dropdown-content-left">
+                  <a href="/research" class="navbar5_dropdown-column w-inline-block">
+                    <div>
+                      <div class="margin-bottom margin-xsmall">
+                        <h4 class="text-size-small">Research</h4>
+                      </div>
+                    </div>
+                    <div class="navbar5_dropdown-link-list">
+                      <div class="navbar5_dropdown-link">
+                        <div class="navbar5_icon-wrapper">
+                          <div class="icon-embed-xsmall w-embed">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 -960 960 960">
+                              <path fill="currentColor" d="m333.83-312.43 204.63-61.7q16.95-5.22 29.07-17.34 12.12-12.12 17.34-29.07l61.7-204.63q3.23-9.6-4.1-17.12-7.34-7.51-17.3-4.28l-204.63 61.7q-16.95 5.22-29.07 17.34-12.12 12.12-17.34 29.07l-61.7 204.63q-3.23 9.6 4.1 17.12 7.34 7.51 17.3 4.28Zm145.88-131.16q-15.04 0-25.58-10.83-10.54-10.84-10.54-25.87 0-15.04 10.83-25.58 10.84-10.54 25.87-10.54 15.04 0 25.58 10.83 10.54 10.84 10.54 25.87 0 15.04-10.83 25.58-10.84 10.54-25.87 10.54Zm.59 369.57q-84.2 0-158.04-31.88-73.84-31.88-129.16-87.2-55.32-55.32-87.2-129.2-31.88-73.88-31.88-158.17 0-84.28 31.88-158.2 31.88-73.91 87.16-128.74 55.28-54.84 129.18-86.82 73.9-31.99 158.21-31.99 84.3 0 158.25 31.97 73.94 31.97 128.75 86.77 54.82 54.8 86.79 128.88 31.98 74.08 31.98 158.33 0 84.24-31.99 158.07-31.98 73.84-86.82 128.95-54.83 55.1-128.87 87.17Q564.5-74.02 480.3-74.02Zm.14-68.13q141.08 0 239.24-98.61 98.17-98.61 98.17-239.68 0-141.08-98.12-239.24-98.12-98.17-239.2-98.17-141.08 0-239.73 98.12-98.65 98.12-98.65 239.2 0 141.08 98.61 239.73 98.61 98.65 239.68 98.65ZM480-480Z"></path>
+                            </svg>
+                          </div>
+                        </div>
+                        <div class="navbar5_item-right">
+                          <div class="text-weight-semibold">The Job Guarantee</div>
+                          <p class="text-size-small">Our landmark first report into a policy priority</p>
+                        </div>
+                      </div>
+                      <div class="navbar5_dropdown-link">
+                        <div class="navbar5_icon-wrapper">
+                          <div class="icon-embed-xsmall w-embed">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 -960 960 960">
+                              <path fill="currentColor" d="M640-262.39q91.01 0 154.31-63.78 63.3-63.79 63.3-154.28 0-90.5-63.3-153.83-63.3-63.33-154.31-63.33-28.64 0-55.68 7.23-27.05 7.23-50.39 20.66 33.29 38.24 52.67 86.41 19.38 48.17 19.38 103.36T586.6-376.64q-19.38 48.12-52.67 86.36 23.34 13.43 50.39 20.66 27.04 7.23 55.68 7.23Zm-160-70.68q26.76-28.43 42.19-66.65 15.42-38.21 15.42-80.53t-15.42-80.28q-15.43-37.97-42.19-66.4-26.76 28.43-42.19 66.65-15.42 38.21-15.42 80.53t15.42 80.28q15.43 37.97 42.19 66.4Zm-160 70.68q28.64 0 55.68-7.22 27.05-7.23 50.62-20.67-33.52-38.24-52.9-86.41-19.38-48.17-19.38-103.36t19.38-103.31q19.38-48.12 52.9-86.36-23.57-13.44-50.62-20.67-27.04-7.22-55.68-7.22-90.31 0-153.96 63.29-63.65 63.29-63.65 153.78 0 90.5 63.65 154.32 63.65 63.83 153.96 63.83Zm0 68.37q-119.34 0-202.66-83.33T34.02-480.04q0-119.35 83.32-202.64 83.32-83.3 202.66-83.3 45 0 85.42 12.77 40.41 12.76 74.58 36.28 34.17-23.52 74.58-36.28Q595-765.98 640-765.98q119.34 0 202.66 83.33t83.32 202.69q0 119.35-83.32 202.64-83.32 83.3-202.66 83.3-45 0-85.42-12.77-40.41-12.76-74.58-36.28-34.17 23.52-74.58 36.28Q365-194.02 320-194.02Z"></path>
+                            </svg>
+                          </div>
+                        </div>
+                        <div class="navbar5_item-right">
+                          <div class="text-weight-semibold">ZIRP (Zero Interest Rate Policy)</div>
+                          <p class="text-size-small">Another priority being finalised by our research team</p>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <div class="navbar5_dropdown-content-right">
+                  <div class="navbar5_dropdown-content-wrapper z-index-1">
+                    <div class="margin-bottom margin-xsmall">
+                      <h4 class="text-size-small">Featured Research</h4>
+                    </div>
+                    <div id="w-node-d93f8dff-e16b-c5e7-d1c6-9cbf322ced37-322cecd3" class="navbar5_blog-list-wrapper">
+                      <div class="navbar5_blog-list">
+                        <a href="/job-guarantee" class="navbar5_blog-item w-inline-block">
+                          <div class="navbar5_blog-image-wrapper">
+                            <img sizes="100vw" srcset="/images/desola-lanre-ologun-IgUR1iX0mqM-unsplash-p-500.avif 500w, /images/desola-lanre-ologun-IgUR1iX0mqM-unsplash-p-800.avif 800w, /images/desola-lanre-ologun-IgUR1iX0mqM-unsplash-p-1080.avif 1080w, /images/adult-education.avif 2400w" alt="Adult education college" src="/images/adult-education.avif" loading="eager" class="navbar5_blog-image">
+                          </div>
+                          <div class="navbar5_large-item-content">
+                            <div class="margin-bottom margin-tiny">
+                              <div class="text-weight-semibold">The Job Guarantee</div>
+                            </div>
+                            <p class="text-size-small">Paid jobs at a living wage as an automatic stabiliser.</p>
+                            <div class="margin-top margin-xxsmall">
+                              <div class="text-style-link text-size-small-2">Read more</div>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="navbar5_dropdown-background-layer background-color-secondary"></div>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
+
+        <!-- Education Dropdown -->
+        <div data-delay="200" data-hover="false" class="navbar5_menu-dropdown w-dropdown">
+          <div class="navbar5_dropdown-toggle w-dropdown-toggle">
+            <div>Education</div>
+            <div class="dropdown-chevron w-embed">
+              <svg width="100%" height="100%" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M2.55806 6.29544C2.46043 6.19781 2.46043 6.03952 2.55806 5.94189L3.44195 5.058C3.53958 4.96037 3.69787 4.96037 3.7955 5.058L8.00001 9.26251L12.2045 5.058C12.3021 4.96037 12.4604 4.96037 12.5581 5.058L13.4419 5.94189C13.5396 6.03952 13.5396 6.19781 13.4419 6.29544L8.17678 11.5606C8.07915 11.6582 7.92086 11.6582 7.82323 11.5606L2.55806 6.29544Z" fill="currentColor"></path>
+              </svg>
+            </div>
+          </div>
+          <nav class="navbar5_dropdown-list w-dropdown-list">
+            <div class="navbar5_container">
+              <div class="navbar5_dropdown-content">
+                <div class="navbar5_dropdown-content-left">
+                  <a href="/education" class="navbar5_dropdown-column w-inline-block">
+                    <div>
+                      <div class="margin-bottom margin-xsmall">
+                        <h4 class="text-size-small">Education Hub</h4>
+                      </div>
+                    </div>
+                    <div class="navbar5_dropdown-link-list">
+                      <div class="navbar5_dropdown-link">
+                        <div class="navbar5_icon-wrapper">
+                          <div class="icon-embed-xsmall w-embed">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 -960 960 960">
+                              <path fill="currentColor" d="M480-120 200-272v-240L40-600l440-240 440 240v320h-80v-276l-80 44v240L480-120Zm0-332 274-148-274-148-274 148 274 148Zm0 241 200-108v-151L480-360 280-470v151l200 108Zm0-241Zm0 90Zm0 0Z"></path>
+                            </svg>
+                          </div>
+                        </div>
+                        <div class="navbar5_item-right">
+                          <div class="text-weight-semibold">Overview</div>
+                          <p class="text-size-small">Explore all educational resources</p>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                  <a href="/library" class="navbar5_dropdown-column w-inline-block">
+                    <div>
+                      <div class="margin-bottom margin-xsmall">
+                        <h4 class="text-size-small">The Library</h4>
+                      </div>
+                    </div>
+                    <div class="navbar5_dropdown-link-list">
+                      <div class="navbar5_dropdown-link">
+                        <div class="navbar5_icon-wrapper">
+                          <div class="icon-embed-xsmall w-embed">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 -960 960 960">
+                              <path fill="currentColor" d="m333.83-312.43 204.63-61.7q16.95-5.22 29.07-17.34 12.12-12.12 17.34-29.07l61.7-204.63q3.23-9.6-4.1-17.12-7.34-7.51-17.3-4.28l-204.63 61.7q-16.95 5.22-29.07 17.34-12.12 12.12-17.34 29.07l-61.7 204.63q-3.23 9.6 4.1 17.12 7.34 7.51 17.3 4.28Zm145.88-131.16q-15.04 0-25.58-10.83-10.54-10.84-10.54-25.87 0-15.04 10.83-25.58 10.84-10.54 25.87-10.54 15.04 0 25.58 10.83 10.54 10.84 10.54 25.87 0 15.04-10.83 25.58-10.84 10.54-25.87 10.54Zm.59 369.57q-84.2 0-158.04-31.88-73.84-31.88-129.16-87.2-55.32-55.32-87.2-129.2-31.88-73.88-31.88-158.17 0-84.28 31.88-158.2 31.88-73.91 87.16-128.74 55.28-54.84 129.18-86.82 73.9-31.99 158.21-31.99 84.3 0 158.25 31.97 73.94 31.97 128.75 86.77 54.82 54.8 86.79 128.88 31.98 74.08 31.98 158.33 0 84.24-31.99 158.07-31.98 73.84-86.82 128.95-54.83 55.1-128.87 87.17Q564.5-74.02 480.3-74.02Zm.14-68.13q141.08 0 239.24-98.61 98.17-98.61 98.17-239.68 0-141.08-98.12-239.24-98.12-98.17-239.2-98.17-141.08 0-239.73 98.12-98.65 98.12-98.65 239.2 0 141.08 98.61 239.73 98.61 98.65 239.68 98.65ZM480-480Z"></path>
+                            </svg>
+                          </div>
+                        </div>
+                        <div class="navbar5_item-right">
+                          <div class="text-weight-semibold">Getting started</div>
+                          <p class="text-size-small">Get up to speed with MMT research</p>
+                        </div>
+                      </div>
+                      <div class="navbar5_dropdown-link">
+                        <div class="navbar5_icon-wrapper">
+                          <div class="icon-embed-xsmall w-embed">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 -960 960 960">
+                              <path fill="currentColor" d="M640-262.39q91.01 0 154.31-63.78 63.3-63.79 63.3-154.28 0-90.5-63.3-153.83-63.3-63.33-154.31-63.33-28.64 0-55.68 7.23-27.05 7.23-50.39 20.66 33.29 38.24 52.67 86.41 19.38 48.17 19.38 103.36T586.6-376.64q-19.38 48.12-52.67 86.36 23.34 13.43 50.39 20.66 27.04 7.23 55.68 7.23Zm-160-70.68q26.76-28.43 42.19-66.65 15.42-38.21 15.42-80.53t-15.42-80.28q-15.43-37.97-42.19-66.4-26.76 28.43-42.19 66.65-15.42 38.21-15.42 80.53t15.42 80.28q15.43 37.97 42.19 66.4Zm-160 70.68q28.64 0 55.68-7.22 27.05-7.23 50.62-20.67-33.52-38.24-52.9-86.41-19.38-48.17-19.38-103.36t19.38-103.31q19.38-48.12 52.9-86.36-23.57-13.44-50.62-20.67-27.04-7.22-55.68-7.22-90.31 0-153.96 63.29-63.65 63.29-63.65 153.78 0 90.5 63.65 154.32 63.65 63.83 153.96 63.83Zm0 68.37q-119.34 0-202.66-83.33T34.02-480.04q0-119.35 83.32-202.64 83.32-83.3 202.66-83.3 45 0 85.42 12.77 40.41 12.76 74.58 36.28 34.17-23.52 74.58-36.28Q595-765.98 640-765.98q119.34 0 202.66 83.33t83.32 202.69q0 119.35-83.32 202.64-83.32 83.3-202.66 83.3-45 0-85.42-12.77-40.41-12.76-74.58-36.28-34.17 23.52-74.58 36.28Q365-194.02 320-194.02Z"></path>
+                            </svg>
+                          </div>
+                        </div>
+                        <div class="navbar5_item-right">
+                          <div class="text-weight-semibold">MMT &amp; Inflation</div>
+                          <p class="text-size-small">How MMT interprets inflation: causes, constraints, and policy.</p>
+                        </div>
+                      </div>
+                      <div class="navbar5_dropdown-link">
+                        <div class="navbar5_icon-wrapper">
+                          <div class="icon-embed-xsmall w-embed">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 -960 960 960">
+                              <path fill="currentColor" d="M480.21-74.02q-84.23 0-158.28-31.98-74.04-31.98-129.01-86.87-54.97-54.88-86.93-128.9-31.97-74.02-31.97-158.22 0-84.21 31.97-158.23 31.96-74.02 86.93-128.91 54.97-54.89 129.04-86.99 74.06-32.1 158.31-32.1 84.26 0 158.2 32.1 73.95 32.1 128.87 86.94 54.92 54.83 86.9 128.88 31.98 74.04 31.98 158.27t-31.96 158.27q-31.95 74.05-86.9 128.96-54.96 54.92-128.94 86.85-73.99 31.93-158.21 31.93Zm-120.25-87.89 61.08-146.18q-38.24-13-68.12-41.86-29.89-28.85-44.83-70.09l-146.42 58.08q31 70.53 81.76 122.29 50.77 51.76 116.53 77.76ZM307.09-539.2q15.52-41.47 45-70.59 29.48-29.12 67.95-42.36l-58.56-146.18q-74.76 31-126.28 83.26-51.53 52.27-73.53 118.03l145.42 57.84Zm172.87 172.98q47.56 0 80.81-33.08 33.25-33.09 33.25-80.66 0-47.56-33.25-80.81t-80.81-33.25q-47.57 0-80.66 33.25-33.08 33.25-33.08 80.81 0 47.57 33.08 80.66 33.09 33.08 80.66 33.08Zm120.08 204.31q68.76-27.76 119.64-79.14 50.89-51.38 78.65-119.15l-146.42-59.84q-15 42.47-44.74 71.09-29.74 28.62-68.21 40.86l61.08 146.18Zm51.87-378.05 146.42-60.08q-27.8-67.85-79.24-119.05t-119.05-79.24l-59.08 146.18q38.55 12.94 66.78 41.79 28.24 28.85 44.17 70.4Z"></path>
+                            </svg>
+                          </div>
+                        </div>
+                        <div class="navbar5_item-right">
+                          <div class="text-weight-semibold">Do interest rates matter?</div>
+                          <p class="text-size-small">The power of supply-side solutions.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                  <a href="/briefings" class="navbar5_dropdown-column w-inline-block">
+                    <div>
+                      <div class="margin-bottom margin-xsmall">
+                        <h4 class="text-size-small">Briefings</h4>
+                      </div>
+                    </div>
+                    <div class="navbar5_dropdown-link-list">
+                      <div class="navbar5_dropdown-link">
+                        <div class="navbar5_icon-wrapper">
+                          <div class="icon-embed-xsmall w-embed">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 -960 960 960">
+                              <path fill="currentColor" d="M480-276.93q15.29 0 26.46-11.18 11.17-11.17 11.17-26.46 0-15.19-11.17-26.53-11.17-11.33-26.46-11.33-15.29 0-26.46 11.33-11.17 11.34-11.17 26.53 0 15.2 11.17 26.42 11.17 11.22 26.46 11.22Zm0-143.05q13.81 0 22.62-8.81t8.81-22.62v-208.41q0-13.58-8.81-22.55-8.81-8.98-22.62-8.98t-22.62 8.93q-8.81 8.92-8.81 22.54v208.37q0 13.58 8.81 22.55 8.81 8.98 22.62 8.98ZM355.96-114.02q-13.67 0-26.68-5.59-13-5.59-22.3-14.8L134.41-306.98q-9.21-9.3-14.8-22.3-5.59-13.01-5.59-26.68v-248.08q0-13.67 5.59-26.68 5.59-13 14.8-22.3l172.57-172.57q9.19-9.19 22.23-14.91 13.05-5.72 26.75-5.72h248.08q13.7 0 26.75 5.72 13.04 5.72 22.23 14.91l172.57 172.57q9.19 9.19 14.91 22.23 5.72 13.05 5.72 26.75v248.08q0 13.7-5.72 26.75-5.72 13.04-14.91 22.23L653.02-134.41q-9.3 9.21-22.3 14.8-13.01 5.59-26.68 5.59H355.96Zm-.1-68.13h248.18l173.81-173.71v-248.18L604.14-777.85H355.96L182.15-604.14v248.18l173.71 173.81ZM480-480Z"></path>
+                            </svg>
+                          </div>
+                        </div>
+                        <div class="navbar5_item-right">
+                          <div class="text-weight-semibold">Fixing Britain's Fiscal Rules</div>
+                          <p class="text-size-small">Why arbitrary debt limits mislead policy.</p>
+                        </div>
+                      </div>
+                      <div class="navbar5_dropdown-link">
+                        <div class="navbar5_icon-wrapper">
+                          <div class="icon-embed-xsmall w-embed">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 -960 960 960">
+                              <path fill="currentColor" d="M98.89-248.17q-10.19-10.2-10.31-24.37-.12-14.18 10.31-24.61L325.22-522q19.32-19.63 47.58-19.63 28.27 0 47.9 19.63l119.26 119.02 231.91-232.39h-90.78q-14.43 0-24.25-9.87t-9.82-24.37q0-14.5 9.82-24.19 9.82-9.7 24.25-9.7h170.82q14.43 0 24.37 9.82 9.94 9.82 9.94 24.25v170.82q0 13.68-9.47 23.87-9.47 10.2-23.61 10.2-13.9 0-24.1-10.2-10.19-10.19-10.19-23.87v-87.02L586.7-354.48q-19.57 19.63-47.83 19.63-28.26 0-47.65-19.63L371.96-472.5 147.63-248.17q-10.2 10.19-24.37 10.19-14.17 0-24.37-10.19Z"></path>
+                            </svg>
+                          </div>
+                        </div>
+                        <div class="navbar5_item-right">
+                          <div class="text-weight-semibold">Ending Interest on Reserves</div>
+                          <p class="text-size-small">A practical UK reform to cut costs.</p>
+                        </div>
+                      </div>
+                      <div class="navbar5_dropdown-link">
+                        <div class="navbar5_icon-wrapper">
+                          <div class="icon-embed-xsmall w-embed">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 -960 960 960">
+                              <path fill="currentColor" d="M401.61-296.65q108.78 0 185.76-76.61 76.98-76.6 76.98-185.95 0-108.51-77.01-184.53t-185.61-76.02q-108.66 0-184.45 76.05-75.8 76.05-75.8 184.38 0 109.47 75.8 186.07 75.79 76.61 184.33 76.61Zm1.08-153.74q-13.73 0-22.83-9.38-9.1-9.37-9.1-23.01v-200.31q0-13.64 9.27-23.01 9.28-9.38 23.01-9.38 13.74 0 23 9.38 9.26 9.37 9.26 23.01v200.31q0 13.64-9.43 23.01-9.44 9.38-23.18 9.38Zm-145.96 0q-13.73 0-22.95-9.38-9.21-9.37-9.21-23.01v-116.83q0-13.64 9.43-23.01 9.44-9.38 23.18-9.38 13.73 0 22.95 9.38 9.22 9.37 9.22 23.01v116.83q0 13.64-9.44 23.01-9.44 9.38-23.18 9.38Zm292.16 0q-13.74 0-22.96-9.38-9.21-9.37-9.21-23.01v-75.83q0-13.54 9.44-22.84 9.44-9.31 23.17-9.31 13.74 0 22.95 9.31 9.22 9.3 9.22 22.84v75.83q0 13.64-9.44 23.01-9.44 9.38-23.17 9.38ZM401.62-230.2q-136.29 0-231.45-95.94-95.15-95.94-95.15-232.82t95-232.07q95-95.19 231.88-95.19t232.89 95.4q96.01 95.39 96.01 231.49 0 59.23-19.38 111.94t-54.38 95.46l205.31 205.3q10.19 10.2 9.81 23.87-.38 13.67-10.06 23.87-9.45 10.19-23.87 10.19-14.43 0-24.62-10.19L609.3-304.2q-42.95 35-95.79 54.5t-111.89 19.5Z"></path>
+                            </svg>
+                          </div>
+                        </div>
+                        <div class="navbar5_item-right">
+                          <div class="text-weight-semibold">Invest to Ease Inflation</div>
+                          <p class="text-size-small">Tackling price pressures by expanding capacity.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <div class="navbar5_dropdown-content-right">
+                  <a href="#" class="navbar5_dropdown-content-wrapper z-index-1 w-inline-block">
+                    <div class="margin-bottom margin-xsmall">
+                      <h4 class="text-size-small">Featured Data</h4>
+                    </div>
+                    <div id="w-node-d3478dd5-c414-fe55-d36d-7178b9973551-322cecd3" class="navbar5_blog-list-wrapper">
+                      <div class="navbar5_blog-list">
+                        <div class="navbar5_blog-item">
+                          <div class="navbar5_blog-image-wrapper">
+                            <img width="Auto" sizes="100vw" alt="" src="/images/UK-Sectoral-balances-clipped.avif" loading="eager" srcset="/images/UK-Sectoral-balances-clipped-p-500.avif 500w, /images/UK-Sectoral-balances-clipped.avif 989w" class="navbar5_blog-image">
+                          </div>
+                          <div class="navbar5_large-item-content">
+                            <div class="margin-bottom margin-tiny">
+                              <div class="text-weight-semibold">Sectoral Balances</div>
+                            </div>
+                            <p class="text-size-small">Explore how the world's economies stay afloat</p>
+                            <div class="margin-top margin-xxsmall">
+                              <div class="text-style-link text-size-small-2">Read more</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="margin-top margin-xsmall">
+                      <div class="button-group">
+                        <div class="button is-link is-icon">
+                          <div>View all insights</div>
+                          <div class="icon-embed-xxsmall w-embed">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M6 3L11 8L6 13" stroke="CurrentColor" stroke-width="1.5"></path>
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="navbar5_dropdown-background-layer background-color-secondary"></div>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
+
+        <!-- Community Dropdown -->
+        <div data-delay="200" data-hover="false" class="navbar5_menu-dropdown w-dropdown">
+          <div class="navbar5_dropdown-toggle w-dropdown-toggle">
+            <div>Community</div>
+            <div class="dropdown-chevron w-embed">
+              <svg width="100%" height="100%" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M2.55806 6.29544C2.46043 6.19781 2.46043 6.03952 2.55806 5.94189L3.44195 5.058C3.53958 4.96037 3.69787 4.96037 3.7955 5.058L8.00001 9.26251L12.2045 5.058C12.3021 4.96037 12.4604 4.96037 12.5581 5.058L13.4419 5.94189C13.5396 6.03952 13.5396 6.19781 13.4419 6.29544L8.17678 11.5606C8.07915 11.6582 7.92086 11.6582 7.82323 11.5606L2.55806 6.29544Z" fill="currentColor"></path>
+              </svg>
+            </div>
+          </div>
+          <nav class="navbar5_dropdown-list w-dropdown-list">
+            <div class="navbar5_container">
+              <div class="navbar5_dropdown-content">
+                <div class="navbar5_dropdown-content-left">
+                  <a href="/local-group" class="navbar5_dropdown-column w-inline-block">
+                    <div class="margin-bottom margin-xsmall">
+                      <h4 class="text-size-small">Local Groups</h4>
+                    </div>
+                    <div class="navbar5_dropdown-link-list">
+                      <div class="navbar5_dropdown-link">
+                        <div class="navbar5_icon-wrapper">
+                          <div class="icon-embed-xsmall w-embed">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 -960 960 960">
+                              <path fill="currentColor" d="m333.83-312.43 204.63-61.7q16.95-5.22 29.07-17.34 12.12-12.12 17.34-29.07l61.7-204.63q3.23-9.6-4.1-17.12-7.34-7.51-17.3-4.28l-204.63 61.7q-16.95 5.22-29.07 17.34-12.12 12.12-17.34 29.07l-61.7 204.63q-3.23 9.6 4.1 17.12 7.34 7.51 17.3 4.28Zm145.88-131.16q-15.04 0-25.58-10.83-10.54-10.84-10.54-25.87 0-15.04 10.83-25.58 10.84-10.54 25.87-10.54 15.04 0 25.58 10.83 10.54 10.84 10.54 25.87 0 15.04-10.83 25.58-10.84 10.54-25.87 10.54Zm.59 369.57q-84.2 0-158.04-31.88-73.84-31.88-129.16-87.2-55.32-55.32-87.2-129.2-31.88-73.88-31.88-158.17 0-84.28 31.88-158.2 31.88-73.91 87.16-128.74 55.28-54.84 129.18-86.82 73.9-31.99 158.21-31.99 84.3 0 158.25 31.97 73.94 31.97 128.75 86.77 54.82 54.8 86.79 128.88 31.98 74.08 31.98 158.33 0 84.24-31.99 158.07-31.98 73.84-86.82 128.95-54.83 55.1-128.87 87.17Q564.5-74.02 480.3-74.02Zm.14-68.13q141.08 0 239.24-98.61 98.17-98.61 98.17-239.68 0-141.08-98.12-239.24-98.12-98.17-239.2-98.17-141.08 0-239.73 98.12-98.65 98.12-98.65 239.2 0 141.08 98.61 239.73 98.61 98.65 239.68 98.65ZM480-480Z"></path>
+                            </svg>
+                          </div>
+                        </div>
+                        <div class="navbar5_item-right">
+                          <div class="text-weight-semibold">MMT UK Local Groups</div>
+                          <p class="text-size-small">Connect with MMT enthusiasts in your area</p>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                  <a href="/community" class="navbar5_dropdown-column w-inline-block">
+                    <div class="margin-bottom margin-xsmall">
+                      <h4 class="text-size-small">Events</h4>
+                    </div>
+                    <div class="navbar5_dropdown-link-list">
+                      <div class="navbar5_dropdown-link">
+                        <div class="navbar5_icon-wrapper">
+                          <div class="icon-embed-xsmall w-embed">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 -960 960 960">
+                              <path fill="currentColor" d="M480-276.93q15.29 0 26.46-11.18 11.17-11.17 11.17-26.46 0-15.19-11.17-26.53-11.17-11.33-26.46-11.33-15.29 0-26.46 11.33-11.17 11.34-11.17 26.53 0 15.2 11.17 26.42 11.17 11.22 26.46 11.22Zm0-143.05q13.81 0 22.62-8.81t8.81-22.62v-208.41q0-13.58-8.81-22.55-8.81-8.98-22.62-8.98t-22.62 8.93q-8.81 8.92-8.81 22.54v208.37q0 13.58 8.81 22.55 8.81 8.98 22.62 8.98ZM355.96-114.02q-13.67 0-26.68-5.59-13-5.59-22.3-14.8L134.41-306.98q-9.21-9.3-14.8-22.3-5.59-13.01-5.59-26.68v-248.08q0-13.67 5.59-26.68 5.59-13 14.8-22.3l172.57-172.57q9.19-9.19 22.23-14.91 13.05-5.72 26.75-5.72h248.08q13.7 0 26.75 5.72 13.04 5.72 22.23 14.91l172.57 172.57q9.19 9.19 14.91 22.23 5.72 13.05 5.72 26.75v248.08q0 13.7-5.72 26.75-5.72 13.04-14.91 22.23L653.02-134.41q-9.3 9.21-22.3 14.8-13.01 5.59-26.68 5.59H355.96Zm-.1-68.13h248.18l173.81-173.71v-248.18L604.14-777.85H355.96L182.15-604.14v248.18l173.71 173.81ZM480-480Z"></path>
+                            </svg>
+                          </div>
+                        </div>
+                        <div class="navbar5_item-right">
+                          <div class="text-weight-semibold">Upcoming Events</div>
+                          <p class="text-size-small">Join our workshops and talks</p>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <div class="navbar5_dropdown-content-right">
+                  <a href="/ecosystem" class="navbar5_dropdown-content-wrapper z-index-1 w-inline-block">
+                    <div>
+                      <div class="margin-bottom margin-xsmall">
+                        <h4 class="text-size-small">The MMT Ecosystem</h4>
+                      </div>
+                    </div>
+                    <div id="w-node-_20b098c3-118d-944c-a47e-7a3103efe60f-322cecd3" class="navbar5_blog-list-wrapper">
+                      <div class="navbar5_blog-list">
+                        <div class="navbar5_blog-item">
+                          <div class="navbar5_blog-image-wrapper">
+                            <img width="Auto" sizes="100vw" alt="GIMMS" src="/images/GIMMS.avif" loading="eager" srcset="/images/GIMMS-p-500.avif 500w, /images/GIMMS-p-800.avif 800w, /images/GIMMS-p-1080.avif 1080w, /images/GIMMS-p-1600.avif 1600w, /images/GIMMS-p-2000.avif 2000w, /images/GIMMS-p-2600.avif 2600w, /images/GIMMS.avif 3794w" class="navbar5_blog-image">
+                          </div>
+                          <div class="navbar5_large-item-content">
+                            <div class="margin-bottom margin-tiny">
+                              <div class="text-weight-semibold">GIMMS</div>
+                            </div>
+                            <p class="text-size-small">Gower Initiative for Modern Money Studies</p>
+                            <div class="margin-top margin-xxsmall">
+                              <div class="text-style-link text-size-small-2">Read more</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="navbar5_blog-item">
+                          <div class="navbar5_blog-image-wrapper">
+                            <img sizes="100vw" srcset="/images/MMT-UK-Discord-p-500.avif 500w, /images/MMT-UK-Discord-p-800.avif 800w, /images/MMT-UK-Discord-p-1080.avif 1080w, /images/MMT-UK-Discord-p-1600.avif 1600w, /images/MMT-UK-Discord.avif 3606w" alt="" src="/images/MMT-UK-Discord.avif" loading="eager" class="navbar5_blog-image">
+                          </div>
+                          <div class="navbar5_large-item-content">
+                            <div class="margin-bottom margin-tiny">
+                              <div class="text-weight-semibold">The MMT UK Discord</div>
+                            </div>
+                            <p class="text-size-small">Join our community discussion</p>
+                            <div class="margin-top margin-xxsmall">
+                              <div class="text-style-link text-size-small-2">Read more</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="margin-top margin-xsmall">
+                      <div class="button-group">
+                        <div class="button is-link is-icon">
+                          <div>View all insights</div>
+                          <div class="icon-embed-xxsmall w-embed">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M6 3L11 8L6 13" stroke="CurrentColor" stroke-width="1.5"></path>
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="navbar5_dropdown-background-layer background-color-secondary"></div>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
+
+        <!-- About Us Dropdown -->
+        <div data-delay="200" data-hover="false" class="navbar5_menu-dropdown w-dropdown">
+          <div class="navbar5_dropdown-toggle w-dropdown-toggle">
+            <div>About Us</div>
+            <div class="dropdown-chevron w-embed">
+              <svg width="100%" height="100%" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M2.55806 6.29544C2.46043 6.19781 2.46043 6.03952 2.55806 5.94189L3.44195 5.058C3.53958 4.96037 3.69787 4.96037 3.7955 5.058L8.00001 9.26251L12.2045 5.058C12.3021 4.96037 12.4604 4.96037 12.5581 5.058L13.4419 5.94189C13.5396 6.03952 13.5396 6.19781 13.4419 6.29544L8.17678 11.5606C8.07915 11.6582 7.92086 11.6582 7.82323 11.5606L2.55806 6.29544Z" fill="currentColor"></path>
+              </svg>
+            </div>
+          </div>
+          <nav class="navbar5_dropdown-list w-dropdown-list">
+            <div class="navbar5_container">
+              <div class="navbar5_dropdown-content">
+                <div class="navbar5_dropdown-content-left">
+                  <div class="navbar5_dropdown-column">
+                    <a href="/about-us" class="w-inline-block">
+                      <div class="margin-bottom margin-xsmall">
+                        <h4 class="text-size-small">About Us</h4>
+                      </div>
+                    </a>
+                    <div class="navbar5_dropdown-link-list">
+                      <a href="/about-us" class="navbar5_dropdown-link w-inline-block">
+                        <div class="navbar5_icon-wrapper">
+                          <div class="icon-embed-xsmall w-embed">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 -960 960 960">
+                              <path fill="currentColor" d="m333.83-312.43 204.63-61.7q16.95-5.22 29.07-17.34 12.12-12.12 17.34-29.07l61.7-204.63q3.23-9.6-4.1-17.12-7.34-7.51-17.3-4.28l-204.63 61.7q-16.95 5.22-29.07 17.34-12.12 12.12-17.34 29.07l-61.7 204.63q-3.23 9.6 4.1 17.12 7.34 7.51 17.3 4.28Zm145.88-131.16q-15.04 0-25.58-10.83-10.54-10.84-10.54-25.87 0-15.04 10.83-25.58 10.84-10.54 25.87-10.54 15.04 0 25.58 10.83 10.54 10.84 10.54 25.87 0 15.04-10.83 25.58-10.84 10.54-25.87 10.54Zm.59 369.57q-84.2 0-158.04-31.88-73.84-31.88-129.16-87.2-55.32-55.32-87.2-129.2-31.88-73.88-31.88-158.17 0-84.28 31.88-158.2 31.88-73.91 87.16-128.74 55.28-54.84 129.18-86.82 73.9-31.99 158.21-31.99 84.3 0 158.25 31.97 73.94 31.97 128.75 86.77 54.82 54.8 86.79 128.88 31.98 74.08 31.98 158.33 0 84.24-31.99 158.07-31.98 73.84-86.82 128.95-54.83 55.1-128.87 87.17Q564.5-74.02 480.3-74.02Zm.14-68.13q141.08 0 239.24-98.61 98.17-98.61 98.17-239.68 0-141.08-98.12-239.24-98.12-98.17-239.2-98.17-141.08 0-239.73 98.12-98.65 98.12-98.65 239.2 0 141.08 98.61 239.73 98.61 98.65 239.68 98.65ZM480-480Z"></path>
+                            </svg>
+                          </div>
+                        </div>
+                        <div class="navbar5_item-right">
+                          <div class="text-weight-semibold">Our Team</div>
+                          <p class="text-size-small">Meet the people behind MMT UK</p>
+                        </div>
+                      </a>
+                      <a href="/founders" class="navbar5_dropdown-link w-inline-block">
+                        <div class="navbar5_icon-wrapper">
+                          <div class="icon-embed-xsmall w-embed">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 -960 960 960">
+                              <path fill="currentColor" d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Z"></path>
+                            </svg>
+                          </div>
+                        </div>
+                        <div class="navbar5_item-right">
+                          <div class="text-weight-semibold">Founders</div>
+                          <p class="text-size-small">Meet our founding members</p>
+                        </div>
+                      </a>
+                      <a href="/about-us" class="navbar5_dropdown-link w-inline-block">
+                        <div class="navbar5_icon-wrapper">
+                          <div class="icon-embed-xsmall w-embed">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 -960 960 960">
+                              <path fill="currentColor" d="M640-262.39q91.01 0 154.31-63.78 63.3-63.79 63.3-154.28 0-90.5-63.3-153.83-63.3-63.33-154.31-63.33-28.64 0-55.68 7.23-27.05 7.23-50.39 20.66 33.29 38.24 52.67 86.41 19.38 48.17 19.38 103.36T586.6-376.64q-19.38 48.12-52.67 86.36 23.34 13.43 50.39 20.66 27.04 7.23 55.68 7.23Zm-160-70.68q26.76-28.43 42.19-66.65 15.42-38.21 15.42-80.53t-15.42-80.28q-15.43-37.97-42.19-66.4-26.76 28.43-42.19 66.65-15.42 38.21-15.42 80.53t15.42 80.28q15.43 37.97 42.19 66.4Zm-160 70.68q28.64 0 55.68-7.22 27.05-7.23 50.62-20.67-33.52-38.24-52.9-86.41-19.38-48.17-19.38-103.36t19.38-103.31q19.38-48.12 52.9-86.36-23.57-13.44-50.62-20.67-27.04-7.22-55.68-7.22-90.31 0-153.96 63.29-63.65 63.29-63.65 153.78 0 90.5 63.65 154.32 63.65 63.83 153.96 63.83Zm0 68.37q-119.34 0-202.66-83.33T34.02-480.04q0-119.35 83.32-202.64 83.32-83.3 202.66-83.3 45 0 85.42 12.77 40.41 12.76 74.58 36.28 34.17-23.52 74.58-36.28Q595-765.98 640-765.98q119.34 0 202.66 83.33t83.32 202.69q0 119.35-83.32 202.64-83.32 83.3-202.66 83.3-45 0-85.42-12.77-40.41-12.76-74.58-36.28-34.17 23.52-74.58 36.28Q365-194.02 320-194.02Z"></path>
+                            </svg>
+                          </div>
+                        </div>
+                        <div class="navbar5_item-right">
+                          <div class="text-weight-semibold">Our Approach</div>
+                          <p class="text-size-small">How we conduct our research</p>
+                        </div>
+                      </a>
+                      <a href="/news" class="navbar5_dropdown-link w-inline-block">
+                        <div class="navbar5_icon-wrapper">
+                          <div class="icon-embed-xsmall w-embed">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 -960 960 960">
+                              <path fill="currentColor" d="M480.21-74.02q-84.23 0-158.28-31.98-74.04-31.98-129.01-86.87-54.97-54.88-86.93-128.9-31.97-74.02-31.97-158.22 0-84.21 31.97-158.23 31.96-74.02 86.93-128.91 54.97-54.89 129.04-86.99 74.06-32.1 158.31-32.1 84.26 0 158.2 32.1 73.95 32.1 128.87 86.94 54.92 54.83 86.9 128.88 31.98 74.04 31.98 158.27t-31.96 158.27q-31.95 74.05-86.9 128.96-54.96 54.92-128.94 86.85-73.99 31.93-158.21 31.93Zm-120.25-87.89 61.08-146.18q-38.24-13-68.12-41.86-29.89-28.85-44.83-70.09l-146.42 58.08q31 70.53 81.76 122.29 50.77 51.76 116.53 77.76ZM307.09-539.2q15.52-41.47 45-70.59 29.48-29.12 67.95-42.36l-58.56-146.18q-74.76 31-126.28 83.26-51.53 52.27-73.53 118.03l145.42 57.84Zm172.87 172.98q47.56 0 80.81-33.08 33.25-33.09 33.25-80.66 0-47.56-33.25-80.81t-80.81-33.25q-47.57 0-80.66 33.25-33.08 33.25-33.08 80.81 0 47.57 33.08 80.66 33.09 33.08 80.66 33.08Zm120.08 204.31q68.76-27.76 119.64-79.14 50.89-51.38 78.65-119.15l-146.42-59.84q-15 42.47-44.74 71.09-29.74 28.62-68.21 40.86l61.08 146.18Zm51.87-378.05 146.42-60.08q-27.8-67.85-79.24-119.05t-119.05-79.24l-59.08 146.18q38.55 12.94 66.78 41.79 28.24 28.85 44.17 70.4Z"></path>
+                            </svg>
+                          </div>
+                        </div>
+                        <div class="navbar5_item-right">
+                          <div class="text-weight-semibold">Our News</div>
+                          <p class="text-size-small">Latest updates from MMT UK</p>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                  <a href="/donate" class="navbar5_dropdown-column w-inline-block">
+                    <div class="margin-bottom margin-xsmall">
+                      <h4 class="text-size-small">Donate</h4>
+                    </div>
+                    <div class="navbar5_dropdown-link-list">
+                      <div class="navbar5_dropdown-link">
+                        <div class="navbar5_icon-wrapper">
+                          <div class="icon-embed-xsmall w-embed">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 -960 960 960">
+                              <path fill="currentColor" d="M480-276.93q15.29 0 26.46-11.18 11.17-11.17 11.17-26.46 0-15.19-11.17-26.53-11.17-11.33-26.46-11.33-15.29 0-26.46 11.33-11.17 11.34-11.17 26.53 0 15.2 11.17 26.42 11.17 11.22 26.46 11.22Zm0-143.05q13.81 0 22.62-8.81t8.81-22.62v-208.41q0-13.58-8.81-22.55-8.81-8.98-22.62-8.98t-22.62 8.93q-8.81 8.92-8.81 22.54v208.37q0 13.58 8.81 22.55 8.81 8.98 22.62 8.98ZM355.96-114.02q-13.67 0-26.68-5.59-13-5.59-22.3-14.8L134.41-306.98q-9.21-9.3-14.8-22.3-5.59-13.01-5.59-26.68v-248.08q0-13.67 5.59-26.68 5.59-13 14.8-22.3l172.57-172.57q9.19-9.19 22.23-14.91 13.05-5.72 26.75-5.72h248.08q13.7 0 26.75 5.72 13.04 5.72 22.23 14.91l172.57 172.57q9.19 9.19 14.91 22.23 5.72 13.05 5.72 26.75v248.08q0 13.7-5.72 26.75-5.72 13.04-14.91 22.23L653.02-134.41q-9.3 9.21-22.3 14.8-13.01 5.59-26.68 5.59H355.96Zm-.1-68.13h248.18l173.81-173.71v-248.18L604.14-777.85H355.96L182.15-604.14v248.18l173.71 173.81ZM480-480Z"></path>
+                            </svg>
+                          </div>
+                        </div>
+                        <div class="navbar5_item-right">
+                          <div class="text-weight-semibold">Founder members</div>
+                          <p class="text-size-small">Become a founding supporter</p>
+                        </div>
+                      </div>
+                      <div class="navbar5_dropdown-link">
+                        <div class="navbar5_icon-wrapper">
+                          <div class="icon-embed-xsmall w-embed">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 -960 960 960">
+                              <path fill="currentColor" d="M98.89-248.17q-10.19-10.2-10.31-24.37-.12-14.18 10.31-24.61L325.22-522q19.32-19.63 47.58-19.63 28.27 0 47.9 19.63l119.26 119.02 231.91-232.39h-90.78q-14.43 0-24.25-9.87t-9.82-24.37q0-14.5 9.82-24.19 9.82-9.7 24.25-9.7h170.82q14.43 0 24.37 9.82 9.94 9.82 9.94 24.25v170.82q0 13.68-9.47 23.87-9.47 10.2-23.61 10.2-13.9 0-24.1-10.2-10.19-10.19-10.19-23.87v-87.02L586.7-354.48q-19.57 19.63-47.83 19.63-28.26 0-47.65-19.63L371.96-472.5 147.63-248.17q-10.2 10.19-24.37 10.19-14.17 0-24.37-10.19Z"></path>
+                            </svg>
+                          </div>
+                        </div>
+                        <div class="navbar5_item-right">
+                          <div class="text-weight-semibold">Research donations</div>
+                          <p class="text-size-small">Support our research</p>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <div class="navbar5_dropdown-content-right">
+                  <a href="/join" class="navbar5_dropdown-content-wrapper z-index-1 w-inline-block">
+                    <div class="margin-bottom margin-xsmall">
+                      <h4 class="text-size-small">Join</h4>
+                    </div>
+                    <div id="w-node-_33279ed2-0e76-f70f-1df9-db5ec215ed7e-322cecd3" class="navbar5_blog-list-wrapper">
+                      <div class="navbar5_blog-list">
+                        <div class="navbar5_blog-item">
+                          <div class="navbar5_blog-image-wrapper">
+                            <img loading="eager" src="/images/MMT-UK-Logo-512x512.avif" alt="" class="navbar5_blog-image">
+                          </div>
+                          <div class="navbar5_large-item-content">
+                            <div class="margin-bottom margin-tiny">
+                              <div class="text-weight-semibold">Join MMT UK</div>
+                            </div>
+                            <p class="text-size-small">Become a member today</p>
+                            <div class="margin-top margin-xxsmall">
+                              <div class="text-style-link text-size-small-2">Read more</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="navbar5_dropdown-background-layer background-color-secondary"></div>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+      <div class="navbar5_menu-right">
+        <a href="/donate" class="button is-secondary is-small w-button">Donate</a>
+        <a href="/join" class="button is-small w-button">Join</a>
+      </div>
+    </nav>
+    <div class="navbar5_menu-button w-nav-button">
+      <div class="menu-icon1">
+        <div class="menu-icon1_line-top"></div>
+        <div class="menu-icon1_line-middle">
+          <div class="menu-icon1_line-middle-inner"></div>
+        </div>
+        <div class="menu-icon1_line-bottom"></div>
+      </div>
+    </div>
+  </div>
+</div>
