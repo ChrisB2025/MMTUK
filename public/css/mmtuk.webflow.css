@@ -10404,11 +10404,9 @@ figcaption {
   .header102_slider {
     width: 100vw;
     max-width: 100%;
-  }
-
-  .header102_slider {
     min-height: 60vh;
     max-height: 500px;
+    overflow: hidden;
   }
 
   .header102_slide-wrapper {
@@ -10417,6 +10415,10 @@ figcaption {
 
   .header102_slide-image-wrapper {
     max-height: 300px;
+  }
+
+  .header102_slide-content {
+    padding-bottom: 5rem;
   }
 
   .heading-style-h2-7 {
@@ -11832,6 +11834,7 @@ figcaption {
   .header102_slider {
     min-height: 50vh;
     max-height: 450px;
+    overflow: hidden;
   }
 
   .header102_slide-wrapper {
@@ -11840,6 +11843,10 @@ figcaption {
 
   .header102_slide-image-wrapper {
     max-height: 280px;
+  }
+
+  .header102_slide-content {
+    padding-bottom: 4.5rem;
   }
 
   .header102_arrow.is-left {
@@ -13123,6 +13130,8 @@ figcaption {
   .header102_slider {
     min-height: auto;
     max-height: none;
+    overflow: hidden;
+    position: relative;
   }
 
   .header102_slide-wrapper {
@@ -13140,14 +13149,29 @@ figcaption {
     height: auto;
     max-height: 250px;
     object-fit: cover;
+    width: 100%;
   }
 
   .header102_slide-content {
     align-content: flex-end;
     width: 100%;
-    padding-top: 1.5rem;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    padding: 1.5rem 1.5rem 4rem;
+  }
+
+  .header102_arrow {
+    width: 2.5rem;
+    height: 2.5rem;
+    bottom: 1rem;
+    right: 1rem;
+  }
+
+  .header102_arrow.is-left {
+    right: 4.5rem;
+  }
+
+  .header102_slide-nav {
+    bottom: 1.5rem;
+    left: 1rem;
   }
 
   .header102_slide-content-wrapper {
