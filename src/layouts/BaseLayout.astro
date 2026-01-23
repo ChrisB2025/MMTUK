@@ -133,5 +133,90 @@ const fullOgImage = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}
       });
     })();
   </script>
+  <style>
+    .accordion1_bottom { transition: height 0.3s ease; overflow: hidden; }
+    .accordion1_icon { transition: transform 0.3s ease; }
+    .w-slider-mask {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+    .w-slide {
+      flex: 0 0 100%;
+    }
+  </style>
+  <script>
+    // Accordion functionality
+    document.querySelectorAll('.accordion1_top').forEach(function(trigger) {
+      trigger.addEventListener('click', function() {
+        var content = this.nextElementSibling;
+        var icon = this.querySelector('.accordion1_icon');
+        if (content && content.classList.contains('accordion1_bottom')) {
+          var isOpen = content.style.height !== '0px' && content.style.height !== '';
+          content.style.height = isOpen ? '0px' : content.scrollHeight + 'px';
+          if (icon) icon.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
+        }
+      });
+    });
+
+    // Slider functionality
+    document.querySelectorAll('.w-slider').forEach(function(slider) {
+      var mask = slider.querySelector('.w-slider-mask');
+      var slides = slider.querySelectorAll('.w-slide');
+      var leftArrow = slider.querySelector('.w-slider-arrow-left');
+      var rightArrow = slider.querySelector('.w-slider-arrow-right');
+      var navDots = slider.querySelectorAll('.w-slider-dot');
+      var currentIndex = 0;
+      var autoplay = slider.dataset.autoplay === 'true';
+      var delay = parseInt(slider.dataset.delay) || 4000;
+      var intervalId;
+
+      function goToSlide(index) {
+        if (index < 0) index = slides.length - 1;
+        if (index >= slides.length) index = 0;
+        currentIndex = index;
+        mask.style.transform = 'translateX(-' + (currentIndex * 100) + '%)';
+        navDots.forEach(function(dot, i) {
+          dot.classList.toggle('w-active', i === currentIndex);
+        });
+      }
+
+      if (leftArrow) leftArrow.addEventListener('click', function() { goToSlide(currentIndex - 1); });
+      if (rightArrow) rightArrow.addEventListener('click', function() { goToSlide(currentIndex + 1); });
+      navDots.forEach(function(dot, i) {
+        dot.addEventListener('click', function() { goToSlide(i); });
+      });
+
+      if (autoplay) {
+        intervalId = setInterval(function() { goToSlide(currentIndex + 1); }, delay);
+        slider.addEventListener('mouseenter', function() { clearInterval(intervalId); });
+        slider.addEventListener('mouseleave', function() {
+          intervalId = setInterval(function() { goToSlide(currentIndex + 1); }, delay);
+        });
+      }
+    });
+
+    // Tabs functionality
+    document.querySelectorAll('.w-tabs').forEach(function(tabContainer) {
+      var tabLinks = tabContainer.querySelectorAll('.w-tab-link');
+      var tabPanes = tabContainer.querySelectorAll('.w-tab-pane');
+
+      tabLinks.forEach(function(link) {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          var targetTab = this.getAttribute('data-w-tab');
+
+          tabLinks.forEach(function(l) { l.classList.remove('w--current'); });
+          tabPanes.forEach(function(p) { p.classList.remove('w--tab-active'); });
+
+          this.classList.add('w--current');
+          tabPanes.forEach(function(pane) {
+            if (pane.getAttribute('data-w-tab') === targetTab) {
+              pane.classList.add('w--tab-active');
+            }
+          });
+        });
+      });
+    });
+  </script>
 </body>
 </html>
