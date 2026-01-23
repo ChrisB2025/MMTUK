@@ -17,7 +17,8 @@ collections:
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Slug", name: "slug", widget: "string" }
-      - { label: "Category", name: "category", widget: "select", options: ["Article", "Commentary", "Research"] }
+      - { label: "Category", name: "category", widget: "select", options: ["Article", "Commentary", "Research", "Core Ideas"] }
+      - { label: "Layout", name: "layout", widget: "select", options: ["default", "simplified"], default: "default" }
       - { label: "Sector", name: "sector", widget: "string", default: "Economics" }
       - { label: "Author", name: "author", widget: "string" }
       - { label: "Author Title", name: "authorTitle", widget: "string", required: false }
