@@ -10418,6 +10418,7 @@ figcaption {
   }
 
   .header102_slide-content {
+    flex: 1;
     padding-bottom: 5rem;
   }
 
@@ -11846,7 +11847,9 @@ figcaption {
   }
 
   .header102_slide-content {
+    flex: 1;
     padding-bottom: 4.5rem;
+    position: relative;
   }
 
   .header102_arrow.is-left {
@@ -13153,9 +13156,11 @@ figcaption {
   }
 
   .header102_slide-content {
+    flex: 1;
     align-content: flex-end;
     width: 100%;
     padding: 1.5rem 1.5rem 4rem;
+    position: relative;
   }
 
   .header102_arrow {
