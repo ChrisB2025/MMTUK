@@ -10404,21 +10404,21 @@ figcaption {
   .header102_slider {
     width: 100vw;
     max-width: 100%;
-    min-height: 60vh;
-    max-height: 500px;
+    min-height: auto;
+    max-height: none;
     overflow: hidden;
+    background-color: var(--_mmt-uk-theme---sercondary);
   }
 
   .header102_slide-wrapper {
-    grid-template-rows: 60% 40%;
+    grid-template-rows: auto auto;
   }
 
   .header102_slide-image-wrapper {
-    max-height: 300px;
+    max-height: 350px;
   }
 
   .header102_slide-content {
-    flex: 1;
     padding-bottom: 5rem;
   }
 
@@ -11833,23 +11833,22 @@ figcaption {
   }
 
   .header102_slider {
-    min-height: 50vh;
-    max-height: 450px;
+    min-height: auto;
+    max-height: none;
     overflow: hidden;
+    background-color: var(--_mmt-uk-theme---sercondary);
   }
 
   .header102_slide-wrapper {
-    grid-template-rows: 70% 30%;
+    grid-template-rows: auto auto;
   }
 
   .header102_slide-image-wrapper {
-    max-height: 280px;
+    max-height: 300px;
   }
 
   .header102_slide-content {
-    flex: 1;
     padding-bottom: 4.5rem;
-    position: relative;
   }
 
   .header102_arrow.is-left {
@@ -13134,7 +13133,7 @@ figcaption {
     min-height: auto;
     max-height: none;
     overflow: hidden;
-    position: relative;
+    background-color: var(--_mmt-uk-theme---sercondary);
   }
 
   .header102_slide-wrapper {
@@ -13144,11 +13143,9 @@ figcaption {
   .header102_slide-image-wrapper {
     max-height: 250px;
     min-height: 200px;
-    position: relative;
   }
 
   .header102_slide-image {
-    position: relative;
     height: auto;
     max-height: 250px;
     object-fit: cover;
@@ -13156,11 +13153,8 @@ figcaption {
   }
 
   .header102_slide-content {
-    flex: 1;
-    align-content: flex-end;
     width: 100%;
     padding: 1.5rem 1.5rem 4rem;
-    position: relative;
   }
 
   .header102_arrow {
