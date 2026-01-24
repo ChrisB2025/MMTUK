@@ -1,5 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const allLocalGroups = await getCollection('localGroups');
+const localGroups = allLocalGroups
+  .filter(group => group.data.active)
+  .sort((a, b) => a.data.name.localeCompare(b.data.name));
 ---
 
 <BaseLayout title="Community" description="Join the MMT UK community." currentPage="community">
@@ -40,69 +46,29 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                 <div class="portfolio11_content">
                   <div class="portfolio11_list-wrapper">
                     <div class="w-layout-grid portfolio11_list">
-                      <div class="portfolio11_item">
-                        <a href="#" class="portfolio11_item-link w-inline-block">
-                          <div class="margin-bottom margin-small">
-                            <div class="portfolio11_image-wrapper"><img sizes="(max-width: 640px) 100vw, 640px" srcset="/images/ben-guerin-Y96OcAtUWw0-unsplash-p-500.jpg 500w, images/edinburgh-castle.jpg 640w" alt="" src="/images/edinburgh-castle.jpg" loading="lazy" class="portfolio11_image"></div>
-                          </div>
-                          <div class="margin-bottom margin-xxsmall">
-                            <h3 class="heading-style-h5-6">MMT UK | Scotland</h3>
-                          </div>
-                          <div class="text-size-regular">Edinburgh-based meetups, learning, and local economic action for community impact.</div>
-                          <div class="margin-top margin-small">
-                            <div class="button-group">
-                              <div class="button-2 is-link is-icon">
-                                <div>Get involved</div>
-                                <div class="icon-embed-xxsmall w-embed"><svg width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M6 3L11 8L6 13" stroke="CurrentColor" stroke-width="1.5"></path>
-                                  </svg></div>
+                      {localGroups.map((group) => (
+                        <div class="portfolio11_item">
+                          <a href={`/local-group/${group.data.slug}`} class="portfolio11_item-link w-inline-block">
+                            <div class="margin-bottom margin-small">
+                              <div class="portfolio11_image-wrapper"><img sizes="(max-width: 640px) 100vw, 640px" src={group.data.headerImage} alt={group.data.name} loading="lazy" class="portfolio11_image"></div>
+                            </div>
+                            <div class="margin-bottom margin-xxsmall">
+                              <h3 class="heading-style-h5-6">{group.data.title}</h3>
+                            </div>
+                            <div class="text-size-regular">{group.data.tagline}</div>
+                            <div class="margin-top margin-small">
+                              <div class="button-group">
+                                <div class="button-2 is-link is-icon">
+                                  <div>Get involved</div>
+                                  <div class="icon-embed-xxsmall w-embed"><svg width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                      <path d="M6 3L11 8L6 13" stroke="CurrentColor" stroke-width="1.5"></path>
+                                    </svg></div>
+                                </div>
                               </div>
                             </div>
-                          </div>
-                        </a>
-                      </div>
-                      <div class="portfolio11_item">
-                        <a href="#" class="portfolio11_item-link w-inline-block">
-                          <div class="margin-bottom margin-small">
-                            <div class="portfolio11_image-wrapper"><img sizes="(max-width: 640px) 100vw, 640px" srcset="/images/getty-images-aDE_sddJH7s-unsplash-p-500.jpg 500w, images/london-westminster.jpg 640w" alt="" src="/images/london-westminster.jpg" loading="lazy" class="portfolio11_image"></div>
-                          </div>
-                          <div class="margin-bottom margin-xxsmall">
-                            <h3 class="heading-style-h5-6">MMT UK | London</h3>
-                          </div>
-                          <div class="text-size-regular">Talks, workshops, and organising across Greater London with civic partners.</div>
-                          <div class="margin-top margin-small">
-                            <div class="button-group">
-                              <div class="button-2 is-link is-icon">
-                                <div>Get involved</div>
-                                <div class="icon-embed-xxsmall w-embed"><svg width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M6 3L11 8L6 13" stroke="CurrentColor" stroke-width="1.5"></path>
-                                  </svg></div>
-                              </div>
-                            </div>
-                          </div>
-                        </a>
-                      </div>
-                      <div class="portfolio11_item">
-                        <a href="#" class="portfolio11_item-link w-inline-block">
-                          <div class="margin-bottom margin-small">
-                            <div class="portfolio11_image-wrapper"><img sizes="(max-width: 640px) 100vw, 640px" srcset="/images/getty-images-EaGaMKRdTJ4-unsplash-p-500.jpg 500w, images/cardiff-castle.jpg 640w" alt="" src="/images/cardiff-castle.jpg" loading="lazy" class="portfolio11_image"></div>
-                          </div>
-                          <div class="margin-bottom margin-xxsmall">
-                            <h3 class="heading-style-h5-6">MMT UK | Wales</h3>
-                          </div>
-                          <div class="text-size-regular">Cardiff events, study groups, and community projects, building local resilience.</div>
-                          <div class="margin-top margin-small">
-                            <div class="button-group">
-                              <div class="button-2 is-link is-icon">
-                                <div>Get involved</div>
-                                <div class="icon-embed-xxsmall w-embed"><svg width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M6 3L11 8L6 13" stroke="CurrentColor" stroke-width="1.5"></path>
-                                  </svg></div>
-                              </div>
-                            </div>
-                          </div>
-                        </a>
-                      </div>
+                          </a>
+                        </div>
+                      ))}
                     </div>
                   </div>
                 </div>
@@ -252,7 +218,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                 <div class="w-layout-grid cta1_content">
                   <div class="cta1_content-left">
                     <div class="margin-bottom margin-small">
-                      <h2 class="heading-style-h2 left">MMT hub | UK</h2>
+                      <h2 class="heading-style-h2 left">MMT hub | UK</h2>
                     </div>
                     <p class="text-size-medium-13">Join our moderated UK community on Discord for lively discussion, learning, events, and practical collaboration.</p>
                     <div class="margin-top margin-medium">

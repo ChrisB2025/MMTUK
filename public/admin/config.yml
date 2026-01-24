@@ -88,8 +88,25 @@ collections:
     fields:
       - { label: "Heading", name: "heading", widget: "string" }
       - { label: "Slug", name: "slug", widget: "string" }
-      - { label: "Local Group", name: "localGroup", widget: "select", options: ["scotland", "pennines", "oxford", "brighton", "solent"] }
+      - { label: "Local Group", name: "localGroup", widget: "select", options: ["scotland", "london", "wales", "pennines", "oxford", "brighton", "solent"] }
       - { label: "Date", name: "date", widget: "datetime" }
       - { label: "Text", name: "text", widget: "text", hint: "Maximum 50 words" }
       - { label: "Link", name: "link", widget: "string", required: false }
       - { label: "Image", name: "image", widget: "image", required: false }
+
+  - name: "localGroups"
+    label: "Local Groups"
+    folder: "src/content/localGroups"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Name", name: "name", widget: "string", hint: "e.g. Scotland, London" }
+      - { label: "Slug", name: "slug", widget: "string", hint: "e.g. scotland, london (lowercase, no spaces)" }
+      - { label: "Title", name: "title", widget: "string", hint: "e.g. MMT UK | Scotland" }
+      - { label: "Tagline", name: "tagline", widget: "string", hint: "Short description for card display" }
+      - { label: "Header Image", name: "headerImage", widget: "image" }
+      - { label: "Leader Name", name: "leaderName", widget: "string", required: false }
+      - { label: "Leader Introduction", name: "leaderIntro", widget: "text", required: false, hint: "Introduction text from the group leader" }
+      - { label: "Discord Link", name: "discordLink", widget: "string", required: false }
+      - { label: "Active", name: "active", widget: "boolean", default: true }
+      - { label: "Description", name: "body", widget: "markdown" }

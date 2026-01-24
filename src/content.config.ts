@@ -77,4 +77,19 @@ const localNews = defineCollection({
   }),
 });
 
-export const collections = { articles, news, bios, ecosystem, localNews };
+const localGroups = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/localGroups' }),
+  schema: z.object({
+    name: z.string(),
+    slug: z.string(),
+    title: z.string(),
+    tagline: z.string(),
+    headerImage: z.string(),
+    leaderName: z.string().optional(),
+    leaderIntro: z.string().optional(),
+    discordLink: z.string().optional(),
+    active: z.boolean().default(true),
+  }),
+});
+
+export const collections = { articles, news, bios, ecosystem, localNews, localGroups };

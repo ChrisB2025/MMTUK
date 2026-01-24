@@ -1,16 +1,28 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 
-const currentGroup = 'scotland';
+export async function getStaticPaths() {
+  const localGroups = await getCollection('localGroups');
+  return localGroups
+    .filter(group => group.data.active)
+    .map(group => ({
+      params: { slug: group.data.slug },
+      props: { group },
+    }));
+}
+
+const { group } = Astro.props;
+const { slug, name, title, tagline, headerImage, leaderName, leaderIntro, discordLink } = group.data;
+
 const allLocalNews = await getCollection('localNews');
 const localNews = allLocalNews
-  .filter(item => item.data.localGroup === currentGroup)
+  .filter(item => item.data.localGroup === slug)
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
   .slice(0, 4);
 ---
 
-<BaseLayout title="Local Groups" description="Find local MMT groups." currentPage="local-group">
+<BaseLayout title={title} description={tagline} currentPage="local-group">
 <header class="section_header54 text-color-white">
         <div class="padding-global">
           <div class="container-large">
@@ -18,16 +30,16 @@ const localNews = allLocalNews
               <div class="header54_component">
                 <div class="max-width-large">
                   <div class="margin-bottom margin-small">
-                    <h1 class="heading-style-h1">MMtuk | SCOTLAND</h1>
+                    <h1 class="heading-style-h1">MMtuk | {name.toUpperCase()}</h1>
                   </div>
-                  <p class="text-size-medium-2">Meet, learn and organise with people building a better UK economy.</p>
+                  <p class="text-size-medium-2">{tagline}</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
         <div class="header54_background-image-wrapper">
-          <div class="image-overlay-layer"></div><img loading="eager" src="/images/edinburgh-castle.jpg" alt="" class="header54_background-image">
+          <div class="image-overlay-layer"></div><img loading="eager" src={headerImage} alt="" class="header54_background-image">
         </div>
       </header>
       <section id="Network" class="section_portfolio11 color-scheme-2">
@@ -41,7 +53,25 @@ const localNews = allLocalNews
                       <div class="margin-bottom margin-small">
                         <h2 class="heading-style-h2 left">Welcome</h2>
                       </div>
-                      <p class="text-size-medium-11"><strong>MMTUK Scotland Local Group<br>‍</strong><em>From William Thomson, Scotland Local Group Leader<br><br>‍</em>Scotland faces unique economic challenges, from deindustrialisation to the ongoing debate about fiscal autonomy. Understanding how money actually works is essential for informed public discourse.<br><br>Our Scotland Local Group brings together people across the country who want to cut through mainstream economic myths. We host regular online discussions, share resources, and connect with aligned organisations working on Scottish economic policy.<br><br>Whether you&#x27;re in Glasgow, Edinburgh, the Highlands or anywhere in between, you&#x27;re welcome to join us. No economics background required, just curiosity and a willingness to question conventional thinking.<br><br>Get involved at mmtuk.org/scotland</p>
+                      <p class="text-size-medium-11">
+                        {leaderName && (
+                          <Fragment>
+                            <strong>MMTUK {name} Local Group</strong><br />
+                            <em>From {leaderName}, {name} Local Group Leader</em><br /><br />
+                          </Fragment>
+                        )}
+                        {leaderIntro ? leaderIntro.split('\n\n').map((para: string) => (
+                          <Fragment>
+                            {para}<br /><br />
+                          </Fragment>
+                        )) : (
+                          <Fragment>
+                            Welcome to the MMTUK {name} Local Group. We're building a community of people who want to understand Modern Monetary Theory and apply these insights to local issues.<br /><br />
+                            Join us for discussions, learning, and community building.
+                          </Fragment>
+                        )}
+                        Get involved at mmtuk.org/{slug}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -181,7 +211,7 @@ const localNews = allLocalNews
                           </div>
                           <h3 class="heading-style-h5-6">Community economic resilience</h3>
                           <div class="margin-bottom margin-xxsmall">
-                            <div>Edinburgh</div>
+                            <div>{name}</div>
                           </div>
                           <div class="text-size-regular">Collaborative discussion on grassroots financial empowerment strategies</div>
                           <div class="margin-top margin-small">
@@ -248,12 +278,12 @@ const localNews = allLocalNews
                 <div class="w-layout-grid cta1_content">
                   <div class="cta1_content-left">
                     <div class="margin-bottom margin-small">
-                      <h2 class="heading-style-h2 left">MMT hub</h2>
+                      <h2 class="heading-style-h2 left">MMT hub</h2>
                     </div>
-                    <p class="text-size-medium-13">Meet up with local MMTers from Scotland<br><br>Join our moderated UK community on Discord for lively discussion, learning, events, and practical collaboration.<br><br>Then ask to join the MMT UK Scotland Local Group.</p>
+                    <p class="text-size-medium-13">Meet up with local MMTers from {name}<br><br>Join our moderated UK community on Discord for lively discussion, learning, events, and practical collaboration.<br><br>Then ask to join the MMT UK {name} Local Group.</p>
                     <div class="margin-top margin-medium">
                       <div class="button-group">
-                        <a href="https://discord.gg/S3UbxFe4FR" target="_blank" class="button-2 w-button">Join Discord here</a>
+                        <a href={discordLink || "https://discord.gg/S3UbxFe4FR"} target="_blank" class="button-2 w-button">Join Discord here</a>
                       </div>
                     </div>
                     <div class="accordion1_component">
@@ -265,10 +295,10 @@ const localNews = allLocalNews
                       </div>
                       <div style="height:0px" class="accordion1_bottom">
                         <div class="margin-bottom margin-small">
-                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.</p>
+                          <p>Click the Discord link above, and once you're in, look for the {name} local group channel to connect with members in your area.</p>
                         </div>
                         <div class="button-group">
-                          <a href="https://discord.gg/S3UbxFe4FR" target="_blank" class="button-2 w-button">Join now</a>
+                          <a href={discordLink || "https://discord.gg/S3UbxFe4FR"} target="_blank" class="button-2 w-button">Join now</a>
                         </div>
                       </div>
                     </div>
