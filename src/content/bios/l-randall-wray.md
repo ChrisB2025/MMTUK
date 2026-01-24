@@ -2,8 +2,10 @@
 name: "L. Randall Wray"
 slug: "l-randall-wray"
 role: "Advisory Board Member"
-photo: "https://cdn.prod.website-files.com/68e63bdd54ac5b7ee3fc19ba/6908d20cde51ce3847369693_L.%20Randall%20Wray.png"
+photo: "/images/bios/L. Randall Wray.png"
 linkedin: ""
+twitter: ""
+website: "https://www.levyinstitute.org/people/lrandall-wray/"
 advisoryBoard: false
 ---
 

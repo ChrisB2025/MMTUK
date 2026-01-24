@@ -1,9 +1,12 @@
 ---
-name: Dr Stephanie Linkogle
-slug: stephanie-linkogle
-role: Researcher
-photo: /images/Bio%20pics/Stephanie%20Linkogle.png
-linkedin: ''
+name: "Dr Stephanie Linkogle"
+slug: "stephanie-linkogle"
+role: "Researcher"
+photo: "/images/bios/Stephanie Linkogle.png"
+linkedin: ""
+twitter: ""
+website: ""
 advisoryBoard: false
 ---
+
 

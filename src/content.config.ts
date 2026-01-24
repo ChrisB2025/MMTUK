@@ -42,6 +42,8 @@ const bios = defineCollection({
     role: z.string(),
     photo: z.string().optional(),
     linkedin: z.string().optional(),
+    twitter: z.string().optional(),
+    website: z.string().optional(),
     advisoryBoard: z.boolean().default(false),
   }),
 });

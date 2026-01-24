@@ -1,9 +1,12 @@
 ---
-name: Steve Laughton
-slug: steve-laughton
-role: Academic
-photo: /images/Bio%20pics/Steve%20Laughton.png
-linkedin: ''
+name: "Steve Laughton"
+slug: "steve-laughton"
+role: "Academic"
+photo: "/images/bios/Steve Laughton.png"
+linkedin: ""
+twitter: ""
+website: ""
 advisoryBoard: false
 ---
+
 
