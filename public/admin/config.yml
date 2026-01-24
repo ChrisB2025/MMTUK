@@ -1,5 +1,6 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: ChrisB2025/MMTUK
   branch: main
 
 # For local development, uncomment these lines:
