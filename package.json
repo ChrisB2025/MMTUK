@@ -3,15 +3,19 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-  "dev": "astro dev",
-  "build": "astro build",
-  "preview": "astro preview",
-  "astro": "astro"
+    "dev": "astro dev",
+    "dev:tina": "tinacms dev -c \"astro dev\"",
+    "build": "tinacms build && astro build",
+    "build:astro": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.16.14"
+    "astro": "^5.16.14",
+    "tinacms": "^2.4.0"
   },
   "devDependencies": {
+    "@tinacms/cli": "^1.6.8",
     "serve": "^14.2.5"
   }
 }
