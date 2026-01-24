@@ -114,9 +114,6 @@ export default defineConfig({
             type: "string",
             name: "color",
             label: "Accent Color",
-            ui: {
-              component: "color",
-            },
           },
           {
             type: "rich-text",
@@ -125,14 +122,6 @@ export default defineConfig({
             isBody: true,
           },
         ],
-        ui: {
-          filename: {
-            readonly: false,
-            slugify: (values) => {
-              return values?.slug?.toLowerCase().replace(/ /g, "-") || "";
-            },
-          },
-        },
       },
       {
         name: "news",
@@ -191,14 +180,6 @@ export default defineConfig({
             isBody: true,
           },
         ],
-        ui: {
-          filename: {
-            readonly: false,
-            slugify: (values) => {
-              return values?.slug?.toLowerCase().replace(/ /g, "-") || "";
-            },
-          },
-        },
       },
       {
         name: "bios",
@@ -247,14 +228,6 @@ export default defineConfig({
             isBody: true,
           },
         ],
-        ui: {
-          filename: {
-            readonly: false,
-            slugify: (values) => {
-              return values?.slug?.toLowerCase().replace(/ /g, "-") || "";
-            },
-          },
-        },
       },
       {
         name: "ecosystem",
@@ -337,14 +310,6 @@ export default defineConfig({
             isBody: true,
           },
         ],
-        ui: {
-          filename: {
-            readonly: false,
-            slugify: (values) => {
-              return values?.slug?.toLowerCase().replace(/ /g, "-") || "";
-            },
-          },
-        },
       },
       {
         name: "localNews",
@@ -407,16 +372,6 @@ export default defineConfig({
             label: "Image",
           },
         ],
-        ui: {
-          filename: {
-            readonly: false,
-            slugify: (values) => {
-              const group = values?.localGroup || "";
-              const slug = values?.slug?.toLowerCase().replace(/ /g, "-") || "";
-              return `${group}-${slug}`;
-            },
-          },
-        },
       },
       {
         name: "localGroups",
@@ -490,14 +445,6 @@ export default defineConfig({
             isBody: true,
           },
         ],
-        ui: {
-          filename: {
-            readonly: false,
-            slugify: (values) => {
-              return values?.slug?.toLowerCase().replace(/ /g, "-") || "";
-            },
-          },
-        },
       },
     ],
   },
