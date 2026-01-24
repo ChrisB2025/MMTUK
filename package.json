@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "astro dev",
     "dev:tina": "tinacms dev -c \"astro dev\"",
-    "build": "tinacms build && astro build",
+    "build": "tinacms build --skip-cloud-checks && astro build",
     "build:astro": "astro build",
     "preview": "astro preview",
     "astro": "astro"
