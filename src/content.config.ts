@@ -92,18 +92,6 @@ const localGroups = defineCollection({
   }),
 });
 
-const localArticles = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/localArticles' }),
-  schema: z.object({
-    title: z.string(),
-    slug: z.string(),
-    localGroup: z.string(),
-    summary: z.string(),
-    pubDate: z.coerce.date(),
-    author: z.string().optional(),
-  }),
-});
-
 const localEvents = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/localEvents' }),
   schema: z.object({
@@ -119,4 +107,4 @@ const localEvents = defineCollection({
   }),
 });
 
-export const collections = { articles, news, bios, ecosystem, localNews, localGroups, localArticles, localEvents };
+export const collections = { articles, news, bios, ecosystem, localNews, localGroups, localEvents };

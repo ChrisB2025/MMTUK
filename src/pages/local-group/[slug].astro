@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getCollection } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
   const localGroups = await getCollection('localGroups');
@@ -21,10 +21,15 @@ const localNews = allLocalNews
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
   .slice(0, 4);
 
-const allLocalArticles = await getCollection('localArticles');
-const localArticles = allLocalArticles
-  .filter(item => item.data.localGroup === slug)
-  .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
+// Check which news items have body content (for article pages)
+const newsWithBody = await Promise.all(
+  localNews.map(async (item) => {
+    const { Content } = await render(item);
+    // Check if there's actual body content
+    const hasBody = item.body && item.body.trim().length > 0;
+    return { ...item, hasBody };
+  })
+);
 
 const allLocalEvents = await getCollection('localEvents');
 const localEvents = allLocalEvents
@@ -92,7 +97,7 @@ const localEvents = allLocalEvents
           </div>
         </div>
       </section>
-      {localNews.length > 0 && (
+      {newsWithBody.length > 0 && (
       <section id="LocalNews" class="section_faq4 color-scheme-1">
         <div class="padding-global">
           <div class="container-large">
@@ -109,7 +114,11 @@ const localEvents = allLocalEvents
                   </div>
                 </div>
                 <div class="faq4_list">
-                  {localNews.map((item) => (
+                  {newsWithBody.map((item) => {
+                    const articleLink = item.hasBody ? `/local-group/${slug}/${item.data.slug}` : null;
+                    const externalLink = item.data.link;
+                    const hasLink = articleLink || externalLink;
+                    return (
                     <div class="accordion1_component">
                       <div data-w-id="local-news-accordion" class="accordion1_top">
                         <div class="accordion1_header-content" style="display: flex; align-items: center; gap: 1rem; flex: 1;">
@@ -129,9 +138,9 @@ const localEvents = allLocalEvents
                         <div class="margin-bottom margin-small">
                           <p>{item.data.text}</p>
                         </div>
-                        {item.data.link && (
+                        {hasLink && (
                           <div class="button-group">
-                            <a href={item.data.link} target="_blank" class="button-2 is-link is-icon">
+                            <a href={articleLink || externalLink} target={externalLink && !articleLink ? "_blank" : undefined} class="button-2 is-link is-icon">
                               <div>Read more</div>
                               <div class="icon-embed-xxsmall w-embed"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                   <path d="M6 3L11 8L6 13" stroke="CurrentColor" stroke-width="1.5"></path>
@@ -141,58 +150,8 @@ const localEvents = allLocalEvents
                         )}
                       </div>
                     </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      )}
-      {localArticles.length > 0 && (
-      <section id="LocalArticles" class="section_faq4 color-scheme-4">
-        <div class="padding-global">
-          <div class="divider-horizontal page_divider"></div>
-          <div class="container-large">
-            <div class="padding-section-large">
-              <div class="faq4_component">
-                <div class="margin-bottom margin-xxlarge">
-                  <div class="text-align-center">
-                    <div class="max-width-large align-center">
-                      <div class="margin-bottom margin-small">
-                        <h2 class="heading-style-h2 left">Articles</h2>
-                      </div>
-                      <p class="text-size-medium-12">Educational content from the {name} local group</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="faq4_list">
-                  {localArticles.map((article) => (
-                    <div class="accordion1_component">
-                      <div data-w-id="local-article-accordion" class="accordion1_top">
-                        <div class="accordion1_header-content" style="flex: 1;">
-                          <div class="text-size-medium-19 text-weight-bold">{article.data.title}</div>
-                          <div class="text-size-small text-color-grey">{article.data.pubDate.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</div>
-                        </div>
-                        <div class="accordion1_icon w-embed"><svg width="100%" height="100%" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M16.5303 20.8839C16.2374 21.1768 15.7626 21.1768 15.4697 20.8839L7.82318 13.2374C7.53029 12.9445 7.53029 12.4697 7.82318 12.1768L8.17674 11.8232C8.46963 11.5303 8.9445 11.5303 9.2374 11.8232L16 18.5858L22.7626 11.8232C23.0555 11.5303 23.5303 11.5303 23.8232 11.8232L24.1768 12.1768C24.4697 12.4697 24.4697 12.9445 24.1768 13.2374L16.5303 20.8839Z" fill="currentColor"></path>
-                          </svg></div>
-                      </div>
-                      <div style="height:0px" class="accordion1_bottom">
-                        <div class="margin-bottom margin-small">
-                          <p>{article.data.summary}</p>
-                        </div>
-                        <div class="button-group">
-                          <a href={`/local-group/${slug}/${article.data.slug}`} class="button-2 is-link is-icon">
-                            <div>Read more</div>
-                            <div class="icon-embed-xxsmall w-embed"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M6 3L11 8L6 13" stroke="CurrentColor" stroke-width="1.5"></path>
-                              </svg></div>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
               </div>
             </div>

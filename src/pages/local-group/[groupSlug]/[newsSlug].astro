@@ -3,31 +3,34 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
-  const localArticles = await getCollection('localArticles');
+  const localNews = await getCollection('localNews');
   const localGroups = await getCollection('localGroups');
 
-  return localArticles.map((article) => {
-    const group = localGroups.find(g => g.data.slug === article.data.localGroup);
+  // Only generate pages for news items that have body content
+  const newsWithBody = localNews.filter(item => item.body && item.body.trim().length > 0);
+
+  return newsWithBody.map((newsItem) => {
+    const group = localGroups.find(g => g.data.slug === newsItem.data.localGroup);
     return {
       params: {
-        groupSlug: article.data.localGroup,
-        articleSlug: article.data.slug
+        groupSlug: newsItem.data.localGroup,
+        newsSlug: newsItem.data.slug
       },
-      props: { article, groupName: group?.data.name || article.data.localGroup },
+      props: { newsItem, groupName: group?.data.name || newsItem.data.localGroup },
     };
   });
 }
 
-const { article, groupName } = Astro.props;
-const { Content } = await render(article);
-const pubDate = new Date(article.data.pubDate).toLocaleDateString('en-GB', {
+const { newsItem, groupName } = Astro.props;
+const { Content } = await render(newsItem);
+const pubDate = new Date(newsItem.data.date).toLocaleDateString('en-GB', {
   day: 'numeric',
   month: 'long',
   year: 'numeric'
 });
 ---
 
-<BaseLayout title={article.data.title} description={article.data.summary} currentPage="local-group">
+<BaseLayout title={newsItem.data.heading} description={newsItem.data.text} currentPage="local-group">
   <header class="section_publication_blog-post-header simplified-article">
     <div class="padding-global">
       <div class="container-large">
@@ -37,7 +40,7 @@ const pubDate = new Date(article.data.pubDate).toLocaleDateString('en-GB', {
               <div class="publication_blog-post-header_title-wrapper">
                 <div class="margin-bottom margin-medium">
                   <div class="breadcrumb_component">
-                    <a href={`/local-group/${article.data.localGroup}`} class="breadcrumb-link w-inline-block">
+                    <a href={`/local-group/${newsItem.data.localGroup}`} class="breadcrumb-link w-inline-block">
                       <div>{groupName}</div>
                     </a>
                     <div class="breadcrumb-divider w-embed">
@@ -46,19 +49,13 @@ const pubDate = new Date(article.data.pubDate).toLocaleDateString('en-GB', {
                       </svg>
                     </div>
                     <div class="breadcrumb-link">
-                      <div>Articles</div>
+                      <div>News</div>
                     </div>
                   </div>
                 </div>
-                <h1 class="heading-style-h2-3">{article.data.title}</h1>
+                <h1 class="heading-style-h2-3">{newsItem.data.heading}</h1>
                 <div class="margin-top margin-small">
                   <div class="publication_blog-post-header_date-wrapper">
-                    {article.data.author && (
-                      <>
-                        <div class="text-size-small-5">By {article.data.author}</div>
-                        <div class="publication_blog-post-header_text-divider">•</div>
-                      </>
-                    )}
                     <div class="text-size-small-5">{pubDate}</div>
                   </div>
                 </div>
@@ -77,7 +74,7 @@ const pubDate = new Date(article.data.pubDate).toLocaleDateString('en-GB', {
                     </div>
                   </div>
                   <div class="margin-top margin-large">
-                    <a href={`/local-group/${article.data.localGroup}`} class="button-2 is-link is-icon w-inline-block">
+                    <a href={`/local-group/${newsItem.data.localGroup}`} class="button-2 is-link is-icon w-inline-block">
                       <div>Back to {groupName}</div>
                       <div class="icon-embed-xxsmall w-embed">
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
