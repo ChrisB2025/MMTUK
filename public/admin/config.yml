@@ -79,3 +79,17 @@ collections:
       - { label: "Discord", name: "discord", widget: "string", required: false }
       - { label: "Status", name: "status", widget: "select", options: ["Active", "Inactive", "Archived"], default: "Active" }
       - { label: "Description", name: "body", widget: "markdown" }
+
+  - name: "localNews"
+    label: "Local Group News"
+    folder: "src/content/localNews"
+    create: true
+    slug: "{{localGroup}}-{{slug}}"
+    fields:
+      - { label: "Heading", name: "heading", widget: "string" }
+      - { label: "Slug", name: "slug", widget: "string" }
+      - { label: "Local Group", name: "localGroup", widget: "select", options: ["scotland", "pennines", "oxford", "brighton", "solent"] }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Text", name: "text", widget: "text", hint: "Maximum 50 words" }
+      - { label: "Link", name: "link", widget: "string", required: false }
+      - { label: "Image", name: "image", widget: "image", required: false }

@@ -64,4 +64,17 @@ const ecosystem = defineCollection({
   }),
 });
 
-export const collections = { articles, news, bios, ecosystem };
+const localNews = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/localNews' }),
+  schema: z.object({
+    heading: z.string(),
+    slug: z.string(),
+    text: z.string(),
+    localGroup: z.string(),
+    date: z.coerce.date(),
+    link: z.string().optional(),
+    image: z.string().optional(),
+  }),
+});
+
+export const collections = { articles, news, bios, ecosystem, localNews };
