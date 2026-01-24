@@ -92,4 +92,31 @@ const localGroups = defineCollection({
   }),
 });
 
-export const collections = { articles, news, bios, ecosystem, localNews, localGroups };
+const localArticles = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/localArticles' }),
+  schema: z.object({
+    title: z.string(),
+    slug: z.string(),
+    localGroup: z.string(),
+    summary: z.string(),
+    pubDate: z.coerce.date(),
+    author: z.string().optional(),
+  }),
+});
+
+const localEvents = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/localEvents' }),
+  schema: z.object({
+    title: z.string(),
+    slug: z.string(),
+    localGroup: z.string(),
+    date: z.coerce.date(),
+    tag: z.string(),
+    location: z.string(),
+    description: z.string(),
+    link: z.string().optional(),
+    image: z.string().optional(),
+  }),
+});
+
+export const collections = { articles, news, bios, ecosystem, localNews, localGroups, localArticles, localEvents };

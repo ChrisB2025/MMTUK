@@ -1,0 +1,111 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const localArticles = await getCollection('localArticles');
+  const localGroups = await getCollection('localGroups');
+
+  return localArticles.map((article) => {
+    const group = localGroups.find(g => g.data.slug === article.data.localGroup);
+    return {
+      params: {
+        groupSlug: article.data.localGroup,
+        articleSlug: article.data.slug
+      },
+      props: { article, groupName: group?.data.name || article.data.localGroup },
+    };
+  });
+}
+
+const { article, groupName } = Astro.props;
+const { Content } = await render(article);
+const pubDate = new Date(article.data.pubDate).toLocaleDateString('en-GB', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric'
+});
+---
+
+<BaseLayout title={article.data.title} description={article.data.summary} currentPage="local-group">
+  <header class="section_publication_blog-post-header simplified-article">
+    <div class="padding-global">
+      <div class="container-large">
+        <div class="padding-section-large">
+          <div class="publication_blog-post-header_component">
+            <div class="w-layout-grid publication_blog-post-header_content">
+              <div class="publication_blog-post-header_title-wrapper">
+                <div class="margin-bottom margin-medium">
+                  <div class="breadcrumb_component">
+                    <a href={`/local-group/${article.data.localGroup}`} class="breadcrumb-link w-inline-block">
+                      <div>{groupName}</div>
+                    </a>
+                    <div class="breadcrumb-divider w-embed">
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 3L11 8L6 13" stroke="CurrentColor" stroke-width="1.5"></path>
+                      </svg>
+                    </div>
+                    <div class="breadcrumb-link">
+                      <div>Articles</div>
+                    </div>
+                  </div>
+                </div>
+                <h1 class="heading-style-h2-3">{article.data.title}</h1>
+                <div class="margin-top margin-small">
+                  <div class="publication_blog-post-header_date-wrapper">
+                    {article.data.author && (
+                      <>
+                        <div class="text-size-small-5">By {article.data.author}</div>
+                        <div class="publication_blog-post-header_text-divider">•</div>
+                      </>
+                    )}
+                    <div class="text-size-small-5">{pubDate}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="container-large">
+            <div class="padding-section-small">
+              <div class="content29_component">
+                <div class="max-width-large align-center">
+                  <div class="content29_content-wrapper">
+                    <div class="text-rich-text w-richtext">
+                      <Content />
+                    </div>
+                  </div>
+                  <div class="margin-top margin-large">
+                    <a href={`/local-group/${article.data.localGroup}`} class="button-2 is-link is-icon w-inline-block">
+                      <div>Back to {groupName}</div>
+                      <div class="icon-embed-xxsmall w-embed">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M6 3L11 8L6 13" stroke="CurrentColor" stroke-width="1.5"></path>
+                        </svg>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+</BaseLayout>
+
+<style is:global>
+  .simplified-article .heading-style-h2-3 {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    line-height: 1.2;
+  }
+  .simplified-article .text-rich-text h2,
+  .simplified-article .text-rich-text h3 {
+    font-size: 1.25rem;
+    line-height: 1.4;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+</style>
