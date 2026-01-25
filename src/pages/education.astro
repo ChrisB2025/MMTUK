@@ -30,7 +30,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                 <div class="w-layout-grid header2_content">
                   <div class="header2_content-left">
                     <div class="margin-bottom margin-small">
-                      <h1 class="heading-style-h1">ask mmtuk</h1>
+                      <h2 class="heading-style-h2 left">ask mmtuk</h2>
                     </div>
                     <p class="text-size-medium-21">Ask MMT is our AI powered guide to Modern Monetary Theory, trained on academic papers, podcasts and trusted MMT sources. Simply ask a question, receive a clear answer and explore the original sources cited so you can dig deeper and verify the evidence.</p>
                     <div class="margin-top margin-medium">
@@ -63,12 +63,20 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <div class="container-large">
             <div class="padding-section-large">
               <div class="faq7_component">
-                <div class="margin-bottom margin-xxlarge">
+                <div class="text-align-center">
+                  <div class="max-width-large align-center">
+                    <div class="margin-bottom margin-small">
+                      <h2 class="heading-style-h2 left">What is MMT?</h2>
+                    </div>
+                  </div>
+                </div>
+                <div class="max-width-large align-center">
+                  <p class="text-size-medium" style="text-align: left; margin-bottom: 1.5rem;">Modern Monetary Theory is a framework for understanding how money actually works in countries that issue their own currency, such as the United Kingdom. Rather than starting with abstract economic models, MMT examines the real-world mechanics of government spending, taxation and the banking system. Through careful observation of institutional arrangements and accounting flows, MMT reveals that currency-issuing governments operate fundamentally differently from households or businesses. They cannot "run out" of their own currency in the way a household can run out of income. The real constraints on government policy are not financial but relate to the availability of real resources: labour, materials, skills and productive capacity.</p>
+                  <p class="text-size-medium" style="text-align: left; margin-bottom: 1.5rem;">This understanding has profound implications for how we approach economic challenges. If money itself is not scarce for a sovereign currency issuer, then persistent unemployment, crumbling infrastructure and the climate crisis are political choices, not financial necessities. MMT draws on the work of economists including John Maynard Keynes, Wynne Godley and Hyman Minsky to provide a coherent framework for evaluating fiscal policy based on real-world outcomes, employment, inflation and sustainable resource use, rather than arbitrary deficit targets. It is not a call for reckless spending, but a demand that we ask the right questions: do we have the people, the skills and the materials to achieve what we want to achieve? If so, financing is never the obstacle.</p>
+                </div>
+                <div class="margin-bottom margin-xxlarge margin-top margin-medium">
                   <div class="text-align-center">
                     <div class="max-width-large align-center">
-                      <div class="margin-bottom margin-small">
-                        <h2 class="heading-style-h2 left">What is MMT?</h2>
-                      </div>
                       <p class="text-size-medium approach">An introduction to Modern Monetary Theory and its principles</p>
                     </div>
                   </div>
@@ -333,4 +341,44 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           </div>
         </div>
       </section>
+      <section class="section_faq7 color-scheme-4">
+        <div class="padding-global">
+          <div class="divider-horizontal page_divider"></div>
+          <div class="container-large">
+            <div class="padding-section-large">
+              <div class="faq7_component">
+                <div class="text-align-center">
+                  <div class="max-width-large align-center">
+                    <div class="margin-bottom margin-small">
+                      <h2 class="heading-style-h2 left">Advisory Services</h2>
+                    </div>
+                  </div>
+                </div>
+                <div class="max-width-large align-center">
+                  <p class="text-size-medium" style="text-align: left; margin-bottom: 1.5rem;">
+                    MMT UK offers tailored support for policymakers, researchers and organisations seeking to apply macroeconomic insights to their work. Whether you are a local authority exploring fiscal options, a political party developing economic policy, or a research institute examining public spending frameworks, we can help you understand how MMT principles relate to your specific context and objectives.
+                  </p>
+                  <p class="text-size-medium" style="text-align: left;">
+                    Our services include workshops, training sessions, policy review and ongoing advisory relationships, each designed to build internal capacity and inform evidence-based decision-making. If you are interested in working with us, please email us at <a href="#" class="text-style-link obfuscated-email" data-user="contact" data-domain="mmtuk.org"><span class="email-fallback">contact [at] mmtuk [dot] org</span></a>.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.obfuscated-email').forEach(function(el) {
+      var user = el.getAttribute('data-user');
+      var domain = el.getAttribute('data-domain');
+      if (user && domain) {
+        var email = user + '@' + domain;
+        el.href = 'mailto:' + email;
+        el.innerHTML = email;
+      }
+    });
+  });
+</script>
 </BaseLayout>

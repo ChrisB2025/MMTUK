@@ -176,6 +176,29 @@ p a:not(.button):not(.button-2):hover {
    Phase 2: Typography Refinements
    ========================================================================== */
 
+/* Heading hierarchy - ensure h2 is clearly smaller than h1 */
+.heading-style-h2 {
+  font-size: 3rem !important; /* Reduced from 4rem to create clear hierarchy */
+}
+
+@media screen and (max-width: 991px) {
+  .heading-style-h2 {
+    font-size: 2.25rem !important;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .heading-style-h2 {
+    font-size: 1.875rem !important;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .heading-style-h2 {
+    font-size: 1.5rem !important;
+  }
+}
+
 /* Body text readability */
 body {
   font-size: 1.0625rem; /* 17px */
@@ -450,17 +473,26 @@ textarea:focus {
   transform: scale(1.1);
 }
 
+/* Smooth carousel slide transitions via margin-left */
+.header102_slide:first-child {
+  transition: margin-left 0.5s ease;
+}
+
 /* ==========================================================================
    Team Member Cards
    ========================================================================== */
 
 .team8_item {
+  padding: 1rem;
+  border-radius: 16px;
+  background: transparent;
   transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .team8_item:hover {
   transform: translateY(-4px);
   box-shadow: 0 8px 24px rgba(10, 30, 63, 0.08);
+  background: rgba(255, 255, 255, 0.5);
 }
 
 /* ==========================================================================
