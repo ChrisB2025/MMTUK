@@ -1,10 +1,24 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { getCollection } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 
 const allBios = await getCollection('bios');
 const steeringGroup = allBios.filter(bio => bio.data.role !== "Advisory Board Member");
 const advisoryBoard = allBios.filter(bio => bio.data.role === "Advisory Board Member");
+
+// Fetch news items for MMTUK News section
+const allNews = await getCollection('news');
+const newsItems = allNews
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, 5);
+
+// Check which news items have body content (for article links)
+const newsWithBody = await Promise.all(
+  newsItems.map(async (item) => {
+    const hasBody = item.body && item.body.trim().length > 0;
+    return { ...item, hasBody };
+  })
+);
 ---
 
 <BaseLayout title="About Us" description="Learn about MMT UK and our team." currentPage="about-us">
@@ -30,6 +44,63 @@ const advisoryBoard = allBios.filter(bio => bio.data.role === "Advisory Board Me
           <div class="image-overlay-layer"></div><img width="Auto" sizes="(max-width: 989px) 100vw, 989px" alt="" src="/images/UK-Sectoral-balances-clipped.avif" loading="eager" srcset="/images/UK-Sectoral-balances-clipped-p-500.avif 500w, images/UK-Sectoral-balances-clipped.avif 989w" class="header111_background-image">
         </div>
       </header>
+      {newsWithBody.length > 0 && (
+      <section id="MMTUKNews" class="section_faq4 color-scheme-1">
+        <div class="padding-global">
+          <div class="container-large">
+            <div class="padding-section-large">
+              <div class="faq4_component">
+                <div class="margin-bottom margin-xxlarge">
+                  <div class="text-align-center">
+                    <div class="max-width-large align-center">
+                      <div class="margin-bottom margin-small">
+                        <h2 class="heading-style-h2 left">MMTUK News</h2>
+                      </div>
+                      <p class="text-size-medium-12">Latest announcements from MMT UK</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="faq4_list">
+                  {newsWithBody.map((item) => {
+                    const articleLink = item.hasBody ? `/news/${item.data.slug}` : null;
+                    return (
+                    <div class="accordion1_component">
+                      <div data-w-id="mmtuk-news-accordion" class="accordion1_top">
+                        <div class="accordion1_header-content" style="display: flex; align-items: center; gap: 1rem; flex: 1;">
+                          <div>
+                            <div class="text-size-medium-19 text-weight-bold">{item.data.title}</div>
+                            <div class="text-size-small text-color-grey">{item.data.date.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</div>
+                          </div>
+                        </div>
+                        <div class="accordion1_icon w-embed"><svg width="100%" height="100%" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M16.5303 20.8839C16.2374 21.1768 15.7626 21.1768 15.4697 20.8839L7.82318 13.2374C7.53029 12.9445 7.53029 12.4697 7.82318 12.1768L8.17674 11.8232C8.46963 11.5303 8.9445 11.5303 9.2374 11.8232L16 18.5858L22.7626 11.8232C23.0555 11.5303 23.5303 11.5303 23.8232 11.8232L24.1768 12.1768C24.4697 12.4697 24.4697 12.9445 24.1768 13.2374L16.5303 20.8839Z" fill="currentColor"></path>
+                          </svg></div>
+                      </div>
+                      <div style="height:0px" class="accordion1_bottom">
+                        <div class="margin-bottom margin-small">
+                          <p>{item.data.summary}</p>
+                        </div>
+                        {articleLink && (
+                          <div class="button-group">
+                            <a href={articleLink} class="button-2 is-link is-icon">
+                              <div>Read more</div>
+                              <div class="icon-embed-xxsmall w-embed"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M6 3L11 8L6 13" stroke="CurrentColor" stroke-width="1.5"></path>
+                                </svg></div>
+                            </a>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      )}
       <section class="section_team8 color-scheme-2">
         <div class="padding-global">
           <div class="container-large">
