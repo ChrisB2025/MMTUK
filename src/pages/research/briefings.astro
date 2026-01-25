@@ -1,0 +1,185 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const allBriefings = await getCollection('briefings');
+const sortedBriefings = allBriefings.sort((a, b) =>
+  new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
+);
+
+// Get featured briefing (first featured=true, or most recent)
+const featuredBriefing = sortedBriefings.find(b => b.data.featured) || sortedBriefings[0];
+// Get remaining briefings excluding the featured one
+const remainingBriefings = sortedBriefings.filter(b => b.id !== featuredBriefing?.id);
+
+function formatDate(date: Date) {
+  return new Date(date).toLocaleDateString('en-GB', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric'
+  });
+}
+---
+
+<BaseLayout title="MMT Briefings" description="Critiques and rebuttals of public economic commentary from MMT UK's affiliated authors." currentPage="research">
+<header class="section_header54 text-color-white">
+  <div class="padding-global">
+    <div class="container-large">
+      <div class="padding-section-large">
+        <div class="header54_component">
+          <div class="max-width-large">
+            <div class="margin-bottom margin-small">
+              <h1 class="heading-style-h1">The Briefing Room</h1>
+            </div>
+            <p class="text-size-medium-2">Cutting-edge economic analysis from leading modern monetary theorists. Our affiliated authors critique public economic commentary and rebut anti-MMT polemic.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="header54_background-image-wrapper">
+    <div class="image-overlay-layer"></div>
+    <img sizes="(max-width: 1920px) 100vw, 1920px" srcset="/images/briefing-room-p-500.avif 500w, images/briefing-room-p-800.avif 800w, images/briefing-room.avif 1920w" alt="" src="/images/briefing-room.avif" loading="eager" class="header54_background-image">
+  </div>
+</header>
+
+{featuredBriefing && (
+<section id="blog-header-24" class="section_blog24">
+  <div class="padding-global">
+    <div class="container-large">
+      <div class="blog24_component">
+        <div class="margin-bottom margin-xxlarge">
+          <div class="padding-xsmall"></div>
+          <div class="margin-bottom margin-xsmall">
+            <div class="text-style-tagline">Featured Briefing</div>
+          </div>
+        </div>
+        <div class="margin-bottom margin-xxlarge">
+          <div class="blog24_featured-list-wrapper">
+            <div class="blog24_featured-list">
+              <div class="blog24_featured-item">
+                <a href={`/research/briefings/${featuredBriefing.data.slug}`} class="blog24_item-link w-inline-block">
+                  <div class="blog24_featured-item-wrapper">
+                    <div class="blog24_featured-image-wrapper">
+                      <img loading="lazy" src={featuredBriefing.data.thumbnail || '/images/placeholder-image.svg'} alt={featuredBriefing.data.title} class="blog24_featured-image">
+                    </div>
+                    <div class="blog24_featured-item-content">
+                      <div class="blog24_item-content-top">
+                        <div class="margin-bottom margin-xsmall">
+                          <div class="blog24_meta-wrapper">
+                            <div class="tag">
+                              <div>Briefing</div>
+                            </div>
+                            <div class="x-min-read">
+                              <div class="text-size-small-5 text-weight-semibold">{featuredBriefing.data.readTime}</div>
+                              <div class="text-size-small-5 text-weight-semibold"> min read</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="margin-bottom margin-xsmall">
+                          <h3 class="heading-style-h4">{featuredBriefing.data.title}</h3>
+                        </div>
+                        <div class="text-size-regular">{featuredBriefing.data.summary}</div>
+                      </div>
+                      <div class="margin-top margin-small">
+                        <div class="button-group">
+                          <div class="button-2 is-link is-icon">
+                            <div>Read more</div>
+                            <div class="icon-embed-xxsmall w-embed">
+                              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6 3L11 8L6 13" stroke="CurrentColor" stroke-width="1.5"></path>
+                              </svg>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+)}
+
+{remainingBriefings.length > 0 && (
+<section class="section_blog24">
+  <div class="padding-global">
+    <div class="container-large">
+      <div class="padding-xsmall"></div>
+      <div class="margin-bottom margin-xsmall">
+        <div class="text-style-tagline">All Briefings</div>
+      </div>
+      <div class="blog24_content">
+        <div class="padding-vertical padding-large">
+          <div class="collection-list-wrapper two-column w-dyn-list">
+            <div role="list" class="collection-list two-column w-dyn-items">
+              {remainingBriefings.map((briefing) => (
+                <div role="listitem" class="w-dyn-item">
+                  <div class="blog24_item">
+                    <a href={`/research/briefings/${briefing.data.slug}`} class="blog24_item-link w-inline-block">
+                      <div class="blog24_image-wrapper">
+                        <img loading="lazy" src={briefing.data.thumbnail || '/images/placeholder-image.svg'} alt={briefing.data.title} class="blog24_image">
+                      </div>
+                      <div class="blog24_item-content">
+                        <div class="blog24_item-content-top">
+                          <div class="margin-bottom margin-xsmall">
+                            <div class="blog24_meta-wrapper">
+                              <div class="tag">
+                                <div>Briefing</div>
+                              </div>
+                              <div class="x-min-read">
+                                <div class="text-size-small-5 text-weight-semibold">{briefing.data.readTime}</div>
+                                <div class="text-size-small-5 text-weight-semibold"> min read</div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="margin-bottom margin-xxsmall">
+                            <h3 class="heading-style-h5-5">{briefing.data.title}</h3>
+                          </div>
+                          <div class="text-size-regular">{briefing.data.summary}</div>
+                        </div>
+                        <div class="margin-top margin-small">
+                          <div class="button-group">
+                            <div class="button-2 is-link is-icon">
+                              <div>Read more</div>
+                              <div class="icon-embed-xxsmall w-embed">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M6 3L11 8L6 13" stroke="CurrentColor" stroke-width="1.5"></path>
+                                </svg>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+)}
+
+{sortedBriefings.length === 0 && (
+<section class="section_blog24">
+  <div class="padding-global">
+    <div class="container-large">
+      <div class="padding-section-large">
+        <div class="text-align-center">
+          <p class="text-size-medium">No briefings available yet. Check back soon for our latest economic analysis.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+)}
+</BaseLayout>

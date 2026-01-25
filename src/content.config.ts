@@ -109,4 +109,26 @@ const localEvents = defineCollection({
   }),
 });
 
-export const collections = { articles, news, bios, ecosystem, localNews, localGroups, localEvents };
+const briefings = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/briefings' }),
+  schema: z.object({
+    title: z.string(),
+    slug: z.string(),
+    author: z.string(),
+    authorTitle: z.string().optional(),
+    pubDate: z.coerce.date(),
+    readTime: z.number().default(5),
+    summary: z.string().optional(),
+    thumbnail: z.string().optional(),
+    mainImage: z.string().optional(),
+    featured: z.boolean().default(false),
+    // Source attribution fields
+    sourceUrl: z.string().optional(),
+    sourceTitle: z.string().optional(),
+    sourceAuthor: z.string().optional(),
+    sourcePublication: z.string().optional(),
+    sourceDate: z.coerce.date().optional(),
+  }),
+});
+
+export const collections = { articles, news, bios, ecosystem, localNews, localGroups, localEvents, briefings };

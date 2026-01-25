@@ -528,6 +528,108 @@ export default defineConfig({
           },
         ],
       },
+      {
+        name: "briefings",
+        label: "MMT Briefings",
+        path: "src/content/briefings",
+        format: "md",
+        fields: [
+          {
+            type: "string",
+            name: "title",
+            label: "Title",
+            isTitle: true,
+            required: true,
+          },
+          {
+            type: "string",
+            name: "slug",
+            label: "Slug",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "author",
+            label: "Author",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "authorTitle",
+            label: "Author Title",
+          },
+          {
+            type: "datetime",
+            name: "pubDate",
+            label: "Publication Date",
+            required: true,
+          },
+          {
+            type: "number",
+            name: "readTime",
+            label: "Read Time (minutes)",
+          },
+          {
+            type: "string",
+            name: "summary",
+            label: "Summary",
+            ui: {
+              component: "textarea",
+            },
+          },
+          {
+            type: "image",
+            name: "thumbnail",
+            label: "Thumbnail",
+          },
+          {
+            type: "image",
+            name: "mainImage",
+            label: "Main Image",
+          },
+          {
+            type: "boolean",
+            name: "featured",
+            label: "Featured",
+          },
+          {
+            type: "string",
+            name: "sourceUrl",
+            label: "Source URL",
+            description: "URL of the article being responded to",
+          },
+          {
+            type: "string",
+            name: "sourceTitle",
+            label: "Source Title",
+            description: "Title of the article being responded to",
+          },
+          {
+            type: "string",
+            name: "sourceAuthor",
+            label: "Source Author",
+            description: "Author of the original article",
+          },
+          {
+            type: "string",
+            name: "sourcePublication",
+            label: "Source Publication",
+            description: "Publication where the source article appeared",
+          },
+          {
+            type: "datetime",
+            name: "sourceDate",
+            label: "Source Date",
+            description: "Publication date of the source article",
+          },
+          {
+            type: "rich-text",
+            name: "body",
+            label: "Body",
+            isBody: true,
+          },
+        ],
+      },
     ],
   },
 });

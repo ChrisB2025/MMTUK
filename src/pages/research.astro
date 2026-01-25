@@ -1,5 +1,16 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const allBriefings = await getCollection('briefings');
+const sortedBriefings = allBriefings.sort((a, b) =>
+  new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
+);
+
+// Get up to 3 most recent briefings for the featured section
+const featuredBriefings = sortedBriefings.slice(0, 3);
+const heroBriefing = featuredBriefings[0];
+const smallerBriefings = featuredBriefings.slice(1);
 ---
 
 <BaseLayout title="Research" description="Explore MMT UK research and publications." currentPage="research">
@@ -22,62 +33,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <div class="image-overlay-layer"></div><img sizes="240px" srcset="/images/briefing-room-p-500.avif 500w, images/briefing-room-p-800.avif 800w, images/briefing-room.avif 1920w" alt="" src="/images/briefing-room.avif" loading="eager" class="header54_background-image">
         </div>
       </header>
-      <section class="section_faq7 color-scheme-4">
-        <div class="padding-global">
-          <div class="container-large">
-            <div class="padding-section-large">
-              <div class="faq7_component">
-                <div class="margin-bottom margin-xxlarge">
-                  <div class="text-align-center">
-                    <div class="max-width-large align-center">
-                      <div class="margin-bottom margin-small">
-                        <h2 class="heading-style-h2 left">Our Approach to policy Research</h2>
-                      </div>
-                      <p class="text-size-medium approach">Navigating complex economic and social landscapes through research and understanding informed by Modern Monetary Theory.</p>
-                    </div>
-                  </div>
-                </div>
-                <div>
-                  <div class="max-width-large align-center">
-                    <div class="faq7_list">
-                      <div class="faq7_item">
-                        <div class="margin-bottom margin-xsmall">
-                          <div class="text-size-medium heading-style-h5">How we approach research</div>
-                        </div>
-                        <p>We blend academic rigor with practical application. Our methodology cuts through theoretical noise to deliver actionable insights. We challenge assumptions and seek truth.</p>
-                      </div>
-                      <div class="faq7_item">
-                        <div class="margin-bottom margin-xsmall">
-                          <div class="text-size-medium heading-style-h5">What makes our work unique</div>
-                        </div>
-                        <p>We bridge academic theory and real-world impact. Our research goes beyond traditional boundaries, connecting scholarly analysis with grassroots movements. We transform knowledge into meaningful change.</p>
-                      </div>
-                      <div class="faq7_item">
-                        <div class="margin-bottom margin-xsmall">
-                          <div class="text-size-medium heading-style-h5">Our research methodology</div>
-                        </div>
-                        <p>We employ interdisciplinary approaches that challenge conventional thinking. Our team combines deep analytical skills with on-the-ground experience. We don&#x27;t just study problems, we seek solutions.</p>
-                      </div>
-                      <div class="faq7_item">
-                        <div class="margin-bottom margin-xsmall">
-                          <div class="text-size-medium heading-style-h5">Impact of our work</div>
-                        </div>
-                        <p>Our research influences policy, challenges economic paradigms, and supports social transformation. We provide clear, evidence-based insights that drive meaningful dialogue and action.</p>
-                      </div>
-                      <div class="faq7_item">
-                        <div class="margin-bottom margin-xsmall">
-                          <div class="text-size-medium heading-style-h5">Collaboration and transparency</div>
-                        </div>
-                        <p>We believe in open research and collaborative knowledge creation. Our work is transparent, peer-reviewed, and designed to empower communities and policymakers alike.</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
       <header class="section_header46 color-scheme-2">
         <div class="padding-global">
           <div class="divider-horizontal page_divider"></div>
@@ -208,6 +163,192 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                     </div>
                   </div>
                   <div class="layout16_image-wrapper"><img sizes="240px" srcset="/images/francais-a-londres-ZdUeSMxgSoo-unsplash-p-500.avif 500w, images/francais-a-londres-ZdUeSMxgSoo-unsplash-p-800.avif 800w, images/francais-a-londres-ZdUeSMxgSoo-unsplash-p-1080.avif 1080w, images/francais-a-londres-ZdUeSMxgSoo-unsplash-p-1600.avif 1600w, images/central-london-banks.avif 2400w" alt="Central London banks" src="/images/central-london-banks.avif" loading="eager" class="layout16_image"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {featuredBriefings.length > 0 && (
+      <section class="section_blog24 color-scheme-2">
+        <div class="padding-global">
+          <div class="container-large">
+            <div class="padding-section-large">
+              <div class="blog24_component">
+                <div class="margin-bottom margin-xlarge">
+                  <div class="text-align-center">
+                    <div class="max-width-large align-center">
+                      <div class="margin-bottom margin-small">
+                        <h2 class="heading-style-h2 left">MMT Briefings</h2>
+                      </div>
+                      <p class="text-size-medium">Our affiliated authors critique public economic commentary and rebut anti-MMT polemic with rigorous analysis.</p>
+                    </div>
+                  </div>
+                </div>
+
+                {heroBriefing && (
+                <div class="margin-bottom margin-xlarge">
+                  <div class="blog24_featured-list-wrapper">
+                    <div class="blog24_featured-list">
+                      <div class="blog24_featured-item">
+                        <a href={`/research/briefings/${heroBriefing.data.slug}`} class="blog24_item-link w-inline-block">
+                          <div class="blog24_featured-item-wrapper">
+                            <div class="blog24_featured-image-wrapper">
+                              <img loading="lazy" src={heroBriefing.data.thumbnail || '/images/placeholder-image.svg'} alt={heroBriefing.data.title} class="blog24_featured-image">
+                            </div>
+                            <div class="blog24_featured-item-content">
+                              <div class="blog24_item-content-top">
+                                <div class="margin-bottom margin-xsmall">
+                                  <div class="blog24_meta-wrapper">
+                                    <div class="tag">
+                                      <div>Briefing</div>
+                                    </div>
+                                    <div class="x-min-read">
+                                      <div class="text-size-small-5 text-weight-semibold">{heroBriefing.data.readTime}</div>
+                                      <div class="text-size-small-5 text-weight-semibold"> min read</div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="margin-bottom margin-xsmall">
+                                  <h3 class="heading-style-h4">{heroBriefing.data.title}</h3>
+                                </div>
+                                <div class="text-size-regular">{heroBriefing.data.summary}</div>
+                              </div>
+                              <div class="margin-top margin-small">
+                                <div class="button-group">
+                                  <div class="button-2 is-link is-icon">
+                                    <div>Read briefing</div>
+                                    <div class="icon-embed-xxsmall w-embed">
+                                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M6 3L11 8L6 13" stroke="CurrentColor" stroke-width="1.5"></path>
+                                      </svg>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                )}
+
+                {smallerBriefings.length > 0 && (
+                <div class="collection-list-wrapper two-column w-dyn-list">
+                  <div role="list" class="collection-list two-column w-dyn-items">
+                    {smallerBriefings.map((briefing) => (
+                      <div role="listitem" class="w-dyn-item">
+                        <div class="blog24_item">
+                          <a href={`/research/briefings/${briefing.data.slug}`} class="blog24_item-link w-inline-block">
+                            <div class="blog24_image-wrapper">
+                              <img loading="lazy" src={briefing.data.thumbnail || '/images/placeholder-image.svg'} alt={briefing.data.title} class="blog24_image">
+                            </div>
+                            <div class="blog24_item-content">
+                              <div class="blog24_item-content-top">
+                                <div class="margin-bottom margin-xsmall">
+                                  <div class="blog24_meta-wrapper">
+                                    <div class="tag">
+                                      <div>Briefing</div>
+                                    </div>
+                                    <div class="x-min-read">
+                                      <div class="text-size-small-5 text-weight-semibold">{briefing.data.readTime}</div>
+                                      <div class="text-size-small-5 text-weight-semibold"> min read</div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="margin-bottom margin-xxsmall">
+                                  <h3 class="heading-style-h5-5">{briefing.data.title}</h3>
+                                </div>
+                                <div class="text-size-regular">{briefing.data.summary}</div>
+                              </div>
+                              <div class="margin-top margin-small">
+                                <div class="button-group">
+                                  <div class="button-2 is-link is-icon">
+                                    <div>Read briefing</div>
+                                    <div class="icon-embed-xxsmall w-embed">
+                                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M6 3L11 8L6 13" stroke="CurrentColor" stroke-width="1.5"></path>
+                                      </svg>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </a>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                )}
+
+                <div class="margin-top margin-xlarge">
+                  <div class="text-align-center">
+                    <a href="/research/briefings" class="button is-secondary w-inline-block">
+                      <div>View All Briefings</div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      )}
+
+      <section class="section_faq7 color-scheme-4">
+        <div class="padding-global">
+          <div class="container-large">
+            <div class="padding-section-large">
+              <div class="faq7_component">
+                <div class="margin-bottom margin-xxlarge">
+                  <div class="text-align-center">
+                    <div class="max-width-large align-center">
+                      <div class="margin-bottom margin-small">
+                        <h2 class="heading-style-h2 left">Our Approach to policy Research</h2>
+                      </div>
+                      <p class="text-size-medium approach">Navigating complex economic and social landscapes through research and understanding informed by Modern Monetary Theory.</p>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div class="max-width-large align-center">
+                    <div class="faq7_list">
+                      <div class="faq7_item">
+                        <div class="margin-bottom margin-xsmall">
+                          <div class="text-size-medium heading-style-h5">How we approach research</div>
+                        </div>
+                        <p>We blend academic rigor with practical application. Our methodology cuts through theoretical noise to deliver actionable insights. We challenge assumptions and seek truth.</p>
+                      </div>
+                      <div class="faq7_item">
+                        <div class="margin-bottom margin-xsmall">
+                          <div class="text-size-medium heading-style-h5">What makes our work unique</div>
+                        </div>
+                        <p>We bridge academic theory and real-world impact. Our research goes beyond traditional boundaries, connecting scholarly analysis with grassroots movements. We transform knowledge into meaningful change.</p>
+                      </div>
+                      <div class="faq7_item">
+                        <div class="margin-bottom margin-xsmall">
+                          <div class="text-size-medium heading-style-h5">Our research methodology</div>
+                        </div>
+                        <p>We employ interdisciplinary approaches that challenge conventional thinking. Our team combines deep analytical skills with on-the-ground experience. We don&#x27;t just study problems, we seek solutions.</p>
+                      </div>
+                      <div class="faq7_item">
+                        <div class="margin-bottom margin-xsmall">
+                          <div class="text-size-medium heading-style-h5">Impact of our work</div>
+                        </div>
+                        <p>Our research influences policy, challenges economic paradigms, and supports social transformation. We provide clear, evidence-based insights that drive meaningful dialogue and action.</p>
+                      </div>
+                      <div class="faq7_item">
+                        <div class="margin-bottom margin-xsmall">
+                          <div class="text-size-medium heading-style-h5">Collaboration and transparency</div>
+                        </div>
+                        <p>We believe in open research and collaborative knowledge creation. Our work is transparent, peer-reviewed, and designed to empower communities and policymakers alike.</p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
