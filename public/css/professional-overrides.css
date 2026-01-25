@@ -85,6 +85,73 @@
   transform: scale(1.03);
 }
 
+/* Card padding and rounded edges */
+.layout132_item {
+  padding: 0.5rem;
+  border-radius: 12px;
+  background: transparent;
+}
+
+.portfolio11_item,
+.portfolio11_item-link {
+  padding: 0.5rem;
+  border-radius: 12px;
+}
+
+.event7_item,
+.event7_item-link {
+  padding: 0.5rem;
+  border-radius: 12px;
+}
+
+/* Local Group Cards */
+.portfolio11_item {
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.portfolio11_item:hover {
+  box-shadow: 0 8px 24px rgba(10, 30, 63, 0.08);
+  transform: translateY(-4px);
+}
+
+.portfolio11_image-wrapper {
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.portfolio11_image {
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.portfolio11_item:hover .portfolio11_image {
+  transform: scale(1.03);
+}
+
+/* Event Cards */
+.event7_item {
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.event7_item:hover {
+  box-shadow: 0 8px 24px rgba(10, 30, 63, 0.08);
+  transform: translateY(-4px);
+}
+
+.event7_image-wrapper {
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.event7_image {
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.event7_item:hover .event7_image {
+  transform: scale(1.03);
+}
+
 /* ==========================================================================
    Phase 1: Link Styling - Animated Underline
    ========================================================================== */
@@ -108,38 +175,6 @@ p a:not(.button):not(.button-2):hover {
 /* ==========================================================================
    Phase 2: Typography Refinements
    ========================================================================== */
-
-/* Remove aggressive uppercase, improve spacing */
-.heading-style-h1,
-.heading-style-h2 {
-  text-transform: none;
-  letter-spacing: -0.02em;
-  font-weight: 700;
-}
-
-/* Refined type scale with better responsive sizing */
-.heading-style-h1 {
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  line-height: 1.1;
-}
-
-.heading-style-h2,
-.heading-style-h2-4 {
-  font-size: clamp(2rem, 4vw, 3rem);
-  line-height: 1.15;
-}
-
-.heading-style-h3 {
-  font-size: clamp(1.5rem, 3vw, 2.25rem);
-  line-height: 1.2;
-  font-weight: 600;
-}
-
-.heading-style-h4 {
-  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
-  line-height: 1.25;
-  font-weight: 600;
-}
 
 /* Body text readability */
 body {
@@ -170,6 +205,26 @@ body {
 
 .accordion1_top:hover {
   background-color: rgba(0, 0, 0, 0.03);
+}
+
+/* Accordion content button alignment */
+.accordion1_bottom .button-group {
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
+
+/* Button padding and hover effects */
+.button-2.is-link.is-icon,
+.button.is-link.is-icon {
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.button-2.is-link.is-icon:hover,
+.button.is-link.is-icon:hover {
+  background-color: rgba(0, 69, 55, 0.08);
+  box-shadow: 0 2px 4px rgba(10, 30, 63, 0.1);
 }
 
 /* ==========================================================================
@@ -226,44 +281,10 @@ body {
 }
 
 /* ==========================================================================
-   Phase 4: Decorative Heading Accent
-   ========================================================================== */
-
-.heading-style-h2::before,
-.heading-style-h2-4::before {
-  content: '';
-  display: block;
-  width: 60px;
-  height: 3px;
-  background: var(--_mmt-uk-theme---accent, #004537);
-  margin-bottom: 1.5rem;
-  border-radius: 2px;
-}
-
-/* Center the accent for centered headings */
-.heading-style-h2.text-align-center::before {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* Left-aligned headings */
-.heading-style-h2.left::before,
-.heading-style-h2-4::before {
-  margin-left: 0;
-  margin-right: auto;
-}
-
-/* ==========================================================================
    Phase 4: Divider Enhancement
    ========================================================================== */
 
-.divider-horizontal {
-  background: linear-gradient(90deg,
-    transparent,
-    rgba(0, 0, 0, 0.1) 20%,
-    rgba(0, 0, 0, 0.1) 80%,
-    transparent);
-}
+/* Divider horizontal - using original Webflow styles */
 
 /* ==========================================================================
    Phase 4: Footer Enhancement
@@ -503,15 +524,10 @@ textarea:focus {
   /* Reduce hover effects on mobile for better touch experience */
   .layout132_item:hover,
   .team8_item:hover,
-  .blog1_item:hover {
+  .blog1_item:hover,
+  .portfolio11_item:hover,
+  .event7_item:hover {
     transform: none;
-  }
-
-  /* Smaller heading accents on mobile */
-  .heading-style-h2::before,
-  .heading-style-h2-4::before {
-    width: 40px;
-    margin-bottom: 1rem;
   }
 
   /* Stack testimonial grid on mobile */

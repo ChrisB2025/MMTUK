@@ -87,4 +87,43 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           </div>
         </div>
       </section>
+
+<script>
+  // Parallax effect for hero images
+  (function() {
+    const canvas = document.querySelector('.header142_images-canvas');
+    const group1 = document.querySelector('.header142_images-group1');
+    const group2 = document.querySelector('.header142_images-group2');
+    const hero = document.querySelector('.header142_component');
+
+    if (!canvas || !group1 || !group2 || !hero) return;
+
+    // Set will-change for performance
+    [canvas, group1, group2].forEach(el => {
+      el.style.willChange = 'transform';
+      el.style.transition = 'transform 0.1s ease-out';
+    });
+
+    hero.addEventListener('mousemove', function(e) {
+      const rect = hero.getBoundingClientRect();
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+
+      // Calculate offset from center (-1 to 1)
+      const offsetX = (e.clientX - rect.left - centerX) / centerX;
+      const offsetY = (e.clientY - rect.top - centerY) / centerY;
+
+      // Apply transforms with different multipliers for depth
+      canvas.style.transform = `translate3d(${offsetX * -5}vw, ${offsetY * -5}vh, 0)`;
+      group1.style.transform = `translate3d(${offsetX * -8}%, ${offsetY * -8}%, 0)`;
+      group2.style.transform = `translate3d(${offsetX * -2}%, ${offsetY * -2}%, 0)`;
+    });
+
+    hero.addEventListener('mouseleave', function() {
+      canvas.style.transform = 'translate3d(0, 0, 0)';
+      group1.style.transform = 'translate3d(0, 0, 0)';
+      group2.style.transform = 'translate3d(0, 0, 0)';
+    });
+  })();
+</script>
 </BaseLayout>
