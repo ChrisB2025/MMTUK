@@ -137,13 +137,6 @@ const fullOgImage = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}
   <style>
     .accordion1_bottom { transition: height 0.3s ease; overflow: hidden; }
     .accordion1_icon { transition: transform 0.3s ease; }
-    .w-slider-mask {
-      display: flex;
-      transition: transform 0.5s ease;
-    }
-    .w-slide {
-      flex: 0 0 100%;
-    }
   </style>
   <script>
     // Accordion functionality
@@ -159,42 +152,65 @@ const fullOgImage = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}
       });
     });
 
-    // Slider functionality
-    document.querySelectorAll('.w-slider').forEach(function(slider) {
-      var mask = slider.querySelector('.w-slider-mask');
-      var slides = slider.querySelectorAll('.w-slide');
-      var leftArrow = slider.querySelector('.w-slider-arrow-left');
-      var rightArrow = slider.querySelector('.w-slider-arrow-right');
-      var navDots = slider.querySelectorAll('.w-slider-dot');
-      var currentIndex = 0;
-      var autoplay = slider.dataset.autoplay === 'true';
-      var delay = parseInt(slider.dataset.delay) || 4000;
-      var intervalId;
+    // Slider functionality - delayed to run after Webflow's initialization
+    setTimeout(function() {
+      document.querySelectorAll('.w-slider').forEach(function(slider) {
+        var slides = slider.querySelectorAll('.w-slide');
+        var currentIndex = 0;
 
-      function goToSlide(index) {
-        if (index < 0) index = slides.length - 1;
-        if (index >= slides.length) index = 0;
-        currentIndex = index;
-        mask.style.transform = 'translateX(-' + (currentIndex * 100) + '%)';
-        navDots.forEach(function(dot, i) {
-          dot.classList.toggle('w-active', i === currentIndex);
+        // Clone arrows to remove Webflow's event listeners
+        var oldLeftArrow = slider.querySelector('.w-slider-arrow-left');
+        var oldRightArrow = slider.querySelector('.w-slider-arrow-right');
+        var leftArrow = oldLeftArrow ? oldLeftArrow.cloneNode(true) : null;
+        var rightArrow = oldRightArrow ? oldRightArrow.cloneNode(true) : null;
+        if (leftArrow) oldLeftArrow.parentNode.replaceChild(leftArrow, oldLeftArrow);
+        if (rightArrow) oldRightArrow.parentNode.replaceChild(rightArrow, oldRightArrow);
+        var autoplay = slider.dataset.customAutoplay === 'true' || slider.dataset.autoplay === 'true';
+        var delay = parseInt(slider.dataset.delay) || 4000;
+        var intervalId;
+
+        // Create our own navigation dots (Webflow's are tied to transform-based logic)
+        var navContainer = slider.querySelector('.w-slider-nav');
+        if (navContainer) {
+          navContainer.innerHTML = '';
+          slides.forEach(function(slide, i) {
+            var dot = document.createElement('div');
+            dot.className = 'w-slider-dot' + (i === 0 ? ' w-active' : '');
+            dot.addEventListener('click', function(e) {
+              e.stopImmediatePropagation();
+              goToSlide(i);
+            });
+            navContainer.appendChild(dot);
+          });
+        }
+        var navDots = navContainer ? navContainer.querySelectorAll('.w-slider-dot') : [];
+
+        function goToSlide(index) {
+          if (index < 0) index = slides.length - 1;
+          if (index >= slides.length) index = 0;
+          currentIndex = index;
+          slides[0].style.marginLeft = '-' + (currentIndex * 100) + '%';
+          navDots.forEach(function(dot, i) {
+            dot.classList.toggle('w-active', i === currentIndex);
+          });
+        }
+
+        if (leftArrow) leftArrow.addEventListener('click', function() {
+          goToSlide(currentIndex - 1);
         });
-      }
+        if (rightArrow) rightArrow.addEventListener('click', function() {
+          goToSlide(currentIndex + 1);
+        });
 
-      if (leftArrow) leftArrow.addEventListener('click', function() { goToSlide(currentIndex - 1); });
-      if (rightArrow) rightArrow.addEventListener('click', function() { goToSlide(currentIndex + 1); });
-      navDots.forEach(function(dot, i) {
-        dot.addEventListener('click', function() { goToSlide(i); });
-      });
-
-      if (autoplay) {
-        intervalId = setInterval(function() { goToSlide(currentIndex + 1); }, delay);
-        slider.addEventListener('mouseenter', function() { clearInterval(intervalId); });
-        slider.addEventListener('mouseleave', function() {
+        if (autoplay) {
           intervalId = setInterval(function() { goToSlide(currentIndex + 1); }, delay);
-        });
-      }
-    });
+          slider.addEventListener('mouseenter', function() { clearInterval(intervalId); });
+          slider.addEventListener('mouseleave', function() {
+            intervalId = setInterval(function() { goToSlide(currentIndex + 1); }, delay);
+          });
+        }
+      });
+    }, 100);
 
     // Tabs functionality
     document.querySelectorAll('.w-tabs').forEach(function(tabContainer) {
