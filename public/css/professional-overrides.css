@@ -1,0 +1,538 @@
+/**
+ * Professional Overrides CSS
+ * MMT UK - Think-tank quality styling refinements
+ *
+ * This file layers professional polish on top of the existing Webflow foundation.
+ * To disable these styles, comment out the <link> in BaseLayout.astro
+ */
+
+/* ==========================================================================
+   Phase 1: CSS Custom Properties for Easing
+   ========================================================================== */
+
+:root {
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* ==========================================================================
+   Phase 1: Button Refinements
+   ========================================================================== */
+
+.button,
+.button-2 {
+  box-shadow: 0 1px 2px rgba(10, 30, 63, 0.08),
+              0 2px 4px rgba(10, 30, 63, 0.06);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.button:hover,
+.button-2:hover {
+  box-shadow: 0 4px 8px rgba(10, 30, 63, 0.12),
+              0 2px 4px rgba(10, 30, 63, 0.08);
+  transform: translateY(-1px);
+}
+
+.button:active,
+.button-2:active {
+  transform: translateY(0);
+}
+
+/* Link-style buttons shouldn't have shadows */
+.button-2.is-link {
+  box-shadow: none;
+}
+
+.button-2.is-link:hover {
+  box-shadow: none;
+  transform: none;
+}
+
+/* ==========================================================================
+   Phase 1: Card Hover Effects
+   ========================================================================== */
+
+.layout132_item,
+.layout522_card-small,
+.layout522_card-large {
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.layout132_item:hover {
+  box-shadow: 0 8px 24px rgba(10, 30, 63, 0.08);
+  transform: translateY(-4px);
+}
+
+.layout522_card-small:hover,
+.layout522_card-large:hover {
+  box-shadow: 0 8px 24px rgba(10, 30, 63, 0.08);
+  transform: translateY(-4px);
+}
+
+/* Image zoom on card hover */
+.layout132_image-wrapper {
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.layout132_image {
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.layout132_item:hover .layout132_image {
+  transform: scale(1.03);
+}
+
+/* ==========================================================================
+   Phase 1: Link Styling - Animated Underline
+   ========================================================================== */
+
+/* Rich text and body links - animated underline reveal */
+.text-rich-text a,
+p a:not(.button):not(.button-2) {
+  text-decoration: none;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0% 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 1px;
+  transition: background-size 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.text-rich-text a:hover,
+p a:not(.button):not(.button-2):hover {
+  background-size: 100% 1px;
+}
+
+/* ==========================================================================
+   Phase 2: Typography Refinements
+   ========================================================================== */
+
+/* Remove aggressive uppercase, improve spacing */
+.heading-style-h1,
+.heading-style-h2 {
+  text-transform: none;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+
+/* Refined type scale with better responsive sizing */
+.heading-style-h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: 1.1;
+}
+
+.heading-style-h2,
+.heading-style-h2-4 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.15;
+}
+
+.heading-style-h3 {
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+.heading-style-h4 {
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  line-height: 1.25;
+  font-weight: 600;
+}
+
+/* Body text readability */
+body {
+  font-size: 1.0625rem; /* 17px */
+  line-height: 1.65;
+}
+
+.text-rich-text {
+  max-width: 65ch; /* Optimal reading width */
+}
+
+/* ==========================================================================
+   Phase 3: Accordion Improvements
+   ========================================================================== */
+
+.accordion1_bottom {
+  transition: height 0.4s var(--ease-out-expo) !important;
+}
+
+.accordion1_icon {
+  transition: transform 0.4s var(--ease-spring) !important;
+}
+
+.accordion1_top {
+  transition: background-color 0.3s ease;
+  border-radius: 8px;
+}
+
+.accordion1_top:hover {
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+/* ==========================================================================
+   Phase 3: Focus States for Accessibility
+   ========================================================================== */
+
+*:focus-visible {
+  outline: 2px solid var(--_mmt-uk-theme---accent, #004537);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.button:focus-visible,
+.button-2:focus-visible {
+  box-shadow: 0 0 0 4px rgba(0, 69, 55, 0.15);
+}
+
+/* ==========================================================================
+   Phase 3: Scroll-Triggered Reveals
+   ========================================================================== */
+
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s var(--ease-out-expo), transform 0.6s var(--ease-out-expo);
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered animation delays for grid items */
+.reveal-on-scroll:nth-child(2) {
+  transition-delay: 0.1s;
+}
+
+.reveal-on-scroll:nth-child(3) {
+  transition-delay: 0.2s;
+}
+
+.reveal-on-scroll:nth-child(4) {
+  transition-delay: 0.3s;
+}
+
+/* ==========================================================================
+   Phase 4: Visual Hierarchy - Section Differentiation
+   ========================================================================== */
+
+/* Subtle background variations for visual rhythm */
+.section_layout_home_education,
+.section_layout_home_community {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+/* ==========================================================================
+   Phase 4: Decorative Heading Accent
+   ========================================================================== */
+
+.heading-style-h2::before,
+.heading-style-h2-4::before {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: var(--_mmt-uk-theme---accent, #004537);
+  margin-bottom: 1.5rem;
+  border-radius: 2px;
+}
+
+/* Center the accent for centered headings */
+.heading-style-h2.text-align-center::before {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Left-aligned headings */
+.heading-style-h2.left::before,
+.heading-style-h2-4::before {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+/* ==========================================================================
+   Phase 4: Divider Enhancement
+   ========================================================================== */
+
+.divider-horizontal {
+  background: linear-gradient(90deg,
+    transparent,
+    rgba(0, 0, 0, 0.1) 20%,
+    rgba(0, 0, 0, 0.1) 80%,
+    transparent);
+}
+
+/* ==========================================================================
+   Phase 4: Footer Enhancement
+   ========================================================================== */
+
+.footer4_component {
+  position: relative;
+}
+
+.footer4_component::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg,
+    var(--_mmt-uk-theme---accent, #004537),
+    var(--_primitives---colors--downriver, #0a1e3f));
+}
+
+/* ==========================================================================
+   Phase 5: Modern Testimonial Grid (replaces carousel)
+   ========================================================================== */
+
+/* Modern testimonial card grid */
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.testimonial-card {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  position: relative;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: all 0.35s var(--ease-out-quart);
+}
+
+.testimonial-card::before {
+  content: '\201C'; /* Opening quote mark */
+  font-size: 4rem;
+  color: var(--_mmt-uk-theme---accent, #004537);
+  opacity: 0.15;
+  position: absolute;
+  top: 0.5rem;
+  left: 1.5rem;
+  line-height: 1;
+  font-family: Georgia, serif;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(10, 30, 63, 0.1);
+}
+
+.testimonial-quote {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  font-weight: 500;
+  color: var(--_primitives---colors--downriver, #0a1e3f);
+  margin: 0;
+  padding-top: 1rem;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.testimonial-author-image {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.testimonial-author-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.testimonial-author-name {
+  font-weight: 600;
+  font-size: 0.9375rem;
+  color: var(--_primitives---colors--downriver, #0a1e3f);
+}
+
+.testimonial-author-title {
+  font-size: 0.8125rem;
+  color: var(--_primitives---colors--neutral, #666);
+}
+
+/* ==========================================================================
+   Phase 5: Form Styling
+   ========================================================================== */
+
+.form_input,
+input[type="text"],
+input[type="email"],
+textarea {
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 0.875rem 1rem;
+  transition: all 0.25s ease;
+}
+
+.form_input:focus,
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+  border-color: var(--_mmt-uk-theme---accent, #004537);
+  box-shadow: 0 0 0 3px rgba(0, 69, 55, 0.1);
+  outline: none;
+}
+
+/* ==========================================================================
+   Phase 5: Mobile Navigation Enhancement
+   ========================================================================== */
+
+.menu-icon1_line-top,
+.menu-icon1_line-middle,
+.menu-icon1_line-bottom {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.w-nav-button.w--open .menu-icon1_line-top {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.w-nav-button.w--open .menu-icon1_line-middle {
+  opacity: 0;
+}
+
+.w-nav-button.w--open .menu-icon1_line-bottom {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* ==========================================================================
+   Header Slider Enhancements
+   ========================================================================== */
+
+.header102_slide-image {
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.header102_slide:hover .header102_slide-image {
+  transform: scale(1.02);
+}
+
+.header102_arrow {
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.header102_arrow:hover {
+  transform: scale(1.1);
+}
+
+/* ==========================================================================
+   Team Member Cards
+   ========================================================================== */
+
+.team8_item {
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.team8_item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(10, 30, 63, 0.08);
+}
+
+/* ==========================================================================
+   Article Cards Enhancement
+   ========================================================================== */
+
+.blog1_item {
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.blog1_item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(10, 30, 63, 0.08);
+}
+
+.blog1_image-wrapper {
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.blog1_image {
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.blog1_item:hover .blog1_image {
+  transform: scale(1.03);
+}
+
+/* ==========================================================================
+   Contact Section Enhancement
+   ========================================================================== */
+
+.contact15_item {
+  transition: all 0.3s ease;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.contact15_item:hover {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+/* ==========================================================================
+   Ecosystem Cards
+   ========================================================================== */
+
+.layout478_card {
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.layout478_card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(10, 30, 63, 0.08);
+}
+
+/* ==========================================================================
+   Responsive Adjustments
+   ========================================================================== */
+
+@media (max-width: 767px) {
+  /* Reduce hover effects on mobile for better touch experience */
+  .layout132_item:hover,
+  .team8_item:hover,
+  .blog1_item:hover {
+    transform: none;
+  }
+
+  /* Smaller heading accents on mobile */
+  .heading-style-h2::before,
+  .heading-style-h2-4::before {
+    width: 40px;
+    margin-bottom: 1rem;
+  }
+
+  /* Stack testimonial grid on mobile */
+  .testimonial-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .reveal-on-scroll {
+    opacity: 1;
+    transform: none;
+  }
+}
