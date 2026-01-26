@@ -567,6 +567,17 @@ textarea:focus {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
+
+  /* Accordion content - stack text and button on mobile */
+  .accordion1_bottom .margin-bottom.margin-small[style*="display: flex"] {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+
+  .accordion1_bottom .margin-bottom.margin-small[style*="display: flex"] .button.is-link {
+    margin-top: 1rem;
+    align-self: flex-end;
+  }
 }
 
 /* Reduce motion for users who prefer it */
