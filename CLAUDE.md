@@ -59,12 +59,46 @@ CSS comes from Webflow exports in `public/css/` (normalize.css, webflow.css, mmt
 
 **Custom Overrides**: `public/css/professional-overrides.css` contains site-specific styling enhancements that override Webflow defaults. Add new custom styles here rather than modifying Webflow CSS files.
 
+Key overrides in this file:
+- Button hover effects (shadows, transforms)
+- Card hover animations (lift effect, image zoom)
+- Accordion improvements (smooth transitions, hover states)
+- Link underline animations
+- Focus states for accessibility
+- Testimonial card grid styles
+- Form input styling
+
 **Common Webflow Component Classes**:
 - `.team8_item` - Bio/team member cards (used on About Us page)
 - `.blog1_item` - Article cards
 - `.faq4_component` / `.accordion1_component` - Accordion sections (e.g., MMTUK News)
 - `.section_team8`, `.section_faq7` - Section wrappers with color schemes
 - `.faq7_component` - Content sections with centered headings and constrained width
+
+**Button Classes**:
+- `.button` and `.button-2` - Primary button styles (both get hover effects from professional-overrides.css)
+- `.button-2.is-link.is-icon` or `.button.is-link.is-icon` - Link-style buttons with arrow icon, used in accordions and cards
+- `.w-button` - Webflow button base class (combine with above)
+
+**Accordion Component Pattern** (used for expandable content):
+```html
+<div class="accordion1_component">
+  <div data-w-id="unique-id" class="accordion1_top">
+    <div class="text-size-medium-19 text-weight-bold">Accordion Title</div>
+    <div class="accordion1_icon w-embed">
+      <svg width="100%" height="100%" viewbox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M16.5303 20.8839C16.2374 21.1768 15.7626 21.1768 15.4697 20.8839L7.82318 13.2374C7.53029 12.9445 7.53029 12.4697 7.82318 12.1768L8.17674 11.8232C8.46963 11.5303 8.9445 11.5303 9.2374 11.8232L16 18.5858L22.7626 11.8232C23.0555 11.5303 23.5303 11.5303 23.8232 11.8232L24.1768 12.1768C24.4697 12.4697 24.4697 12.9445 24.1768 13.2374L16.5303 20.8839Z" fill="currentColor"></path>
+      </svg>
+    </div>
+  </div>
+  <div style="height:0px" class="accordion1_bottom">
+    <div class="margin-bottom margin-small">
+      <p>Accordion content here...</p>
+    </div>
+  </div>
+</div>
+```
+The accordion JS is in BaseLayout.astro and toggles the `height` of `.accordion1_bottom`.
 
 **Section Structure Pattern** (used on education page):
 ```html
@@ -83,6 +117,38 @@ CSS comes from Webflow exports in `public/css/` (normalize.css, webflow.css, mmt
           </div>
           <div class="max-width-large align-center">
             <p class="text-size-medium" style="text-align: left;">Content here...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+```
+
+**CTA Section Pattern** (two-column layout with image, used for Discord section on community page):
+```html
+<section class="section_cta1">
+  <div class="padding-global">
+    <div class="divider-horizontal page_divider"></div>
+    <div class="container-large">
+      <div class="padding-section-large">
+        <div class="cta1_component">
+          <div class="w-layout-grid cta1_content">
+            <div class="cta1_content-left">
+              <div class="margin-bottom margin-small">
+                <h2 class="heading-style-h2 left">Section Title</h2>
+              </div>
+              <p class="text-size-medium-13">Description text...</p>
+              <div class="margin-top margin-medium">
+                <div class="button-group">
+                  <a href="#" class="button-2 w-button">Call to Action</a>
+                </div>
+              </div>
+              <!-- Optional: accordion component can be added here -->
+            </div>
+            <div class="cta1_image-wrapper" style="align-self: start;">
+              <img loading="lazy" src="/images/image.avif" alt="" class="cta1_image">
+            </div>
           </div>
         </div>
       </div>
@@ -129,6 +195,23 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 ```
 This shows a human-readable fallback ("contact [at] mmtuk [dot] org") if JavaScript is disabled.
+
+## Parallax Hero Animation
+
+The join page (`src/pages/join.astro`) has a mouse-tracking parallax effect on hero images. This pattern can be reused for other hero sections.
+
+**How it works**:
+- Tracks mouse position relative to the hero section center
+- Applies `translate3d()` transforms to image groups with different multipliers for depth
+- Uses `will-change: transform` and short transitions for smooth performance
+- Resets to origin on mouse leave
+
+**Key elements** (from Webflow's header142 component):
+- `.header142_component` - The hero container (event listener target)
+- `.header142_images-canvas` - Outer image wrapper
+- `.header142_images-group1` / `.header142_images-group2` - Image groups that move at different rates
+
+**Implementation**: Add a `<script>` tag at the end of the page (before `</BaseLayout>`). See `join.astro` for the full implementation.
 
 ## Webflow Slider/Carousel Override
 
