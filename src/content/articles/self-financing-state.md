@@ -1,7 +1,7 @@
 ---
 title: "The Self-Financing State"
 slug: "self-financing-state"
-category: "Core Ideas"
+category: "Core Insights"
 layout: "simplified"
 author: "MMTUK"
 pubDate: 2026-01-23T00:00:00.000Z

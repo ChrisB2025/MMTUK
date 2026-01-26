@@ -1,7 +1,7 @@
 ---
 title: "The UK Government vs the Bond Market"
 slug: "government-vs-bond-market"
-category: "Core Ideas"
+category: "Core Insights"
 layout: "simplified"
 author: "MMTUK"
 pubDate: 2026-01-23T00:00:00.000Z
