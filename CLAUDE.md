@@ -130,6 +130,44 @@ document.addEventListener('DOMContentLoaded', function() {
 ```
 This shows a human-readable fallback ("contact [at] mmtuk [dot] org") if JavaScript is disabled.
 
+## Webflow Slider/Carousel Override
+
+The site uses custom slider JavaScript in `BaseLayout.astro` to replace Webflow's native slider behavior. This was necessary because Webflow's transform-based approach conflicted with the Astro build.
+
+### How It Works
+
+The custom implementation uses `margin-left` on the first slide instead of `transform: translateX()` on the mask:
+
+```javascript
+slides[0].style.marginLeft = '-' + (currentIndex * 100) + '%';
+```
+
+### Critical Configuration
+
+For sliders to work correctly, the HTML element needs **both** data attributes:
+
+```html
+<div class="w-slider" data-autoplay="false" data-custom-autoplay="true" data-delay="4000">
+```
+
+- `data-autoplay="false"` - Disables Webflow's native autoplay (prevents conflicts)
+- `data-custom-autoplay="true"` - Enables our custom autoplay implementation
+- `data-delay="4000"` - Slide interval in milliseconds
+
+### Implementation Details (BaseLayout.astro)
+
+1. **Delayed initialization** (100ms setTimeout) - Ensures code runs after Webflow's JS initializes
+2. **Cloned arrow elements** - Removes Webflow's event handlers by cloning and replacing arrow buttons
+3. **Custom navigation dots** - Creates dots dynamically since Webflow's are tied to transform-based logic
+
+### Troubleshooting
+
+If the carousel breaks after deployment:
+1. Check that `data-autoplay="false"` is set (Webflow's autoplay conflicts with ours)
+2. Check that `data-custom-autoplay="true"` is set (enables our implementation)
+3. Verify both the page file (e.g., `index.astro`) AND `BaseLayout.astro` changes are committed
+4. The slider JS is in BaseLayout.astro around line 155-210
+
 ## Content Frontmatter Example
 
 ```yaml
@@ -147,3 +185,16 @@ thumbnail: "/images/placeholder-image.svg"
 ## CMS
 
 Decap CMS (formerly NetlifyCMS) provides a web UI for editing content at `/admin/`. It uses git-gateway backend and commits changes directly to the repository. For local CMS development, enable `local_backend: true` in `public/admin/config.yml`.
+
+## Deployment
+
+- **Staging**: Railway.app deploys from the `design-upgrade` branch
+- **Production**: TBD
+
+### Common Deployment Issues
+
+1. **Feature works locally but not on staging**: Check `git status` for uncommitted changes. A fix often requires changes to multiple files (e.g., both `BaseLayout.astro` AND a page file like `index.astro`). Ensure ALL related files are committed and pushed.
+
+2. **Multiple terminal sessions**: Running multiple Claude Code sessions can cause commit queue confusion. Always verify with `git log` that the expected commits are present and pushed.
+
+3. **Verify remote state**: Use `git log origin/design-upgrade --oneline -5` to confirm what's actually on the remote branch before assuming a deployment issue.
