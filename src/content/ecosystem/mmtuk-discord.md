@@ -1,6 +1,6 @@
 ---
-name: "MMT UK Discord"
-slug: "mmt-uk-discord"
+name: "MMTUK Discord"
+slug: "mmtuk-discord"
 country: "UK"
 types: ["online-groups; all"]
 summary: "An online community dedicated to understanding and promoting MMT in the UK."

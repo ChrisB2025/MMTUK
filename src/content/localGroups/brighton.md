@@ -1,7 +1,7 @@
 ---
 name: Brighton
 slug: brighton
-title: "MMT UK | Brighton"
+title: "MMTUK | Brighton"
 tagline: "Seaside discussions and progressive economic thinking on the South Coast."
 headerImage: "/images/brighton-pavilion.jpg"
 leaderName: ""

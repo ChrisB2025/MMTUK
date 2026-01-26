@@ -1,6 +1,6 @@
 ---
 title: "Debt and Deficits: A New Perspective"
-slug: "mmt-uk-feature-article-5-4310b"
+slug: "mmtuk-feature-article-5-4310b"
 category: "Article"
 sector: "Economics"
 author: "Steve Laughton"

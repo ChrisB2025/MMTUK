@@ -1,6 +1,6 @@
 ---
 title: "Fiscal Policy and Social Equity"
-slug: "mmt-uk-research-3"
+slug: "mmtuk-research-3"
 category: "Article"
 sector: "Economics"
 author: "David Merrill"

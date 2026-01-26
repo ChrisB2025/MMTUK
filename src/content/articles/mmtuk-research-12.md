@@ -1,6 +1,6 @@
 ---
 title: "The Impact of Technology on Economics"
-slug: "mmt-uk-research-12"
+slug: "mmtuk-research-12"
 category: "Commentary"
 sector: "Economics"
 author: "David Merrill"

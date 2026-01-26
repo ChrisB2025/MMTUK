@@ -1,6 +1,6 @@
 ---
 title: "The Future of Work"
-slug: "mmt-uk-commentary-10"
+slug: "mmtuk-commentary-10"
 category: "Research"
 sector: "Economics"
 author: "Patricia Pino"

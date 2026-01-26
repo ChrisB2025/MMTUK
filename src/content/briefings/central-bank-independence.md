@@ -2,7 +2,7 @@
 title: "Central Bank Independence: Sacred Cow or Policy Failure?"
 slug: "central-bank-independence"
 author: "Dr. Sarah Williams"
-authorTitle: "Economic Policy Advisor, MMT UK"
+authorTitle: "Economic Policy Advisor, MMTUK"
 pubDate: 2026-01-21T00:00:00.000Z
 readTime: 10
 summary: "Questioning whether independent central banks using interest rate policy have delivered on their promises of price stability and prosperity."

@@ -1,6 +1,6 @@
 ---
 title: "Economic Policy and Social Justice"
-slug: "mmt-uk-commentary-19"
+slug: "mmtuk-commentary-19"
 category: "Research"
 sector: "Economics"
 author: "Stephanie Linkogle"

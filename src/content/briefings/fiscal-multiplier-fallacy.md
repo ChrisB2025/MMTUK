@@ -2,7 +2,7 @@
 title: "The Fiscal Multiplier Fallacy: Why Austerity Backfires"
 slug: "fiscal-multiplier-fallacy"
 author: "Dr. Eleanor Hughes"
-authorTitle: "Research Fellow, MMT UK"
+authorTitle: "Research Fellow, MMTUK"
 pubDate: 2026-01-24T00:00:00.000Z
 readTime: 7
 summary: "Examining why cutting government spending during economic downturns often increases rather than decreases the debt-to-GDP ratio."

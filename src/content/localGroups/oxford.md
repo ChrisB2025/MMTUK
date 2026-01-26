@@ -1,7 +1,7 @@
 ---
 name: Oxford
 slug: oxford
-title: "MMT UK | Oxford"
+title: "MMTUK | Oxford"
 tagline: "Academic engagement and community discussion in the city of dreaming spires."
 headerImage: "/images/local-groups/oxford.jpg"
 leaderName: ""

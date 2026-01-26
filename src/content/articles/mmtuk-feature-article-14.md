@@ -1,6 +1,6 @@
 ---
 title: "The Intersection of Economics and Society"
-slug: "mmt-uk-feature-article-14"
+slug: "mmtuk-feature-article-14"
 category: "Commentary"
 sector: "Economics"
 author: "Stephanie Linkogle"

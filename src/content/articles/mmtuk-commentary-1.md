@@ -1,17 +1,17 @@
 ---
 title: "Understanding Modern Monetary Theory"
-slug: "mmt-uk-commentary-1-1c57f"
+slug: "mmtuk-commentary-1"
 category: "Commentary"
 sector: "Economics"
 author: "Patricia Pino"
 authorTitle: "Co-host of the MMT Podcast"
 pubDate: 2023-10-01T00:00:00.000Z
 readTime: 5
-summary: "An exploration of Modern Monetary Theory and its implications for economic policy."
-thumbnail: "https://cdn.prod.website-files.com/68e63bdd54ac5b7ee3fc19ba/68e775578a4b1bd37a674e07_image1.jpeg"
-mainImage: "https://cdn.prod.website-files.com/68e63bdd54ac5b7ee3fc19ba/68e9210d0ae0573ea4c4a8f0_image7.jpeg"
+summary: "An overview of Modern Monetary Theory and its implications for economic policy."
+thumbnail: "https://cdn.prod.website-files.com/68e63bdd54ac5b7ee3fc19ba/68e9210d0ae0573ea4c4a8f8_image11.jpeg"
+mainImage: "https://cdn.prod.website-files.com/68e63bdd54ac5b7ee3fc19ba/68e9210d0ae0573ea4c4a8e7_image4.jpeg"
 featured: true
-color: "#4CAF50"
+color: "#FF5733"
 ---
 
 #### Introduction to MMT

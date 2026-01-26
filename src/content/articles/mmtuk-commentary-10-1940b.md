@@ -1,6 +1,6 @@
 ---
 title: "Rethinking Economic Growth"
-slug: "mmt-uk-commentary-10-1940b"
+slug: "mmtuk-commentary-10-1940b"
 category: "Research"
 sector: "Economics"
 author: "David McNab"

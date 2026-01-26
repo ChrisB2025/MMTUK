@@ -1,7 +1,7 @@
 ---
 name: London
 slug: london
-title: "MMT UK | London"
+title: "MMTUK | London"
 tagline: "Talks, workshops, and organising across Greater London with civic partners."
 headerImage: "/images/london-westminster.jpg"
 leaderName: ""

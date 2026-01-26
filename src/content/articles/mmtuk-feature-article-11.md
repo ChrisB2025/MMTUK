@@ -1,6 +1,6 @@
 ---
 title: "Economic Resilience in Crisis"
-slug: "mmt-uk-feature-article-11"
+slug: "mmtuk-feature-article-11"
 category: "Article"
 sector: "Economics"
 author: "Vincent Gomez"

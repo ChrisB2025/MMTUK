@@ -1,6 +1,6 @@
 ---
 title: "The Future of Money"
-slug: "mmt-uk-feature-article-5"
+slug: "mmtuk-feature-article-5"
 category: "Commentary"
 sector: "Economics"
 author: "Steve Laughton"

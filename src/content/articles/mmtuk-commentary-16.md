@@ -1,6 +1,6 @@
 ---
 title: "The Role of Data in Economic Decision-Making"
-slug: "mmt-uk-commentary-16"
+slug: "mmtuk-commentary-16"
 category: "Commentary"
 sector: "Economics"
 author: "Dr Phil Armstrong"

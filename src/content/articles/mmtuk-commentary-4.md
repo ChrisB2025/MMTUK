@@ -1,6 +1,6 @@
 ---
 title: "Inflation and Public Spending"
-slug: "mmt-uk-commentary-4"
+slug: "mmtuk-commentary-4"
 category: "Research"
 sector: "Economics"
 author: "David McNab"

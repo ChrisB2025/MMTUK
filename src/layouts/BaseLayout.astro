@@ -13,7 +13,7 @@ interface Props {
 
 const {
   title,
-  description = "MMT UK promotes better public understanding of money, economics and government spending for a fairer, sustainable society.",
+  description = "MMTUK promotes better public understanding of money, economics and government spending for a fairer, sustainable society.",
   ogImage = "/images/Home.avif",
   currentPage = ''
 } = Astro.props;
@@ -26,12 +26,12 @@ const fullOgImage = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>{title} | MMT UK</title>
+  <title>{title} | MMTUK</title>
   <meta content={description} name="description">
-  <meta content={`${title} | MMT UK`} property="og:title">
+  <meta content={`${title} | MMTUK`} property="og:title">
   <meta content={description} property="og:description">
   <meta content={fullOgImage} property="og:image">
-  <meta content={`${title} | MMT UK`} property="twitter:title">
+  <meta content={`${title} | MMTUK`} property="twitter:title">
   <meta content={description} property="twitter:description">
   <meta content={fullOgImage} property="twitter:image">
   <meta property="og:type" content="website">

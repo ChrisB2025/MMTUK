@@ -2,7 +2,7 @@
 title: "Why the Debt-to-GDP Obsession Misses the Point"
 slug: "debt-to-gdp-obsession"
 author: "Dr. Patricia Sheridan"
-authorTitle: "Senior Economist, MMT UK Advisory Board"
+authorTitle: "Senior Economist, MMTUK Advisory Board"
 pubDate: 2026-01-25T00:00:00.000Z
 readTime: 8
 summary: "A detailed analysis of why the commonly cited debt-to-GDP ratio fails to capture the true fiscal position of a currency-issuing government."

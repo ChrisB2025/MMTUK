@@ -406,7 +406,7 @@ export default defineConfig({
             name: "title",
             label: "Title",
             required: true,
-            description: "e.g. MMT UK | Scotland",
+            description: "e.g. MMTUK | Scotland",
           },
           {
             type: "string",

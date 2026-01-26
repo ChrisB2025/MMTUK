@@ -1,6 +1,6 @@
 ---
 title: "Monetary Policy in a Post-COVID World"
-slug: "mmt-uk-research-6-72f4d"
+slug: "mmtuk-research-6-72f4d"
 category: "Article"
 sector: "Economics"
 author: "Stephanie Linkogle"

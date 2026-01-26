@@ -1,6 +1,6 @@
 ---
 title: "The Importance of Economic Literacy"
-slug: "mmt-uk-commentary-7-02474"
+slug: "mmtuk-commentary-7-02474"
 category: "Article"
 sector: "Economics"
 author: "Richard Tye"

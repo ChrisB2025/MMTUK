@@ -1,6 +1,6 @@
 ---
 title: "Economic Challenges in a Globalized World"
-slug: "mmt-uk-feature-article-17"
+slug: "mmtuk-feature-article-17"
 category: "Commentary"
 sector: "Economics"
 author: "Vincent Gomez"

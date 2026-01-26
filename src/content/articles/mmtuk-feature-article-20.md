@@ -1,6 +1,6 @@
 ---
 title: "The Impact of Climate Change on Economics"
-slug: "mmt-uk-feature-article-20"
+slug: "mmtuk-feature-article-20"
 category: "Research"
 sector: "Economics"
 author: "Dr Phil Armstrong"

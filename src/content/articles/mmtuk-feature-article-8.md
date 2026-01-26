@@ -1,6 +1,6 @@
 ---
 title: "Sustainable Economic Practices"
-slug: "mmt-uk-feature-article-8"
+slug: "mmtuk-feature-article-8"
 category: "Commentary"
 sector: "Economics"
 author: "Andrew Berkeley"

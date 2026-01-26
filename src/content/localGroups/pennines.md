@@ -1,7 +1,7 @@
 ---
 name: Pennines
 slug: pennines
-title: "MMT UK | Pennines"
+title: "MMTUK | Pennines"
 tagline: "Connecting communities across the Pennines for economic learning and action."
 headerImage: "/images/local-groups/pennines.jpg"
 leaderName: ""

@@ -1,6 +1,6 @@
 ---
 title: "The Role of Government in Economic Recovery"
-slug: "mmt-uk-feature-article-2-7a1db"
+slug: "mmtuk-feature-article-2-7a1db"
 category: "Research"
 sector: "Economics"
 author: "Vincent Gomez"

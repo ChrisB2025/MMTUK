@@ -1,6 +1,6 @@
 ---
 title: "Globalization and Local Economies"
-slug: "mmt-uk-research-9"
+slug: "mmtuk-research-9"
 category: "Commentary"
 sector: "Economics"
 author: "Dr Phil Armstrong"

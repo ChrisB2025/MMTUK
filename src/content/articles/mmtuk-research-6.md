@@ -1,6 +1,6 @@
 ---
 title: "Debt and Economic Growth"
-slug: "mmt-uk-research-6"
+slug: "mmtuk-research-6"
 category: "Article"
 sector: "Economics"
 author: "Stephanie Linkogle"

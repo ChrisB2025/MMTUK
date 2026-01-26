@@ -1,7 +1,7 @@
 ---
 name: Scotland
 slug: scotland
-title: "MMT UK | Scotland"
+title: "MMTUK | Scotland"
 tagline: "Edinburgh-based meetups, learning, and local economic action for community impact."
 headerImage: "/images/edinburgh-castle.jpg"
 leaderName: "William Thomson"
@@ -10,4 +10,4 @@ discordLink: "https://discord.gg/S3UbxFe4FR"
 active: true
 ---
 
-The Scotland Local Group is one of MMT UK's most active regional communities. We focus on Scottish economic issues through an MMT lens, including questions about fiscal autonomy, public investment, and regional development.
+The Scotland Local Group is one of MMTUK's most active regional communities. We focus on Scottish economic issues through an MMT lens, including questions about fiscal autonomy, public investment, and regional development.

@@ -1,6 +1,6 @@
 ---
 title: "The Intersection of Economics and Social Justice"
-slug: "mmt-uk-research-9-3603a"
+slug: "mmtuk-research-9-3603a"
 category: "Research"
 sector: "Economics"
 author: "Dr Phil Armstrong"

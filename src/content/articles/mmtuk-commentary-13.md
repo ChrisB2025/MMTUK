@@ -1,6 +1,6 @@
 ---
 title: "Economic Policy for the Future"
-slug: "mmt-uk-commentary-13"
+slug: "mmtuk-commentary-13"
 category: "Article"
 sector: "Economics"
 author: "David McNab"

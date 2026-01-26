@@ -1,7 +1,7 @@
 ---
 name: Solent
 slug: solent
-title: "MMT UK | Solent"
+title: "MMTUK | Solent"
 tagline: "Connecting Southampton, Portsmouth, and the wider Solent area."
 headerImage: "/images/local-groups/solent.jpg"
 leaderName: ""

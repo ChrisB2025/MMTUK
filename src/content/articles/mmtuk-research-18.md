@@ -1,6 +1,6 @@
 ---
 title: "The Future of Public Finance"
-slug: "mmt-uk-research-18"
+slug: "mmtuk-research-18"
 category: "Research"
 sector: "Economics"
 author: "David Merrill"

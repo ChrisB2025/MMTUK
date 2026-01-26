@@ -1,6 +1,6 @@
 ---
 title: "Economic Models and Real-World Applications"
-slug: "mmt-uk-research-15"
+slug: "mmtuk-research-15"
 category: "Commentary"
 sector: "Economics"
 author: "Andrew Berkeley"

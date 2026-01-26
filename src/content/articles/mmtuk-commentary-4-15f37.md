@@ -1,6 +1,6 @@
 ---
 title: "The Future of Public Finance"
-slug: "mmt-uk-commentary-4-15f37"
+slug: "mmtuk-commentary-4-15f37"
 category: "Article"
 sector: "Economics"
 author: "David McNab"
