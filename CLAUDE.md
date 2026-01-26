@@ -269,6 +269,32 @@ thumbnail: "/images/placeholder-image.svg"
 
 Decap CMS (formerly NetlifyCMS) provides a web UI for editing content at `/admin/`. It uses git-gateway backend and commits changes directly to the repository. For local CMS development, enable `local_backend: true` in `public/admin/config.yml`.
 
+## Branding
+
+The organization name is **MMTUK** (no space). Previously "MMT UK" was used inconsistently.
+
+### Brand Name Usage
+- Text content: Use "MMTUK" everywhere (titles, descriptions, meta tags)
+- Local group titles: "MMTUK | Scotland", "MMTUK | London", etc.
+- Author titles: "Research Fellow, MMTUK"
+
+### CSS Variables Exception
+The CSS variable names `--_mmt-uk-theme---*` in `mmtuk.webflow.css` retain the hyphenated form because:
+1. They are Webflow-exported technical identifiers, not visible to users
+2. Changing them would require updating 100+ `var()` references
+3. They may be regenerated if Webflow CSS is re-exported
+
+### URL Redirects
+Old article URLs (`/articles/mmt-uk-*`) redirect to new URLs (`/articles/mmtuk-*`) via `astro.config.mjs`. This preserves SEO and existing links.
+
+```javascript
+// In astro.config.mjs
+redirects: {
+  '/articles/mmt-uk-commentary-1': '/articles/mmtuk-commentary-1',
+  // ... etc
+}
+```
+
 ## Deployment
 
 - **Staging**: Railway.app deploys from the `design-upgrade` branch
