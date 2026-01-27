@@ -217,39 +217,92 @@ The join page (`src/pages/join.astro`) has a mouse-tracking parallax effect on h
 
 The site uses custom slider JavaScript in `BaseLayout.astro` to replace Webflow's native slider behavior. This was necessary because Webflow's transform-based approach conflicted with the Astro build.
 
-### How It Works
+### Why Custom Implementation?
 
-The custom implementation uses `margin-left` on the first slide instead of `transform: translateX()` on the mask:
+Webflow's native slider uses `transform: translateX()` on the mask element, which broke during Astro's static build. Our custom implementation uses `margin-left` on the first slide instead, which works reliably.
 
-```javascript
-slides[0].style.marginLeft = '-' + (currentIndex * 100) + '%';
-```
-
-### Critical Configuration
-
-For sliders to work correctly, the HTML element needs **both** data attributes:
+### HTML Structure
 
 ```html
-<div class="w-slider" data-autoplay="false" data-custom-autoplay="true" data-delay="4000">
+<div data-delay="4000" data-animation="slide" class="header102_slider w-slider"
+     data-autoplay="false" data-custom-autoplay="true" data-easing="ease"
+     data-hide-arrows="false" data-disable-swipe="false" data-infinite="true">
+  <div class="header102_mask w-slider-mask">
+    <div class="header102_slide w-slide">
+      <!-- Slide 1 content -->
+    </div>
+    <div class="header102_slide w-slide">
+      <!-- Slide 2 content -->
+    </div>
+    <!-- More slides... -->
+  </div>
+  <div class="header102_arrow is-left w-slider-arrow-left">
+    <!-- Left arrow SVG -->
+  </div>
+  <div class="header102_arrow w-slider-arrow-right">
+    <!-- Right arrow SVG -->
+  </div>
+  <div class="header102_slide-nav w-slider-nav w-slider-nav-invert w-round"></div>
+</div>
 ```
 
-- `data-autoplay="false"` - Disables Webflow's native autoplay (prevents conflicts)
-- `data-custom-autoplay="true"` - Enables our custom autoplay implementation
-- `data-delay="4000"` - Slide interval in milliseconds
+### Critical Data Attributes
 
-### Implementation Details (BaseLayout.astro)
+For sliders to work correctly, the `.w-slider` element needs **both** autoplay attributes:
 
-1. **Delayed initialization** (100ms setTimeout) - Ensures code runs after Webflow's JS initializes
-2. **Cloned arrow elements** - Removes Webflow's event handlers by cloning and replacing arrow buttons
-3. **Custom navigation dots** - Creates dots dynamically since Webflow's are tied to transform-based logic
+| Attribute | Value | Purpose |
+|-----------|-------|---------|
+| `data-autoplay` | `"false"` | **Required** - Disables Webflow's native autoplay (prevents conflicts) |
+| `data-custom-autoplay` | `"true"` | **Required** - Enables our custom autoplay implementation |
+| `data-delay` | `"4000"` | Slide interval in milliseconds |
 
-### Troubleshooting
+### CSS Fix for Slide Gaps
 
-If the carousel breaks after deployment:
-1. Check that `data-autoplay="false"` is set (Webflow's autoplay conflicts with ours)
-2. Check that `data-custom-autoplay="true"` is set (enables our implementation)
-3. Verify both the page file (e.g., `index.astro`) AND `BaseLayout.astro` changes are committed
-4. The slider JS is in BaseLayout.astro around line 155-210
+Webflow's default inline-block slides can have whitespace gaps. The fix in `professional-overrides.css`:
+
+```css
+/* Flexbox slider fix - eliminates inline-block whitespace gaps */
+.w-slider-mask {
+  display: flex !important;
+  flex-wrap: nowrap;
+}
+
+.w-slide {
+  flex: 0 0 100%;
+  display: block;
+}
+```
+
+### JavaScript Implementation (BaseLayout.astro ~line 166-220)
+
+The custom slider JS does the following:
+
+1. **Delayed initialization** (100ms setTimeout) - Runs after Webflow's JS initializes
+2. **Clones arrow elements** - Removes Webflow's event handlers by replacing arrow buttons
+3. **Recreates navigation dots** - Webflow's dots are tied to transform-based logic
+4. **Uses margin-left for sliding**:
+   ```javascript
+   slides[0].style.marginLeft = '-' + (currentIndex * 100) + '%';
+   ```
+5. **Handles autoplay** - Pauses on hover, resumes on mouse leave
+
+### Troubleshooting Slider Issues
+
+| Problem | Solution |
+|---------|----------|
+| Slides don't advance | Check `data-custom-autoplay="true"` is set |
+| Two sliders fighting | Ensure `data-autoplay="false"` to disable Webflow's native |
+| Gaps between slides | Add the flexbox CSS fix to `professional-overrides.css` |
+| Arrows don't work | The JS clones arrows to remove Webflow handlers - check console for errors |
+| Works locally, breaks on deploy | Ensure ALL related files are committed (both page file AND BaseLayout.astro) |
+| Dots not updating | Check that `.w-slider-nav` container exists in HTML |
+
+### Adding a New Slider
+
+1. Copy the HTML structure above
+2. Ensure both `data-autoplay="false"` AND `data-custom-autoplay="true"` are set
+3. The JS in BaseLayout.astro automatically initializes all `.w-slider` elements
+4. No additional JS needed - it's handled globally
 
 ## Content Frontmatter Example
 
@@ -307,6 +360,20 @@ redirects: {
 2. **Multiple terminal sessions**: Running multiple Claude Code sessions can cause commit queue confusion. Always verify with `git log` that the expected commits are present and pushed.
 
 3. **Verify remote state**: Use `git log origin/design-upgrade --oneline -5` to confirm what's actually on the remote branch before assuming a deployment issue.
+
+### Common Code Issues (Webflow Migration Artifacts)
+
+1. **Duplicate footers**: Pages migrated from Webflow may have hardcoded `<footer class="footer4_component">` HTML that duplicates the Footer component from BaseLayout. The Footer is already included via BaseLayout, so remove any hardcoded footer elements from page files. Check for this pattern:
+   ```html
+   <!-- DELETE THIS - it duplicates BaseLayout's Footer -->
+   <footer class="footer4_component">
+     <div class="padding-global">...</div>
+   </footer>
+   ```
+
+2. **Duplicate navigation**: Similar issue - pages should NOT have hardcoded `<nav>` elements. Navigation comes from the Navbar component in BaseLayout.
+
+3. **Missing closing tags**: Webflow exports sometimes have malformed HTML. Validate structure if layout looks broken.
 
 4. **Railway says "GitHub Repo not found" or "Branch not found"**: The Railway GitHub App has lost permission to access the repository. To fix:
    - Go to Railway project Settings → Source → click **Disconnect**
