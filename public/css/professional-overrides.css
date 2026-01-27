@@ -435,6 +435,54 @@ textarea:focus {
    Phase 5: Mobile Navigation Enhancement
    ========================================================================== */
 
+/* Mobile Navigation Menu - Show and position correctly when opened */
+@media screen and (max-width: 991px) {
+  .w-nav-menu.w--open {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: flex-start !important; /* Override space-between */
+    align-items: stretch !important;
+    height: auto !important; /* Don't stretch to full height */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--_mmt-uk-theme---background, #fff);
+    border-bottom: 1px solid var(--color-scheme-1--border, #e5e5e5);
+    padding: 1rem;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Ensure the nav container has relative positioning for absolute child */
+  .w-nav {
+    position: relative;
+  }
+
+  /* Stack nav links vertically on mobile */
+  .w-nav-menu.w--open .navbar5_menu-left {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .w-nav-menu.w--open .navbar5_link {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .w-nav-menu.w--open .navbar5_menu-right {
+    flex-direction: column;
+    width: 100%;
+    margin-top: 1rem;
+    gap: 0.5rem;
+  }
+
+  .w-nav-menu.w--open .navbar5_menu-right .button {
+    width: 100%;
+    text-align: center;
+  }
+}
+
 .menu-icon1_line-top,
 .menu-icon1_line-middle,
 .menu-icon1_line-bottom {
