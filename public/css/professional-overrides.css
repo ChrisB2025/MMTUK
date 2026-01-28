@@ -435,6 +435,21 @@ textarea:focus {
    Phase 5: Mobile Navigation Enhancement
    ========================================================================== */
 
+/* Fix hamburger button positioning - override float with flexbox */
+@media screen and (max-width: 991px) {
+  .navbar5_container {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+  }
+
+  .navbar5_menu-button {
+    float: none !important;
+    margin-left: auto;
+    flex-shrink: 0;
+  }
+}
+
 /* Mobile Navigation Menu - Show and position correctly when opened */
 @media screen and (max-width: 991px) {
   .w-nav-menu.w--open {
@@ -641,6 +656,13 @@ textarea:focus {
     margin-top: 1rem;
     align-self: flex-end;
   }
+
+  /* Bio photos - larger on mobile for visibility */
+  .team8_image {
+    width: 80px !important;
+    height: 80px !important;
+    min-width: 80px;
+  }
 }
 
 /* Reduce motion for users who prefer it */
@@ -656,5 +678,18 @@ textarea:focus {
   .reveal-on-scroll {
     opacity: 1;
     transform: none;
+  }
+}
+
+/* ==========================================================================
+   Join Page Hero - Use Webflow defaults with minimal adjustments
+   ========================================================================== */
+
+/* Bio photos - larger on tablet for visibility */
+@media screen and (max-width: 991px) {
+  .team8_image {
+    width: 100px !important;
+    height: 100px !important;
+    min-width: 100px;
   }
 }
