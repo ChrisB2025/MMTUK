@@ -68,7 +68,14 @@ Key overrides in this file:
 - Testimonial card grid styles
 - Form input styling
 - Mobile navigation hamburger menu positioning fix
-- Bio photo sizing for mobile/tablet
+- Bio photo sizing for mobile/tablet (`.team8_image`: 100px on tablet, 80px on mobile)
+
+**Bio Photo Responsive Sizing**: The Webflow default `width: 30%` for `.team8_image` makes photos too small on tablets and phones. Fixed sizes in `professional-overrides.css`:
+| Breakpoint | Photo Size |
+|------------|------------|
+| Desktop (>991px) | 30% (Webflow default) |
+| Tablet (≤991px) | 100px |
+| Mobile (≤767px) | 80px |
 
 **Common Webflow Component Classes**:
 - `.team8_item` - Bio/team member cards (used on About Us page)
