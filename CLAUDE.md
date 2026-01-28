@@ -67,6 +67,8 @@ Key overrides in this file:
 - Focus states for accessibility
 - Testimonial card grid styles
 - Form input styling
+- Mobile navigation hamburger menu positioning fix
+- Bio photo sizing for mobile/tablet
 
 **Common Webflow Component Classes**:
 - `.team8_item` - Bio/team member cards (used on About Us page)
@@ -212,6 +214,8 @@ The join page (`src/pages/join.astro`) has a mouse-tracking parallax effect on h
 - `.header142_images-group1` / `.header142_images-group2` - Image groups that move at different rates
 
 **Implementation**: Add a `<script>` tag at the end of the page (before `</BaseLayout>`). See `join.astro` for the full implementation.
+
+**Mobile Behavior**: The scattered floating image design is meant for wide desktop screens. On mobile, Webflow's built-in responsive CSS (in `mmtuk.webflow.css` at 991px, 767px, and 479px breakpoints) adjusts image positions and sizes automatically. **Do not override with custom CSS** - previous attempts to reposition images for mobile resulted in forced/unnatural layouts. Let Webflow's defaults handle it.
 
 ## Webflow Slider/Carousel Override
 
@@ -374,6 +378,8 @@ redirects: {
 2. **Duplicate navigation**: Similar issue - pages should NOT have hardcoded `<nav>` elements. Navigation comes from the Navbar component in BaseLayout.
 
 3. **Missing closing tags**: Webflow exports sometimes have malformed HTML. Validate structure if layout looks broken.
+
+5. **Hamburger menu misaligned on mobile**: Webflow's base CSS uses `float: right` on `.w-nav-button`, which conflicts with the flexbox layout of `.navbar5_container`. The fix in `professional-overrides.css` overrides the float with proper flexbox alignment (`float: none`, `margin-left: auto`). If the hamburger appears inconsistently positioned, check that this override is present.
 
 4. **Railway says "GitHub Repo not found" or "Branch not found"**: The Railway GitHub App has lost permission to access the repository. To fix:
    - Go to Railway project Settings → Source → click **Disconnect**
