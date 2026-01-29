@@ -542,6 +542,8 @@ textarea:focus {
 
 .header102_slide-image {
   transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Anchor slide images from left to prevent text cutoff at narrow widths (992px-1400px) */
+  object-position: left center;
 }
 
 .header102_slide:hover .header102_slide-image {
