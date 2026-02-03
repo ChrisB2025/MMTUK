@@ -142,6 +142,7 @@
 .event7_image-wrapper {
   overflow: hidden;
   border-radius: 8px;
+  position: relative;
 }
 
 .event7_image {
@@ -150,6 +151,12 @@
 
 .event7_item:hover .event7_image {
   transform: scale(1.03);
+}
+
+/* Ensure date badge stays visible on hover */
+.event7_date-wrapper {
+  z-index: 2;
+  display: flex;
 }
 
 /* ==========================================================================
@@ -699,4 +706,25 @@ textarea:focus {
     height: 100px !important;
     min-width: 100px;
   }
+}
+
+/* ==========================================================================
+   ActionNetwork Form Fixes
+   ========================================================================== */
+
+/* Ensure ActionNetwork form container has minimum dimensions */
+#can-form-area-mmtuk-supporter-registration-form {
+  min-height: 400px;
+  width: 100% !important;
+}
+
+/* Ensure the w-embed container displays correctly */
+.actionnetwork-form .w-embed {
+  display: block;
+  width: 100%;
+}
+
+/* Override any default ActionNetwork styling conflicts */
+#can_embed_form {
+  width: 100% !important;
 }
