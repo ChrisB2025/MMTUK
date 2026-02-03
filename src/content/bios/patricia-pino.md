@@ -1,7 +1,7 @@
 ---
 name: "Patricia Pino"
 slug: "patricia-pino"
-role: "Academic researcher"
+role: "Executive Director & Academic Researcher"
 photo: "/images/bios/Patricia Pino.png"
 linkedin: "https://www.linkedin.com/in/patricianpino/"
 twitter: ""
