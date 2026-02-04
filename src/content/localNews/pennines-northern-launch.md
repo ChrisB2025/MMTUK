@@ -1,8 +1,7 @@
 ---
-heading: "Pennines Group Northern Launch"
-slug: "pennines-northern-launch"
+heading: "MMTUK Pennines Local Group Launches"
+slug: "pennines-launch"
 localGroup: "pennines"
-date: 2026-01-17T00:00:00.000Z
-text: "The Pennines MMT group is launching with an event in Manchester. Join northern MMT advocates to discuss how modern monetary theory applies to regional economic challenges."
-link: "https://discord.gg/S3UbxFe4FR"
+date: 2026-02-02T00:00:00.000Z
+text: "We're excited to announce the launch of the MMTUK Pennines Local Group, bringing modern monetary theory to northern communities."
 ---

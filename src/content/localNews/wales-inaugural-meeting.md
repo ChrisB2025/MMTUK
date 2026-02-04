@@ -1,8 +1,7 @@
 ---
-heading: "Wales MMT Group Inaugural Meeting"
-slug: "wales-inaugural-meeting"
+heading: "MMTUK Wales Local Group Launches"
+slug: "wales-launch"
 localGroup: "wales"
-date: 2026-01-18T00:00:00.000Z
-text: "The Wales MMT group is holding its first meeting in Cardiff. Come meet your local community and help shape the future direction of our activities."
-link: "https://discord.gg/S3UbxFe4FR"
+date: 2026-02-02T00:00:00.000Z
+text: "We're excited to announce the launch of the MMTUK Wales Local Group, bringing modern monetary theory to communities across Wales."
 ---

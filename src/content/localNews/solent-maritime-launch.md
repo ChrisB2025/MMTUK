@@ -1,8 +1,7 @@
 ---
-heading: "Solent MMT Group Launch Event"
-slug: "solent-maritime-launch"
+heading: "MMTUK Solent Local Group Launches"
+slug: "solent-launch"
 localGroup: "solent"
-date: 2026-01-21T00:00:00.000Z
-text: "The Solent area gets its own MMT group. Join us in Southampton for our launch event and help build the local MMT community in Hampshire."
-link: "https://discord.gg/S3UbxFe4FR"
+date: 2026-02-02T00:00:00.000Z
+text: "We're excited to announce the launch of the MMTUK Solent Local Group, building the local MMT community in Hampshire and the surrounding area."
 ---

@@ -252,7 +252,7 @@ const fullOgImage = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}
       });
     }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-    document.querySelectorAll('.layout132_item, .team8_item, .accordion1_component, .blog1_item, .layout478_card, .testimonial-card')
+    document.querySelectorAll('.layout132_item, .team8_item, .blog1_item, .layout478_card, .testimonial-card')
       .forEach(el => {
         el.classList.add('reveal-on-scroll');
         observer.observe(el);

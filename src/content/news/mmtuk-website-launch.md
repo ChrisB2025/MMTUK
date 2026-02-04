@@ -1,9 +1,9 @@
 ---
 title: "MMTUK Website Launch"
 slug: "mmtuk-website-launch"
-date: 2026-01-01T00:00:00.000Z
+date: 2026-02-02T00:00:00.000Z
 category: "Announcement"
-summary: "We're excited to announce the launch of the new MMTUK website, bringing together resources, research, and community for Modern Monetary Theory in the UK."
+summary: "The new MMTUK website launches, bringing together resources, research, and community for MMT in the UK."
 thumbnail: "/images/placeholder-image.svg"
 ---
 

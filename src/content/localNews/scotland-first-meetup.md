@@ -1,8 +1,7 @@
 ---
-heading: "Scotland Local Group First Meetup"
-slug: "first-meetup"
+heading: "MMTUK Scotland Local Group Launches"
+slug: "scotland-launch"
 localGroup: "scotland"
-date: 2026-01-20T00:00:00.000Z
-text: "Join us for our inaugural Scotland meetup in Edinburgh. We'll discuss MMT basics and plan future activities for the group."
-link: "https://discord.gg/S3UbxFe4FR"
+date: 2026-02-02T00:00:00.000Z
+text: "We're excited to announce the launch of the MMTUK Scotland Local Group, bringing modern monetary theory to communities across Scotland."
 ---

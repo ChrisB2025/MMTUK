@@ -1,8 +1,7 @@
 ---
-heading: "Academic Forum: MMT and Economic Theory"
-slug: "oxford-academic-forum"
+heading: "MMTUK Oxford Local Group Launches"
+slug: "oxford-launch"
 localGroup: "oxford"
-date: 2026-01-19T00:00:00.000Z
-text: "Oxford MMT hosts an academic forum examining MMT's place in economic thought. Students and academics welcome for rigorous discussion and debate."
-link: "https://discord.gg/S3UbxFe4FR"
+date: 2026-02-02T00:00:00.000Z
+text: "We're excited to announce the launch of the MMTUK Oxford Local Group, connecting students, academics and community members interested in modern monetary theory."
 ---

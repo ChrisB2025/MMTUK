@@ -176,6 +176,29 @@ The accordion JS is in BaseLayout.astro and toggles the `height` of `.accordion1
 ```
 The divider uses the theme's secondary color (`--_mmt-uk-theme---sercondary: #e2cdaa`).
 
+**Anchor Links with Sticky Navbar**: When linking to page sections (e.g., `/community#Events`), place the anchor ID on a divider element **before** the section, not on the `<section>` tag itself. This ensures the heading is visible below the sticky navbar. Also add `scroll-margin-top` in CSS to offset for navbar height.
+
+HTML pattern:
+```html
+<div id="SectionName" class="padding-global">
+  <div class="container-large">
+    <div class="divider-horizontal page_divider"></div>
+  </div>
+</div>
+<section class="section_xyz color-scheme-4">
+  <!-- Section content with heading -->
+</section>
+```
+
+CSS in `professional-overrides.css`:
+```css
+[id="SectionName"] {
+  scroll-margin-top: 100px;
+}
+```
+
+See `community.astro` for examples (`#Network`, `#Events`, `#discord`).
+
 **Color Schemes**: Sections use `color-scheme-1` through `color-scheme-4` classes for background variations.
 
 **Heading Hierarchy**:

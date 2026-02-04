@@ -709,6 +709,52 @@ textarea:focus {
 }
 
 /* ==========================================================================
+   Anchor Link Offset for Sticky Navbar
+   ========================================================================== */
+
+/* Offset anchor scroll position to account for sticky navbar (~80px height) */
+[id="Network"],
+[id="Events"],
+[id="discord"],
+[id="LocalNews"] {
+  scroll-margin-top: 100px;
+}
+
+/* ==========================================================================
+   News Article Image Containment
+   ========================================================================== */
+
+.publication_blog-post-header_image-wrapper {
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.publication_blog-post-header_image {
+  width: 100%;
+  height: auto;
+  max-height: 500px;
+  object-fit: contain;
+  object-position: center;
+}
+
+/* ==========================================================================
+   News Article Heading Hierarchy
+   ========================================================================== */
+
+/* Make h2 subheadings in news articles smaller than the main title */
+.content29_content-wrapper .text-rich-text h2 {
+  font-size: 1.5rem !important;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+@media screen and (max-width: 767px) {
+  .content29_content-wrapper .text-rich-text h2 {
+    font-size: 1.25rem !important;
+  }
+}
+
+/* ==========================================================================
    ActionNetwork Form Fixes
    ========================================================================== */
 

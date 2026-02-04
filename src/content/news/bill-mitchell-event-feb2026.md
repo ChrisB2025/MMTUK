@@ -1,37 +1,42 @@
 ---
-title: "Bill Mitchell Speaking Event"
+title: "MMTUK Launch Event with Professor Bill Mitchell"
 slug: "bill-mitchell-event-feb2026"
-date: 2026-01-15T00:00:00.000Z
+date: 2026-02-05T00:00:00.000Z
 category: "Event"
-summary: "Join us on Wednesday 24th February 2026 for an exclusive talk by Professor Bill Mitchell, one of the founding architects of Modern Monetary Theory."
-thumbnail: "/images/placeholder-image.svg"
+summary: "Join us for our flagship launch event featuring Professor Bill Mitchell, one of the original architects of Modern Monetary Theory."
+thumbnail: "/images/job-guarantee-hero.svg"
 ---
 
-MMTUK is honoured to host Professor Bill Mitchell for an evening of discussion on Modern Monetary Theory and its relevance to the UK economy.
+MMTUK is proud to launch with a flagship public event featuring **Professor Bill Mitchell**, one of the original architects of Modern Monetary Theory, alongside the publication of our first policy paper: **A Job Guarantee for the UK**.
 
 ## Event Details
 
-**Date**: Wednesday, 24th February 2026
-**Time**: 7:00 PM - 9:00 PM GMT
-**Format**: Hybrid (in-person and online)
+**Date:** Wednesday, 25th February 2026
+
+**Time:** 7:00 PM – 9:00 PM GMT
+
+**Venue:** Friends Meeting House, Sarah Fell Room, 173–177 Euston Road, London NW1 2BJ
+
+**Capacity:** 100 (in-person only)
+
+## Speakers
+
+- **Professor Bill Mitchell** – Keynote address on MMT and UK economic policy
+- **Patricia Pino** – Presenting *A Job Guarantee for the UK*, MMTUK's inaugural policy paper
 
 ## About Professor Mitchell
 
-Bill Mitchell is Professor of Economics at the University of Newcastle, Australia, and one of the original developers of Modern Monetary Theory. He is the author of numerous books including *Macroeconomics* (the leading MMT textbook) and *Reclaiming the State*.
-
-Professor Mitchell writes the influential blog *Bill Mitchell – Modern Monetary Theory* and is co-founder of the Centre of Full Employment and Equity (CofFEE).
+Bill Mitchell is Professor of Economics at the University of Newcastle, Australia, and one of the original developers of Modern Monetary Theory. He is the author of *Macroeconomics* (the leading MMT textbook) and *Reclaiming the State*, and writes the influential blog *Bill Mitchell – Modern Monetary Theory*. He is co-founder of the Centre of Full Employment and Equity (CofFEE).
 
 ## What to Expect
 
-Professor Mitchell will discuss:
-
-- The current state of the UK economy from an MMT perspective
-- Why austerity remains the wrong policy choice
-- The case for a Job Guarantee in Britain
-- Q&A with attendees
+- The official launch of MMTUK as a research organisation
+- Publication of our Job Guarantee policy paper
+- A keynote from Professor Mitchell on the UK economy and why austerity remains the wrong choice
+- Q&A with speakers
 
 ## Registration
 
-Registration details will be announced shortly. Join our Discord server to be notified when tickets become available.
+Registration details will be announced shortly. Join our [mailing list](/join) or [Discord server](/community#discord) to be notified when tickets become available.
 
-This is a rare opportunity to hear from one of MMT's leading voices. We look forward to seeing you there.
+This is a rare opportunity to be part of the launch of a new voice in UK economic debate. We look forward to seeing you there.
