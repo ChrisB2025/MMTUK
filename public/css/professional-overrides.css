@@ -354,6 +354,8 @@ body {
   position: relative;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
   transition: all 0.35s var(--ease-out-quart);
+  display: flex;
+  flex-direction: column;
 }
 
 .testimonial-card::before {
@@ -386,8 +388,8 @@ body {
   display: flex;
   align-items: center;
   gap: 1rem;
-  margin-top: 1.5rem;
-  padding-top: 1rem;
+  margin-top: auto;
+  padding-top: 1.5rem;
   border-top: 1px solid rgba(0, 0, 0, 0.06);
 }
 
