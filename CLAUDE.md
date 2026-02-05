@@ -35,6 +35,12 @@ All content uses Astro Content Collections with Zod validation defined in `src/c
 - **localGroups/** - Local MMT community groups (Brighton, etc.)
   - `headerImage` field controls the card image on `/community` page
   - Images stored in `public/images/`
+- **briefings/** - MMT Briefings from affiliated authors (Substack reprints)
+  - `draft: true` hides dummy/placeholder briefings from all pages
+  - `featured: true` makes a briefing the hero card on listing pages
+  - All pages filter with `.filter(b => !b.data.draft)`
+  - Use only `##` (h2) headings in markdown body — h3 renders larger than h2 in Webflow CSS
+  - Each briefing has an attribution footer linking to original Substack source
 - **localNews/** - News specific to local groups
 
 ### Key Files
@@ -47,6 +53,7 @@ All content uses Astro Content Collections with Zod validation defined in `src/c
 
 ### Dynamic Routes
 
+- `/research/briefings/[slug].astro` - Briefing pages from briefings collection
 - `/articles/[slug].astro` - Article pages from articles collection
 - `/ecosystem/[slug].astro` - Ecosystem entry pages
 - `/local-group/[slug].astro` - Local group pages
