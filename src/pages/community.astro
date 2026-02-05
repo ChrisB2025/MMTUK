@@ -6,6 +6,25 @@ const allLocalGroups = await getCollection('localGroups');
 const localGroups = allLocalGroups
   .filter(group => group.data.active)
   .sort((a, b) => a.data.name.localeCompare(b.data.name));
+
+const allEvents = await getCollection('localEvents');
+const upcomingEvents = allEvents
+  .filter(e => e.data.slug !== 'bill-mitchell-feb')
+  .sort((a, b) => a.data.date.getTime() - b.data.date.getTime());
+
+const localGroupMap = Object.fromEntries(
+  allLocalGroups.map(g => [g.data.slug, g.data.title])
+);
+
+function formatEventDate(date: Date) {
+  const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  return {
+    day: days[date.getDay()],
+    date: date.getDate().toString(),
+    monthYear: `${months[date.getMonth()]} ${date.getFullYear()}`,
+  };
+}
 ---
 
 <BaseLayout title="Community" description="Connect with the MMTUK community. Find local groups across the UK, join our Discord server, attend events, and engage with others interested in Modern Monetary Theory." currentPage="community">
@@ -105,41 +124,51 @@ const localGroups = allLocalGroups
                 <div class="event7_content">
                   <div class="event7_list-wrapper">
                     <div class="w-layout-grid event7_list" style="justify-content: center;">
-                      <div class="event7_item">
-                        <a href="/news/bill-mitchell-event-feb2026" class="event7_item-link w-inline-block">
-                          <div class="margin-bottom margin-small">
-                            <div class="event7_image-wrapper">
-                              <div class="event7_date-wrapper">
-                                <div class="text-size-small-5">Wed</div>
-                                <div class="heading-style-h4">25</div>
-                                <div class="text-size-small-5">Feb 2026</div>
-                              </div><img loading="lazy" src="/images/events-lecture.avif" alt="Bill Mitchell speaking event" class="event7_image">
-                            </div>
-                          </div>
-                          <div class="margin-bottom margin-xsmall">
-                            <div class="event7_meta-wrapper">
-                              <div class="tag">
-                                <div>Lecture</div>
+                      {upcomingEvents.map((event) => {
+                        const d = formatEventDate(event.data.date);
+                        const groupName = localGroupMap[event.data.localGroup] || event.data.localGroup;
+                        return (
+                          <div class="event7_item">
+                            <a href={event.data.link || `#`} target={event.data.link && !event.data.link.startsWith('/') ? "_blank" : undefined} rel={event.data.link && !event.data.link.startsWith('/') ? "noopener noreferrer" : undefined} class="event7_item-link w-inline-block">
+                              <div class="margin-bottom margin-small">
+                                <div class="event7_image-wrapper">
+                                  <div class="event7_date-wrapper">
+                                    <div class="text-size-small-5">{d.day}</div>
+                                    <div class="heading-style-h4">{d.date}</div>
+                                    <div class="text-size-small-5">{d.monthYear}</div>
+                                  </div>
+                                  <img loading="lazy" src={event.data.image || '/images/placeholder-image.svg'} alt={event.data.title} class="event7_image">
+                                </div>
                               </div>
-                            </div>
-                          </div>
-                          <h3 class="heading-style-h5-6">Professor Bill Mitchell Speaking Event</h3>
-                          <div class="margin-bottom margin-xxsmall">
-                            <div>Hybrid (in-person and online)</div>
-                          </div>
-                          <div class="text-size-regular">Join us for an exclusive talk by Professor Bill Mitchell, one of the founding architects of Modern Monetary Theory, discussing the UK economy and the case for a Job Guarantee.</div>
-                          <div class="margin-top margin-small">
-                            <div class="button-group">
-                              <div class="button-2 is-link is-icon">
-                                <div>Learn more</div>
-                                <div class="icon-embed-xxsmall w-embed"><svg width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M6 3L11 8L6 13" stroke="CurrentColor" stroke-width="1.5"></path>
-                                  </svg></div>
+                              <div class="margin-bottom margin-xsmall">
+                                <div class="event7_meta-wrapper">
+                                  <div class="tag">
+                                    <div>{event.data.tag}</div>
+                                  </div>
+                                  <div class="tag" style="background-color: var(--_mmt-uk-theme---sercondary); color: var(--_mmt-uk-theme---text);">
+                                    <div>{groupName}</div>
+                                  </div>
+                                </div>
                               </div>
-                            </div>
+                              <h3 class="heading-style-h5-6">{event.data.title}</h3>
+                              <div class="margin-bottom margin-xxsmall">
+                                <div>{event.data.location}</div>
+                              </div>
+                              <div class="text-size-regular">{event.data.description}</div>
+                              <div class="margin-top margin-small">
+                                <div class="button-group">
+                                  <div class="button-2 is-link is-icon">
+                                    <div>Learn more</div>
+                                    <div class="icon-embed-xxsmall w-embed"><svg width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M6 3L11 8L6 13" stroke="CurrentColor" stroke-width="1.5"></path>
+                                      </svg></div>
+                                  </div>
+                                </div>
+                              </div>
+                            </a>
                           </div>
-                        </a>
-                      </div>
+                        );
+                      })}
                     </div>
                   </div>
                 </div>

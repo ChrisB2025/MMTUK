@@ -24,6 +24,22 @@ const steeringGroup = allBios
   });
 const advisoryBoard = allBios.filter(bio => bio.data.role === "Advisory Board Member");
 
+// Fetch events for MMTUK Events section
+const allEvents = await getCollection('localEvents');
+const upcomingEvents = allEvents
+  .filter(e => e.data.slug === 'bill-mitchell-feb')
+  .sort((a, b) => a.data.date.getTime() - b.data.date.getTime());
+
+function formatEventDate(date: Date) {
+  const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  return {
+    day: days[date.getDay()],
+    date: date.getDate().toString(),
+    monthYear: `${months[date.getMonth()]} ${date.getFullYear()}`,
+  };
+}
+
 // Fetch news items for MMTUK News section
 const allNews = await getCollection('news');
 const newsItems = allNews
@@ -117,6 +133,80 @@ const newsWithBody = await Promise.all(
                     </div>
                     );
                   })}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      )}
+      {upcomingEvents.length > 0 && (
+      <div class="padding-global">
+        <div class="container-large">
+          <div class="divider-horizontal page_divider"></div>
+        </div>
+      </div>
+      <section class="section_event7 color-scheme-4">
+        <div class="padding-global">
+          <div class="container-large">
+            <div class="padding-section-large">
+              <div class="event7_component">
+                <div class="margin-bottom margin-xxlarge">
+                  <div class="text-align-center">
+                    <div class="max-width-large align-center">
+                      <div class="margin-bottom margin-small">
+                        <h2 class="heading-style-h2 left">MMTUK Events</h2>
+                      </div>
+                      <p class="text-size-medium-12">Upcoming talks, meetups, and gatherings across the UK</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="event7_content">
+                  <div class="event7_list-wrapper">
+                    <div class="w-layout-grid event7_list" style="justify-content: center;">
+                      {upcomingEvents.map((event) => {
+                        const d = formatEventDate(event.data.date);
+                        return (
+                          <div class="event7_item">
+                            <a href={event.data.link || '#'} target={event.data.link && !event.data.link.startsWith('/') ? "_blank" : undefined} rel={event.data.link && !event.data.link.startsWith('/') ? "noopener noreferrer" : undefined} class="event7_item-link w-inline-block">
+                              <div class="margin-bottom margin-small">
+                                <div class="event7_image-wrapper">
+                                  <div class="event7_date-wrapper">
+                                    <div class="text-size-small-5">{d.day}</div>
+                                    <div class="heading-style-h4">{d.date}</div>
+                                    <div class="text-size-small-5">{d.monthYear}</div>
+                                  </div>
+                                  <img loading="lazy" src={event.data.image || '/images/placeholder-image.svg'} alt={event.data.title} class="event7_image">
+                                </div>
+                              </div>
+                              <div class="margin-bottom margin-xsmall">
+                                <div class="event7_meta-wrapper">
+                                  <div class="tag">
+                                    <div>{event.data.tag}</div>
+                                  </div>
+                                </div>
+                              </div>
+                              <h3 class="heading-style-h5-6">{event.data.title}</h3>
+                              <div class="margin-bottom margin-xxsmall">
+                                <div>{event.data.location}</div>
+                              </div>
+                              <div class="text-size-regular">{event.data.description}</div>
+                              <div class="margin-top margin-small">
+                                <div class="button-group">
+                                  <div class="button-2 is-link is-icon">
+                                    <div>Learn more</div>
+                                    <div class="icon-embed-xxsmall w-embed"><svg width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M6 3L11 8L6 13" stroke="CurrentColor" stroke-width="1.5"></path>
+                                      </svg></div>
+                                  </div>
+                                </div>
+                              </div>
+                            </a>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
