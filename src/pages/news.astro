@@ -1,5 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const newsItems = await getCollection('news');
+const sortedNews = newsItems.sort((a, b) =>
+  new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+);
 ---
 
 <BaseLayout title="News" description="Stay up to date with MMTUK news, events, and announcements. Read about upcoming talks, new research publications, and community developments." currentPage="news">
@@ -22,54 +28,48 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <div class="image-overlay-layer"></div><img sizes="(max-width: 2400px) 100vw, 2400px" srcset="/images/jonathan-farber-KVlcVi-Ulgo-unsplash-p-500.avif 500w, images/jonathan-farber-KVlcVi-Ulgo-unsplash-p-800.avif 800w, images/jonathan-farber-KVlcVi-Ulgo-unsplash-p-1080.avif 1080w, images/newsroom.avif 2400w" alt="" src="/images/newsroom.avif" loading="eager" class="header54_background-image">
         </div>
       </header>
-      <section class="section_portfolio15 color-scheme-1">
+
+      <section class="section_blog1">
         <div class="padding-global">
           <div class="container-large">
-            <div class="padding-section-large news">
-              <div class="portfolio15_component">
-                <div class="margin-bottom margin-xxlarge"></div>
-                <div class="w-dyn-list">
-                  <div role="list" class="w-dyn-items">
-                    <div role="listitem" class="w-dyn-item">
-                      <div class="portfolio15_item">
-                        <div class="portfolio15_item-link">
-                          <div class="portfolio15_title-wrapper">
-                            <div class="portfolio15_content-top">
-                              <div class="margin-bottom margin-xxsmall">
-                                <div class="margin-bottom margin-small">
-                                  <h3 class="heading-style-h4 w-dyn-bind-empty"></h3>
-                                </div>
-                                <div class="text-rich-text w-dyn-bind-empty"></div>
-                              </div>
-                              <div class="margin-top margin-xsmall">
-                                <div class="portfolio15_tag-list">
-                                  <div class="tag">
-                                    <div class="w-dyn-bind-empty"></div>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="margin-top margin-medium">
-                                <div class="button-group">
-                                  <a href="#" class="button-2 is-link is-icon w-inline-block">
-                                    <div>Read more</div>
-                                    <div class="icon-embed-xxsmall w-embed"><svg width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M6 3L11 8L6 13" stroke="CurrentColor" stroke-width="1.5"></path>
-                                      </svg></div>
-                                  </a>
-                                </div>
-                              </div>
+            <div class="padding-section-large">
+              <div class="blog1_component">
+                <div class="w-layout-grid blog1_list">
+                  {sortedNews.map((item) => (
+                    <a href={`/news/${item.data.slug}`} class="blog1_item w-inline-block">
+                      <div class="blog1_image-wrapper">
+                        <img
+                          src={item.data.thumbnail || '/images/placeholder-image.svg'}
+                          loading="lazy"
+                          alt={item.data.title}
+                          class="blog1_image"
+                        />
+                      </div>
+                      <div class="blog1_content">
+                        <div class="blog1_content-top">
+                          <div class="blog1_category-wrapper">
+                            <div class="text-size-small text-weight-semibold text-color-primary">{item.data.category}</div>
+                          </div>
+                          <div class="margin-top margin-xsmall">
+                            <h3 class="heading-style-h5">{item.data.title}</h3>
+                          </div>
+                          {item.data.summary && (
+                          <div class="margin-top margin-xsmall">
+                            <p class="text-size-regular">{item.data.summary.substring(0, 150)}...</p>
+                          </div>
+                          )}
+                        </div>
+                        <div class="blog1_content-bottom">
+                          <div class="blog1_author-wrapper">
+                            <div class="blog1_author-text">
+                              <div class="text-size-small">{new Date(item.data.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</div>
                             </div>
                           </div>
-                          <div class="portfolio15_image-wrapper"><img loading="lazy" src="/images/Placeholder-Image---Landscape.svg" alt="" class="portfolio15_image w-dyn-bind-empty"></div>
                         </div>
                       </div>
-                    </div>
-                  </div>
-                  <div class="w-dyn-empty">
-                    <div>No items found.</div>
-                  </div>
+                    </a>
+                  ))}
                 </div>
-                <div class="margin-top margin-xxlarge"></div>
               </div>
             </div>
           </div>
