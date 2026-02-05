@@ -4,7 +4,7 @@ slug: "bill-mitchell-event-feb2026"
 date: 2026-02-05T00:00:00.000Z
 category: "Event"
 summary: "Join us for our flagship launch event featuring Professor Bill Mitchell, one of the original architects of Modern Monetary Theory."
-thumbnail: "/images/job-guarantee-hero.svg"
+thumbnail: "/images/bill-mitchell-event.png"
 ---
 
 MMTUK is proud to launch with a flagship public event featuring **Professor Bill Mitchell**, one of the original architects of Modern Monetary Theory, alongside the publication of our first policy paper: **A Job Guarantee for the UK**.
