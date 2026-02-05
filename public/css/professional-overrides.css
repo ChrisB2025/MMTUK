@@ -718,7 +718,8 @@ textarea:focus {
 [id="Network"],
 [id="Events"],
 [id="discord"],
-[id="LocalNews"] {
+[id="LocalNews"],
+[id="MMTUKNews"] {
   scroll-margin-top: 100px;
 }
 
