@@ -41,7 +41,6 @@ All content uses Astro Content Collections with Zod validation defined in `src/c
 
 - `src/layouts/BaseLayout.astro` - Main template with SEO meta, navigation, footer, and interactive component scripts (accordions, sliders, tabs)
 - `src/components/Navbar.astro` - Complex mega-menu navigation
-- `public/admin/config.yml` - Decap CMS configuration (content editing UI at `/admin/`)
 - `scripts/migrate-*.cjs` - Webflow to Astro migration tools
 - `src/pages/community.astro` - Lists local groups (cards use `headerImage` from frontmatter)
 - `src/pages/education.astro` - Education hub with "Ask MMTUK" AI assistant, "What is MMT?" explainer, FAQ accordions, and Advisory Services section
@@ -351,10 +350,6 @@ readTime: 5
 summary: "Brief description"
 thumbnail: "/images/placeholder-image.svg"
 ```
-
-## CMS
-
-Decap CMS (formerly NetlifyCMS) provides a web UI for editing content at `/admin/`. It uses git-gateway backend and commits changes directly to the repository. For local CMS development, enable `local_backend: true` in `public/admin/config.yml`.
 
 ## Branding
 
