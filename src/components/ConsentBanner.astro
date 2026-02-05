@@ -1,16 +1,16 @@
 ---
-// Simple cookie consent banner - replaces Finsweet Consent Pro
+// Cookie consent banner - MMTUK branded with structured consent storage
 ---
 
 <div id="cookie-consent-banner" class="cookie-consent-banner" style="display: none;">
   <div class="cookie-consent-content">
     <p class="cookie-consent-text">
-      We use cookies to enhance your browsing experience. By clicking "Accept", you agree to our use of cookies.
-      View our <a href="/privacy-policy">Privacy Policy</a> for more information.
+      We use essential cookies to run this site. ActionNetwork forms use additional cookies when you interact with them.
+      <a href="/privacy-policy">Privacy Policy</a> · <a href="/cookie-preferences">Cookie Settings</a>
     </p>
     <div class="cookie-consent-buttons">
-      <button id="cookie-reject" class="cookie-btn cookie-btn-reject">Reject</button>
-      <button id="cookie-accept" class="cookie-btn cookie-btn-accept">Accept</button>
+      <button id="cookie-necessary" class="cookie-btn cookie-btn-necessary">Necessary only</button>
+      <button id="cookie-accept" class="cookie-btn cookie-btn-accept">Accept all</button>
     </div>
   </div>
 </div>
@@ -21,7 +21,7 @@
     bottom: 0;
     left: 0;
     right: 0;
-    background: #1a1a2e;
+    background: #2f2c25;
     color: #ffffff;
     padding: 1rem 1.5rem;
     z-index: 9999;
@@ -47,12 +47,12 @@
   }
 
   .cookie-consent-text a {
-    color: #4dabf7;
+    color: #e2cdaa;
     text-decoration: underline;
   }
 
   .cookie-consent-text a:hover {
-    color: #74c0fc;
+    color: #f0dfc0;
   }
 
   .cookie-consent-buttons {
@@ -79,23 +79,23 @@
     transform: translateY(0);
   }
 
-  .cookie-btn-reject {
+  .cookie-btn-necessary {
     background: transparent;
     color: #ffffff;
     border: 1px solid #ffffff;
   }
 
-  .cookie-btn-reject:hover {
+  .cookie-btn-necessary:hover {
     background: rgba(255, 255, 255, 0.1);
   }
 
   .cookie-btn-accept {
-    background: #4dabf7;
-    color: #1a1a2e;
+    background: #004537;
+    color: #ffffff;
   }
 
   .cookie-btn-accept:hover {
-    background: #74c0fc;
+    background: #005c49;
   }
 
   @media (max-width: 600px) {
@@ -115,37 +115,87 @@
 
     .cookie-btn {
       flex: 1;
-      max-width: 150px;
+      max-width: 160px;
     }
   }
 </style>
 
 <script>
-  const CONSENT_KEY = 'cookie-consent';
+  const CONSENT_KEY = 'mmtuk_cookie_consent';
+  const CONSENT_MAX_AGE_MS = 365 * 24 * 60 * 60 * 1000; // 12 months
+
+  function getConsent() {
+    try {
+      const raw = localStorage.getItem(CONSENT_KEY);
+      if (!raw) return null;
+      const data = JSON.parse(raw);
+      if (!data || !data.consent || !data.timestamp) return null;
+      // Check expiry
+      if (Date.now() - data.timestamp > CONSENT_MAX_AGE_MS) {
+        localStorage.removeItem(CONSENT_KEY);
+        return null;
+      }
+      return data;
+    } catch {
+      localStorage.removeItem(CONSENT_KEY);
+      return null;
+    }
+  }
+
+  function setConsent(choice: 'all' | 'necessary') {
+    const data = { consent: choice, timestamp: Date.now() };
+    localStorage.setItem(CONSENT_KEY, JSON.stringify(data));
+  }
+
+  function showBanner() {
+    const banner = document.getElementById('cookie-consent-banner');
+    if (banner) banner.style.display = 'block';
+  }
+
+  function hideBanner() {
+    const banner = document.getElementById('cookie-consent-banner');
+    if (banner) banner.style.display = 'none';
+  }
+
+  function resetConsent() {
+    localStorage.removeItem(CONSENT_KEY);
+    showBanner();
+  }
+
+  // Expose globally so cookie-preferences page can use these
+  (window as any).mmtukConsent = {
+    get: getConsent,
+    set: setConsent,
+    show: showBanner,
+    hide: hideBanner,
+    reset: resetConsent,
+    KEY: CONSENT_KEY,
+  };
 
   function initCookieConsent() {
     const banner = document.getElementById('cookie-consent-banner');
     const acceptBtn = document.getElementById('cookie-accept');
-    const rejectBtn = document.getElementById('cookie-reject');
+    const necessaryBtn = document.getElementById('cookie-necessary');
 
-    if (!banner || !acceptBtn || !rejectBtn) return;
+    if (!banner || !acceptBtn || !necessaryBtn) return;
 
-    // Check if user has already made a choice
-    const existingConsent = localStorage.getItem(CONSENT_KEY);
-
-    if (!existingConsent) {
-      // Show banner if no preference set
+    // Show banner if no valid consent stored
+    const existing = getConsent();
+    if (!existing) {
       banner.style.display = 'block';
     }
 
     acceptBtn.addEventListener('click', () => {
-      localStorage.setItem(CONSENT_KEY, 'accepted');
-      banner.style.display = 'none';
+      setConsent('all');
+      hideBanner();
+      // Dispatch event so cookie-preferences page can update in real time
+      window.dispatchEvent(new CustomEvent('mmtuk-consent-changed'));
     });
 
-    rejectBtn.addEventListener('click', () => {
-      localStorage.setItem(CONSENT_KEY, 'rejected');
-      banner.style.display = 'none';
+    necessaryBtn.addEventListener('click', () => {
+      setConsent('necessary');
+      hideBanner();
+      window.dispatchEvent(new CustomEvent('mmtuk-consent-changed'));
     });
   }
 

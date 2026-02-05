@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="Cookie Preferences" description="Manage your cookie preferences." currentPage="cookie-preferences">
+<BaseLayout title="Cookie Preferences" description="Manage your cookie preferences on the MMTUK website." currentPage="cookie-preferences">
 <section class="section_content28">
         <div class="padding-global">
           <div class="container-large">
@@ -10,21 +10,38 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               <div class="content28_component">
                 <div id="w-node-be7cecb1-ce71-7df5-ca5d-feadbfc949a5-9c85c4cd" class="max-width-large">
                   <div fs-toc-element="contents" class="text-rich-text w-richtext">
-                    <h4>Cookie Preferences (Consent &amp; Controls)</h4>
-                    <p><em>Last updated: 12 October 2025</em></p>
+                    <h4>Cookie Preferences</h4>
+                    <p><em>Last updated: February 2026</em></p>
+
                     <h6>How we use cookies</h6>
-                    <p>We use cookies and similar technologies to run this site, measure performance, and improve your experience. In the UK/EU, we only set <strong>non-essential</strong> cookies with your consent.</p>
-                    <h6>Categories</h6>
-                    <p><strong>Strictly necessary (always on):</strong> Security, load balancing, consent storage, and core functionality (includes Webflow/CDN).<br><strong>Analytics (opt-in):</strong> Understand traffic and improve content (e.g., GA4).<br><strong>Functional (opt-in):</strong> Remember preferences and enhance features (e.g., embedded forms).<br><strong>Marketing (opt-in):</strong> Outreach and campaign measurement (e.g., ad pixels).</p>
-                    <h6>Manage your preferences</h6>
-                    <p>Use the button below any time to change your choices. Your preferences are stored for <strong>up to 12 months</strong> unless you clear cookies.<br></p>
-                    <h6>Cookies and tools we (may) use</h6>
+                    <p>We use cookies and similar technologies to run this site securely. We only set <strong>non-essential</strong> cookies when you interact with third-party features (such as ActionNetwork forms), and we respect your preferences under UK GDPR.</p>
+
+                    <h6>Cookie categories</h6>
+                    <p>
+                      <strong>Strictly necessary (always on):</strong> Session and security cookies from Railway hosting, and your consent preference stored in your browser's localStorage. These are essential for the site to function and cannot be disabled.<br><br>
+                      <strong>Functional — ActionNetwork (opt-in):</strong> When you interact with an ActionNetwork form (e.g. signing up for a newsletter or registering for an event), ActionNetwork may set cookies for form functionality and subscriber identification. These cookies are only set when you actively use a form, not on page load.
+                    </p>
+
+                    <h6>Your current preference</h6>
+                    <div id="consent-status" style="background: #f5f0e8; border: 1px solid #e2cdaa; border-radius: 6px; padding: 1rem 1.25rem; margin-bottom: 1.5rem;">
+                      <p id="consent-status-text" style="margin: 0; font-weight: 600;">Checking your preference...</p>
+                      <p id="consent-status-detail" style="margin: 0.5rem 0 0; font-size: 0.9rem; color: #5a5549;"></p>
+                    </div>
+
+                    <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 2rem;">
+                      <button id="btn-change-preference" class="button-2 w-button" style="cursor: pointer;">Change preference</button>
+                      <button id="btn-reset-preference" class="button-2 w-button" style="cursor: pointer; background: transparent; border: 1px solid #2f2c25; color: #2f2c25;">Reset preferences</button>
+                    </div>
+
+                    <h6>Cookies and services</h6>
                     <ul role="list">
-                      <li><strong>Webflow</strong> (necessary) — hosting/CMS.</li>
-                      <li><strong>Plausible (cookieless) or GA4</strong> (analytics) — opt-in if GA4; Plausible may be cookieless by default.</li>
-                      <li><strong>Stripe</strong> (necessary) — payment processing.</li>
-                      <li><strong>ActionNetwork</strong> (functional/marketing) — newsletter forms or embeds.<br>For details, contact <a href="#"><strong>contact@mmtuk.org</strong></a>.</li>
+                      <li><strong>Railway</strong> (strictly necessary) — hosting platform; may set session/security cookies.</li>
+                      <li><strong>Consent storage</strong> (strictly necessary) — your cookie preference is saved in localStorage (not a cookie) and expires after 12 months.</li>
+                      <li><strong>ActionNetwork</strong> (functional) — newsletter sign-up, event registration, and donation forms. Cookies are set only when you interact with a form.</li>
+                      <li><strong>Stripe</strong> (strictly necessary, via ActionNetwork) — payment processing for donations. Stripe sets its own cookies during payment flows.</li>
                     </ul>
+
+                    <p>For questions about cookies or data processing, contact <a href="#" class="text-style-link obfuscated-email" data-user="contact" data-domain="mmtuk.org"><span class="email-fallback">contact [at] mmtuk [dot] org</span></a>.</p>
                   </div>
                 </div>
               </div>
@@ -32,4 +49,65 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           </div>
         </div>
       </section>
+
+<script>
+  function updateStatusDisplay() {
+    const statusText = document.getElementById('consent-status-text');
+    const statusDetail = document.getElementById('consent-status-detail');
+    if (!statusText || !statusDetail) return;
+
+    const api = (window as any).mmtukConsent;
+    if (!api) {
+      statusText.textContent = 'Consent system not loaded.';
+      statusDetail.textContent = '';
+      return;
+    }
+
+    const consent = api.get();
+    if (!consent) {
+      statusText.textContent = 'No preference set';
+      statusDetail.textContent = 'You have not yet made a cookie choice. The consent banner will appear at the bottom of the page.';
+    } else if (consent.consent === 'all') {
+      statusText.textContent = 'All cookies accepted';
+      const date = new Date(consent.timestamp).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+      statusDetail.textContent = 'You accepted all cookies on ' + date + '. This preference expires after 12 months.';
+    } else {
+      statusText.textContent = 'Necessary cookies only';
+      const date = new Date(consent.timestamp).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+      statusDetail.textContent = 'You chose necessary cookies only on ' + date + '. This preference expires after 12 months.';
+    }
+  }
+
+  function initPreferencesPage() {
+    const changeBtn = document.getElementById('btn-change-preference');
+    const resetBtn = document.getElementById('btn-reset-preference');
+    const api = (window as any).mmtukConsent;
+
+    updateStatusDisplay();
+
+    if (changeBtn && api) {
+      changeBtn.addEventListener('click', () => {
+        api.show();
+      });
+    }
+
+    if (resetBtn && api) {
+      resetBtn.addEventListener('click', () => {
+        api.reset();
+        updateStatusDisplay();
+      });
+    }
+
+    // Listen for consent changes (from the banner)
+    window.addEventListener('mmtuk-consent-changed', () => {
+      updateStatusDisplay();
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initPreferencesPage);
+  } else {
+    initPreferencesPage();
+  }
+</script>
 </BaseLayout>
