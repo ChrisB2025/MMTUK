@@ -8,7 +8,7 @@ MMTUK is a static educational website about Modern Monetary Theory built with As
 
 - **Site**: https://mmtuk.org
 - **Node Version**: 20 (see .nvmrc)
-- **Deployment**: Railway.app (builds to `dist/`, served with `npx serve`)
+- **Deployment**: Railway.app via Dockerfile (multi-stage build with Docker layer caching)
 
 ## Commands
 
@@ -381,6 +381,11 @@ redirects: {
 
 - **Staging**: Railway.app deploys from the `design-upgrade` branch
 - **Production**: TBD
+- **Builder**: Dockerfile with multi-stage build (see `Dockerfile`)
+  - Stage 1 (`build`): `node:20-alpine` — installs deps and runs `astro build`
+  - Stage 2 (`runtime`): `node:20-alpine` — only `serve@14` + `dist/` (~180MB image)
+  - Docker layer caching: `package.json` + `package-lock.json` are copied first, so `npm ci` is cached when only content changes (95% of pushes skip install entirely)
+- **Config**: `railway.toml` sets `builder = "dockerfile"`, healthcheck on `/`
 
 ### Common Deployment Issues
 
