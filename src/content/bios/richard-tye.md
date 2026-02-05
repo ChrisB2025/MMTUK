@@ -2,7 +2,7 @@
 name: "Richard Tye"
 slug: "richard-tye"
 role: "Academic & expert on the UK Exchequer"
-photo: "/images/bios/Richard Tye.png"
+photo: "/images/bios/Richard Tye.avif"
 linkedin: ""
 twitter: ""
 website: ""

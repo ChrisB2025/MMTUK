@@ -36,8 +36,12 @@ const sortedArticles = articles.sort((a, b) =>
         <div class="padding-section-large">
           <div class="blog1_component">
             <div class="w-layout-grid blog1_list">
-              {sortedArticles.map((article) => (
-                <a href={`/articles/${article.data.slug}`} class="blog1_item w-inline-block">
+              {sortedArticles.map((article) => {
+                const articleUrl = article.data.layout === 'simplified'
+                  ? `/education/articles/${article.data.slug}`
+                  : `/articles/${article.data.slug}`;
+                return (
+                <a href={articleUrl} class="blog1_item w-inline-block">
                   <div class="blog1_image-wrapper">
                     <img
                       src={article.data.thumbnail || '/images/placeholder-image.svg'}
@@ -71,7 +75,8 @@ const sortedArticles = articles.sort((a, b) =>
                     </div>
                   </div>
                 </a>
-              ))}
+                );
+              })}
             </div>
           </div>
         </div>
@@ -79,23 +84,4 @@ const sortedArticles = articles.sort((a, b) =>
     </div>
   </section>
 
-  <footer class="footer4_component">
-    <div class="padding-global">
-      <div class="container-large">
-        <div class="padding-vertical padding-xxlarge">
-          <div class="divider-horizontal footer_divider"></div>
-          <div class="padding-top padding-medium">
-            <div class="footer8_bottom-wrapper">
-              <div class="footer8_credit-text">© 2025 MMTUK Policy Group Ltd</div>
-              <div class="w-layout-grid footer8_legal-list">
-                <a href="/privacy-policy" class="footer8_legal-link">Privacy policy</a>
-                <a href="/terms-of-engagement" class="footer8_legal-link">Terms of engagement</a>
-                <a href="/cookie-preferences" class="footer8_legal-link">Cookie preferences</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
 </BaseLayout>

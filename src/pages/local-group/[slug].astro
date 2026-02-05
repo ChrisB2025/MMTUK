@@ -39,7 +39,7 @@ const localEvents = allLocalEvents
   .slice(0, 6);
 ---
 
-<BaseLayout title={title} description={tagline} currentPage="local-group">
+<BaseLayout title={title.replace(/^MMTUK\s*\|\s*/, '')} description={tagline} currentPage="local-group">
 <header class="section_header54 text-color-white">
         <div class="padding-global">
           <div class="container-large">
