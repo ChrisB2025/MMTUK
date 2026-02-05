@@ -13,6 +13,7 @@ sourcePublication: "Financial Times"
 sourceDate: 2026-01-15T00:00:00.000Z
 thumbnail: "/images/placeholder-image.svg"
 featured: false
+draft: true
 ---
 
 A recent Financial Times column insists that central bank independence must remain sacrosanct. This briefing examines whether the evidence supports such reverence, or whether the era of independent central banks has been one of policy failure.

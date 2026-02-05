@@ -13,6 +13,7 @@ sourcePublication: "Daily Telegraph"
 sourceDate: 2026-01-17T00:00:00.000Z
 thumbnail: "/images/placeholder-image.svg"
 featured: false
+draft: true
 ---
 
 The Daily Telegraph recently warned of an impending "inflation storm" caused by government "money printing." This briefing examines why this analysis fundamentally misunderstands the causes of inflation and the nature of government spending.

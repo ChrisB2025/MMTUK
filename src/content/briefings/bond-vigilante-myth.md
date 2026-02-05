@@ -13,6 +13,7 @@ sourcePublication: "The Telegraph"
 sourceDate: 2026-01-18T00:00:00.000Z
 thumbnail: "/images/placeholder-image.svg"
 featured: false
+draft: true
 ---
 
 A recent commentary warns that "bond vigilantes" will punish the UK government if it pursues expansionary fiscal policy. This narrative fundamentally misunderstands how currency-issuing governments interact with financial markets.

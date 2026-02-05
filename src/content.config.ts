@@ -122,6 +122,7 @@ const briefings = defineCollection({
     thumbnail: z.string().optional(),
     mainImage: z.string().optional(),
     featured: z.boolean().default(false),
+    draft: z.boolean().default(false),
     // Source attribution fields
     sourceUrl: z.string().optional(),
     sourceTitle: z.string().optional(),

@@ -13,6 +13,7 @@ sourcePublication: "Financial Times"
 sourceDate: 2026-01-20T00:00:00.000Z
 thumbnail: "/images/placeholder-image.svg"
 featured: true
+draft: true
 ---
 
 The recent article in the Financial Times warning about Britain's "debt crisis" relies heavily on the debt-to-GDP ratio as evidence of fiscal unsustainability. This briefing explains why this metric fundamentally misrepresents the fiscal capacity of a currency-issuing government like the UK.

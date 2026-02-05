@@ -13,6 +13,7 @@ sourcePublication: "The Economist"
 sourceDate: 2026-01-19T00:00:00.000Z
 thumbnail: "/images/placeholder-image.svg"
 featured: false
+draft: true
 ---
 
 A recent article in The Economist argues that Britain must embrace fiscal consolidation to restore market confidence. This analysis fundamentally misunderstands how fiscal multipliers work and why austerity typically fails on its own terms.

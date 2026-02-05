@@ -3,7 +3,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
-  const briefings = await getCollection('briefings');
+  const briefings = (await getCollection('briefings')).filter(b => !b.data.draft);
   return briefings.map((briefing) => ({
     params: { slug: briefing.data.slug },
     props: { briefing },
