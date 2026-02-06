@@ -17,6 +17,7 @@ const pubDate = new Date(item.data.date).toLocaleDateString('en-GB', {
   month: 'long',
   year: 'numeric'
 });
+const heroImage = item.data.mainImage || (item.data.thumbnail && item.data.thumbnail !== '/images/placeholder-image.svg' ? item.data.thumbnail : null);
 ---
 
 <BaseLayout title={item.data.title} description={item.data.summary} currentPage="about-us">
@@ -42,7 +43,7 @@ const pubDate = new Date(item.data.date).toLocaleDateString('en-GB', {
                     </a>
                   </div>
                 </div>
-                <h1 class="heading-style-h1">{item.data.title}</h1>
+                <h2 class="heading-style-h2 left">{item.data.title}</h2>
                 <div class="margin-top margin-large">
                   <div class="publication_blog-post-header_content-top">
                     <div class="margin-bottom margin-medium">
@@ -85,9 +86,11 @@ const pubDate = new Date(item.data.date).toLocaleDateString('en-GB', {
                   </div>
                 </div>
               </div>
+              {heroImage && (
               <div class="publication_blog-post-header_image-wrapper">
-                <img loading="eager" src={item.data.mainImage || item.data.thumbnail || '/images/placeholder-image.svg'} alt={item.data.title} class="publication_blog-post-header_image">
+                <img loading="eager" src={heroImage} alt={item.data.title} class="publication_blog-post-header_image">
               </div>
+              )}
             </div>
           </div>
         </div>
