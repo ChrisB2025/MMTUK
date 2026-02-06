@@ -777,3 +777,23 @@ textarea:focus {
 #can_embed_form {
   width: 100% !important;
 }
+
+/* Footer social media links */
+.footer8_social-links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.footer8_social-link {
+  color: #e2cdaa;
+  transition: color 0.2s ease;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.footer8_social-link:hover {
+  color: #fff;
+  text-decoration: none;
+}
