@@ -37,6 +37,6 @@ Bill Mitchell is Professor of Economics at the University of Newcastle, Australi
 
 ## Registration
 
-Registration details will be announced shortly. Join our [mailing list](/join) or [Discord server](/community#discord) to be notified when tickets become available.
+**[Register for this event on Action Network](https://actionnetwork.org/events/mmtuk-launch-event/)**
 
 This is a rare opportunity to be part of the launch of a new voice in UK economic debate. We look forward to seeing you there.
