@@ -20,13 +20,8 @@
    Hero Section Alignment Fix
    ========================================================================== */
 
-.header102_component {
-  align-items: start;
-}
-
 .header102_content {
-  margin-left: 5%;
-  padding-top: 4rem;
+  max-width: none;
 }
 
 /* ==========================================================================
@@ -866,14 +861,15 @@ textarea:focus {
 }
 
 .meganav__grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr 300px;
-  gap: 1.25rem;
+  display: flex;
+  justify-content: space-between;
   padding: 1rem 0 1.25rem;
+  align-items: start;
 }
 
-.meganav__grid--no-featured {
-  grid-template-columns: 1fr 1fr;
+.meganav__nav-cols {
+  display: flex;
+  gap: 1.5rem;
 }
 
 .meganav__col {
@@ -931,6 +927,8 @@ textarea:focus {
 /* --- Featured Event Card --- */
 
 .meganav__featured {
+  width: 250px;
+  flex-shrink: 0;
   border-left: 1px solid var(--_mmt-uk-theme---sercondary, #e2cdaa);
   padding-left: 1.25rem;
 }
@@ -961,7 +959,7 @@ textarea:focus {
 }
 
 .meganav__featured-image-wrapper {
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
   background: var(--_mmt-uk-theme---sercondary, #e2cdaa);
 }

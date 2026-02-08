@@ -46,9 +46,6 @@ const sections = [
   },
 ];
 
-const leftCol = sections.filter(s => s.id === 'research' || s.id === 'education');
-const rightCol = sections.filter(s => s.id === 'community' || s.id === 'about-us');
-
 const hasFeatured = !!featuredEvent;
 const feTitle = featuredEvent ? featuredEvent.title : '';
 const feSubtitle = featuredEvent ? featuredEvent.subtitle : '';
@@ -58,7 +55,6 @@ const feImage = featuredEvent ? featuredEvent.image : '';
 const feImageAlt = featuredEvent ? featuredEvent.imageAlt : '';
 const feLink = featuredEvent ? featuredEvent.link : '';
 const feCta = featuredEvent ? featuredEvent.ctaText : '';
-const gridClass = hasFeatured ? 'meganav__grid' : 'meganav__grid meganav__grid--no-featured';
 ---
 
 <div class="meganav" id="meganav-panel" role="region" aria-label="Site navigation submenu" aria-hidden="true" hidden>
@@ -66,22 +62,10 @@ const gridClass = hasFeatured ? 'meganav__grid' : 'meganav__grid meganav__grid--
   <div class="meganav__container">
     <div class="padding-global">
       <div class="container-large">
-        <div class={gridClass}>
-          <div class="meganav__col">
-            {leftCol.map((section) => (
-              <div class="meganav__section" data-meganav-section={section.id}>
-                <a href={section.href} class="meganav__heading">{section.label}</a>
-                <ul class="meganav__links">
-                  {section.links.map((link) => (
-                    <li><a href={link.href} class="meganav__link">{link.label}</a></li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-          <div class="meganav__col">
-            {rightCol.map((section) => (
-              <div class="meganav__section" data-meganav-section={section.id}>
+        <div class="meganav__grid">
+          <div class="meganav__nav-cols">
+            {sections.map((section) => (
+              <div class="meganav__col" data-meganav-section={section.id}>
                 <a href={section.href} class="meganav__heading">{section.label}</a>
                 <ul class="meganav__links">
                   {section.links.map((link) => (
@@ -100,17 +84,9 @@ const gridClass = hasFeatured ? 'meganav__grid' : 'meganav__grid meganav__grid--
                 </div>
                 <div class="meganav__featured-content">
                   <div class="meganav__featured-title">{feTitle}</div>
-                  <div class="meganav__featured-subtitle">{feSubtitle}</div>
                   <div class="meganav__featured-meta">
                     <span>{feDate}</span>
-                    <span>{feVenue}</span>
                   </div>
-                  <span class="meganav__featured-cta">
-                    {feCta}
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="1.5"></path>
-                    </svg>
-                  </span>
                 </div>
               </a>
             </div>
