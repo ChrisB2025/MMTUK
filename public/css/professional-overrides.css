@@ -17,6 +17,19 @@
 }
 
 /* ==========================================================================
+   Hero Section Alignment Fix
+   ========================================================================== */
+
+.header102_component {
+  align-items: start;
+}
+
+.header102_content {
+  margin-left: 5%;
+  padding-top: 4rem;
+}
+
+/* ==========================================================================
    Phase 1: Button Refinements
    ========================================================================== */
 
@@ -854,7 +867,7 @@ textarea:focus {
 
 .meganav__grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 240px;
+  grid-template-columns: 1fr 1fr 300px;
   gap: 1.25rem;
   padding: 1rem 0 1.25rem;
 }
@@ -948,7 +961,7 @@ textarea:focus {
 }
 
 .meganav__featured-image-wrapper {
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 4 / 3;
   overflow: hidden;
   background: var(--_mmt-uk-theme---sercondary, #e2cdaa);
 }
