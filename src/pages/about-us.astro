@@ -78,13 +78,13 @@ const newsWithBody = await Promise.all(
           <div class="image-overlay-layer"></div><img width="Auto" sizes="(max-width: 989px) 100vw, 989px" alt="" src="/images/UK-Sectoral-balances-clipped.avif" loading="eager" srcset="/images/UK-Sectoral-balances-clipped-p-500.avif 500w, images/UK-Sectoral-balances-clipped.avif 989w" class="header111_background-image">
         </div>
       </header>
-      <div class="padding-global">
+      <div id="MMTUKNews" class="padding-global">
         <div class="container-large">
           <div class="divider-horizontal page_divider"></div>
         </div>
       </div>
       {newsWithBody.length > 0 && (
-      <section id="MMTUKNews" class="section_faq4 color-scheme-1">
+      <section class="section_faq4 color-scheme-1">
         <div class="padding-global">
           <div class="container-large">
             <div class="padding-section-large">
@@ -141,7 +141,7 @@ const newsWithBody = await Promise.all(
       </section>
       )}
       {upcomingEvents.length > 0 && (
-      <div class="padding-global">
+      <div id="MMTUKEvents" class="padding-global">
         <div class="container-large">
           <div class="divider-horizontal page_divider"></div>
         </div>
@@ -214,7 +214,7 @@ const newsWithBody = await Promise.all(
         </div>
       </section>
       )}
-      <div class="padding-global">
+      <div id="SteeringGroup" class="padding-global">
         <div class="container-large">
           <div class="divider-horizontal page_divider"></div>
         </div>

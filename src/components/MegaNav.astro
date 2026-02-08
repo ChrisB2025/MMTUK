@@ -1,0 +1,366 @@
+---
+const { featuredEvent } = Astro.props;
+
+const sections = [
+  {
+    id: 'research',
+    label: 'Research',
+    href: '/research',
+    links: [
+      { label: 'Job Guarantee', href: '/research#Job-guarantee' },
+      { label: 'Zero Interest Rate Policy', href: '/research#ZIRP' },
+      { label: 'MMT Briefings', href: '/research/briefings' },
+      { label: 'Our Approach', href: '/research#our-approach' },
+    ],
+  },
+  {
+    id: 'education',
+    label: 'Education',
+    href: '/education',
+    links: [
+      { label: 'What is MMT?', href: '/education#WhatIsMMT' },
+      { label: 'MMT Core Insights', href: '/education#mmt-core-insights' },
+      { label: 'But what about...?', href: '/education#but-what-about' },
+      { label: 'Advisory Services', href: '/education#AdvisoryServices' },
+    ],
+  },
+  {
+    id: 'community',
+    label: 'Community',
+    href: '/community',
+    links: [
+      { label: 'Local Groups', href: '/community#Network' },
+      { label: 'Upcoming Events', href: '/community#Events' },
+      { label: 'Discord Server', href: '/community#discord' },
+    ],
+  },
+  {
+    id: 'about-us',
+    label: 'About Us',
+    href: '/about-us',
+    links: [
+      { label: 'MMTUK News', href: '/about-us#MMTUKNews' },
+      { label: 'MMTUK Events', href: '/about-us#MMTUKEvents' },
+      { label: 'Steering Group', href: '/about-us#SteeringGroup' },
+    ],
+  },
+];
+
+const leftCol = sections.filter(s => s.id === 'research' || s.id === 'education');
+const rightCol = sections.filter(s => s.id === 'community' || s.id === 'about-us');
+
+const hasFeatured = !!featuredEvent;
+const feTitle = featuredEvent ? featuredEvent.title : '';
+const feSubtitle = featuredEvent ? featuredEvent.subtitle : '';
+const feDate = featuredEvent ? featuredEvent.date : '';
+const feVenue = featuredEvent ? featuredEvent.venue : '';
+const feImage = featuredEvent ? featuredEvent.image : '';
+const feImageAlt = featuredEvent ? featuredEvent.imageAlt : '';
+const feLink = featuredEvent ? featuredEvent.link : '';
+const feCta = featuredEvent ? featuredEvent.ctaText : '';
+const gridClass = hasFeatured ? 'meganav__grid' : 'meganav__grid meganav__grid--no-featured';
+---
+
+<div class="meganav" id="meganav-panel" role="region" aria-label="Site navigation submenu" aria-hidden="true" hidden>
+  <div class="meganav__backdrop"></div>
+  <div class="meganav__container">
+    <div class="padding-global">
+      <div class="container-large">
+        <div class={gridClass}>
+          <div class="meganav__col">
+            {leftCol.map((section) => (
+              <div class="meganav__section" data-meganav-section={section.id}>
+                <a href={section.href} class="meganav__heading">{section.label}</a>
+                <ul class="meganav__links">
+                  {section.links.map((link) => (
+                    <li><a href={link.href} class="meganav__link">{link.label}</a></li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+          <div class="meganav__col">
+            {rightCol.map((section) => (
+              <div class="meganav__section" data-meganav-section={section.id}>
+                <a href={section.href} class="meganav__heading">{section.label}</a>
+                <ul class="meganav__links">
+                  {section.links.map((link) => (
+                    <li><a href={link.href} class="meganav__link">{link.label}</a></li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+          {hasFeatured && (
+            <div class="meganav__featured">
+              <div class="meganav__featured-label">Featured Event</div>
+              <a href={feLink} class="meganav__featured-card">
+                <div class="meganav__featured-image-wrapper">
+                  <img loading="lazy" src={feImage} alt={feImageAlt} class="meganav__featured-image" />
+                </div>
+                <div class="meganav__featured-content">
+                  <div class="meganav__featured-title">{feTitle}</div>
+                  <div class="meganav__featured-subtitle">{feSubtitle}</div>
+                  <div class="meganav__featured-meta">
+                    <span>{feDate}</span>
+                    <span>{feVenue}</span>
+                  </div>
+                  <span class="meganav__featured-cta">
+                    {feCta}
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="1.5"></path>
+                    </svg>
+                  </span>
+                </div>
+              </a>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+(function() {
+  var panel = document.getElementById('meganav-panel');
+  var triggers = document.querySelectorAll('[data-meganav-trigger]');
+  var sections = panel ? panel.querySelectorAll('[data-meganav-section]') : [];
+  var closeTimer = null;
+  var activeTrigger = null;
+  var activeSectionId = null;
+  var CLOSE_DELAY = 100;
+  var isMobile = function() { return window.innerWidth <= 991; };
+  // Detect touch-primary devices (tablets in landscape, etc.)
+  var isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+
+  function panelIsOpen() {
+    return panel && panel.getAttribute('aria-hidden') === 'false';
+  }
+
+  function openPanel(sectionId, trigger) {
+    if (isMobile()) return;
+    clearTimeout(closeTimer);
+    panel.removeAttribute('hidden');
+    panel.setAttribute('aria-hidden', 'false');
+    activeTrigger = trigger;
+    activeSectionId = sectionId;
+    triggers.forEach(function(t) {
+      if (t === trigger) {
+        t.classList.add('meganav-trigger--active');
+        t.setAttribute('aria-expanded', 'true');
+      } else {
+        t.classList.remove('meganav-trigger--active');
+        t.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+
+  function scheduleClose() {
+    if (isMobile()) return;
+    closeTimer = setTimeout(function() {
+      closePanel();
+    }, CLOSE_DELAY);
+  }
+
+  function closePanel() {
+    if (isMobile()) return;
+    panel.setAttribute('aria-hidden', 'true');
+    panel.setAttribute('hidden', '');
+    triggers.forEach(function(t) {
+      t.classList.remove('meganav-trigger--active');
+      t.setAttribute('aria-expanded', 'false');
+    });
+    activeTrigger = null;
+    activeSectionId = null;
+  }
+
+  function cancelClose() {
+    clearTimeout(closeTimer);
+  }
+
+  if (panel) {
+    // --- Click/tap handling (works for both touch tablets and mouse) ---
+    triggers.forEach(function(trigger) {
+      trigger.addEventListener('click', function(e) {
+        if (isMobile()) return; // mobile accordion handles its own clicks
+        var sectionId = this.getAttribute('data-meganav-trigger');
+        if (isTouch) {
+          // Touch device at desktop width: first tap opens, second tap navigates
+          if (panelIsOpen() && activeSectionId === sectionId) {
+            // Panel already showing this section — allow navigation
+            closePanel();
+            return;
+          }
+          // Open/switch panel, block navigation
+          e.preventDefault();
+          openPanel(sectionId, this);
+        }
+        // Non-touch devices: click navigates normally (hover handles panel)
+      });
+    });
+
+    // --- Hover logic (mouse devices only) ---
+    triggers.forEach(function(trigger) {
+      trigger.addEventListener('mouseenter', function() {
+        if (isTouch || isMobile()) return;
+        var sectionId = this.getAttribute('data-meganav-trigger');
+        openPanel(sectionId, this);
+      });
+      trigger.addEventListener('mouseleave', function() {
+        if (isTouch) return;
+        scheduleClose();
+      });
+    });
+
+    panel.addEventListener('mouseenter', function() {
+      if (!isMobile() && !isTouch) cancelClose();
+    });
+    panel.addEventListener('mouseleave', function() {
+      if (!isTouch) scheduleClose();
+    });
+
+    // --- Close panel when tapping outside (touch devices) ---
+    if (isTouch) {
+      document.addEventListener('click', function(e) {
+        if (isMobile() || !panelIsOpen()) return;
+        var inPanel = panel.contains(e.target);
+        var inTrigger = false;
+        triggers.forEach(function(t) {
+          if (t === e.target || t.contains(e.target)) inTrigger = true;
+        });
+        if (!inPanel && !inTrigger) {
+          closePanel();
+        }
+      });
+    }
+
+    // --- Keyboard accessibility ---
+    triggers.forEach(function(trigger) {
+      trigger.addEventListener('keydown', function(e) {
+        if (isMobile()) return;
+        var sectionId = this.getAttribute('data-meganav-trigger');
+        if (e.key === 'ArrowDown') {
+          e.preventDefault();
+          openPanel(sectionId, this);
+          var sec = panel.querySelector('[data-meganav-section="' + sectionId + '"]');
+          if (sec) {
+            var firstLink = sec.querySelector('.meganav__link');
+            if (firstLink) firstLink.focus();
+          }
+        }
+        if (e.key === 'Escape') {
+          closePanel();
+          this.focus();
+        }
+      });
+    });
+
+    panel.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        var returnTarget = activeTrigger;
+        closePanel();
+        if (returnTarget) returnTarget.focus();
+      }
+    });
+
+    // Close on focus leaving both triggers and panel
+    document.addEventListener('focusin', function(e) {
+      if (isMobile() || isTouch) return;
+      if (!panelIsOpen()) return;
+      var inPanel = panel.contains(e.target);
+      var inTrigger = false;
+      triggers.forEach(function(t) {
+        if (t === e.target || t.contains(e.target)) inTrigger = true;
+      });
+      if (!inPanel && !inTrigger) {
+        closePanel();
+      }
+    });
+
+    // Close panel on sub-link click
+    panel.querySelectorAll('a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        closePanel();
+      });
+    });
+  }
+
+  // --- Mobile accordion logic ---
+  function initMobile() {
+    var mobileData = document.getElementById('meganav-mobile-data');
+    if (!mobileData) return;
+
+    triggers.forEach(function(trigger) {
+      var sectionId = trigger.getAttribute('data-meganav-trigger');
+      if (trigger.nextElementSibling && trigger.nextElementSibling.classList.contains('meganav-mobile__sublist')) return;
+
+      var sourceDiv = mobileData.querySelector('[data-meganav-mobile="' + sectionId + '"]');
+      if (!sourceDiv) return;
+
+      var sublist = document.createElement('div');
+      sublist.className = 'meganav-mobile__sublist';
+      sublist.setAttribute('aria-hidden', 'true');
+      sublist.innerHTML = sourceDiv.innerHTML;
+      trigger.insertAdjacentElement('afterend', sublist);
+
+      trigger.addEventListener('click', function(e) {
+        if (!isMobile()) return;
+        e.preventDefault();
+        var isOpen = sublist.classList.contains('is-open');
+
+        document.querySelectorAll('.meganav-mobile__sublist.is-open').forEach(function(s) {
+          s.classList.remove('is-open');
+          s.setAttribute('aria-hidden', 'true');
+        });
+        document.querySelectorAll('[data-meganav-trigger]').forEach(function(t) {
+          t.setAttribute('aria-expanded', 'false');
+        });
+
+        if (!isOpen) {
+          sublist.classList.add('is-open');
+          sublist.setAttribute('aria-hidden', 'false');
+          trigger.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+    var featuredSource = mobileData.querySelector('[data-meganav-mobile-featured]');
+    var navMenu = document.querySelector('.navbar5_menu');
+    if (featuredSource && navMenu && !navMenu.querySelector('.meganav-mobile__featured-banner')) {
+      var banner = document.createElement('div');
+      banner.className = 'meganav-mobile__featured-banner';
+      banner.innerHTML = featuredSource.innerHTML;
+      navMenu.insertBefore(banner, navMenu.firstChild);
+    }
+  }
+
+  initMobile();
+  window.addEventListener('resize', function() {
+    if (isMobile()) {
+      initMobile();
+    }
+  });
+})();
+</script>
+
+<!-- Hidden containers for mobile JS to clone from -->
+<div id="meganav-mobile-data" hidden>
+  {sections.map((section) => (
+    <div data-meganav-mobile={section.id}>
+      {section.links.map((link) => (
+        <a href={link.href} class="meganav-mobile__link">{link.label}</a>
+      ))}
+    </div>
+  ))}
+  {hasFeatured && (
+    <div data-meganav-mobile-featured>
+      <a href={feLink} class="meganav-mobile__featured-link">
+        <div class="meganav-mobile__featured-label">Featured Event</div>
+        <div class="meganav-mobile__featured-title">{feTitle}</div>
+        <div class="meganav-mobile__featured-subtitle">{feSubtitle}</div>
+        <div class="meganav-mobile__featured-meta">{feDate} - {feVenue}</div>
+      </a>
+    </div>
+  )}
+</div>

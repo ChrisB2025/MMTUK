@@ -90,6 +90,16 @@ const isProduction = import.meta.env.PUBLIC_ENV !== 'staging';
         if (menu) {
           this.classList.toggle('w--open');
           menu.classList.toggle('w--open');
+          // Reset mega nav accordion state when hamburger menu closes
+          if (!menu.classList.contains('w--open')) {
+            menu.querySelectorAll('.meganav-mobile__sublist.is-open').forEach(function(s) {
+              s.classList.remove('is-open');
+              s.setAttribute('aria-hidden', 'true');
+            });
+            menu.querySelectorAll('[data-meganav-trigger]').forEach(function(t) {
+              t.setAttribute('aria-expanded', 'false');
+            });
+          }
         }
       });
     });

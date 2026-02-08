@@ -719,7 +719,16 @@ textarea:focus {
 [id="Events"],
 [id="discord"],
 [id="LocalNews"],
-[id="MMTUKNews"] {
+[id="MMTUKNews"],
+[id="MMTUKEvents"],
+[id="SteeringGroup"],
+[id="Job-guarantee"],
+[id="ZIRP"],
+[id="WhatIsMMT"],
+[id="mmt-core-insights"],
+[id="but-what-about"],
+[id="AdvisoryServices"],
+[id="our-approach"] {
   scroll-margin-top: 100px;
 }
 
@@ -796,4 +805,338 @@ textarea:focus {
 .footer8_social-link:hover {
   color: #fff;
   text-decoration: none;
+}
+
+@media screen and (max-width: 767px) {
+  .footer8_social-links {
+    margin: 0.75rem 0;
+  }
+}
+
+/* ==========================================================================
+   Mega Navigation Menu - Desktop Panel
+   ========================================================================== */
+
+.meganav {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-4px);
+  transition: opacity 180ms var(--ease-out-expo), transform 180ms var(--ease-out-expo);
+}
+
+.meganav[hidden] {
+  display: none !important;
+}
+
+.meganav[aria-hidden="false"] {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.meganav__backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.15);
+  z-index: -1;
+}
+
+.meganav__container {
+  background-color: var(--_mmt-uk-theme---background, #fef9f1);
+  border-bottom: 2px solid var(--_mmt-uk-theme---sercondary, #e2cdaa);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+}
+
+.meganav__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 240px;
+  gap: 1.25rem;
+  padding: 1rem 0 1.25rem;
+}
+
+.meganav__grid--no-featured {
+  grid-template-columns: 1fr 1fr;
+}
+
+.meganav__col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.meganav__section {
+  opacity: 1;
+}
+
+.meganav__heading {
+  display: block;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--_mmt-uk-theme---accent, #004537);
+  text-decoration: none;
+  padding-bottom: 0.375rem;
+  border-bottom: 1px solid var(--_mmt-uk-theme---sercondary, #e2cdaa);
+  margin-bottom: 0.25rem;
+}
+
+.meganav__heading:hover {
+  color: var(--_mmt-uk-theme---accent, #004537);
+}
+
+.meganav__links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.meganav__link {
+  display: block;
+  padding: 0.1875rem 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--_primitives---colors--neutral-darkest, #1a1a1a);
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background-color 200ms ease, color 200ms ease;
+}
+
+.meganav__link:hover {
+  background-color: rgba(0, 69, 55, 0.06);
+  color: var(--_mmt-uk-theme---accent, #004537);
+}
+
+/* --- Featured Event Card --- */
+
+.meganav__featured {
+  border-left: 1px solid var(--_mmt-uk-theme---sercondary, #e2cdaa);
+  padding-left: 1.25rem;
+}
+
+.meganav__featured-label {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--_mmt-uk-theme---accent, #004537);
+  margin-bottom: 0.5rem;
+}
+
+.meganav__featured-card {
+  display: block;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+  transition: transform 200ms var(--ease-out-expo), box-shadow 200ms var(--ease-out-expo);
+}
+
+.meganav__featured-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.meganav__featured-image-wrapper {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--_mmt-uk-theme---sercondary, #e2cdaa);
+}
+
+.meganav__featured-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 400ms var(--ease-out-expo);
+}
+
+.meganav__featured-card:hover .meganav__featured-image {
+  transform: scale(1.04);
+}
+
+.meganav__featured-content {
+  padding: 0.625rem 0.75rem;
+}
+
+.meganav__featured-title {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--_primitives---colors--downriver, #0a1e3f);
+  line-height: 1.3;
+}
+
+.meganav__featured-subtitle {
+  font-size: 0.75rem;
+  color: var(--_primitives---colors--neutral, #666);
+  margin-top: 0.125rem;
+}
+
+.meganav__featured-meta {
+  font-size: 0.6875rem;
+  color: var(--_primitives---colors--neutral, #666);
+  margin-top: 0.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.meganav__featured-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--_mmt-uk-theme---accent, #004537);
+  margin-top: 0.375rem;
+}
+
+/* --- Active nav trigger state --- */
+
+.meganav-trigger--active {
+  color: var(--_mmt-uk-theme---accent, #004537) !important;
+}
+
+.meganav-trigger--active::after {
+  width: 100% !important;
+  background-color: var(--_mmt-uk-theme---accent, #004537) !important;
+}
+
+/* --- Mobile data source (always hidden) --- */
+
+#meganav-mobile-data {
+  display: none !important;
+}
+
+/* --- Mobile elements (hidden at desktop/tablet widths) --- */
+
+.meganav-mobile__chevron {
+  display: none;
+}
+
+.meganav-mobile__sublist {
+  display: none;
+}
+
+.meganav-mobile__featured-banner {
+  display: none;
+}
+
+/* ==========================================================================
+   Mega Navigation Menu - Mobile Styles
+   ========================================================================== */
+
+@media screen and (max-width: 991px) {
+  /* Hide the desktop panel on mobile */
+  .meganav {
+    display: none !important;
+  }
+
+  /* Show chevron on mobile */
+  .meganav-mobile__chevron {
+    display: inline-flex;
+    align-items: center;
+    margin-left: 0.25rem;
+    transition: transform 200ms ease;
+  }
+
+  [data-meganav-trigger][aria-expanded="true"] .meganav-mobile__chevron {
+    transform: rotate(180deg);
+  }
+
+  /* Mobile sub-link list */
+  .meganav-mobile__sublist {
+    display: none;
+    flex-direction: column;
+    padding-left: 1rem;
+    overflow: hidden;
+  }
+
+  .meganav-mobile__sublist.is-open {
+    display: flex;
+  }
+
+  .meganav-mobile__link {
+    display: block;
+    padding: 0.5rem 0;
+    font-size: 0.9375rem;
+    color: var(--_primitives---colors--neutral-darkest, #1a1a1a);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+
+  .meganav-mobile__link:hover {
+    color: var(--_mmt-uk-theme---accent, #004537);
+  }
+
+  /* Mobile featured event banner */
+  .meganav-mobile__featured {
+    margin-bottom: 0.75rem;
+    border: 1px solid var(--_mmt-uk-theme---sercondary, #e2cdaa);
+    border-radius: 8px;
+    background: rgba(0, 69, 55, 0.03);
+    overflow: hidden;
+  }
+
+  .meganav-mobile__featured-link {
+    display: block;
+    padding: 0.75rem;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .meganav-mobile__featured-label {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--_mmt-uk-theme---accent, #004537);
+    margin-bottom: 0.25rem;
+  }
+
+  .meganav-mobile__featured-title {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--_primitives---colors--downriver, #0a1e3f);
+  }
+
+  .meganav-mobile__featured-subtitle {
+    font-size: 0.8125rem;
+    color: var(--_primitives---colors--neutral, #666);
+  }
+
+  .meganav-mobile__featured-meta {
+    font-size: 0.75rem;
+    color: var(--_primitives---colors--neutral, #666);
+    margin-top: 0.25rem;
+  }
+}
+
+/* ==========================================================================
+   Mega Navigation Menu - Reduced Motion
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .meganav,
+  .meganav__featured-card,
+  .meganav__featured-image,
+  .meganav__section,
+  .meganav__link,
+  .meganav-mobile__chevron,
+  .meganav-mobile__sublist {
+    transition-duration: 0.01ms !important;
+  }
 }

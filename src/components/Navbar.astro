@@ -1,4 +1,6 @@
 ---
+import MegaNav from './MegaNav.astro';
+
 // Navbar component - Complex mega menu navigation
 interface Props {
   currentPage?: string;
@@ -8,6 +10,17 @@ const { currentPage = '' } = Astro.props;
 
 // Helper to determine if a link is current
 const isCurrentPage = (page: string) => currentPage === page;
+
+const featuredEvent = {
+  title: "The Case for a UK Job Guarantee",
+  subtitle: "With Professor Bill Mitchell",
+  date: "25 February 2026",
+  venue: "Friends House, London",
+  image: "/images/bill-mitchell-event.png",
+  imageAlt: "MMTUK Launch Event with Professor Bill Mitchell",
+  link: "/news/bill-mitchell-event-feb2026",
+  ctaText: "Learn more",
+};
 ---
 
 <div fs-scrolldisable-element="smart-nav" data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar5_component color-scheme-1 w-nav">
@@ -17,10 +30,10 @@ const isCurrentPage = (page: string) => currentPage === page;
     </a>
     <nav role="navigation" class="navbar5_menu w-nav-menu">
       <div class="navbar5_menu-left">
-        <a href="/research" class="navbar5_link w-nav-link">Research</a>
-        <a href="/education" class="navbar5_link w-nav-link">Education</a>
-        <a href="/community" class="navbar5_link w-nav-link">Community</a>
-        <a href="/about-us" class="navbar5_link w-nav-link">About Us</a>
+        <a href="/research" class="navbar5_link w-nav-link" data-meganav-trigger="research" aria-haspopup="true" aria-expanded="false">Research<span class="meganav-mobile__chevron"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a>
+        <a href="/education" class="navbar5_link w-nav-link" data-meganav-trigger="education" aria-haspopup="true" aria-expanded="false">Education<span class="meganav-mobile__chevron"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a>
+        <a href="/community" class="navbar5_link w-nav-link" data-meganav-trigger="community" aria-haspopup="true" aria-expanded="false">Community<span class="meganav-mobile__chevron"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a>
+        <a href="/about-us" class="navbar5_link w-nav-link" data-meganav-trigger="about-us" aria-haspopup="true" aria-expanded="false">About Us<span class="meganav-mobile__chevron"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a>
       </div>
       <div class="navbar5_menu-right">
         <a href="/donate" class="button is-secondary is-small w-button">Donate</a>
@@ -37,6 +50,7 @@ const isCurrentPage = (page: string) => currentPage === page;
       </div>
     </div>
   </div>
+  <MegaNav featuredEvent={featuredEvent} />
 </div>
 
 <style>
