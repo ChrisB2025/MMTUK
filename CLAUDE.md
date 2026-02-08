@@ -48,8 +48,9 @@ All content uses Astro Content Collections with Zod validation defined in `src/c
 
 ### Key Files
 
-- `src/layouts/BaseLayout.astro` - Main template with SEO meta, navigation, footer, and interactive component scripts (accordions, sliders, tabs)
-- `src/components/Navbar.astro` - Complex mega-menu navigation
+- `src/layouts/BaseLayout.astro` - Main template with SEO meta, navigation, footer, Umami analytics, and interactive component scripts (accordions, sliders, tabs)
+- `src/components/Navbar.astro` - Top navigation bar with mega nav integration and featured event config
+- `src/components/MegaNav.astro` - Mega navigation panel with sub-links, featured event card, and interaction JS (desktop hover, tablet tap, mobile accordion)
 - `scripts/migrate-*.cjs` - Webflow to Astro migration tools
 - `src/pages/community.astro` - Lists local groups (cards use `headerImage` from frontmatter)
 - `src/pages/education.astro` - Education hub with "Ask MMTUK" AI assistant, "What is MMT?" explainer, FAQ accordions, and Advisory Services section
@@ -361,6 +362,31 @@ readTime: 5
 summary: "Brief description"
 thumbnail: "/images/placeholder-image.svg"
 ```
+
+## Mega Navigation Menu
+
+The site uses a custom mega nav (`src/components/MegaNav.astro`) that provides sub-page links for all four main sections (Research, Education, Community, About Us) plus a featured event card.
+
+### How It Works
+- **Desktop (mouse)**: Hover over a nav link to open the panel; panel stays open while cursor is inside; 100ms close delay on mouse leave
+- **Tablet (touch, >991px)**: First tap opens the panel (blocks navigation); second tap on same link navigates; tap outside closes panel
+- **Mobile (<=991px)**: Hamburger menu with accordion sublists cloned from hidden `#meganav-mobile-data` container
+- **Keyboard**: ArrowDown opens panel and focuses first link; Escape closes and returns focus; Tab cycles through links
+
+### Featured Event Config
+The featured event is configured in `Navbar.astro` frontmatter. Set `featuredEvent` to update or set to `null` to hide it (panel falls back to 2-column layout via `.meganav__grid--no-featured`).
+
+### Astro `<template>` Element Limitation
+Astro's compiler cannot handle `<template>` HTML elements containing dynamic JSX expressions. The mobile data source uses hidden `<div>` elements instead of `<template>` tags. Do not convert these back to `<template>` elements.
+
+### CSS
+All mega nav styles are in `public/css/professional-overrides.css` under the "Mega Navigation Menu" section headers.
+
+## Analytics
+
+- **Umami**: Self-hosted at `umami-production-9226.up.railway.app`
+- Tracking script is in `BaseLayout.astro` `<head>` section, loads on every page
+- Website ID: `f63fc379-0150-482b-8bd3-8a0ed540a58c`
 
 ## Branding
 
