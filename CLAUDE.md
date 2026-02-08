@@ -41,6 +41,9 @@ All content uses Astro Content Collections with Zod validation defined in `src/c
   - All pages filter with `.filter(b => !b.data.draft)`
   - Use only `##` (h2) headings in markdown body — h3 renders larger than h2 in Webflow CSS
   - Each briefing has an attribution footer linking to original Substack source
+- **localEvents/** - Events for local groups
+  - Schema: `title`, `slug`, `localGroup`, `date`, `tag`, `location`, `description`, `link?`, `image?`
+  - Events appear on `/community` (all except bill-mitchell-feb) and `/local-group/[slug]` (filtered by group, upcoming only)
 - **localNews/** - News specific to local groups
 
 ### Key Files
@@ -75,6 +78,7 @@ Key overrides in this file:
 - Form input styling
 - Mobile navigation hamburger menu positioning fix
 - Bio photo sizing for mobile/tablet (`.team8_image`: 100px on tablet, 80px on mobile)
+- Footer social media icon styles (`.footer8_social-links`, `.footer8_social-link`)
 
 **Bio Photo Responsive Sizing**: The Webflow default `width: 30%` for `.team8_image` makes photos too small on tablets and phones. Fixed sizes in `professional-overrides.css`:
 | Breakpoint | Photo Size |
@@ -384,10 +388,24 @@ redirects: {
 }
 ```
 
+## Social Media
+
+- **Bluesky**: https://bsky.app/profile/mmtuk.bsky.social
+- **X/Twitter**: https://x.com/MMTUK_PRG (handle: @MMTUK_PRG)
+- Footer contains SVG icons linking to both accounts (Bluesky first, then X)
+
+## SEO & Open Graph
+
+- All OG/Twitter meta tags are in `BaseLayout.astro` head section
+- Default OG image: `/images/og-image.png` (1200x630, branded)
+- Pages can override via `ogImage` prop on BaseLayout
+- `og:site_name` is "MMTUK", `twitter:site` is "@MMTUK_PRG"
+- Analytics: Umami (self-hosted on Railway), script tag in BaseLayout head
+
 ## Deployment
 
-- **Staging**: Railway.app deploys from the `design-upgrade` branch
-- **Production**: TBD
+- **Production**: Railway.app deploys from the `optimize-deploy` branch
+- **Site launched**: 6 February 2026
 - **Builder**: Dockerfile with multi-stage build (see `Dockerfile`)
   - Stage 1 (`build`): `node:20-alpine` — installs deps and runs `astro build`
   - Stage 2 (`runtime`): `node:20-alpine` — only `serve@14` + `dist/` (~180MB image)
@@ -400,7 +418,7 @@ redirects: {
 
 2. **Multiple terminal sessions**: Running multiple Claude Code sessions can cause commit queue confusion. Always verify with `git log` that the expected commits are present and pushed.
 
-3. **Verify remote state**: Use `git log origin/design-upgrade --oneline -5` to confirm what's actually on the remote branch before assuming a deployment issue.
+3. **Verify remote state**: Use `git log origin/optimize-deploy --oneline -5` to confirm what's actually on the remote branch before assuming a deployment issue.
 
 ### Common Code Issues (Webflow Migration Artifacts)
 
@@ -422,6 +440,6 @@ redirects: {
    - Go to Railway project Settings → Source → click **Disconnect**
    - Go to GitHub → Settings → Applications → Installed GitHub Apps → Railway → **Configure**
    - Under "Repository access", ensure `ChrisB2025/MMTUK` is listed (or switch to "Only select repositories" and explicitly add it)
-   - Return to Railway and click **Connect Repo** → select the repo → select `design-upgrade` branch
+   - Return to Railway and click **Connect Repo** → select the repo → select `optimize-deploy` branch
    - Push a commit to verify auto-deploy triggers
    - Workaround: Use `railway up` to deploy from local code while GitHub connection is broken
