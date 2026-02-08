@@ -431,6 +431,7 @@ redirects: {
 ## Deployment
 
 - **Production**: Railway.app deploys from the `main` branch
+- **Branch strategy**: `main` is the single production branch. Feature work happens on topic branches merged into `main`. The legacy `optimize-deploy` branch is kept in sync with `main` but is no longer the deploy target.
 - **Site launched**: 6 February 2026
 - **Builder**: Dockerfile with multi-stage build (see `Dockerfile`)
   - Stage 1 (`build`): `node:20-alpine` — installs deps and runs `astro build`
