@@ -85,6 +85,17 @@ const heroImage = item.data.mainImage || (item.data.thumbnail && item.data.thumb
                     </div>
                   </div>
                 </div>
+                {item.data.registrationLink && (
+                <div class="registration-box">
+                  <div class="registration-box__inner">
+                    <div class="registration-box__text">
+                      <strong>Register for this event</strong>
+                      <span>Free · In-person only · Limited to 100 places</span>
+                    </div>
+                    <a href={item.data.registrationLink} class="button w-button" target="_blank" rel="noopener noreferrer">Register Now</a>
+                  </div>
+                </div>
+                )}
               </div>
               {heroImage && (
               <div class="publication_blog-post-header_image-wrapper">

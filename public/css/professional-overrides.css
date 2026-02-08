@@ -758,6 +758,50 @@ textarea:focus {
 }
 
 /* ==========================================================================
+   Event Registration Box
+   ========================================================================== */
+
+.registration-box {
+  margin-top: 1.25rem;
+  margin-bottom: -1.5rem;
+}
+
+.registration-box__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  background: rgba(0, 69, 55, 0.06);
+  border: 1px solid var(--_mmt-uk-theme---accent, #004537);
+  border-radius: 8px;
+}
+
+.registration-box__text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.registration-box__text strong {
+  font-size: 1rem;
+  color: var(--_primitives---colors--downriver, #0a1e3f);
+}
+
+.registration-box__text span {
+  font-size: 0.8125rem;
+  color: var(--_primitives---colors--neutral, #666);
+}
+
+@media screen and (max-width: 479px) {
+  .registration-box__inner {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+  }
+}
+
+/* ==========================================================================
    News Article Heading Hierarchy
    ========================================================================== */
 

@@ -31,6 +31,7 @@ const news = defineCollection({
     summary: z.string().optional(),
     thumbnail: z.string().optional(),
     mainImage: z.string().optional(),
+    registrationLink: z.string().optional(),
   }),
 });
 
