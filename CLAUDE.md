@@ -430,7 +430,7 @@ redirects: {
 
 ## Deployment
 
-- **Production**: Railway.app deploys from the `optimize-deploy` branch
+- **Production**: Railway.app deploys from the `main` branch
 - **Site launched**: 6 February 2026
 - **Builder**: Dockerfile with multi-stage build (see `Dockerfile`)
   - Stage 1 (`build`): `node:20-alpine` — installs deps and runs `astro build`
@@ -444,7 +444,7 @@ redirects: {
 
 2. **Multiple terminal sessions**: Running multiple Claude Code sessions can cause commit queue confusion. Always verify with `git log` that the expected commits are present and pushed.
 
-3. **Verify remote state**: Use `git log origin/optimize-deploy --oneline -5` to confirm what's actually on the remote branch before assuming a deployment issue.
+3. **Verify remote state**: Use `git log origin/main --oneline -5` to confirm what's actually on the remote branch before assuming a deployment issue.
 
 ### Common Code Issues (Webflow Migration Artifacts)
 
@@ -466,6 +466,6 @@ redirects: {
    - Go to Railway project Settings → Source → click **Disconnect**
    - Go to GitHub → Settings → Applications → Installed GitHub Apps → Railway → **Configure**
    - Under "Repository access", ensure `ChrisB2025/MMTUK` is listed (or switch to "Only select repositories" and explicitly add it)
-   - Return to Railway and click **Connect Repo** → select the repo → select `optimize-deploy` branch
+   - Return to Railway and click **Connect Repo** → select the repo → select `main` branch
    - Push a commit to verify auto-deploy triggers
    - Workaround: Use `railway up` to deploy from local code while GitHub connection is broken
