@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import EventProgressBar from '../../components/EventProgressBar.astro';
 import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -92,6 +93,11 @@ const heroImage = item.data.mainImage || (item.data.thumbnail && item.data.thumb
                       <strong>Register for this event</strong>
                       <span>Free · In-person only · Limited to 100 places</span>
                     </div>
+                    <EventProgressBar
+                      currentCount={17}
+                      totalCount={100}
+                      urgencyText="Filling fast — secure your place"
+                    />
                     <a href={item.data.registrationLink} class="button w-button" target="_blank" rel="noopener noreferrer">Register Now</a>
                   </div>
                 </div>

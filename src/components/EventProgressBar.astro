@@ -1,0 +1,22 @@
+---
+interface Props {
+  currentCount: number;
+  totalCount: number;
+  urgencyText?: string;
+}
+
+const { currentCount, totalCount, urgencyText = "Filling fast — secure your place" } = Astro.props;
+const fillPercent = Math.min(100, Math.max(0, (currentCount / totalCount) * 100));
+---
+
+<div class="event-progress">
+  <div class="event-progress__count">
+    {currentCount} of {totalCount} places claimed
+  </div>
+  <div class="event-progress__track">
+    <div class="event-progress__fill" style={`width: ${fillPercent}%`}></div>
+  </div>
+  {urgencyText && (
+    <div class="event-progress__urgency">{urgencyText}</div>
+  )}
+</div>
