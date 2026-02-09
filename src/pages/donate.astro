@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import MilestoneProgress from '../components/MilestoneProgress.astro';
 ---
 
 <BaseLayout title="Donate" description="Support MMTUK's mission to promote understanding of Modern Monetary Theory. Your donation funds independent research, education programmes and community outreach across the UK." currentPage="donate">
@@ -54,6 +55,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           </div>
         </div>
       </section>
+      <div class="padding-global">
+        <div class="container-large">
+          <MilestoneProgress
+            currentCount={10}
+            totalCount={100}
+            motivationalText="First milestone in sight — help us reach 25 founding members"
+          />
+        </div>
+      </div>
       <header class="section_founder-member-scheme_feature-2">
         <div class="padding-global">
           <div class="container-large">

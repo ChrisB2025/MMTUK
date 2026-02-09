@@ -1,0 +1,58 @@
+---
+interface Props {
+  currentCount: number;
+  totalCount: number;
+  milestones?: number[];
+  motivationalText?: string;
+}
+
+const {
+  currentCount,
+  totalCount,
+  milestones = [25, 50, 75, 100],
+  motivationalText,
+} = Astro.props;
+
+const fillPercent = Math.min(100, Math.max(0, (currentCount / totalCount) * 100));
+
+type MilestoneState = 'passed' | 'current' | 'future';
+
+interface MilestoneItem {
+  value: number;
+  position: number;
+  state: MilestoneState;
+}
+
+let foundCurrent = false;
+const milestoneItems: MilestoneItem[] = milestones.map((m) => {
+  const position = (m / totalCount) * 100;
+  let state: MilestoneState;
+  if (fillPercent >= position) {
+    state = 'passed';
+  } else if (!foundCurrent) {
+    state = 'current';
+    foundCurrent = true;
+  } else {
+    state = 'future';
+  }
+  return { value: m, position, state };
+});
+---
+
+<div class="milestone-progress">
+  <div class="milestone-progress__heading">Founding member progress</div>
+  <div class="milestone-progress__track-container">
+    <div class="milestone-progress__track">
+      <div class="milestone-progress__fill" style={`width: ${fillPercent}%`}></div>
+    </div>
+    {milestoneItems.map((item) => (
+      <div class="milestone-progress__marker-group" style={`left: ${item.position}%`}>
+        <div class={`milestone-progress__marker milestone-progress__marker--${item.state}`}></div>
+        <div class="milestone-progress__label">{item.value}</div>
+      </div>
+    ))}
+  </div>
+  {motivationalText && (
+    <div class="milestone-progress__motivational">{motivationalText}</div>
+  )}
+</div>
