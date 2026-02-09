@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import EventBadge from '../../components/EventBadge.astro';
 import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -203,6 +204,7 @@ const localEvents = allLocalEvents
                                   <div class="tag">
                                     <div>{event.data.tag}</div>
                                   </div>
+                                  {event.data.partnerEvent && <EventBadge label="Partner Event" variant="partner" />}
                                 </div>
                               </div>
                               <h3 class="heading-style-h5-6">{event.data.title}</h3>

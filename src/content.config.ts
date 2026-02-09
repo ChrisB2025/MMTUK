@@ -107,6 +107,7 @@ const localEvents = defineCollection({
     description: z.string(),
     link: z.string().optional(),
     image: z.string().optional(),
+    partnerEvent: z.boolean().optional(),
   }),
 });
 

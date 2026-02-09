@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import EventBadge from '../components/EventBadge.astro';
 import { getCollection } from 'astro:content';
 
 const allLocalGroups = await getCollection('localGroups');
@@ -145,9 +146,12 @@ function formatEventDate(date: Date) {
                                   <div class="tag">
                                     <div>{event.data.tag}</div>
                                   </div>
-                                  <div class="tag" style="background-color: var(--_mmt-uk-theme---sercondary); color: var(--_mmt-uk-theme---text);">
-                                    <div>{groupName}</div>
-                                  </div>
+                                  {!event.data.partnerEvent && (
+                                    <div class="tag" style="background-color: var(--_mmt-uk-theme---sercondary); color: var(--_mmt-uk-theme---text);">
+                                      <div>{groupName}</div>
+                                    </div>
+                                  )}
+                                  {event.data.partnerEvent && <EventBadge label="Partner Event" variant="partner" />}
                                 </div>
                               </div>
                               <h3 class="heading-style-h5-6">{event.data.title}</h3>

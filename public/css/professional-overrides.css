@@ -1362,3 +1362,28 @@ textarea:focus {
     font-size: 0.625rem;
   }
 }
+
+/* ==========================================================================
+   Event Badge Component
+   ========================================================================== */
+
+.event-badge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 10rem;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+.event-badge--partner {
+  background-color: #3A8FB7;
+  color: #fff;
+}
+
+.event-badge--default {
+  background-color: var(--_primitives---opacity--neutral-darkest-5);
+  color: var(--_primitives---colors--neutral-darkest);
+}
