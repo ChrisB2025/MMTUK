@@ -51,6 +51,7 @@ All content uses Astro Content Collections with Zod validation defined in `src/c
 - `src/layouts/BaseLayout.astro` - Main template with SEO meta, navigation, footer, Umami analytics, and interactive component scripts (accordions, sliders, tabs)
 - `src/components/Navbar.astro` - Top navigation bar with mega nav integration and featured event config
 - `src/components/MegaNav.astro` - Mega navigation panel with sub-links, featured event card, and interaction JS (desktop hover, tablet tap, mobile accordion)
+- `src/components/EventProgressBar.astro` - Reusable progress bar for event registration boxes (props: `currentCount`, `totalCount`, `urgencyText?`)
 - `scripts/migrate-*.cjs` - Webflow to Astro migration tools
 - `src/pages/community.astro` - Lists local groups (cards use `headerImage` from frontmatter)
 - `src/pages/education.astro` - Education hub with "Ask MMTUK" AI assistant, "What is MMT?" explainer, FAQ accordions, and Advisory Services section
@@ -67,7 +68,7 @@ All content uses Astro Content Collections with Zod validation defined in `src/c
 
 CSS comes from Webflow exports in `public/css/` (normalize.css, webflow.css, mmtuk.webflow.css). Interactive components use both Webflow's library and inline scripts in BaseLayout.astro.
 
-**Custom Overrides**: `public/css/professional-overrides.css` contains site-specific styling enhancements that override Webflow defaults. Add new custom styles here rather than modifying Webflow CSS files.
+**Custom Overrides**: `public/css/professional-overrides.css` contains site-specific styling enhancements that override Webflow defaults. Add new custom styles here rather than modifying Webflow CSS files. This file is loaded with a build-time cache-busting query parameter (`?v={timestamp}`) in BaseLayout.astro to prevent CDN caching issues after deploys.
 
 Key overrides in this file:
 - Button hover effects (shadows, transforms)
@@ -80,6 +81,7 @@ Key overrides in this file:
 - Mobile navigation hamburger menu positioning fix
 - Bio photo sizing for mobile/tablet (`.team8_image`: 100px on tablet, 80px on mobile)
 - Footer social media icon styles (`.footer8_social-links`, `.footer8_social-link`)
+- Event registration progress bar (`.event-progress`, `.event-progress__track`, `.event-progress__fill`)
 
 **Bio Photo Responsive Sizing**: The Webflow default `width: 30%` for `.team8_image` makes photos too small on tablets and phones. Fixed sizes in `professional-overrides.css`:
 | Breakpoint | Photo Size |
@@ -446,6 +448,8 @@ redirects: {
 2. **Multiple terminal sessions**: Running multiple Claude Code sessions can cause commit queue confusion. Always verify with `git log` that the expected commits are present and pushed.
 
 3. **Verify remote state**: Use `git log origin/main --oneline -5` to confirm what's actually on the remote branch before assuming a deployment issue.
+
+4. **CDN serves stale CSS after deploy**: `professional-overrides.css` is a static file that can be cached by Railway's CDN. The `<link>` tag in BaseLayout.astro uses `?v={Date.now()}` to bust the cache on each build. If new CSS styles don't appear on the live site despite correct HTML, this is the likely cause — ensure the cache-busting parameter is present.
 
 ### Common Code Issues (Webflow Migration Artifacts)
 
