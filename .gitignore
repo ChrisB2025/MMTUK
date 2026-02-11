@@ -23,3 +23,10 @@ pnpm-debug.log*
 # jetbrains setting folder
 .idea/
 .claude/
+
+# Windows special files
+nul
+
+# Debug/test artifacts
+cookies*.txt
+*_response.html
