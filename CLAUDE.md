@@ -2,6 +2,23 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## General Rules
+
+- **Preserve existing content**: When editing pages or layouts, keep all existing content unless explicitly told to remove it. Before replacing or removing any content block, confirm with the user what should stay vs. go.
+- **Check before building**: Before implementing any new feature or module, search the full project directory tree to check if it (or something similar) already exists. Do not assume something hasn't been built.
+- **Keep changes targeted**: Prefer simple, targeted fixes over comprehensive refactors. If a plan grows beyond 3 steps or touches files not directly related to the request, pause and confirm the scope with the user.
+- **CSS units**: Use viewport-relative units (vw/vh) for viewport-dependent sizing rather than percentage-based calculations on parent containers. Always test responsive breakpoints after CSS changes.
+
+## Git Operations
+
+- Before committing, confirm the current branch with `git branch`. Default to pushing to both `optimize-deploy` and `main` unless told otherwise.
+- Use `/ship` to handle the standard commit-and-push workflow.
+- Never commit temp/debug files (cookies.txt, *_response.html, nul, etc.) or secrets (.env, credentials).
+
+## Hooks
+
+A pre-commit build hook is configured in `.claude/settings.json`. It uses `PreToolUse` on `Bash` to intercept `git commit` commands and run `npm run build` first. If the build fails, the commit is blocked (exit code 2). The hook script is at `.claude/hooks/pre-commit-build.js`.
+
 ## Project Overview
 
 MMTUK is a static educational website about Modern Monetary Theory built with Astro. The site was migrated from Webflow, and some Webflow CSS/JS remains for layout compatibility.
@@ -386,7 +403,7 @@ All mega nav styles are in `public/css/professional-overrides.css` under the "Me
 
 ## Analytics
 
-- **Umami**: Self-hosted at `umami-production-9226.up.railway.app`
+- **Umami**: Self-hosted at `mmtuk-analytics.up.railway.app`
 - Tracking script is in `BaseLayout.astro` `<head>` section, loads on every page
 - Website ID: `f63fc379-0150-482b-8bd3-8a0ed540a58c`
 
