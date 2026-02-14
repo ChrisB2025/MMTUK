@@ -1,12 +1,10 @@
 ---
-name: "Steve Laughton"
+name: Steve Laughton
 slug: "steve-laughton"
-role: "Academic"
-photo: "/images/bios/Steve Laughton.avif"
-linkedin: ""
-twitter: ""
-website: ""
+role: "Author & Educational Outreach"
+photo: /images/bios/Steve Laughton.avif
+linkedin: None
+twitter: None
+website: None
 advisoryBoard: false
 ---
-
-
