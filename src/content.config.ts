@@ -1,6 +1,10 @@
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
 
+// Null-tolerant optional string: accepts string | null | undefined,
+// coerces null to undefined so Zod's .optional() is satisfied.
+const nullableStr = () => z.string().nullable().optional().transform(v => v ?? undefined);
+
 const articles = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/articles' }),
   schema: z.object({
@@ -10,14 +14,14 @@ const articles = defineCollection({
     layout: z.enum(['default', 'simplified', 'rebuttal']).default('default'),
     sector: z.string().default('Economics'),
     author: z.string(),
-    authorTitle: z.string().optional(),
+    authorTitle: nullableStr(),
     pubDate: z.coerce.date(),
     readTime: z.number().default(5),
-    summary: z.string().optional(),
-    thumbnail: z.string().optional(),
-    mainImage: z.string().optional(),
+    summary: nullableStr(),
+    thumbnail: nullableStr(),
+    mainImage: nullableStr(),
     featured: z.boolean().default(false),
-    color: z.string().optional(),
+    color: nullableStr(),
   }),
 });
 
@@ -28,10 +32,10 @@ const news = defineCollection({
     slug: z.string(),
     date: z.coerce.date(),
     category: z.enum(['Announcement', 'Event', 'Press Release', 'Update']),
-    summary: z.string().optional(),
-    thumbnail: z.string().optional(),
-    mainImage: z.string().optional(),
-    registrationLink: z.string().optional(),
+    summary: nullableStr(),
+    thumbnail: nullableStr(),
+    mainImage: nullableStr(),
+    registrationLink: nullableStr(),
   }),
 });
 
@@ -41,10 +45,10 @@ const bios = defineCollection({
     name: z.string(),
     slug: z.string(),
     role: z.string(),
-    photo: z.string().optional(),
-    linkedin: z.string().optional(),
-    twitter: z.string().optional(),
-    website: z.string().optional(),
+    photo: nullableStr(),
+    linkedin: nullableStr(),
+    twitter: nullableStr(),
+    website: nullableStr(),
     advisoryBoard: z.boolean().default(false),
   }),
 });
@@ -56,13 +60,13 @@ const ecosystem = defineCollection({
     slug: z.string(),
     country: z.string().default('UK'),
     types: z.array(z.string()).optional(),
-    summary: z.string().optional(),
-    logo: z.string().optional(),
-    website: z.string().optional(),
-    twitter: z.string().optional(),
-    facebook: z.string().optional(),
-    youtube: z.string().optional(),
-    discord: z.string().optional(),
+    summary: nullableStr(),
+    logo: nullableStr(),
+    website: nullableStr(),
+    twitter: nullableStr(),
+    facebook: nullableStr(),
+    youtube: nullableStr(),
+    discord: nullableStr(),
     status: z.enum(['Active', 'Inactive', 'Archived']).default('Active'),
   }),
 });
@@ -75,8 +79,8 @@ const localNews = defineCollection({
     text: z.string(),
     localGroup: z.string(),
     date: z.coerce.date(),
-    link: z.string().optional(),
-    image: z.string().optional(),
+    link: nullableStr(),
+    image: nullableStr(),
   }),
 });
 
@@ -87,10 +91,10 @@ const localGroups = defineCollection({
     slug: z.string(),
     title: z.string(),
     tagline: z.string(),
-    headerImage: z.string(),
-    leaderName: z.string().optional(),
-    leaderIntro: z.string().optional(),
-    discordLink: z.string().optional(),
+    headerImage: z.string().default(''),
+    leaderName: nullableStr(),
+    leaderIntro: nullableStr(),
+    discordLink: nullableStr(),
     active: z.boolean().default(true),
   }),
 });
@@ -105,8 +109,8 @@ const localEvents = defineCollection({
     tag: z.string(),
     location: z.string(),
     description: z.string(),
-    link: z.string().optional(),
-    image: z.string().optional(),
+    link: nullableStr(),
+    image: nullableStr(),
     partnerEvent: z.boolean().optional(),
   }),
 });
@@ -117,19 +121,19 @@ const briefings = defineCollection({
     title: z.string(),
     slug: z.string(),
     author: z.string(),
-    authorTitle: z.string().optional(),
+    authorTitle: nullableStr(),
     pubDate: z.coerce.date(),
     readTime: z.number().default(5),
-    summary: z.string().optional(),
-    thumbnail: z.string().optional(),
-    mainImage: z.string().optional(),
+    summary: nullableStr(),
+    thumbnail: nullableStr(),
+    mainImage: nullableStr(),
     featured: z.boolean().default(false),
     draft: z.boolean().default(false),
     // Source attribution fields
-    sourceUrl: z.string().optional(),
-    sourceTitle: z.string().optional(),
-    sourceAuthor: z.string().optional(),
-    sourcePublication: z.string().optional(),
+    sourceUrl: nullableStr(),
+    sourceTitle: nullableStr(),
+    sourceAuthor: nullableStr(),
+    sourcePublication: nullableStr(),
     sourceDate: z.coerce.date().optional(),
   }),
 });
