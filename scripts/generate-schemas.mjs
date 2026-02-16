@@ -1,13 +1,31 @@
-import { defineCollection, z } from 'astro:content';
-import { glob } from 'astro/loaders';
+/**
+ * Generate JSON Schema files from Astro content collection Zod schemas.
+ *
+ * This script manually defines the Zod schemas based on content.config.ts
+ * and converts them to JSON Schema format for use by the CMS.
+ *
+ * Note: Keep this file in sync with src/content.config.ts when schemas change.
+ *
+ * Output: public/schemas/{collectionName}.json
+ */
 
-// Null-tolerant optional string: accepts string | null | undefined,
-// coerces null to undefined so Zod's .optional() is satisfied.
+import { writeFileSync, mkdirSync } from 'fs';
+import { join, dirname } from 'path';
+import { fileURLToPath } from 'url';
+import { zodToJsonSchema } from 'zod-to-json-schema';
+import { z } from 'zod';
+
+// Get directory paths
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+const projectRoot = join(__dirname, '..');
+
+// Null-tolerant optional string helper (matches content.config.ts)
 const nullableStr = () => z.string().nullable().optional().transform(v => v ?? undefined);
 
-const articles = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/articles' }),
-  schema: z.object({
+// Define schemas (must match src/content.config.ts)
+const schemas = {
+  articles: z.object({
     title: z.string(),
     slug: z.string(),
     category: z.enum(['Article', 'Commentary', 'Research', 'Core Ideas', 'Core Insights', 'But what about...?']),
@@ -23,11 +41,8 @@ const articles = defineCollection({
     featured: z.boolean().default(false),
     color: nullableStr(),
   }),
-});
 
-const news = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/news' }),
-  schema: z.object({
+  news: z.object({
     title: z.string(),
     slug: z.string(),
     date: z.coerce.date(),
@@ -37,11 +52,8 @@ const news = defineCollection({
     mainImage: nullableStr(),
     registrationLink: nullableStr(),
   }),
-});
 
-const bios = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/bios' }),
-  schema: z.object({
+  bios: z.object({
     name: z.string(),
     slug: z.string(),
     role: z.string(),
@@ -51,11 +63,8 @@ const bios = defineCollection({
     website: nullableStr(),
     advisoryBoard: z.boolean().default(false),
   }),
-});
 
-const ecosystem = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/ecosystem' }),
-  schema: z.object({
+  ecosystem: z.object({
     name: z.string(),
     slug: z.string(),
     country: z.string().default('UK'),
@@ -69,11 +78,8 @@ const ecosystem = defineCollection({
     discord: nullableStr(),
     status: z.enum(['Active', 'Inactive', 'Archived']).default('Active'),
   }),
-});
 
-const localNews = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/localNews' }),
-  schema: z.object({
+  localNews: z.object({
     heading: z.string(),
     slug: z.string(),
     text: z.string(),
@@ -82,11 +88,8 @@ const localNews = defineCollection({
     link: nullableStr(),
     image: nullableStr(),
   }),
-});
 
-const localGroups = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/localGroups' }),
-  schema: z.object({
+  localGroups: z.object({
     name: z.string(),
     slug: z.string(),
     title: z.string(),
@@ -97,29 +100,23 @@ const localGroups = defineCollection({
     discordLink: nullableStr(),
     active: z.boolean().default(true),
   }),
-});
 
-const localEvents = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/localEvents' }),
-  schema: z.object({
+  localEvents: z.object({
     title: z.string(),
     slug: z.string(),
     localGroup: z.string(),
     date: z.coerce.date(),
-    endDate: z.coerce.date().optional(),  // Event end date (defaults to date if not provided)
+    endDate: z.coerce.date().optional(),
     tag: z.string(),
     location: z.string(),
     description: z.string(),
     link: nullableStr(),
     image: nullableStr(),
     partnerEvent: z.boolean().optional(),
-    archived: z.boolean().default(false),  // Auto-set 7 days after endDate
+    archived: z.boolean().default(false),
   }),
-});
 
-const briefings = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/briefings' }),
-  schema: z.object({
+  briefings: z.object({
     title: z.string(),
     slug: z.string(),
     author: z.string(),
@@ -138,6 +135,43 @@ const briefings = defineCollection({
     sourcePublication: nullableStr(),
     sourceDate: z.coerce.date().optional(),
   }),
-});
+};
 
-export const collections = { articles, news, bios, ecosystem, localNews, localGroups, localEvents, briefings };
+// Ensure output directory exists
+const schemasDir = join(projectRoot, 'public', 'schemas');
+mkdirSync(schemasDir, { recursive: true });
+
+let generatedCount = 0;
+let errors = [];
+
+// Generate JSON schema for each collection
+for (const [name, zodSchema] of Object.entries(schemas)) {
+  try {
+    // Convert to JSON Schema
+    const jsonSchema = zodToJsonSchema(zodSchema, {
+      name: name,
+      $refStrategy: 'none', // Don't use $ref, inline everything
+    });
+
+    // Write to file
+    const outputPath = join(schemasDir, `${name}.json`);
+    writeFileSync(outputPath, JSON.stringify(jsonSchema, null, 2), 'utf-8');
+
+    console.log(`✓ Generated schema: ${name}.json`);
+    generatedCount++;
+  } catch (error) {
+    console.error(`✗ Failed to generate schema for ${name}:`, error.message);
+    errors.push({ collection: name, error: error.message });
+  }
+}
+
+// Summary
+console.log(`\n✓ Generated ${generatedCount} JSON schemas in public/schemas/`);
+
+if (errors.length > 0) {
+  console.error(`\n✗ ${errors.length} error(s) occurred:`);
+  errors.forEach(({ collection, error }) => {
+    console.error(`  - ${collection}: ${error}`);
+  });
+  process.exit(1);
+}
