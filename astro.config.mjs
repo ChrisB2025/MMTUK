@@ -1,6 +1,7 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
+import autoRedirects from './redirects.config.mjs';
 
 // https://astro.build/config
 export default defineConfig({
@@ -17,6 +18,10 @@ export default defineConfig({
     }
   },
   redirects: {
+    // Auto-generated redirects from CMS (for deleted content - SEO preservation)
+    ...autoRedirects,
+
+    // Manual redirects below (take precedence over auto-generated if duplicate sources)
     // Redirect old mmt-uk- article URLs to new mmtuk- URLs
     '/articles/mmt-uk-commentary-1': '/articles/mmtuk-commentary-1',
     '/articles/mmt-uk-commentary-10': '/articles/mmtuk-commentary-10',
