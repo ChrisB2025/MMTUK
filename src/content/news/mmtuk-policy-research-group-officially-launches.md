@@ -8,27 +8,21 @@ summary: New organisation challenges fiscal balance as a policy objective and re
 
 **FOR IMMEDIATE RELEASE**
 
-New organisation challenges fiscal balance as a policy objective and reframes economic constraints around real resources
+- New organisation challenges fiscal balance as a policy objective and reframes economic constraints around real resources
+- Launch event on Wednesday 25 February at Friends Meeting House, London, featuring an address by Professor Bill Mitchell
 
-Launch event on Wednesday 25 February at Friends Meeting House, London, featuring an address by Professor Bill Mitchell
-
-London, February 2026 — MMTUK Policy Research Group officially launches this month as the UK's first think tank dedicated to providing policy research and analysis grounded in Modern Monetary Theory (MMT). The group builds on earlier efforts by the Gower Initiative for Modern Money Studies (GIMMS), who have long advanced MMT education and research in the UK. The organisation fills a gap in UK policy discourse by placing unemployment and real resource capacity, not fiscal balances, at the centre of macroeconomic analysis.
+**London, 17 February 2026** — MMTUK Policy Research Group officially launches this month as the UK's first think tank dedicated to providing policy research and analysis grounded in Modern Monetary Theory (MMT). The group builds on earlier efforts by the Gower Initiative for Modern Money Studies (GIMMS), who have long advanced MMT education and research in the UK. The organisation fills a gap in UK policy discourse by placing unemployment and real resource capacity, not fiscal balances, at the centre of macroeconomic analysis.
 
 MMTUK departs from conventional economic thinking in three fundamental ways.
 
-Fiscal balance is not treated as a policy objective. Government deficits and surpluses are understood as accounting outcomes of economic conditions, not targets to be pursued.
-
-The constraints on public policy are real: labour, skills, productive capacity, and ecological limits, rather than financial ratios.
-
-Ecological limits define the long-term boundaries of economic activity, but today the UK's main binding macroeconomic constraint is unemployment.
+- Fiscal balance is not treated as a policy objective. Government deficits and surpluses are understood as accounting outcomes of economic conditions, not targets to be pursued.
+- The constraints on public policy are real: labour, skills, productive capacity, and ecological limits, rather than financial ratios.
+- Ecological limits define the long-term boundaries of economic activity, but today the UK's main binding macroeconomic constraint is unemployment.
 
 MMTUK works across three core areas:
-
-Independent macroeconomic research on how the monetary system, fiscal policy, and real resources shape the UK economy.
-
-Public education and training to strengthen economic literacy and policy debate.
-
-Community outreach linking research to real-world issues such as cost of living, housing, health, climate, and employment.
+- Independent macroeconomic research on how the monetary system, fiscal policy, and real resources shape the UK economy.
+- Public education and training to strengthen economic literacy and policy debate.
+- Community outreach linking research to real-world issues such as cost of living, housing, health, climate, and employment.
 
 ## Official Launch Event
 
