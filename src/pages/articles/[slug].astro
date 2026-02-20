@@ -166,24 +166,7 @@ const isSimplified = article.data.layout === 'simplified';
         </div>
         <div>
           <div class="container-large">
-            {!isSimplified && article.data.summary && (
-              <>
-                <div class="margin-bottom margin-xsmall">
-                  <div class="text-style-tagline">Executive Summary</div>
-                </div>
-                <div class="content29_content-wrapper">
-                  <div class="text-rich-text w-richtext">
-                    <p>{article.data.summary}</p>
-                  </div>
-                </div>
-              </>
-            )}
             <div class="padding-section-small">
-              {!isSimplified && (
-              <div class="margin-bottom margin-xsmall">
-                <div class="text-style-tagline">Content</div>
-              </div>
-              )}
               <div class="content29_component">
                 <div class="max-width-large align-center">
                   <div class="content29_content-wrapper">
