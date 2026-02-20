@@ -150,11 +150,11 @@ const hasSourceInfo = briefing.data.sourceTitle || briefing.data.sourceUrl;
           <div class="container-large">
             {hasSourceInfo && (
               <div class="source-attribution-box">
-                <div class="label">In Response To</div>
+                <div class="label">Originally Published</div>
                 <div class="source-title">
                   {briefing.data.sourceUrl ? (
                     <a href={briefing.data.sourceUrl} target="_blank" rel="noopener noreferrer">
-                      {briefing.data.sourceTitle || 'Original Article'}
+                      {briefing.data.sourceTitle || 'View original article'}
                     </a>
                   ) : (
                     <span>{briefing.data.sourceTitle}</span>
@@ -162,9 +162,9 @@ const hasSourceInfo = briefing.data.sourceTitle || briefing.data.sourceUrl;
                 </div>
                 <div class="source-meta">
                   {briefing.data.sourceAuthor && <span>By {briefing.data.sourceAuthor}</span>}
-                  {briefing.data.sourceAuthor && briefing.data.sourcePublication && <span> | </span>}
+                  {briefing.data.sourceAuthor && (briefing.data.sourcePublication || sourceDate) && <span> | </span>}
                   {briefing.data.sourcePublication && <span>{briefing.data.sourcePublication}</span>}
-                  {(briefing.data.sourceAuthor || briefing.data.sourcePublication) && sourceDate && <span> | </span>}
+                  {briefing.data.sourcePublication && sourceDate && <span> | </span>}
                   {sourceDate && <span>{sourceDate}</span>}
                 </div>
               </div>
