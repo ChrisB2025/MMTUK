@@ -1,7 +1,7 @@
 ---
 title: "Shadows on the wall: The monetary myths that shape British politics"
 slug: "shadows-on-the-wall-monetary-myths-british-politics"
-author: MMTUK
+author: Vincent Gomez
 pubDate: "2026-02-15T00:00:00.000Z"
 readTime: 8
 summary: "The Treasury tells us there is no money. The Bank of England tells us it operates independently. The OBR tells us the deficit must be closed. They have been projecting these shadows on the wall for so long that most of us, MPs included, have mistaken them for reality."
