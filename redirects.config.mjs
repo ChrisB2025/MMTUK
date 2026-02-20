@@ -2,6 +2,5 @@
 // DO NOT EDIT MANUALLY - Changes will be overwritten on next publish
 
 export default {
-  '/articles/test-deleted-article': '/articles',
-  '/news/old-news-item': '/news',
+  '/briefings/shadows-on-the-wall-the-monetary-myths-that-shape-british-politics-vincent-gomez': '/briefings',
 };
