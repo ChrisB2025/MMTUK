@@ -1,7 +1,7 @@
 ---
 title: "Shadows on the wall: The monetary myths that shape British politics"
 slug: "shadows-on-the-wall-the-monetary-myths-that-shape-british-politics"
-author: MMTUK
+author: Vincent Gomez
 pubDate: "2026-02-20T00:00:00.000Z"
 readTime: 5
 thumbnail: "/images/briefings/shadows-on-the-wall-the-monetary-myths-that-shape-british-politics-thumbnail.png"
