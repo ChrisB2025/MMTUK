@@ -7,7 +7,7 @@ pubDate: 2026-01-06T00:00:00.000Z
 readTime: 10
 summary: "An historical and theoretical overview of money and the policy implications of having an accurate understanding of its nature."
 thumbnail: "/images/nature-of-money.webp"
-featured: true
+featured: false
 ---
 
 The money question has long backgrounded a history of debate in economics. After observing how economic debates usually evolve, I have concluded that a large part of the persistent confusion that permeates economic discourse stems from a poor understanding of the nature of money. That confusion is not benign. It bleeds directly into how people think government finance works, what 'borrowing' means, what inflation control requires, and what policies are deemed possible.
