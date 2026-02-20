@@ -244,22 +244,22 @@ Retirement provision is not an accounting challenge. It is a societal choice. It
 
 ## References
 
-> C-SPAN. (2005, March 2). User Clip: Greenspan: “There is nothing to prevent the government from creating as much money as it wants.”. *CSPAN*. USA. Retrieved from https://www.c-span.org/clip/house-committee/user-clip-greenspan-there-is-nothing-to-prevent-the-government-from-creating-as-much-money-as-it-wants/5028493
->
-> House of Commons Library. (2024, December). Pensions: international comparisons. *House of Commons*. London. Retrieved from https://commonslibrary.parliament.uk/research-briefings/sn00290/#:~:text=The%20UK%20devotes%20a%20smaller,than%20most%20other%20advanced%20economies
->
-> IFS. (2025, October 21). What are the effects of the ‘triple lock’ and how could it be reformed? *Institute for Fiscal Studies*. UK. Retrieved from https://ifs.org.uk/articles/what-are-effects-triple-lock-and-how-could-it-be-reformed#:~:text=lock%E2%80%99%3A%20the%20highest%20of%20CPI,amount%20very%20close%20to%20this
->
-> Money Week. (2025). UK state pension is least generous in the G7 – how do other rich countries compare? *Money Week*. Retrieved from https://moneyweek.com/personal-finance/state-pensions/uk-state-pension-compared-g7-countries#:~:text=UK%20retirees%20receive%20just%20over,and%20Italy%20%2876
->
-> OBR. (2025). *Fiscal Risks and Sustainability.* London: Office for Budget Responsibility. Retrieved from https://obr.uk/docs/dlm\_uploads/Fiscal-risks-and-sustainability-report-July-2025.pdf
->
-> ONS. (2019). *Living longer and old-age dependency – what does the future hold?* Office for National Statistics. UK Government. Retrieved from https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/ageing/articles/livinglongerandoldagedependencywhatdoesthefuturehold/2019-06-24#:~:text=,aged%2065%20years%20or%20over
->
-> ONS. (2025, January). *Office for National Statistics.*
->
-> The Global Economy.com. (2024). *The Global Economy.com*. Retrieved from https://www.theglobaleconomy.com/United-Kingdom/Age\_dependency\_ratio/
->
-> UK Gov. (2024). *Pension fund investment and the UK economy.* UK Government, Department for Work and Pensions. London: UK Government. Retrieved from https://www.gov.uk/government/publications/pension-fund-investment-and-the-uk-economy/pension-fund-investment-and-the-uk-economy
->
-> Wray, R., & Nersisyan, Y. (2023). Demographics, the economy and the environment: An MMT approach. *Real-world Economics Review*(106). Retrieved from https://www.paecon.net/PAEReview/issue106/Wray\_Nersisyan106.pdf#:~:text=WKDW%20WKHUH%C2%B6V%20QRWKLQJ%20WR%20SUHYHQW,be%20enough%20real%20output%20for
+C-SPAN. (2005, March 2). User Clip: Greenspan: “There is nothing to prevent the government from creating as much money as it wants.”. *CSPAN*. USA. Retrieved from https://www.c-span.org/clip/house-committee/user-clip-greenspan-there-is-nothing-to-prevent-the-government-from-creating-as-much-money-as-it-wants/5028493
+
+House of Commons Library. (2024, December). Pensions: international comparisons. *House of Commons*. London. Retrieved from https://commonslibrary.parliament.uk/research-briefings/sn00290/#:~:text=The%20UK%20devotes%20a%20smaller,than%20most%20other%20advanced%20economies
+
+IFS. (2025, October 21). What are the effects of the ‘triple lock’ and how could it be reformed? *Institute for Fiscal Studies*. UK. Retrieved from https://ifs.org.uk/articles/what-are-effects-triple-lock-and-how-could-it-be-reformed#:~:text=lock%E2%80%99%3A%20the%20highest%20of%20CPI,amount%20very%20close%20to%20this
+
+Money Week. (2025). UK state pension is least generous in the G7 – how do other rich countries compare? *Money Week*. Retrieved from https://moneyweek.com/personal-finance/state-pensions/uk-state-pension-compared-g7-countries#:~:text=UK%20retirees%20receive%20just%20over,and%20Italy%20%2876
+
+OBR. (2025). *Fiscal Risks and Sustainability.* London: Office for Budget Responsibility. Retrieved from https://obr.uk/docs/dlm\_uploads/Fiscal-risks-and-sustainability-report-July-2025.pdf
+
+ONS. (2019). *Living longer and old-age dependency – what does the future hold?* Office for National Statistics. UK Government. Retrieved from https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/ageing/articles/livinglongerandoldagedependencywhatdoesthefuturehold/2019-06-24#:~:text=,aged%2065%20years%20or%20over
+
+ONS. (2025, January). *Office for National Statistics.*
+
+The Global Economy.com. (2024). *The Global Economy.com*. Retrieved from https://www.theglobaleconomy.com/United-Kingdom/Age\_dependency\_ratio/
+
+UK Gov. (2024). *Pension fund investment and the UK economy.* UK Government, Department for Work and Pensions. London: UK Government. Retrieved from https://www.gov.uk/government/publications/pension-fund-investment-and-the-uk-economy/pension-fund-investment-and-the-uk-economy
+
+Wray, R., & Nersisyan, Y. (2023). Demographics, the economy and the environment: An MMT approach. *Real-world Economics Review*(106). Retrieved from https://www.paecon.net/PAEReview/issue106/Wray\_Nersisyan106.pdf#:~:text=WKDW%20WKHUH%C2%B6V%20QRWKLQJ%20WR%20SUHYHQW,be%20enough%20real%20output%20for
