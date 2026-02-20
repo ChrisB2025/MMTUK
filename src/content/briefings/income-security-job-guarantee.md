@@ -6,7 +6,7 @@ authorTitle: "Physicist, systems engineer, and economics writer"
 pubDate: 2026-01-15T00:00:00.000Z
 readTime: 12
 summary: "Why Universal Basic Income and the Job Guarantee solve different macroeconomic problems."
-thumbnail: "/images/income-security.png"
+thumbnail: "/images/income-security.webp"
 featured: false
 ---
 

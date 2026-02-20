@@ -4,7 +4,7 @@ slug: "bill-mitchell-event-feb2026"
 date: 2026-02-05T00:00:00.000Z
 category: "Event"
 summary: "Join us for our flagship launch event featuring Professor Bill Mitchell, one of the original architects of Modern Monetary Theory."
-thumbnail: "/images/bill-mitchell-event.png"
+thumbnail: "/images/bill-mitchell-event.webp"
 registrationLink: "https://actionnetwork.org/events/mmtuk-launch-event/"
 ---
 

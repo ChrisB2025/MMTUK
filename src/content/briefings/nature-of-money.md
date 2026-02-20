@@ -6,7 +6,7 @@ authorTitle: "Physicist, systems engineer, and economics writer"
 pubDate: 2026-01-06T00:00:00.000Z
 readTime: 10
 summary: "An historical and theoretical overview of money and the policy implications of having an accurate understanding of its nature."
-thumbnail: "/images/nature-of-money.png"
+thumbnail: "/images/nature-of-money.webp"
 featured: true
 ---
 

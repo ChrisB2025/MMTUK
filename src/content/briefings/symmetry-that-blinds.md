@@ -6,7 +6,7 @@ authorTitle: "Chairman, Modern Money Lab"
 pubDate: 2026-01-23T00:00:00.000Z
 readTime: 6
 summary: "How equilibrium thinking obscures economic causation — and why getting sequence and causality backwards leads to devastating policy errors."
-thumbnail: "/images/symmetry-that-blinds.png"
+thumbnail: "/images/symmetry-that-blinds.webp"
 featured: false
 ---
 

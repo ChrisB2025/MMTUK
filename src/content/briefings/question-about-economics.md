@@ -6,7 +6,7 @@ authorTitle: "Chairman, Modern Money Lab"
 pubDate: 2026-01-18T00:00:00.000Z
 readTime: 8
 summary: "Why does thoughtful academic debate surrounding Modern Monetary Theory remain conspicuously absent among economists?"
-thumbnail: "/images/question-about-economics.png"
+thumbnail: "/images/question-about-economics.webp"
 featured: false
 ---
 
