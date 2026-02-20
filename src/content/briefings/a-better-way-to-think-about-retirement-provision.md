@@ -1,7 +1,7 @@
 ---
 title: A Better Way to Think About Retirement Provision
 slug: "a-better-way-to-think-about-retirement-provision"
-author: MMTUK
+author: Jamie Smith
 pubDate: "2026-02-20T00:00:00.000Z"
 readTime: 5
 thumbnail: "/images/briefings/a-better-way-to-think-about-retirement-provision-thumbnail.png"
