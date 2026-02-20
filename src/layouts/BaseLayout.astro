@@ -149,13 +149,16 @@ const isProduction = import.meta.env.PUBLIC_ENV !== 'staging';
           e.preventDefault();
           copyToClipboard(shareUrl)
             .then(function () {
-              var original = btn.innerText;
-              btn.innerText = 'Copied';
+              var icon = btn.querySelector('.icon-embed-xsmall');
+              if (icon) {
+                var originalHTML = icon.innerHTML;
+                icon.innerHTML = '<span style="font-size:12px;line-height:1.5rem">Copied</span>';
+                setTimeout(function(){ icon.innerHTML = originalHTML; }, 1500);
+              }
               btn.setAttribute('aria-live', 'polite');
-              setTimeout(function(){ btn.innerText = original; }, 1500);
             })
             .catch(function () {
-              window.open(shareUrl, '_blank');
+              // Clipboard failed — do nothing rather than opening a new tab
             });
         });
         btn.setAttribute('aria-label', 'Copy page link');
