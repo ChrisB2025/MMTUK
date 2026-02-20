@@ -242,7 +242,7 @@ An economy committed to full employment, financial stability, equitable distribu
 
 Retirement provision is not an accounting challenge. It is a societal choice. It forces us to ask what we produce, who we produce it for, and who commands its fruits. If we are willing to confront those questions honestly and redesign our macroeconomic architecture accordingly, then the future of pensions will be durable and built on socially legitimate and sustainable foundations.
 
-# References
+## References
 
 > C-SPAN. (2005, March 2). User Clip: Greenspan: “There is nothing to prevent the government from creating as much money as it wants.”. *CSPAN*. USA. Retrieved from https://www.c-span.org/clip/house-committee/user-clip-greenspan-there-is-nothing-to-prevent-the-government-from-creating-as-much-money-as-it-wants/5028493
 >
