@@ -14,7 +14,7 @@ interface Props {
 const {
   title,
   description = "MMTUK promotes better public understanding of money, economics and government spending for a fairer, sustainable society.",
-  ogImage = "/images/og-image.png",
+  ogImage = "/images/og-image.webp",
   currentPage = ''
 } = Astro.props;
 
@@ -61,8 +61,8 @@ const isProduction = import.meta.env.PUBLIC_ENV !== 'staging';
   <script type="text/javascript">
     !function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);
   </script>
-  <link href="/images/favicon.png" rel="shortcut icon" type="image/png">
-  <link href="/images/webclip.png" rel="apple-touch-icon">
+  <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon">
+  <link href="/images/webclip.webp" rel="apple-touch-icon">
   <style>
     * {
       -webkit-font-smoothing: antialiased;
