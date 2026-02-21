@@ -442,7 +442,7 @@ redirects: {
 ## SEO & Open Graph
 
 - All OG/Twitter meta tags are in `BaseLayout.astro` head section
-- Default OG image: `/images/og-image.png` (1200x630, branded)
+- Default OG image: `/images/og-image.webp` (1200x630, branded)
 - Pages can override via `ogImage` prop on BaseLayout
 - `og:site_name` is "MMTUK", `twitter:site` is "@MMTUK_PRG"
 - Analytics: Umami (self-hosted on Railway), script tag in BaseLayout head
@@ -457,6 +457,24 @@ redirects: {
   - Stage 2 (`runtime`): `node:20-alpine` — only `serve@14` + `dist/` (~180MB image)
   - Docker layer caching: `package.json` + `package-lock.json` are copied first, so `npm ci` is cached when only content changes (95% of pushes skip install entirely)
 - **Config**: `railway.toml` sets `builder = "dockerfile"`, healthcheck on `/`
+
+### CMS Image Compression Routine
+
+The MMTUK CMS has an automated compression pipeline that runs periodically and commits directly to `main`. It has two behaviours:
+
+1. **Lossless compression** — shrinks PNG/JPG in-place, same format, same filename. Safe.
+2. **WebP conversion** — replaces PNG/JPG files with `.webp` equivalents and **deletes the originals**. The routine commits the new files but **does NOT update source file references** in `.astro`, `.md`, or layout files.
+
+If images go missing after a CMS-triggered commit, do `git log --oneline` and look for `chore: Convert N image(s) to WebP`. Fix by updating all `.png`/`.jpg` references in `src/` to `.webp` for the affected files.
+
+**Key files to check when images go missing:**
+- `src/components/Navbar.astro` — logo + featured event image
+- `src/pages/index.astro` — hero slider images
+- `src/layouts/BaseLayout.astro` — og-image, favicon, apple-touch-icon
+- `src/content/**/*.md` — frontmatter `thumbnail`/`mainImage`/`image` fields
+- `src/email/*.html` — email template logo (absolute URL)
+
+**Favicons**: `favicon.ico` lives at `public/favicon.ico` (root), not in `/images/`. The `<link rel="shortcut icon">` in BaseLayout uses `/favicon.ico`. If `favicon.png` is ever re-added, do not use it — keep the `.ico` reference.
 
 ### Common Deployment Issues
 
