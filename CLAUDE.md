@@ -474,7 +474,7 @@ If images go missing after a CMS-triggered commit, do `git log --oneline` and lo
 - `src/content/**/*.md` — frontmatter `thumbnail`/`mainImage`/`image` fields
 - `src/email/*.html` — email template logo (absolute URL)
 
-**Favicons**: `favicon.ico` lives at `public/favicon.ico` (root), not in `/images/`. The `<link rel="shortcut icon">` in BaseLayout uses `/favicon.ico`. If `favicon.png` is ever re-added, do not use it — keep the `.ico` reference.
+**Favicons**: `public/favicon.ico` and `public/favicon.svg` are the **Astro default** (blue diamond) — do not use them. The MMTUK favicon is `public/images/favicon.webp` (converted from `favicon.png` by the CMS compression routine). `BaseLayout.astro` references it as `<link href="/images/favicon.webp" rel="icon" type="image/webp">`. If the CMS ever re-converts it, update this reference to the new `.webp` path.
 
 ### Common Deployment Issues
 
