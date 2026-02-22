@@ -20,8 +20,8 @@ Great video — really well produced. I've been working on integrating it into t
 
 **Social Media:**
 - I've prepared ready-to-post copy for **X/Twitter, LinkedIn, and Bluesky** covering:
-  - A teaser post for Monday 24 Feb (day before launch)
-  - Full launch day posts for Tuesday 25 Feb (threaded on X)
+  - A teaser post for Tuesday 24 Feb (day before launch)
+  - Full launch day posts for Wednesday 25 Feb (threaded on X)
   - Individual posts for each of the 6 shorts (see below)
 
 ## Shorts Plan

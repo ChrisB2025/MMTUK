@@ -6,7 +6,7 @@
 
 ---
 
-## TEASER — Monday 24 Feb (day before launch)
+## TEASER — Tuesday 24 Feb (day before launch)
 
 ### X/Twitter
 > Tomorrow, we launch our first policy paper.
@@ -33,7 +33,7 @@
 
 ---
 
-## LAUNCH DAY — Tuesday 25 Feb
+## LAUNCH DAY — Wednesday 25 Feb
 
 ### X/Twitter (main post)
 > Unemployment isn't an accident — it's policy.
@@ -91,7 +91,7 @@
 
 Use these when Domestic Science produces the individual clips, or share with Vimeo time-coded links in the meantime.
 
-### Short 1: "The Dirty Secret of Inflation Control" (Wed 26 Feb)
+### Short 1: "The Dirty Secret of Inflation Control" (Thu 26 Feb)
 **Clip timestamps:** 0:30–1:50
 **Vimeo link:** https://vimeo.com/1167145986#t=30s
 
@@ -113,7 +113,7 @@ Use these when Domestic Science produces the individual clips, or share with Vim
 
 ---
 
-### Short 2: "Argentina Tried It" (Thu 27 Feb)
+### Short 2: "Argentina Tried It" (Fri 27 Feb)
 **Clip timestamps:** 6:02–8:30
 **Vimeo link:** https://vimeo.com/1167145986#t=362s
 
@@ -135,7 +135,7 @@ Use these when Domestic Science produces the individual clips, or share with Vim
 
 ---
 
-### Short 3: "Every Country Can Afford This" (Fri 28 Feb)
+### Short 3: "Every Country Can Afford This" (Mon 2 Mar)
 **Clip timestamps:** 10:02–11:00
 **Vimeo link:** https://vimeo.com/1167145986#t=602s
 
@@ -150,7 +150,7 @@ Use these when Domestic Science produces the individual clips, or share with Vim
 
 ---
 
-### Short 4: "Jobs That Actually Matter" (Mon 3 Mar)
+### Short 4: "Jobs That Actually Matter" (Tue 3 Mar)
 **Clip timestamps:** 11:45–13:05
 **Vimeo link:** https://vimeo.com/1167145986#t=705s
 
@@ -163,7 +163,7 @@ Use these when Domestic Science produces the individual clips, or share with Vim
 
 ---
 
-### Short 5: "Prevention, Not Cure" (Tue 4 Mar)
+### Short 5: "Prevention, Not Cure" (Wed 4 Mar)
 **Clip timestamps:** 3:36–4:46
 **Vimeo link:** https://vimeo.com/1167145986#t=216s
 
@@ -176,7 +176,7 @@ Use these when Domestic Science produces the individual clips, or share with Vim
 
 ---
 
-### Short 6: "Not Your Average Jobs Scheme" (Wed 5 Mar)
+### Short 6: "Not Your Average Jobs Scheme" (Thu 5 Mar)
 **Clip timestamps:** 9:12–10:01
 **Vimeo link:** https://vimeo.com/1167145986#t=552s
 
