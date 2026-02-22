@@ -40,4 +40,8 @@ Bill Mitchell is Professor of Economics at the University of Newcastle, Australi
 
 **[Register for this event on Action Network](https://actionnetwork.org/events/mmtuk-launch-event/)**
 
+## Watch the Film
+
+Ahead of the event, watch our 15-minute introductory film on the Job Guarantee, featuring Patricia Pino, Pavlina Tcherneva, and Daniel Kostzer: **[Watch on the Job Guarantee page](/job-guarantee)**
+
 This is a rare opportunity to be part of the launch of a new voice in UK economic debate. We look forward to seeing you there.
