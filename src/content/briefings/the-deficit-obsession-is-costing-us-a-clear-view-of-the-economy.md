@@ -1,20 +1,19 @@
 ---
 title: The Deficit Obsession is Costing Us a Clear View of the Economy
 slug: "the-deficit-obsession"
-author: MMTUK
-pubDate: "2026-02-25T00:00:00.000Z"
+author: Vincent Gomez
+pubDate: "2026-02-20T00:00:00.000Z"
 readTime: 5
 thumbnail: "/images/briefings/the-deficit-obsession-is-costing-us-a-clear-view-of-the-economy-thumbnail.webp"
 featured: false
 draft: false
 sourceUrl: "https://vincegomez.com/articles/articles/the-deficit-obsession-is-costing-us-a-clear-view-of-the-economy/"
 sourceTitle: The Deficit Obsession is Costing Us a Clear View of the Economy
-sourceDate: "2026-02-25"
+sourceAuthor: Vincent Gomez
+sourceDate: "2026-02-20"
 ---
 
 Every time the government runs a deficit, the media and most politicians reach for the same tired metaphors. We are "maxing out the national credit card." We are "burdening our grandchildren." We are "living beyond our means." What almost nobody mentions is the other side of the ledger.
-
-20 Feb 2026
 
 Every pound of government deficit spending that flows into the economy lands on someone else's balance sheet as an asset. That is not an opinion or a political position. It is a basic principle of double-entry accounting, the same logic that has governed bookkeeping since the fifteenth century. For every liability there is a corresponding asset, somewhere in the system. The question the media never asks is: whose asset is it?
 
