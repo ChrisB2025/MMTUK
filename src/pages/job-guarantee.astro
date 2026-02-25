@@ -52,9 +52,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                       </div>
                       <div class="margin-bottom margin-medium">
                         <div class="button-group">
-                          <span class="button-2 is-link is-icon" style="opacity: 0.6; cursor: default;">
-                            <div>Coming soon</div>
-                          </span>
+                          <a href="/Research/Job_Guarantee/20260222-A_counter-inflationary_job_guarantee_for_the_UK-v1.pdf"
+                             class="button-2 is-link is-icon"
+                             download>
+                            <div>Download here</div>
+                          </a>
                         </div>
                       </div>
                       <div class="blog-post5-download-wrapper"><img src="/Research/Job_Guarantee/JG_pic.webp" loading="lazy" alt=""></div>
@@ -133,3 +135,62 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           </div>
         </header>
 </BaseLayout>
+
+<script is:inline>
+(function () {
+  var shareUrl = window.location.href;
+  var encUrl = encodeURIComponent(shareUrl);
+  var ogTitle = document.querySelector('meta[property="og:title"]');
+  var shareTitle = encodeURIComponent(ogTitle ? ogTitle.content : document.title);
+  var builders = {
+    linkedin: function () { return "https://www.linkedin.com/sharing/share-offsite/?url=" + encUrl; },
+    x: function () { return "https://x.com/intent/tweet?url=" + encUrl + "&text=" + shareTitle; },
+    facebook: function () { return "https://www.facebook.com/sharer/sharer.php?u=" + encUrl; }
+  };
+  document.querySelectorAll('a[data-share]').forEach(function (a) {
+    var net = a.getAttribute('data-share');
+    if (builders[net]) {
+      a.href = builders[net]();
+      a.target = "_blank";
+      a.rel = "noopener noreferrer";
+      a.setAttribute('aria-label', 'Share on ' + net.charAt(0).toUpperCase() + net.slice(1));
+    }
+  });
+  function copyToClipboard(text) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      return navigator.clipboard.writeText(text);
+    }
+    return new Promise(function(resolve, reject){
+      try {
+        var ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.focus();
+        ta.select();
+        var ok = document.execCommand('copy');
+        document.body.removeChild(ta);
+        ok ? resolve() : reject();
+      } catch(e) { reject(e); }
+    });
+  }
+  document.querySelectorAll('[data-copy="url"]').forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      copyToClipboard(shareUrl)
+        .then(function () {
+          var original = btn.innerText;
+          btn.innerText = 'Copied';
+          btn.setAttribute('aria-live', 'polite');
+          setTimeout(function(){ btn.innerText = original; }, 1500);
+        })
+        .catch(function () {
+          window.open(shareUrl, '_blank');
+        });
+    });
+    btn.setAttribute('aria-label', 'Copy page link');
+    btn.href = '#';
+  });
+})();
+</script>
