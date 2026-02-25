@@ -3,12 +3,13 @@ title: "MMTUK Launch Event with Professor Bill Mitchell"
 slug: "bill-mitchell-event-feb2026"
 date: 2026-02-05T00:00:00.000Z
 category: "Event"
-summary: "Join us for our flagship launch event featuring Professor Bill Mitchell, one of the original architects of Modern Monetary Theory."
+summary: "MMTUK launched with a flagship public event featuring Professor Bill Mitchell, one of the original architects of Modern Monetary Theory, alongside the publication of our first policy paper: A Job Guarantee for the UK."
 thumbnail: "/images/bill-mitchell-event.webp"
-registrationLink: "https://actionnetwork.org/events/mmtuk-launch-event/"
 ---
 
-MMTUK is proud to launch with a flagship public event featuring **Professor Bill Mitchell**, one of the original architects of Modern Monetary Theory, alongside the publication of our first policy paper: **A Job Guarantee for the UK**.
+**This event took place on 25 February 2026. Thank you to everyone who attended our launch event at Friends Meeting House, London.**
+
+MMTUK launched with a flagship public event featuring **Professor Bill Mitchell**, one of the original architects of Modern Monetary Theory, alongside the publication of our first policy paper: **A Job Guarantee for the UK**.
 
 ## Event Details
 
@@ -17,8 +18,6 @@ MMTUK is proud to launch with a flagship public event featuring **Professor Bill
 **Time:** 7:00 PM – 9:00 PM GMT
 
 **Venue:** Friends Meeting House, Sarah Fell Room, 173–177 Euston Road, London NW1 2BJ
-
-**Capacity:** 100 (in-person only)
 
 ## Speakers
 
@@ -29,19 +28,13 @@ MMTUK is proud to launch with a flagship public event featuring **Professor Bill
 
 Bill Mitchell is Professor of Economics at the University of Newcastle, Australia, and one of the original developers of Modern Monetary Theory. He is the author of *Macroeconomics* (the leading MMT textbook) and *Reclaiming the State*, and writes the influential blog *Bill Mitchell – Modern Monetary Theory*. He is co-founder of the Centre of Full Employment and Equity (CofFEE).
 
-## What to Expect
+## About the Event
 
 - The official launch of MMTUK as a research organisation
 - Publication of our Job Guarantee policy paper
 - A keynote from Professor Mitchell on the UK economy and why austerity remains the wrong choice
 - Q&A with speakers
 
-## Registration
-
-**[Register for this event on Action Network](https://actionnetwork.org/events/mmtuk-launch-event/)**
-
 ## Watch the Film
 
-Ahead of the event, watch our 15-minute introductory film on the Job Guarantee, featuring Patricia Pino, Pavlina Tcherneva, and Daniel Kostzer: **[Watch on the Job Guarantee page](/job-guarantee)**
-
-This is a rare opportunity to be part of the launch of a new voice in UK economic debate. We look forward to seeing you there.
+Watch our 15-minute introductory film on the Job Guarantee, featuring Patricia Pino, Pavlina Tcherneva, and Daniel Kostzer: **[Watch on the Job Guarantee page](/job-guarantee)**
