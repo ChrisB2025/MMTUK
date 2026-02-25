@@ -2,7 +2,7 @@
 title: A Better Way to Think About Retirement Provision
 slug: "a-better-way-to-think-about-retirement-provision"
 author: Jamie Smith
-pubDate: "2026-02-20T00:00:00.000Z"
+pubDate: "2026-02-18T00:00:00.000Z"
 readTime: 5
 thumbnail: "/images/briefings/a-better-way-to-think-about-retirement-provision-thumbnail.webp"
 featured: false
@@ -10,7 +10,7 @@ draft: false
 sourceUrl: "https://jgs952.substack.com/p/a-better-way-to-think-about-retirement"
 sourceTitle: A Better Way to Think About Retirement Provision
 sourceAuthor: Jamie Smith
-sourceDate: "2026-02-20"
+sourceDate: "2026-02-18"
 ---
 
 ## Introduction
