@@ -4,7 +4,7 @@ slug: "job-guarantee-video"
 date: 2026-02-25T00:00:00.000Z
 category: "Announcement"
 summary: "A 15-minute introduction to MMTUK's Job Guarantee proposal, featuring Patricia Pino, Pavlina Tcherneva, and Daniel Kostzer."
-thumbnail: "/images/job-guarantee-video-thumb.jpg"
+thumbnail: "/images/job-guarantee-video-thumb.webp"
 ---
 
 Alongside the publication of our first policy paper, we are releasing a 15-minute film introducing **A Counter-Inflationary Job Guarantee for the United Kingdom**.
