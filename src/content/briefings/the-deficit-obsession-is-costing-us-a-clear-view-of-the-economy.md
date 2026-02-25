@@ -1,6 +1,6 @@
 ---
 title: The Deficit Obsession is Costing Us a Clear View of the Economy
-slug: "the-deficit-obsession-is-costing-us-a-clear-view-of-the-economy"
+slug: "the-deficit-obsession"
 author: MMTUK
 pubDate: "2026-02-25T00:00:00.000Z"
 readTime: 5
