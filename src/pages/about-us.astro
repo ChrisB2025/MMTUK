@@ -27,7 +27,7 @@ const advisoryBoard = allBios.filter(bio => bio.data.role === "Advisory Board Me
 // Fetch events for MMTUK Events section
 const allEvents = await getCollection('localEvents');
 const upcomingEvents = allEvents
-  .filter(e => e.data.slug === 'bill-mitchell-feb')
+  .filter(e => e.data.date > new Date())
   .sort((a, b) => a.data.date.getTime() - b.data.date.getTime());
 
 function formatEventDate(date: Date) {
