@@ -173,18 +173,33 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     });
   }
   document.querySelectorAll('[data-copy="url"]').forEach(function (btn) {
+    function execCopy() {
+      var ta = document.createElement('textarea');
+      ta.value = shareUrl;
+      ta.style.cssText = 'position:fixed;top:0;left:0;opacity:0;';
+      document.body.appendChild(ta);
+      ta.focus();
+      ta.select();
+      try { document.execCommand('copy'); } catch(e) {}
+      document.body.removeChild(ta);
+    }
+    function showCopied() {
+      var origHTML = btn.innerHTML;
+      btn.innerHTML = '<div style="font-size:11px;padding:2px 0;white-space:nowrap">Copied!</div>';
+      btn.setAttribute('aria-live', 'polite');
+      setTimeout(function(){ btn.innerHTML = origHTML; }, 1500);
+    }
     btn.addEventListener('click', function (e) {
       e.preventDefault();
-      copyToClipboard(shareUrl)
-        .then(function () {
-          var original = btn.innerText;
-          btn.innerText = 'Copied';
-          btn.setAttribute('aria-live', 'polite');
-          setTimeout(function(){ btn.innerText = original; }, 1500);
-        })
-        .catch(function () {
-          window.open(shareUrl, '_blank');
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(shareUrl).then(showCopied).catch(function() {
+          execCopy();
+          showCopied();
         });
+      } else {
+        execCopy();
+        showCopied();
+      }
     });
     btn.setAttribute('aria-label', 'Copy page link');
     btn.href = '#';
