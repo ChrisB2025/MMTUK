@@ -1,0 +1,47 @@
+{
+  "$ref": "#/definitions/localNews",
+  "definitions": {
+    "localNews": {
+      "type": "object",
+      "properties": {
+        "heading": {
+          "type": "string"
+        },
+        "slug": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        },
+        "localGroup": {
+          "type": "string"
+        },
+        "date": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "link": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "image": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "heading",
+        "slug",
+        "text",
+        "localGroup",
+        "date"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

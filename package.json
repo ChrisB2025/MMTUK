@@ -4,6 +4,7 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
+    "prebuild": "node scripts/generate-schemas.mjs",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"
@@ -11,5 +12,8 @@
   "dependencies": {
     "@astrojs/sitemap": "^3.7.0",
     "astro": "^5.16.14"
+  },
+  "devDependencies": {
+    "zod-to-json-schema": "^3.25.1"
   }
 }

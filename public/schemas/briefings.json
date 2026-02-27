@@ -1,0 +1,95 @@
+{
+  "$ref": "#/definitions/briefings",
+  "definitions": {
+    "briefings": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "slug": {
+          "type": "string"
+        },
+        "author": {
+          "type": "string"
+        },
+        "authorTitle": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "pubDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "readTime": {
+          "type": "number",
+          "default": 5
+        },
+        "summary": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "thumbnail": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "mainImage": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "featured": {
+          "type": "boolean",
+          "default": false
+        },
+        "draft": {
+          "type": "boolean",
+          "default": false
+        },
+        "sourceUrl": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "sourceTitle": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "sourceAuthor": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "sourcePublication": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "sourceDate": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "title",
+        "slug",
+        "author",
+        "pubDate"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

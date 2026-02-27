@@ -1,0 +1,94 @@
+{
+  "$ref": "#/definitions/articles",
+  "definitions": {
+    "articles": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "slug": {
+          "type": "string"
+        },
+        "category": {
+          "type": "string",
+          "enum": [
+            "Article",
+            "Commentary",
+            "Research",
+            "Core Ideas",
+            "Core Insights",
+            "But what about...?"
+          ]
+        },
+        "layout": {
+          "type": "string",
+          "enum": [
+            "default",
+            "simplified",
+            "rebuttal"
+          ],
+          "default": "default"
+        },
+        "sector": {
+          "type": "string",
+          "default": "Economics"
+        },
+        "author": {
+          "type": "string"
+        },
+        "authorTitle": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "pubDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "readTime": {
+          "type": "number",
+          "default": 5
+        },
+        "summary": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "thumbnail": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "mainImage": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "featured": {
+          "type": "boolean",
+          "default": false
+        },
+        "color": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "title",
+        "slug",
+        "category",
+        "author",
+        "pubDate"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}
