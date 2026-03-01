@@ -59,6 +59,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
               <div class="blog-post5-header_image-wrapper" style="padding:56.25% 0 0 0;position:relative;">
                 <iframe
+                  id="launch-event-video"
                   src="https://player.vimeo.com/video/1169129147?h=897742445e&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
                   allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
                   referrerpolicy="strict-origin-when-cross-origin"
@@ -67,6 +68,17 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
                 </iframe>
               </div>
               <script src="https://player.vimeo.com/api/player.js"></script>
+              <script is:inline>
+                document.addEventListener('DOMContentLoaded', function() {
+                  var iframe = document.getElementById('launch-event-video');
+                  if (!iframe || typeof Vimeo === 'undefined') return;
+                  var player = new Vimeo.Player(iframe);
+                  player.on('play', function() {
+                    if (typeof umami !== 'undefined') umami.track('launch-event-video-play');
+                    player.off('play');
+                  });
+                });
+              </script>
 
               <div class="text-rich-text w-richtext">
                 <p>Thank you for your support as a founder member. Below you will find the full video recording and transcript of our launch event.</p>
