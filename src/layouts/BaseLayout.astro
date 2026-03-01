@@ -9,13 +9,15 @@ interface Props {
   description?: string;
   ogImage?: string;
   currentPage?: string;
+  noindex?: boolean;
 }
 
 const {
   title,
   description = "MMTUK promotes better public understanding of money, economics and government spending for a fairer, sustainable society.",
   ogImage = "/images/og-image.webp",
-  currentPage = ''
+  currentPage = '',
+  noindex = false
 } = Astro.props;
 
 const siteUrl = (Astro.site?.toString() || 'https://mmtuk.org').replace(/\/$/, '');
@@ -30,7 +32,7 @@ const isProduction = import.meta.env.PUBLIC_ENV !== 'staging';
   <meta charset="utf-8">
   <title>{title} | MMTUK</title>
   <meta content={description} name="description">
-  {!isProduction && <meta name="robots" content="noindex, nofollow">}
+  {(!isProduction || noindex) && <meta name="robots" content="noindex, nofollow">}
   <link rel="canonical" href={canonicalUrl}>
   <meta content={`${title} | MMTUK`} property="og:title">
   <meta content={description} property="og:description">

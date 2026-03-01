@@ -5,7 +5,11 @@ import autoRedirects from './redirects.config.mjs';
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [sitemap()],
+  integrations: [
+    sitemap({
+      filter: (page) => !page.includes('/founders/launch-event'),
+    }),
+  ],
   output: 'static',
   build: {
     assets: '_astro'
