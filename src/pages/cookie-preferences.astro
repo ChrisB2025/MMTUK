@@ -1,5 +1,7 @@
 ---
+import { marked } from 'marked';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import data from '../data/pages/cookie-preferences.json';
 ---
 
 <BaseLayout title="Cookie Preferences" description="Manage your cookie preferences on the MMTUK website." currentPage="cookie-preferences">
@@ -10,17 +12,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               <div class="content28_component">
                 <div id="w-node-be7cecb1-ce71-7df5-ca5d-feadbfc949a5-9c85c4cd" class="max-width-large">
                   <div fs-toc-element="contents" class="text-rich-text w-richtext">
-                    <h4>Cookie Preferences</h4>
-                    <p><em>Last updated: February 2026</em></p>
+                    <h4>{data.title}</h4>
+                    <p><em>Last updated: {data.last_updated}</em></p>
 
-                    <h6>How we use cookies</h6>
-                    <p>We use cookies and similar technologies to run this site securely. We only set <strong>non-essential</strong> cookies when you interact with third-party features (such as ActionNetwork forms), and we respect your preferences under UK GDPR.</p>
-
-                    <h6>Cookie categories</h6>
-                    <p>
-                      <strong>Strictly necessary (always on):</strong> Session and security cookies from Railway hosting, and your consent preference stored in your browser's localStorage. These are essential for the site to function and cannot be disabled.<br><br>
-                      <strong>Functional — ActionNetwork (opt-in):</strong> When you interact with an ActionNetwork form (e.g. signing up for a newsletter or registering for an event), ActionNetwork may set cookies for form functionality and subscriber identification. These cookies are only set when you actively use a form, not on page load.
-                    </p>
+                    <Fragment set:html={marked.parse(data.intro)} />
 
                     <h6>Your current preference</h6>
                     <div id="consent-status" style="background: #f5f0e8; border: 1px solid #e2cdaa; border-radius: 6px; padding: 1rem 1.25rem; margin-bottom: 1.5rem;">
@@ -33,15 +28,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                       <button id="btn-reset-preference" class="button-2 w-button" style="cursor: pointer; background: transparent; border: 1px solid #2f2c25; color: #2f2c25;">Reset preferences</button>
                     </div>
 
-                    <h6>Cookies and services</h6>
-                    <ul role="list">
-                      <li><strong>Railway</strong> (strictly necessary) — hosting platform; may set session/security cookies.</li>
-                      <li><strong>Consent storage</strong> (strictly necessary) — your cookie preference is saved in localStorage (not a cookie) and expires after 12 months.</li>
-                      <li><strong>ActionNetwork</strong> (functional) — newsletter sign-up, event registration, and donation forms. Cookies are set only when you interact with a form.</li>
-                      <li><strong>Stripe</strong> (strictly necessary, via ActionNetwork) — payment processing for donations. Stripe sets its own cookies during payment flows.</li>
-                    </ul>
+                    <Fragment set:html={marked.parse(data.services_list)} />
 
-                    <p>For questions about cookies or data processing, contact <a href="#" class="text-style-link obfuscated-email" data-user="contact" data-domain="mmtuk.org"><span class="email-fallback">contact [at] mmtuk [dot] org</span></a>.</p>
                   </div>
                 </div>
               </div>

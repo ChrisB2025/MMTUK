@@ -1,0 +1,7 @@
+{
+  "pages": [
+    { "key": "privacy-policy", "title": "Privacy Policy", "route": "/privacy-policy" },
+    { "key": "terms-of-engagement", "title": "Terms of Engagement", "route": "/terms-of-engagement" },
+    { "key": "cookie-preferences", "title": "Cookie Preferences", "route": "/cookie-preferences" }
+  ]
+}

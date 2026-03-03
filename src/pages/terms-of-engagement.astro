@@ -1,5 +1,7 @@
 ---
+import { marked } from 'marked';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import data from '../data/pages/terms-of-engagement.json';
 ---
 
 <BaseLayout title="Terms of Engagement" description="Our terms of engagement." currentPage="terms-of-engagement">
@@ -10,43 +12,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               <div class="content28_component">
                 <div id="w-node-be7cecb1-ce71-7df5-ca5d-feadbfc949a5-d114c8a1" class="max-width-large">
                   <div fs-toc-element="contents" class="text-rich-text w-richtext">
-                    <h4>Terms of Engagement</h4>
-                    <p><em>Last updated: February 2026</em></p>
-                    <h6>Who we are</h6>
-                    <p><strong>MMTUK POLICY RESEARCH GROUP LTD</strong> • <strong>274 Northdown Road, Margate, England, CT9 2PT</strong> • <a href="#"><strong>contact@mmtuk.org</strong></a>
-                    </p>
-                    <h6>Using our Services</h6>
-                    <ul role="list">
-                      <li>Be respectful. No harassment, unlawful content, or spam.</li>
-                      <li>Don’t misuse the site (no hacking, scraping without permission, or disrupting others).</li>
-                      <li>Information is <strong>general information and education</strong>, <strong>not financial, legal, or investment advice</strong>.</li>
-                      <li>We may update, suspend, or discontinue parts of the Services.</li>
-                    </ul>
-                    <h6>Accounts (if applicable)</h6>
-                    <p>You’re responsible for safeguarding your login and keeping details up to date. We may suspend accounts that breach these Terms.</p>
-                    <h6>User submissions</h6>
-                    <p>You retain rights and grant us a non-exclusive, worldwide licence to host, display, and share content in connection with our mission, with attribution where feasible. Only submit content you have rights to. We may moderate or remove content that breaches these Terms or law.</p>
-                    <h6>Intellectual property</h6>
-                    <p>Site content (logos, brand assets, articles) belongs to us or our licensors. You may reference and share links. For reuse beyond fair dealing, request permission at <a href="#"><strong>contact@mmtuk.org</strong></a>.</p>
-                    <h6>Third-party services</h6>
-                    <p>We may link to third-party sites/tools. We aren’t responsible for their content, policies, or availability.</p>
-                    <h6>Events and community participation</h6>
-                    <p>Event registrations may include specific terms. We may record events and use recordings for internal/public communication; we’ll notify attendees if recording occurs. Don’t share confidential or sensitive personal data in public sessions.</p>
-                    <h6>Donations</h6>
-                    <p>Processed by <strong>Stripe</strong> under their terms. Donations are generally non-refundable unless required by law or otherwise stated.</p>
-                    <h6>Privacy and cookies</h6>
-                    <p>See our <strong>Privacy Policy</strong> (<strong>/privacy-policy</strong>) and <strong>Cookie Preferences</strong> (<strong>/cookie-preferences</strong>).</p>
-                    <h6>Disclaimers and limitation of liability</h6>
-                    <p>Services are provided “as is”. To the fullest extent permitted by law, we exclude warranties and limit liability for indirect or consequential loss. We don’t exclude liability for fraud or death/personal injury caused by negligence.</p>
-                    <h6>Changes to these Terms</h6>
-                    <p>We may revise these Terms. Continued use after changes means you accept the updated Terms.</p>
-                    <h6>Governing law</h6>
-                    <p>These Terms are governed by the laws of <strong>England and Wales</strong>. Courts of <strong>England and Wales</strong> have exclusive jurisdiction.</p>
-                    <h6>Contact</h6>
-                    <p>
-                      <a href="#"><strong>contact@mmtuk.org</strong></a>
-                    </p>
-                    <p>‍</p>
+                    <h4>{data.title}</h4>
+                    <p><em>Last updated: {data.last_updated}</em></p>
+                    <Fragment set:html={marked.parse(data.body)} />
                   </div>
                 </div>
               </div>

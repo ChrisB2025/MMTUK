@@ -11,7 +11,8 @@
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.0",
-    "astro": "^5.16.14"
+    "astro": "^5.16.14",
+    "marked": "^15.0.12"
   },
   "devDependencies": {
     "zod-to-json-schema": "^3.25.1"
