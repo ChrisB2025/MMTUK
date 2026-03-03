@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import siteConfig from '../data/pages/site-config.json';
 ---
 
 <BaseLayout title="Join" description="Join MMTUK and help advance public understanding of Modern Monetary Theory in the UK. Become a member, volunteer, or support our research and education work." currentPage="join">
@@ -64,10 +65,19 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                 </div>
                 <div class="form_container">
                   <div class="actionnetwork-form">
-                    <div class="w-embed w-script">
+                    <div class="w-embed w-script" data-form-id={siteConfig.action_network_form_id}>
                       <link href="https://actionnetwork.org/css/style-embed-v3.css" rel="stylesheet" type="text/css">
-                      <script is:inline src="https://actionnetwork.org/widgets/v6/form/activist-registration-form?format=js&source=widget"></script>
-                      <div id="can-form-area-activist-registration-form" style="width: 100%"><!-- this div is the target for our HTML insertion --></div>
+                      <div id={`can-form-area-${siteConfig.action_network_form_id}`} style="width: 100%"><!-- this div is the target for our HTML insertion --></div>
+                      <script is:inline>
+                        (function() {
+                          var container = document.querySelector('[data-form-id]');
+                          if (!container) return;
+                          var formId = container.getAttribute('data-form-id');
+                          var script = document.createElement('script');
+                          script.src = 'https://actionnetwork.org/widgets/v6/form/' + formId + '?format=js&source=widget';
+                          container.appendChild(script);
+                        })();
+                      </script>
                     </div>
                   </div>
                 </div>

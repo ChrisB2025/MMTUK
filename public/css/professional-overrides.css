@@ -1387,3 +1387,22 @@ textarea:focus {
   background-color: var(--_primitives---opacity--neutral-darkest-5);
   color: var(--_primitives---colors--neutral-darkest);
 }
+
+/* Announcement bar */
+.announcement-bar {
+  background: var(--_mmt-uk-theme---accent, #1a56db);
+  color: #fff;
+  text-align: center;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+.announcement-bar__link {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.announcement-bar__link:hover {
+  opacity: 0.9;
+}

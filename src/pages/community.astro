@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import EventBadge from '../components/EventBadge.astro';
 import { getCollection } from 'astro:content';
+import siteConfig from '../data/pages/site-config.json';
 
 const allLocalGroups = await getCollection('localGroups');
 const localGroups = allLocalGroups
@@ -199,7 +200,7 @@ function formatEventDate(date: Date) {
                     <p class="text-size-medium-13">Join our moderated UK community on Discord for lively discussion, learning, events, and practical collaboration.<br><br>Connect with MMT advocates across the UK and find your local group.</p>
                     <div class="margin-top margin-medium">
                       <div class="button-group" style="margin-bottom: 1.5rem;">
-                        <a href="https://discord.gg/S3UbxFe4FR" target="_blank" class="button-2 w-button">Join Discord here</a>
+                        <a href={siteConfig.discord_url} target="_blank" class="button-2 w-button">Join Discord here</a>
                       </div>
                     </div>
                   </div>

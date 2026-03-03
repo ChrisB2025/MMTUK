@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import MilestoneProgress from '../components/MilestoneProgress.astro';
+import siteConfig from '../data/pages/site-config.json';
 ---
 
 <BaseLayout title="Donate" description="Support MMTUK's mission to promote understanding of Modern Monetary Theory. Your donation funds independent research, education programmes and community outreach across the UK." currentPage="donate">
@@ -58,9 +59,9 @@ import MilestoneProgress from '../components/MilestoneProgress.astro';
       <div class="padding-global">
         <div class="container-large">
           <MilestoneProgress
-            currentCount={10}
-            totalCount={100}
-            motivationalText="First milestone in sight — help us reach 25 founding members"
+            currentCount={siteConfig.founder_scheme.current_count}
+            totalCount={siteConfig.founder_scheme.target_count}
+            motivationalText={siteConfig.founder_scheme.milestone_message}
           />
         </div>
       </div>
@@ -80,7 +81,7 @@ import MilestoneProgress from '../components/MilestoneProgress.astro';
                         <div class="tag">
                           <div>The application deadline is:</div>
                         </div>
-                        <div class="text-size-medium-2 text-weight-semibold">Sun 17 May 2026</div>
+                        <div class="text-size-medium-2 text-weight-semibold">{siteConfig.founder_scheme.deadline_display}</div>
                       </div>
                     </div>
                     <div class="margin-top margin-medium">
@@ -104,7 +105,7 @@ import MilestoneProgress from '../components/MilestoneProgress.astro';
                           <div id="seconds" class="heading-style-h3">29</div>
                           <div>Secs</div>
                         </div>
-                        <div class="founder-member-scheme_feature-2_number-changes w-embed w-script"><!--  This script is managed by Consent Pro  -->
+                        <div class="founder-member-scheme_feature-2_number-changes w-embed w-script" data-countdown-target={siteConfig.founder_scheme.deadline_iso}><!--  This script is managed by Consent Pro  -->
                           <script type="text/javascript">
 (function () {
   const second = 1000,
@@ -112,7 +113,8 @@ import MilestoneProgress from '../components/MilestoneProgress.astro';
     hour = minute * 60,
     day = hour * 24;
 	// Set the target date and time for the countdown (format: "MM/DD/YYYY HH:mm:ss")
-  const targetDateString = "05/17/2026 00:00:00";
+  const container = document.querySelector('[data-countdown-target]');
+  const targetDateString = container ? container.getAttribute('data-countdown-target') : "05/17/2026 00:00:00";
   const targetDate = new Date(targetDateString).getTime();
   const updateCountdown = () => {
     const now = new Date().getTime(), // Get the current date and time
@@ -173,7 +175,7 @@ import MilestoneProgress from '../components/MilestoneProgress.astro';
                     </div>
                     <div class="margin-bottom margin-xsmall"></div>
                     <div class="margin-vertical margin-medium"></div>
-                    <a href="https://donate.stripe.com/9B6fZh3d0cE78S20JffYY02" target="_blank" class="button-2 max-width-full w-button">Join as a Founder Member of MMTUK</a>
+                    <a href={siteConfig.stripe_links.founder} target="_blank" class="button-2 max-width-full w-button">Join as a Founder Member of MMTUK</a>
                   </div>
                 </div>
               </div>
@@ -247,7 +249,7 @@ import MilestoneProgress from '../components/MilestoneProgress.astro';
                       </div>
                     </div>
                     <div class="margin-top margin-medium">
-                      <a href="https://donate.stripe.com/14A5kD28WgUn7NY8bHfYY01" class="button-2 max-width-full w-button">Donate now</a>
+                      <a href={siteConfig.stripe_links.supporter} class="button-2 max-width-full w-button">Donate now</a>
                     </div>
                   </div>
                   <div class="founder-member-scheme_cta_plan">
@@ -265,7 +267,7 @@ import MilestoneProgress from '../components/MilestoneProgress.astro';
                       </div>
                     </div>
                     <div class="margin-top margin-medium">
-                      <a href="https://donate.stripe.com/9B6fZh3d0cE78S20JffYY02" target="_blank" class="button-2 max-width-full w-button">Donate now</a>
+                      <a href={siteConfig.stripe_links.founder} target="_blank" class="button-2 max-width-full w-button">Donate now</a>
                     </div>
                   </div>
                   <div class="donate-support_pricing_plan patron">
@@ -283,7 +285,7 @@ import MilestoneProgress from '../components/MilestoneProgress.astro';
                       </div>
                     </div>
                     <div class="margin-top margin-medium research-donation-buttons">
-                      <a href="https://donate.stripe.com/aFa3cvbJwcE7fgqajPfYY03" target="_blank" class="button-2 max-width-full w-button">Donate now</a>
+                      <a href={siteConfig.stripe_links.patron} target="_blank" class="button-2 max-width-full w-button">Donate now</a>
                     </div>
                   </div>
                 </div>
