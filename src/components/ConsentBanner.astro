@@ -171,6 +171,7 @@
     reset: resetConsent,
     KEY: CONSENT_KEY,
   };
+  window.dispatchEvent(new CustomEvent('mmtuk-consent-ready'));
 
   function initCookieConsent() {
     const banner = document.getElementById('cookie-consent-banner');

@@ -45,11 +45,7 @@ import data from '../data/pages/cookie-preferences.json';
     if (!statusText || !statusDetail) return;
 
     const api = (window as any).mmtukConsent;
-    if (!api) {
-      statusText.textContent = 'Consent system not loaded.';
-      statusDetail.textContent = '';
-      return;
-    }
+    if (!api) return;
 
     const consent = api.get();
     if (!consent) {
@@ -92,10 +88,18 @@ import data from '../data/pages/cookie-preferences.json';
     });
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initPreferencesPage);
-  } else {
+  function init() {
+    if (!(window as any).mmtukConsent) {
+      window.addEventListener('mmtuk-consent-ready', init, { once: true });
+      return;
+    }
     initPreferencesPage();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
   }
 </script>
 </BaseLayout>
