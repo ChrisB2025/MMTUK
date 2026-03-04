@@ -1,9 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import siteConfig from '../data/pages/site-config.json';
+import pageData from '../data/pages/join.json';
 ---
 
-<BaseLayout title="Join" description="Join MMTUK and help advance public understanding of Modern Monetary Theory in the UK. Become a member, volunteer, or support our research and education work." currentPage="join">
+<BaseLayout title={pageData.meta.title} description={pageData.meta.description} currentPage="join">
 <header class="section_header142 color-scheme-1">
         <div class="header142_component">
           <div class="padding-global">
@@ -13,9 +14,9 @@ import siteConfig from '../data/pages/site-config.json';
                   <div class="max-width-large align-center">
                     <div class="header142_content">
                       <div class="margin-bottom margin-small">
-                        <h1 class="heading-style-h1">Join the movement for meaningful change</h1>
+                        <h1 class="heading-style-h1">{pageData.hero.heading}</h1>
                       </div>
-                      <p class="text-size-medium">Connect with local groups driving community impact. Make a difference where you live.</p>
+                      <p class="text-size-medium">{pageData.hero.tagline}</p>
                       <div class="margin-top margin-medium"></div>
                     </div>
                   </div>
@@ -45,21 +46,18 @@ import siteConfig from '../data/pages/site-config.json';
             <div class="contact2_component">
               <div class="max-width-large align-center">
                 <div class="margin-bottom margin-small">
-                  <h2 class="heading-style-h2">Join the MMTUK Community</h2>
+                  <h2 class="heading-style-h2">{pageData.join_section.heading}</h2>
                 </div>
-                <p class="text-size-medium">Register your interest in our research and policy initiatives</p>
+                <p class="text-size-medium">{pageData.join_section.subtitle}</p>
               </div>
               <div class="action-network-form">
                 <div id="w-node-dd53db8d-e2aa-b60d-b5e7-41efed4a2486-ea4e27d7" class="div-block-4">
                   <div class="rich-text-block w-richtext">
-                    <p>We are building a register of activists across the country to create a formal campaigning group for Modern Monetary Theory (MMT) in the UK. Whatever your level of expertise, whatever other skills you may have, we need you. By doing this we hope to:</p>
+                    <p>{pageData.join_section.intro}</p>
                     <ul role="list">
-                      <li class="list-item list-item-form">Create a network of UK based MMT activists to support each others campaigning efforts and initiatives.</li>
-                      <li class="list-item list-item-form">Support each others learning of MMT fundamentals.</li>
-                      <li class="list-item list-item-form">Coordinate larger campaigns, dissemination and educational activities.</li>
-                      <li class="list-item list-item-form">Create high quality MMT informed policy documents to take to politicians and other campaigners.</li>
-                      <li class="list-item list-item-form">Have a collection of experts at the ready to make the case for MMT wherever it is needed.</li>
-                      <li class="list-item list-item-form">We are very keen on getting connected with people interested in MMT from a broad range of backgrounds and with a wide range of experiences. We look forward to having you on board!</li>
+                      {pageData.join_section.benefits.map((benefit: string) => (
+                        <li class="list-item list-item-form">{benefit}</li>
+                      ))}
                     </ul>
                   </div>
                 </div>

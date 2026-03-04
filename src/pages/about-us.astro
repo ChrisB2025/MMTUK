@@ -1,20 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection, render } from 'astro:content';
+import pageData from '../data/pages/about-us.json';
 
 const allBios = await getCollection('bios');
 
-const steeringOrder = [
-  "Dr Phil Armstrong",
-  "Dr Stephanie Linkogle",
-  "Patricia Pino",
-  "David Merrill",
-  "Andrew Berkeley",
-  "Richard Tye",
-  "Steve Laughton",
-  "Vincent Gomez",
-  "David McNab",
-];
+const steeringOrder = pageData.steering_group.order;
 const steeringGroup = allBios
   .filter(bio => bio.data.role !== "Advisory Board Member")
   .sort((a, b) => {
@@ -55,7 +46,7 @@ const newsWithBody = await Promise.all(
 );
 ---
 
-<BaseLayout title="About Us" description="Learn about MMTUK and our team." currentPage="about-us">
+<BaseLayout title={pageData.meta.title} description={pageData.meta.description} currentPage="about-us">
 <header class="section_header111 text-color-white">
         <div class="padding-global">
           <div class="container-large">
@@ -63,11 +54,11 @@ const newsWithBody = await Promise.all(
               <div class="padding-section-large">
                 <div class="header111_content-wrapper w-clearfix">
                   <div class="header111_content-left">
-                    <h1 class="heading-style-h1">We Are <br>Academics, <br>Activists &amp; <br>Organisers</h1>
+                    <h1 class="heading-style-h1">{pageData.hero.heading}</h1>
                   </div>
                   <div class="padding-huge"></div>
                   <div id="w-node-_20c58ef9-42e7-f416-12e4-c6d2a9398d57-4c382439" class="header111_content-right w-clearfix">
-                    <p id="w-node-_20c58ef9-42e7-f416-12e4-c6d2a9398d58-4c382439" class="text-size-medium">We bring together leading minds from the UK MMT community to deliver rigorous research and accessible resources for policymakers, public institutions, civil society and the wider public.</p>
+                    <p id="w-node-_20c58ef9-42e7-f416-12e4-c6d2a9398d58-4c382439" class="text-size-medium">{pageData.hero.description}</p>
                   </div>
                 </div>
               </div>
@@ -93,9 +84,9 @@ const newsWithBody = await Promise.all(
                   <div class="text-align-center">
                     <div class="max-width-large align-center">
                       <div class="margin-bottom margin-small">
-                        <h2 class="heading-style-h2 left">MMTUK News</h2>
+                        <h2 class="heading-style-h2 left">{pageData.news.heading}</h2>
                       </div>
-                      <p class="text-size-medium-12">Latest announcements from MMTUK</p>
+                      <p class="text-size-medium-12">{pageData.news.description}</p>
                     </div>
                   </div>
                 </div>
@@ -122,7 +113,7 @@ const newsWithBody = await Promise.all(
                         {articleLink && (
                           <div class="button-group">
                             <a href={articleLink} class="button-2 is-link is-icon">
-                              <div>Read more</div>
+                              <div>{pageData.news.button_label}</div>
                               <div class="icon-embed-xxsmall w-embed"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                   <path d="M6 3L11 8L6 13" stroke="CurrentColor" stroke-width="1.5"></path>
                                 </svg></div>
@@ -155,9 +146,9 @@ const newsWithBody = await Promise.all(
                   <div class="text-align-center">
                     <div class="max-width-large align-center">
                       <div class="margin-bottom margin-small">
-                        <h2 class="heading-style-h2 left">MMTUK Events</h2>
+                        <h2 class="heading-style-h2 left">{pageData.events.heading}</h2>
                       </div>
-                      <p class="text-size-medium-12">Upcoming talks, meetups, and gatherings across the UK</p>
+                      <p class="text-size-medium-12">{pageData.events.description}</p>
                     </div>
                   </div>
                 </div>
@@ -194,7 +185,7 @@ const newsWithBody = await Promise.all(
                               <div class="margin-top margin-small">
                                 <div class="button-group">
                                   <div class="button-2 is-link is-icon">
-                                    <div>Learn more</div>
+                                    <div>{pageData.events.button_label}</div>
                                     <div class="icon-embed-xxsmall w-embed"><svg width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M6 3L11 8L6 13" stroke="CurrentColor" stroke-width="1.5"></path>
                                       </svg></div>
@@ -227,9 +218,9 @@ const newsWithBody = await Promise.all(
                 <div class="margin-bottom margin-xxlarge">
                   <div class="max-width-large margin-bottom margin-large">
                     <div class="margin-bottom margin-small">
-                      <h2 class="heading-style-h2 left">Steering Group</h2>
+                      <h2 class="heading-style-h2 left">{pageData.steering_group.heading}</h2>
                     </div>
-                    <p class="text-size-medium">Dedicated minds driving economic and social research forward</p>
+                    <p class="text-size-medium">{pageData.steering_group.description}</p>
                   </div>
                   <div class="w-dyn-list">
                     <div role="list" class="team8_list-wrapper w-dyn-items">
@@ -299,9 +290,9 @@ const newsWithBody = await Promise.all(
                 <div class="margin-bottom margin-xxlarge">
                   <div class="max-width-large margin-bottom margin-large">
                     <div class="margin-bottom margin-small">
-                      <h2 class="heading-style-h2 left">ADVISORY BOARD</h2>
+                      <h2 class="heading-style-h2 left">{pageData.advisory_board.heading}</h2>
                     </div>
-                    <p class="text-size-medium">Independent guidance from leading global MMT economists.</p>
+                    <p class="text-size-medium">{pageData.advisory_board.description}</p>
                   </div>
                   <div class="w-dyn-list">
                     <div role="list" class="team8_list-wrapper w-dyn-items">

@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import EventBadge from '../components/EventBadge.astro';
 import { getCollection } from 'astro:content';
 import siteConfig from '../data/pages/site-config.json';
+import pageData from '../data/pages/community.json';
 
 const allLocalGroups = await getCollection('localGroups');
 const localGroups = allLocalGroups
@@ -29,7 +30,7 @@ function formatEventDate(date: Date) {
 }
 ---
 
-<BaseLayout title="Community" description="Connect with the MMTUK community. Find local groups across the UK, join our Discord server, attend events, and engage with others interested in Modern Monetary Theory." currentPage="community">
+<BaseLayout title={pageData.meta.title} description={pageData.meta.description} currentPage="community">
 <header class="section_header54 text-color-white">
         <div class="padding-global">
           <div class="container-large">
@@ -37,9 +38,9 @@ function formatEventDate(date: Date) {
               <div class="header54_component">
                 <div class="max-width-large">
                   <div class="margin-bottom margin-small">
-                    <h1 class="heading-style-h1">Community</h1>
+                    <h1 class="heading-style-h1">{pageData.hero.heading}</h1>
                   </div>
-                  <p class="text-size-medium-2">Meet, learn and organise with people building a better UK economy.</p>
+                  <p class="text-size-medium-2">{pageData.hero.tagline}</p>
                 </div>
               </div>
             </div>
@@ -63,9 +64,9 @@ function formatEventDate(date: Date) {
                   <div class="text-align-center">
                     <div class="max-width-large align-center">
                       <div class="margin-bottom margin-small">
-                        <h2 class="heading-style-h2 left">Local Groups</h2>
+                        <h2 class="heading-style-h2 left">{pageData.local_groups.heading}</h2>
                       </div>
-                      <p class="text-size-medium-11">Connect with MMT supporters in your area to share knowledge, discuss regional issues and coordinate local campaigns together.</p>
+                      <p class="text-size-medium-11">{pageData.local_groups.description}</p>
                     </div>
                   </div>
                 </div>
@@ -85,7 +86,7 @@ function formatEventDate(date: Date) {
                             <div class="margin-top margin-small">
                               <div class="button-group">
                                 <div class="button-2 is-link is-icon">
-                                  <div>Get involved</div>
+                                  <div>{pageData.local_groups.button_label}</div>
                                   <div class="icon-embed-xxsmall w-embed"><svg width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                       <path d="M6 3L11 8L6 13" stroke="CurrentColor" stroke-width="1.5"></path>
                                     </svg></div>
@@ -117,9 +118,9 @@ function formatEventDate(date: Date) {
                   <div class="text-align-center">
                     <div class="max-width-large align-center">
                       <div class="margin-bottom margin-small">
-                        <h2 class="heading-style-h2 left">Upcoming events</h2>
+                        <h2 class="heading-style-h2 left">{pageData.events.heading}</h2>
                       </div>
-                      <p class="text-size-medium-12">Discover critical conversations shaping economic understanding</p>
+                      <p class="text-size-medium-12">{pageData.events.description}</p>
                     </div>
                   </div>
                 </div>
@@ -163,7 +164,7 @@ function formatEventDate(date: Date) {
                               <div class="margin-top margin-small">
                                 <div class="button-group">
                                   <div class="button-2 is-link is-icon">
-                                    <div>Learn more</div>
+                                    <div>{pageData.events.button_label}</div>
                                     <div class="icon-embed-xxsmall w-embed"><svg width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M6 3L11 8L6 13" stroke="CurrentColor" stroke-width="1.5"></path>
                                       </svg></div>
@@ -195,12 +196,12 @@ function formatEventDate(date: Date) {
                 <div class="w-layout-grid cta1_content">
                   <div class="cta1_content-left">
                     <div class="margin-bottom margin-small">
-                      <h2 class="heading-style-h2 left">MMTUK Discord Server</h2>
+                      <h2 class="heading-style-h2 left">{pageData.discord.heading}</h2>
                     </div>
-                    <p class="text-size-medium-13">Join our moderated UK community on Discord for lively discussion, learning, events, and practical collaboration.<br><br>Connect with MMT advocates across the UK and find your local group.</p>
+                    <p class="text-size-medium-13">{pageData.discord.description}</p>
                     <div class="margin-top margin-medium">
                       <div class="button-group" style="margin-bottom: 1.5rem;">
-                        <a href={siteConfig.discord_url} target="_blank" class="button-2 w-button">Join Discord here</a>
+                        <a href={siteConfig.discord_url} target="_blank" class="button-2 w-button">{pageData.discord.button_label}</a>
                       </div>
                     </div>
                   </div>

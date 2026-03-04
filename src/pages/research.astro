@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
+import pageData from '../data/pages/research.json';
 
 const allBriefings = (await getCollection('briefings')).filter(b => !b.data.draft);
 const sortedBriefings = allBriefings.sort((a, b) =>
@@ -13,7 +14,7 @@ const heroBriefing = featuredBriefings[0];
 const smallerBriefings = featuredBriefings.slice(1);
 ---
 
-<BaseLayout title="Research" description="Explore MMTUK research and publications." currentPage="research">
+<BaseLayout title={pageData.meta.title} description={pageData.meta.description} currentPage="research">
 <header class="section_header54 text-color-white">
         <div class="padding-global">
           <div class="container-large">
@@ -21,9 +22,9 @@ const smallerBriefings = featuredBriefings.slice(1);
               <div class="header54_component">
                 <div class="max-width-large">
                   <div class="margin-bottom margin-small">
-                    <h1 class="heading-style-h1">Research</h1>
+                    <h1 class="heading-style-h1">{pageData.hero.heading}</h1>
                   </div>
-                  <p class="text-size-medium-2 is-dark">Strategic research and targeted advocacy to transform Britain&#x27;s economic landscape through innovative policy frameworks</p>
+                  <p class="text-size-medium-2 is-dark">{pageData.hero.tagline}</p>
                 </div>
               </div>
             </div>
@@ -41,9 +42,9 @@ const smallerBriefings = featuredBriefings.slice(1);
               <div class="header46_component">
                 <div class="max-width-large w-clearfix">
                   <div class="margin-bottom margin-small">
-                    <h1 class="heading-style-h2 left">Our Priority Policy areas</h1>
+                    <h1 class="heading-style-h2 left">{pageData.policy_areas.heading}</h1>
                   </div>
-                  <p class="text-size-medium">Strategic research and targeted advocacy to transform Britain&#x27;s economic landscape through innovative policy frameworks</p>
+                  <p class="text-size-medium">{pageData.policy_areas.description}</p>
                 </div>
               </div>
             </div>
@@ -63,10 +64,10 @@ const smallerBriefings = featuredBriefings.slice(1);
                 <div class="w-layout-grid layout16_content">
                   <div class="layout16_content-left">
                     <div class="margin-bottom margin-small">
-                      <h2 class="heading-style-h3">The Job Guarantee</h2>
+                      <h2 class="heading-style-h3">{pageData.job_guarantee.heading}</h2>
                     </div>
                     <div class="margin-bottom margin-small">
-                      <p class="text-size-medium">Our inaugural policy paper, published 25 February 2026, demonstrates how MMT can achieve full employment and price stability through a voluntary, counter-inflationary Job Guarantee.</p>
+                      <p class="text-size-medium">{pageData.job_guarantee.description}</p>
                     </div>
                     <div class="layout16_item-list">
                       <div id="w-node-_71136678-cdb2-0a82-2788-de12cdf8c6de-d208c9ce" class="layout16_item">
@@ -76,7 +77,7 @@ const smallerBriefings = featuredBriefings.slice(1);
                             </svg></div>
                         </div>
                         <div class="layout16_item-text-wrapper">
-                          <p>Guarantee a paid public option at £15 per hour, centrally funded and locally delivered, open to anyone willing and able to work, with additional, non-displacing roles that serve community, care and climate needs</p>
+                          <p>{pageData.job_guarantee.feature_1}</p>
                         </div>
                       </div>
                       <div id="w-node-_71136678-cdb2-0a82-2788-de12cdf8c6e4-d208c9ce" class="layout16_item">
@@ -86,7 +87,7 @@ const smallerBriefings = featuredBriefings.slice(1);
                             </svg></div>
                         </div>
                         <div class="layout16_item-text-wrapper">
-                          <p>Operate as a counter-inflation automatic stabiliser by converting unemployment into a buffer of paid employment, using the Job Guarantee wage as a nominal anchor with annual formula updates and a triennial review</p>
+                          <p>{pageData.job_guarantee.feature_2}</p>
                         </div>
                       </div>
                       <div id="w-node-_71136678-cdb2-0a82-2788-de12cdf8c6ea-d208c9ce" class="layout16_item">
@@ -96,14 +97,14 @@ const smallerBriefings = featuredBriefings.slice(1);
                             </svg></div>
                         </div>
                         <div class="layout16_item-text-wrapper">
-                          <p>Deliver strong net fiscal and social returns through lower benefit spend, higher tax and NI receipts, and health savings, with phased rollout, local project pipelines, and independent evaluation before national scale</p>
+                          <p>{pageData.job_guarantee.feature_3}</p>
                         </div>
                       </div>
                     </div>
                     <div class="margin-top margin-medium">
                       <div class="button-group">
-                        <a href="/job-guarantee" class="button is-link is-icon w-inline-block">
-                          <div>Read more here</div>
+                        <a href={pageData.job_guarantee.button_href} class="button is-link is-icon w-inline-block">
+                          <div>{pageData.job_guarantee.button_label}</div>
                           <div class="icon-embed-xxsmall w-embed"><svg width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                               <path d="M6 3L11 8L6 13" stroke="CurrentColor" stroke-width="1.5"></path>
                             </svg></div>
@@ -131,10 +132,10 @@ const smallerBriefings = featuredBriefings.slice(1);
                 <div class="w-layout-grid layout16_content">
                   <div class="layout16_content-left">
                     <div class="margin-bottom margin-small">
-                      <h2 class="heading-style-h3">Zero Interest Rate Policy (ZIRP)</h2>
+                      <h2 class="heading-style-h3">{pageData.zirp.heading}</h2>
                     </div>
                     <div class="margin-bottom margin-small">
-                      <p class="text-size-medium">A permanent 0% Central Bank Interest rate, with fiscal policy doing the steering</p>
+                      <p class="text-size-medium">{pageData.zirp.description}</p>
                     </div>
                     <div class="layout16_item-list">
                       <div id="w-node-_71136678-cdb2-0a82-2788-de12cdf8c70b-d208c9ce" class="layout16_item">
@@ -144,7 +145,7 @@ const smallerBriefings = featuredBriefings.slice(1);
                             </svg></div>
                         </div>
                         <div class="layout16_item-text-wrapper">
-                          <p>Set Bank Rate at 0 percent, replace routine gilt issuance with reserves, cut interest costs and simplify debt management</p>
+                          <p>{pageData.zirp.feature_1}</p>
                         </div>
                       </div>
                       <div id="w-node-_71136678-cdb2-0a82-2788-de12cdf8c711-d208c9ce" class="layout16_item">
@@ -154,7 +155,7 @@ const smallerBriefings = featuredBriefings.slice(1);
                             </svg></div>
                         </div>
                         <div class="layout16_item-text-wrapper">
-                          <p>Manage demand through automatic stabilisers and targeted fiscal measures, use prudential tools to guide credit and protect financial stability</p>
+                          <p>{pageData.zirp.feature_2}</p>
                         </div>
                       </div>
                       <div id="w-node-_71136678-cdb2-0a82-2788-de12cdf8c717-d208c9ce" class="layout16_item">
@@ -164,12 +165,12 @@ const smallerBriefings = featuredBriefings.slice(1);
                             </svg></div>
                         </div>
                         <div class="layout16_item-text-wrapper">
-                          <p>Offer safe saving via NS&amp;I and regulated products, publish a gilt market transition plan with clear timelines, risk controls, and reporting</p>
+                          <p>{pageData.zirp.feature_3}</p>
                         </div>
                       </div>
                     </div>
                     <div class="margin-top margin-medium">
-                      <div>We are currently working on a draft for this policy</div>
+                      <div>{pageData.zirp.wip_notice}</div>
                     </div>
                   </div>
                   <div class="layout16_image-wrapper"><img sizes="240px" srcset="/images/francais-a-londres-ZdUeSMxgSoo-unsplash-p-500.avif 500w, images/francais-a-londres-ZdUeSMxgSoo-unsplash-p-800.avif 800w, images/francais-a-londres-ZdUeSMxgSoo-unsplash-p-1080.avif 1080w, images/francais-a-londres-ZdUeSMxgSoo-unsplash-p-1600.avif 1600w, images/central-london-banks.avif 2400w" alt="Central London banks" src="/images/central-london-banks.avif" loading="eager" class="layout16_image"></div>
@@ -190,9 +191,9 @@ const smallerBriefings = featuredBriefings.slice(1);
                   <div class="text-align-center">
                     <div class="max-width-large align-center">
                       <div class="margin-bottom margin-small">
-                        <h2 class="heading-style-h2 left">MMT Briefings</h2>
+                        <h2 class="heading-style-h2 left">{pageData.briefings.heading}</h2>
                       </div>
-                      <p class="text-size-medium">Our affiliated authors critique public economic commentary and rebut anti-MMT polemic with rigorous analysis.</p>
+                      <p class="text-size-medium">{pageData.briefings.description}</p>
                     </div>
                   </div>
                 </div>
@@ -212,7 +213,7 @@ const smallerBriefings = featuredBriefings.slice(1);
                                 <div class="margin-bottom margin-xsmall">
                                   <div class="blog24_meta-wrapper">
                                     <div class="tag">
-                                      <div>Briefing</div>
+                                      <div>{pageData.briefings.tag_label}</div>
                                     </div>
                                     <div class="x-min-read">
                                       <div class="text-size-small-5 text-weight-semibold">{heroBriefing.data.readTime}</div>
@@ -228,7 +229,7 @@ const smallerBriefings = featuredBriefings.slice(1);
                               <div class="margin-top margin-small">
                                 <div class="button-group">
                                   <div class="button-2 is-link is-icon">
-                                    <div>Read briefing</div>
+                                    <div>{pageData.briefings.read_button_label}</div>
                                     <div class="icon-embed-xxsmall w-embed">
                                       <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M6 3L11 8L6 13" stroke="CurrentColor" stroke-width="1.5"></path>
@@ -261,7 +262,7 @@ const smallerBriefings = featuredBriefings.slice(1);
                                 <div class="margin-bottom margin-xsmall">
                                   <div class="blog24_meta-wrapper">
                                     <div class="tag">
-                                      <div>Briefing</div>
+                                      <div>{pageData.briefings.tag_label}</div>
                                     </div>
                                     <div class="x-min-read">
                                       <div class="text-size-small-5 text-weight-semibold">{briefing.data.readTime}</div>
@@ -277,7 +278,7 @@ const smallerBriefings = featuredBriefings.slice(1);
                               <div class="margin-top margin-small">
                                 <div class="button-group">
                                   <div class="button-2 is-link is-icon">
-                                    <div>Read briefing</div>
+                                    <div>{pageData.briefings.read_button_label}</div>
                                     <div class="icon-embed-xxsmall w-embed">
                                       <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M6 3L11 8L6 13" stroke="CurrentColor" stroke-width="1.5"></path>
@@ -298,7 +299,7 @@ const smallerBriefings = featuredBriefings.slice(1);
                 <div class="margin-top margin-xlarge">
                   <div class="text-align-center">
                     <a href="/research/briefings" class="button is-secondary w-inline-block">
-                      <div>View All Briefings</div>
+                      <div>{pageData.briefings.view_all_label}</div>
                     </a>
                   </div>
                 </div>
@@ -323,9 +324,9 @@ const smallerBriefings = featuredBriefings.slice(1);
                   <div class="text-align-center">
                     <div class="max-width-large align-center">
                       <div class="margin-bottom margin-small">
-                        <h2 class="heading-style-h2 left">Our Approach to policy Research</h2>
+                        <h2 class="heading-style-h2 left">{pageData.approach.heading}</h2>
                       </div>
-                      <p class="text-size-medium approach">Navigating complex economic and social landscapes through research and understanding informed by Modern Monetary Theory.</p>
+                      <p class="text-size-medium approach">{pageData.approach.description}</p>
                     </div>
                   </div>
                 </div>
@@ -334,33 +335,33 @@ const smallerBriefings = featuredBriefings.slice(1);
                     <div class="faq7_list">
                       <div class="faq7_item">
                         <div class="margin-bottom margin-xsmall">
-                          <div class="text-size-medium heading-style-h5">How we approach research</div>
+                          <div class="text-size-medium heading-style-h5">{pageData.approach.card_1_heading}</div>
                         </div>
-                        <p>We blend academic rigor with practical application. Our methodology cuts through theoretical noise to deliver actionable insights. We challenge assumptions and seek truth.</p>
+                        <p>{pageData.approach.card_1_body}</p>
                       </div>
                       <div class="faq7_item">
                         <div class="margin-bottom margin-xsmall">
-                          <div class="text-size-medium heading-style-h5">What makes our work unique</div>
+                          <div class="text-size-medium heading-style-h5">{pageData.approach.card_2_heading}</div>
                         </div>
-                        <p>We bridge academic theory and real-world impact. Our research goes beyond traditional boundaries, connecting scholarly analysis with grassroots movements. We transform knowledge into meaningful change.</p>
+                        <p>{pageData.approach.card_2_body}</p>
                       </div>
                       <div class="faq7_item">
                         <div class="margin-bottom margin-xsmall">
-                          <div class="text-size-medium heading-style-h5">Our research methodology</div>
+                          <div class="text-size-medium heading-style-h5">{pageData.approach.card_3_heading}</div>
                         </div>
-                        <p>We employ interdisciplinary approaches that challenge conventional thinking. Our team combines deep analytical skills with on-the-ground experience. We don&#x27;t just study problems, we seek solutions.</p>
+                        <p>{pageData.approach.card_3_body}</p>
                       </div>
                       <div class="faq7_item">
                         <div class="margin-bottom margin-xsmall">
-                          <div class="text-size-medium heading-style-h5">Impact of our work</div>
+                          <div class="text-size-medium heading-style-h5">{pageData.approach.card_4_heading}</div>
                         </div>
-                        <p>Our research influences policy, challenges economic paradigms, and supports social transformation. We provide clear, evidence-based insights that drive meaningful dialogue and action.</p>
+                        <p>{pageData.approach.card_4_body}</p>
                       </div>
                       <div class="faq7_item">
                         <div class="margin-bottom margin-xsmall">
-                          <div class="text-size-medium heading-style-h5">Collaboration and transparency</div>
+                          <div class="text-size-medium heading-style-h5">{pageData.approach.card_5_heading}</div>
                         </div>
-                        <p>We believe in open research and collaborative knowledge creation. Our work is transparent, peer-reviewed, and designed to empower communities and policymakers alike.</p>
+                        <p>{pageData.approach.card_5_body}</p>
                       </div>
                     </div>
                   </div>
