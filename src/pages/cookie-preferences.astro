@@ -12,10 +12,10 @@ import data from '../data/pages/cookie-preferences.json';
               <div class="content28_component">
                 <div id="w-node-be7cecb1-ce71-7df5-ca5d-feadbfc949a5-9c85c4cd" class="max-width-large">
                   <div fs-toc-element="contents" class="text-rich-text w-richtext">
-                    <h4>{data.title}</h4>
-                    <p><em>Last updated: {data.last_updated}</em></p>
+                    <h4>{data.content.title}</h4>
+                    <p><em>Last updated: {data.content.last_updated}</em></p>
 
-                    <Fragment set:html={marked.parse(data.intro)} />
+                    <Fragment set:html={marked.parse(data.content.intro)} />
 
                     <h6>Your current preference</h6>
                     <div id="consent-status" style="background: #f5f0e8; border: 1px solid #e2cdaa; border-radius: 6px; padding: 1rem 1.25rem; margin-bottom: 1.5rem;">
@@ -28,7 +28,7 @@ import data from '../data/pages/cookie-preferences.json';
                       <button id="btn-reset-preference" class="button-2 w-button" style="cursor: pointer; background: transparent; border: 1px solid #2f2c25; color: #2f2c25;">Reset preferences</button>
                     </div>
 
-                    <Fragment set:html={marked.parse(data.services_list)} />
+                    <Fragment set:html={marked.parse(data.content.services_list)} />
 
                   </div>
                 </div>

@@ -12,9 +12,9 @@ import data from '../data/pages/terms-of-engagement.json';
               <div class="content28_component">
                 <div id="w-node-be7cecb1-ce71-7df5-ca5d-feadbfc949a5-d114c8a1" class="max-width-large">
                   <div fs-toc-element="contents" class="text-rich-text w-richtext">
-                    <h4>{data.title}</h4>
-                    <p><em>Last updated: {data.last_updated}</em></p>
-                    <Fragment set:html={marked.parse(data.body)} />
+                    <h4>{data.content.title}</h4>
+                    <p><em>Last updated: {data.content.last_updated}</em></p>
+                    <Fragment set:html={marked.parse(data.content.body)} />
                   </div>
                 </div>
               </div>
