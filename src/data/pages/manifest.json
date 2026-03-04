@@ -1,17 +1,17 @@
 {
   "pages": [
+    { "key": "home", "title": "Home", "route": "/" },
+    { "key": "research", "title": "Research", "route": "/research" },
+    { "key": "job-guarantee", "title": "Job Guarantee", "route": "/job-guarantee" },
+    { "key": "education", "title": "Education", "route": "/education" },
+    { "key": "community", "title": "Community", "route": "/community" },
+    { "key": "about-us", "title": "About Us", "route": "/about-us" },
+    { "key": "donate", "title": "Donate", "route": "/donate" },
+    { "key": "founders", "title": "Founders", "route": "/founders" },
+    { "key": "join", "title": "Join", "route": "/join" },
+    { "key": "site-config", "title": "Site Config", "route": "(global)" },
     { "key": "privacy-policy", "title": "Privacy Policy", "route": "/privacy-policy" },
     { "key": "terms-of-engagement", "title": "Terms of Engagement", "route": "/terms-of-engagement" },
-    { "key": "cookie-preferences", "title": "Cookie Preferences", "route": "/cookie-preferences" },
-    { "key": "site-config", "title": "Site Config", "route": "(global)" },
-    { "key": "community", "title": "Community", "route": "/community" },
-    { "key": "join", "title": "Join", "route": "/join" },
-    { "key": "research", "title": "Research", "route": "/research" },
-    { "key": "about-us", "title": "About Us", "route": "/about-us" },
-    { "key": "home", "title": "Home", "route": "/" },
-    { "key": "education", "title": "Education", "route": "/education" },
-    { "key": "donate", "title": "Donate", "route": "/donate" },
-    { "key": "job-guarantee", "title": "Job Guarantee", "route": "/job-guarantee" },
-    { "key": "founders", "title": "Founders", "route": "/founders" }
+    { "key": "cookie-preferences", "title": "Cookie Preferences", "route": "/cookie-preferences" }
   ]
 }
