@@ -1,8 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import pageData from '../data/pages/founders.json';
 ---
 
-<BaseLayout title="Founders" description="Meet our founding members." currentPage="founders">
+<BaseLayout title={pageData.meta.title} description={pageData.meta.description} currentPage="founders">
 <header class="section_header54 text-color-white">
         <div class="padding-global">
           <div class="container-large">
@@ -10,9 +11,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               <div class="header54_component">
                 <div class="max-width-large">
                   <div class="margin-bottom margin-small">
-                    <h1 class="heading-style-h1">Founder member scheme</h1>
+                    <h1 class="heading-style-h1">{pageData.hero.heading}</h1>
                   </div>
-                  <p class="text-size-medium-2">Join our exclusive initiative and become a pivotal part of our mission within the next 100 days</p>
+                  <p class="text-size-medium-2">{pageData.hero.subtitle}</p>
                 </div>
               </div>
             </div>
@@ -31,12 +32,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                   <div class="founder-member-scheme_feature-1_image-wrapper"><img sizes="(max-width: 2400px) 100vw, 2400px" srcset="/images/diana-light-lK_nxI17h-U-unsplash-p-500.avif 500w, images/diana-light-lK_nxI17h-U-unsplash-p-800.avif 800w, images/diana-light-lK_nxI17h-U-unsplash-p-1080.avif 1080w, images/envelopes.avif 2400w" alt="" src="/images/envelopes.avif" loading="lazy" class="founder-member-scheme_feature-1_image"></div>
                   <div id="w-node-aad54c2f-4c8b-ac28-10f0-6f6848906d09-8df9ac5d" class="founder-member-scheme_feature-1_content-right">
                     <div class="margin-bottom margin-xsmall">
-                      <div class="text-style-tagline">Exclusive</div>
+                      <div class="text-style-tagline">{pageData.feature_1.tag}</div>
                     </div>
                     <div class="margin-bottom margin-small">
-                      <h2 class="heading-style-h2-6">Calling 100 visionary donors to make a difference</h2>
+                      <h2 class="heading-style-h2-6">{pageData.feature_1.heading}</h2>
                     </div>
-                    <p class="text-size-medium-2">We seek 100 passionate individuals willing to contribute £100 or more. Your support will fuel our groundbreaking work and transform potential into reality.</p>
+                    <p class="text-size-medium-2">{pageData.feature_1.description}</p>
                     <div class="margin-top margin-medium"></div>
                   </div>
                 </div>
@@ -54,18 +55,18 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                   <div class="founder-member-scheme_feature-2_title-wrapper">
                     <div class="margin-bottom margin-medium"></div>
                     <div class="margin-bottom margin-small">
-                      <h1 class="heading-style-h2-6">Your moment awaits</h1>
+                      <h1 class="heading-style-h2-6">{pageData.feature_2.heading}</h1>
                     </div>
                     <div class="margin-top margin-small">
                       <div class="founder-member-scheme_feature-2_details-wrapper">
                         <div class="tag">
-                          <div>Limited memberships remain</div>
+                          <div>{pageData.feature_2.tag}</div>
                         </div>
-                        <div class="text-size-medium-2 text-weight-semibold">Sat 10 Feb</div>
+                        <div class="text-size-medium-2 text-weight-semibold">{pageData.feature_2.date}</div>
                       </div>
                     </div>
                     <div class="margin-top margin-medium">
-                      <div class="founder-member-scheme_feature-2_countdown">
+                      <div class="founder-member-scheme_feature-2_countdown" id="founder-countdown" data-target={pageData.feature_2.countdown_target}>
                         <div class="founder-member-scheme_feature-2_number-wrapper">
                           <div id="days" class="heading-style-h3">45</div>
                           <div>Days</div>
@@ -92,31 +93,25 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     minute = second * 60,
     hour = minute * 60,
     day = hour * 24;
-	// Set the target date and time for the countdown (format: "MM/DD/YYYY HH:mm:ss")
-  const targetDateString = "02/10/2026 00:00:00";
+  const targetDateString = document.getElementById('founder-countdown').dataset.target;
   const targetDate = new Date(targetDateString).getTime();
   const updateCountdown = () => {
-    const now = new Date().getTime(), // Get the current date and time
-      distance = targetDate - now; // Calculate the time remaining until the target date
-		// Update the HTML elements with the remaining time
+    const now = new Date().getTime(),
+      distance = targetDate - now;
     document.getElementById('days').innerText = Math.floor(distance / day);
     document.getElementById('hours').innerText = Math.floor((distance % day) / hour);
     document.getElementById('minutes').innerText = Math.floor((distance % hour) / minute);
     document.getElementById('seconds').innerText = Math.floor((distance % minute) / second);
-    // Check if the target date has already passed
     if (distance < 0) {
-      clearInterval(interval); // Stop the countdown timer
-				document.getElementById('days').innerText = '0';
-				document.getElementById('hours').innerText = '0';
-				document.getElementById('minutes').innerText = '0';
-				document.getElementById('seconds').innerText = '0';
-      // You can display an element at the end of the countdown with this ID  
-        document.getElementById('message').style.display = 'block';
+      clearInterval(interval);
+      document.getElementById('days').innerText = '0';
+      document.getElementById('hours').innerText = '0';
+      document.getElementById('minutes').innerText = '0';
+      document.getElementById('seconds').innerText = '0';
+      document.getElementById('message').style.display = 'block';
     }
   };
-  // Initial call to update countdown
   updateCountdown();
-  // Update the countdown every second
   const interval = setInterval(updateCountdown, 1000);
 })();
 </script>
@@ -127,12 +122,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                       <div class="founder-member-scheme_feature-2_form-block w-form">
                         <div class="form_message-success-wrapper w-form-done">
                           <div class="form_message-success">
-                            <div>Invitation request received. Welcome to our mission</div>
+                            <div>{pageData.feature_2.form_success_message}</div>
                           </div>
                         </div>
                         <div class="form_message-error-wrapper w-form-fail">
                           <div class="form_message-error">
-                            <div>Connection failed. Please try again</div>
+                            <div>{pageData.feature_2.form_error_message}</div>
                           </div>
                         </div>
                       </div>
@@ -142,12 +137,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                     <div class="founder-member-scheme_cta_content-top">
                       <div class="founder-member-scheme_cta_top-left">
                         <div class="margin-bottom margin-xxsmall">
-                          <div class="heading-style-h5">Founder tier</div>
+                          <div class="heading-style-h5">{pageData.feature_2.tier_label}</div>
                         </div>
-                        <div>Pioneering social impact investment</div>
+                        <div>{pageData.feature_2.tier_description}</div>
                       </div>
                       <div class="founder-member-scheme_cta_top-right">
-                        <div class="heading-style-h2 heading-join">£100</div>
+                        <div class="heading-style-h2 heading-join">{pageData.feature_2.tier_price}</div>
                       </div>
                     </div>
                     <div class="margin-vertical margin-medium">
@@ -155,7 +150,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                     </div>
                     <div class="margin-bottom margin-xsmall"></div>
                     <div class="margin-vertical margin-medium"></div>
-                    <a href="#" class="button-2 max-width-full w-button">Join mission</a>
+                    <a href="#" class="button-2 max-width-full w-button">{pageData.feature_2.button_label}</a>
                   </div>
                 </div>
               </div>
@@ -170,14 +165,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               <div class="w-layout-grid founder-member-scheme_cta_component">
                 <div class="founder-member-scheme_cta_content-left">
                   <div class="margin-bottom margin-small">
-                    <h2 class="heading-style-h2-6">Impact pathway</h2>
+                    <h2 class="heading-style-h2-6">{pageData.cta_section.heading}</h2>
                   </div>
                   <div class="margin-bottom margin-large">
-                    <p class="text-size-medium-2">Empowering visionary donors to create sustainable change through strategic philanthropic investment.</p>
+                    <p class="text-size-medium-2">{pageData.cta_section.description}</p>
                   </div>
                   <div class="founder-member-scheme_cta_logo-wrapper">
                     <div class="margin-bottom margin-xxsmall">
-                      <h3 class="heading-style-h6">Trusted by global changemakers and innovative organizations</h3>
+                      <h3 class="heading-style-h6">{pageData.cta_section.trust_label}</h3>
                     </div>
                   </div>
                 </div>
@@ -185,12 +180,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                   <div class="founder-member-scheme_cta_content-top">
                     <div class="founder-member-scheme_cta_top-left">
                       <div class="margin-bottom margin-xxsmall">
-                        <div class="heading-style-h5">Founder tier</div>
+                        <div class="heading-style-h5">{pageData.cta_section.tier_label}</div>
                       </div>
-                      <div>Pioneering social impact investment</div>
+                      <div>{pageData.cta_section.tier_description}</div>
                     </div>
                     <div class="founder-member-scheme_cta_top-right">
-                      <div class="heading-style-h2 heading-join">£100</div>
+                      <div class="heading-style-h2 heading-join">{pageData.cta_section.tier_price}</div>
                     </div>
                   </div>
                   <div class="margin-vertical margin-medium">
@@ -198,7 +193,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                   </div>
                   <div class="margin-bottom margin-xsmall"></div>
                   <div class="margin-vertical margin-medium"></div>
-                  <a href="#" class="button-2 max-width-full w-button">Join mission</a>
+                  <a href="#" class="button-2 max-width-full w-button">{pageData.cta_section.button_label}</a>
                 </div>
               </div>
             </div>
@@ -212,40 +207,25 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               <div class="founder-member-scheme_testimonial_component">
                 <div data-delay="4000" data-animation="slide" class="founder-member-scheme_testimonial_slider w-slider" data-autoplay="false" data-easing="ease" data-hide-arrows="false" data-disable-swipe="false" data-autoplay-limit="0" data-nav-spacing="3" data-duration="500" data-infinite="true">
                   <div class="founder-member-scheme_testimonial_mask w-slider-mask">
-                    <div class="founder-member-scheme_testimonial_slide w-slide">
-                      <div class="founder-member-scheme_testimonial_content">
-                        <div class="margin-bottom margin-medium">
-                          <div class="founder-member-scheme_testimonial_logo-wrapper"></div>
-                        </div>
-                        <h3 class="heading-style-h5">&quot;This scheme represents true innovation in philanthropy&quot;</h3>
-                        <div class="margin-top margin-medium">
-                          <div class="founder-member-scheme_testimonial_client">
-                            <div class="margin-bottom margin-xsmall">
-                              <div class="founder-member-scheme_testimonial_client-image-wrapper"><img loading="lazy" src="https://uploads-ssl.webflow.com/624380709031623bfe4aee60/6243807090316203124aee66_placeholder-image.svg" alt="" class="founder-member-scheme_testimonial_client-image"></div>
+                    {pageData.testimonials.items.map((t) => (
+                      <div class="founder-member-scheme_testimonial_slide w-slide">
+                        <div class="founder-member-scheme_testimonial_content">
+                          <div class="margin-bottom margin-medium">
+                            <div class="founder-member-scheme_testimonial_logo-wrapper"></div>
+                          </div>
+                          <h3 class="heading-style-h5">{t.quote}</h3>
+                          <div class="margin-top margin-medium">
+                            <div class="founder-member-scheme_testimonial_client">
+                              <div class="margin-bottom margin-xsmall">
+                                <div class="founder-member-scheme_testimonial_client-image-wrapper"><img loading="lazy" src="https://uploads-ssl.webflow.com/624380709031623bfe4aee60/6243807090316203124aee66_placeholder-image.svg" alt="" class="founder-member-scheme_testimonial_client-image"></div>
+                              </div>
+                              <div class="text-weight-semibold">{t.name}</div>
+                              <div>{t.role}</div>
                             </div>
-                            <div class="text-weight-semibold">James Carter</div>
-                            <div>Philanthropic advisor, Global Impact</div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                    <div class="founder-member-scheme_testimonial_slide w-slide">
-                      <div class="founder-member-scheme_testimonial_content">
-                        <div class="margin-bottom margin-medium">
-                          <div class="founder-member-scheme_testimonial_logo-wrapper"></div>
-                        </div>
-                        <h3 class="heading-style-h5">&quot;My contribution feels meaningful and direct&quot;</h3>
-                        <div class="margin-top margin-medium">
-                          <div class="founder-member-scheme_testimonial_client">
-                            <div class="margin-bottom margin-xsmall">
-                              <div class="founder-member-scheme_testimonial_client-image-wrapper"><img loading="lazy" src="https://uploads-ssl.webflow.com/624380709031623bfe4aee60/6243807090316203124aee66_placeholder-image.svg" alt="" class="founder-member-scheme_testimonial_client-image"></div>
-                            </div>
-                            <div class="text-weight-semibold">Sarah Williams</div>
-                            <div>Social entrepreneur, Change Makers</div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                    ))}
                   </div>
                   <div class="slider-arrow is-centre-previous hide-mobile-landscape w-slider-arrow-left">
                     <div class="slider-arrow-icon_default w-embed"><svg width="100%" height="100%" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -273,53 +253,31 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                   <div class="text-align-center">
                     <div class="max-width-large align-center">
                       <div class="margin-bottom margin-small">
-                        <h2 class="heading-style-h2-6">FAQs</h2>
+                        <h2 class="heading-style-h2-6">{pageData.faq.heading}</h2>
                       </div>
-                      <p class="text-size-medium-2">Find answers to common questions about our founder member scheme</p>
+                      <p class="text-size-medium-2">{pageData.faq.intro}</p>
                     </div>
                   </div>
                 </div>
                 <div class="max-width-large align-center">
                   <div class="founder-member-scheme_faq_list">
-                    <div class="founder-member-scheme_faq_item">
-                      <div class="margin-bottom margin-xsmall">
-                        <div class="text-size-medium-2 text-weight-bold">How does the scheme work?</div>
+                    {pageData.faq.items.map((item) => (
+                      <div class="founder-member-scheme_faq_item">
+                        <div class="margin-bottom margin-xsmall">
+                          <div class="text-size-medium-2 text-weight-bold">{item.question}</div>
+                        </div>
+                        <p>{item.answer}</p>
                       </div>
-                      <p>The scheme invites 100 donors to contribute £100 or more within 100 days. Each donor receives special recognition as a founding supporter of MMTUK.</p>
-                    </div>
-                    <div class="founder-member-scheme_faq_item">
-                      <div class="margin-bottom margin-xsmall">
-                        <div class="text-size-medium-2 text-weight-bold">What are the benefits?</div>
-                      </div>
-                      <p>Benefits include recognition as a founding supporter in our materials and direct impact on our mission.</p>
-                    </div>
-                    <div class="founder-member-scheme_faq_item">
-                      <div class="margin-bottom margin-xsmall">
-                        <div class="text-size-medium-2 text-weight-bold">Can I donate more?</div>
-                      </div>
-                      <p>Absolutely. We welcome donations above the £100 minimum. Larger contributions provide greater support to our initiatives.</p>
-                    </div>
-                    <div class="founder-member-scheme_faq_item">
-                      <div class="margin-bottom margin-xsmall">
-                        <div class="text-size-medium-2 text-weight-bold">Is my donation tax-deductible?</div>
-                      </div>
-                      <p>We recommend consulting your tax advisor. Many donations to charitable initiatives qualify for tax deductions.</p>
-                    </div>
-                    <div class="founder-member-scheme_faq_item">
-                      <div class="margin-bottom margin-xsmall">
-                        <div class="text-size-medium-2 text-weight-bold">How will my donation be used?</div>
-                      </div>
-                      <p>Every pound directly supports our core mission of creating sustainable social impact across communities.</p>
-                    </div>
+                    ))}
                   </div>
                 </div>
                 <div class="margin-top margin-xxlarge">
                   <div class="text-align-center">
                     <div class="max-width-medium align-center">
                       <div class="margin-bottom margin-xsmall">
-                        <h3 class="heading-style-h4">Need more information?</h3>
+                        <h3 class="heading-style-h4">{pageData.faq.contact_heading}</h3>
                       </div>
-                      <p class="text-size-medium-2">Our team is ready to answer any additional questions</p>
+                      <p class="text-size-medium-2">{pageData.faq.contact_intro}</p>
                       <div class="margin-top margin-medium">
                         <div class="button-group is-center faq">
                           <div class="contact15_item">

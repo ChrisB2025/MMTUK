@@ -10,6 +10,8 @@
     { "key": "about-us", "title": "About Us", "route": "/about-us" },
     { "key": "home", "title": "Home", "route": "/" },
     { "key": "education", "title": "Education", "route": "/education" },
-    { "key": "donate", "title": "Donate", "route": "/donate" }
+    { "key": "donate", "title": "Donate", "route": "/donate" },
+    { "key": "job-guarantee", "title": "Job Guarantee", "route": "/job-guarantee" },
+    { "key": "founders", "title": "Founders", "route": "/founders" }
   ]
 }

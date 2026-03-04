@@ -1,0 +1,78 @@
+{
+  "meta": {
+    "title": "Founders",
+    "description": "Meet our founding members."
+  },
+  "hero": {
+    "heading": "Founder member scheme",
+    "subtitle": "Join our exclusive initiative and become a pivotal part of our mission within the next 100 days"
+  },
+  "feature_1": {
+    "tag": "Exclusive",
+    "heading": "Calling 100 visionary donors to make a difference",
+    "description": "We seek 100 passionate individuals willing to contribute £100 or more. Your support will fuel our groundbreaking work and transform potential into reality."
+  },
+  "feature_2": {
+    "heading": "Your moment awaits",
+    "tag": "Limited memberships remain",
+    "date": "Sat 10 Feb",
+    "countdown_target": "02/10/2026 00:00:00",
+    "tier_label": "Founder tier",
+    "tier_description": "Pioneering social impact investment",
+    "tier_price": "£100",
+    "button_label": "Join mission",
+    "form_success_message": "Invitation request received. Welcome to our mission",
+    "form_error_message": "Connection failed. Please try again"
+  },
+  "cta_section": {
+    "heading": "Impact pathway",
+    "description": "Empowering visionary donors to create sustainable change through strategic philanthropic investment.",
+    "trust_label": "Trusted by global changemakers and innovative organizations",
+    "tier_label": "Founder tier",
+    "tier_description": "Pioneering social impact investment",
+    "tier_price": "£100",
+    "button_label": "Join mission"
+  },
+  "testimonials": {
+    "items": [
+      {
+        "quote": "\"This scheme represents true innovation in philanthropy\"",
+        "name": "James Carter",
+        "role": "Philanthropic advisor, Global Impact"
+      },
+      {
+        "quote": "\"My contribution feels meaningful and direct\"",
+        "name": "Sarah Williams",
+        "role": "Social entrepreneur, Change Makers"
+      }
+    ]
+  },
+  "faq": {
+    "heading": "FAQs",
+    "intro": "Find answers to common questions about our founder member scheme",
+    "items": [
+      {
+        "question": "How does the scheme work?",
+        "answer": "The scheme invites 100 donors to contribute £100 or more within 100 days. Each donor receives special recognition as a founding supporter of MMTUK."
+      },
+      {
+        "question": "What are the benefits?",
+        "answer": "Benefits include recognition as a founding supporter in our materials and direct impact on our mission."
+      },
+      {
+        "question": "Can I donate more?",
+        "answer": "Absolutely. We welcome donations above the £100 minimum. Larger contributions provide greater support to our initiatives."
+      },
+      {
+        "question": "Is my donation tax-deductible?",
+        "answer": "We recommend consulting your tax advisor. Many donations to charitable initiatives qualify for tax deductions."
+      },
+      {
+        "question": "How will my donation be used?",
+        "answer": "Every pound directly supports our core mission of creating sustainable social impact across communities."
+      }
+    ],
+    "contact_heading": "Need more information?",
+    "contact_intro": "Our team is ready to answer any additional questions"
+  }
+}
