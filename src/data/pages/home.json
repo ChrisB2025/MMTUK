@@ -1,0 +1,93 @@
+{
+  "meta": {
+    "title": "Home",
+    "description": "MMTUK is an independent research organisation producing evidence-based economic analysis informed by Modern Monetary Theory. Explore our articles, education resources and community."
+  },
+  "hero": {
+    "heading": "Driving Economic Change",
+    "tagline": "MMTUK is an independent research organisation dedicated to producing high-quality, evidence-based analysis informed by Modern Monetary Theory (MMT).",
+    "slides": [
+      {
+        "tag": "Policy research",
+        "text": "A Counter-Inflationary Job Guarantee for the UK — now published",
+        "link_href": "/job-guarantee",
+        "link_label": "A Counter-Inflationary Job Guarantee for the UK"
+      },
+      {
+        "tag": "Education & training",
+        "text": "Courses and workshops equipping citizens and leaders with modern money literacy skills.",
+        "link_href": "",
+        "link_label": ""
+      },
+      {
+        "tag": "Community outreach",
+        "text": "Events, collaborations, and campaigns connecting research with real community priorities across Britain.",
+        "link_href": "",
+        "link_label": ""
+      }
+    ]
+  },
+  "research_section": {
+    "heading": "Academic Research",
+    "description": "Strategic research and targeted advocacy to transform Britain's economic landscape through innovative policy frameworks",
+    "card_1_heading": "The Job Guarantee",
+    "card_1_body": "Our UK-focused proposal is in advanced draft form. It demonstrates how MMT can achieve full employment and price stability.",
+    "card_1_href": "/job-guarantee",
+    "card_1_button_label": "Read more",
+    "card_2_heading": "Zero Interest Rate Policy (ZIRP)",
+    "card_2_body": "A UK framework for a standing 0% policy rate, with fiscal stabilisers managing demand and prices.",
+    "card_2_href": "/research",
+    "card_2_button_label": "Read more"
+  },
+  "education_section": {
+    "heading": "Education & Training",
+    "description": "Explore our library and briefings for clear, practical guides to UK macro-economic policy.",
+    "card_1_heading": "The MMTUK library",
+    "card_1_body": "Searchable library of papers, podcasts, articles and more on economics through the lens of MMT.",
+    "card_1_href": "",
+    "card_1_button_label": "Coming soon",
+    "card_2_heading": "Our Briefings",
+    "card_2_body": "Concise briefings from MMTUK and our guests explaining UK macro policy with practical, actionable insights.",
+    "card_2_href": "/research/briefings",
+    "card_2_button_label": "Read more"
+  },
+  "community_section": {
+    "heading": "Community & Network",
+    "description": "Connect with other people interested in MMT by joining local groups, public events and active online discussions.",
+    "card_1_heading": "Local Groups",
+    "card_1_body": "Join or start local MMT groups, supported and connected nationwide.",
+    "card_1_href": "/community#Network",
+    "card_1_button_label": "Read more",
+    "card_2_heading": "Events",
+    "card_2_body": "Join talks, workshops, and conferences we host and attend nationwide.",
+    "card_2_href": "/community#Events",
+    "card_2_button_label": "Read more",
+    "card_3_heading": "Online",
+    "card_3_body": "Debate, learn, and organise together in our moderated online community.",
+    "card_3_href": "/community#discord",
+    "card_3_button_label": "Read more"
+  },
+  "testimonials": {
+    "items": [
+      {
+        "quote": "MMTUK turns complex monetary operations into plain English, empowering people to see policy choices clearly and demand better, more humane economics.",
+        "name": "Patricia Pino",
+        "title": "Executive Director & Academic Researcher, MMTUK"
+      },
+      {
+        "quote": "A rare mix of heterodox depth and public pedagogy. MMTUK elevates debate and equips citizens to challenge harmful myths.",
+        "name": "Dr Phil Armstrong",
+        "title": "Founder, MMTUK"
+      },
+      {
+        "quote": "MMTUK marries rigorous scholarship with practical organising. It's a hub where democratic priorities and monetary reality finally meet.",
+        "name": "Dr David Merrill",
+        "title": "Founder, MMTUK"
+      }
+    ]
+  },
+  "contact": {
+    "heading": "Contact Us",
+    "tagline": "Be part of the economic transformation that challenges conventional thinking and drives meaningful policy change"
+  }
+}

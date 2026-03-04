@@ -1,63 +1,73 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import pageData from '../data/pages/home.json';
+
+const slideImageData = [
+  {
+    linked: true,
+    src: '/Research/Job_Guarantee/JG_paper_cover.webp',
+    alt: 'A Counter-Inflationary Job Guarantee for the UK',
+  },
+  {
+    linked: false,
+    srcset: '/images/marcos-luiz-photograph-R6xx6fnvPT8-unsplash-p-500.avif 500w, /images/marcos-luiz-photograph-R6xx6fnvPT8-unsplash-p-800.avif 800w, /images/marcos-luiz-photograph-R6xx6fnvPT8-unsplash-p-1080.avif 1080w, /images/marcos-luiz-photograph-R6xx6fnvPT8-unsplash-p-1600.avif 1600w, /images/hands-up.avif 2400w',
+    sizes: '(max-width: 2400px) 100vw, 2400px',
+    src: '/images/hands-up.avif',
+    alt: '',
+  },
+  {
+    linked: false,
+    src: '/images/yp-hero.avif',
+    alt: '',
+  },
+];
 ---
 
-<BaseLayout title="Home" description="MMTUK is an independent research organisation producing evidence-based economic analysis informed by Modern Monetary Theory. Explore our articles, education resources and community." currentPage="home">
+<BaseLayout title={pageData.meta.title} description={pageData.meta.description} currentPage="home">
   <header class="section_header102">
     <div class="header102_component">
       <div id="w-node-b45eb2d1-a9cb-fb6d-51c4-326d99812c3e-fa716c8e" class="header102_content">
         <div class="margin-bottom margin-small">
-          <h1 class="heading-style-h1">Driving Economic Change</h1>
+          <h1 class="heading-style-h1">{pageData.hero.heading}</h1>
         </div>
-        <p class="text-size-medium-8 left-justified">MMTUK is an independent research organisation dedicated to producing high-quality, evidence-based analysis informed by Modern Monetary Theory (MMT).</p>
+        <p class="text-size-medium-8 left-justified">{pageData.hero.tagline}</p>
       </div>
       <div data-delay="4000" data-animation="slide" class="header102_slider w-slider" data-autoplay="false" data-custom-autoplay="true" data-easing="ease" data-hide-arrows="false" data-disable-swipe="false" data-autoplay-limit="0" data-nav-spacing="3" data-duration="500" data-infinite="true" id="w-node-b45eb2d1-a9cb-fb6d-51c4-326d99812c4a-fa716c8e">
         <div class="header102_mask w-slider-mask">
-          <div class="header102_slide w-slide">
-            <div class="header102_slide-wrapper">
-              <a href="/job-guarantee" class="header102_slide-image-wrapper">
-                <img alt="A Counter-Inflationary Job Guarantee for the UK" src="/Research/Job_Guarantee/JG_paper_cover.webp" loading="lazy" class="header102_slide-image">
-              </a>
-              <div class="header102_slide-content">
-                <div class="header102_slide-content-wrapper">
-                  <div class="margin-bottom margin-tiny">
-                    <div class="heading-style-h6">Policy research</div>
+          {pageData.hero.slides.map((slide, i) => {
+            const img = slideImageData[i] || { linked: false, src: '', alt: '' };
+            return (
+              <div class="header102_slide w-slide">
+                <div class="header102_slide-wrapper">
+                  {slide.link_href ? (
+                    <a href={slide.link_href} class="header102_slide-image-wrapper">
+                      <img alt={img.alt} src={img.src} loading="lazy" class="header102_slide-image" />
+                    </a>
+                  ) : (
+                    <div class="header102_slide-image-wrapper">
+                      {img.srcset ? (
+                        <img sizes={img.sizes} srcset={img.srcset} alt={img.alt} src={img.src} loading="lazy" class="header102_slide-image" />
+                      ) : (
+                        <img loading="lazy" src={img.src} alt={img.alt} class="header102_slide-image" />
+                      )}
+                    </div>
+                  )}
+                  <div class="header102_slide-content">
+                    <div class="header102_slide-content-wrapper">
+                      <div class="margin-bottom margin-tiny">
+                        <div class="heading-style-h6">{slide.tag}</div>
+                      </div>
+                      {slide.link_href ? (
+                        <p><a href={slide.link_href} class="text-style-link">{slide.link_label}</a></p>
+                      ) : (
+                        <p>{slide.text}</p>
+                      )}
+                    </div>
                   </div>
-                  <p><a href="/job-guarantee" class="text-style-link">A Counter-Inflationary Job Guarantee for the UK</a> — now published</p>
                 </div>
               </div>
-            </div>
-          </div>
-          <div class="header102_slide w-slide">
-            <div class="header102_slide-wrapper">
-              <div class="header102_slide-image-wrapper">
-                <img sizes="(max-width: 2400px) 100vw, 2400px" srcset="/images/marcos-luiz-photograph-R6xx6fnvPT8-unsplash-p-500.avif 500w, /images/marcos-luiz-photograph-R6xx6fnvPT8-unsplash-p-800.avif 800w, /images/marcos-luiz-photograph-R6xx6fnvPT8-unsplash-p-1080.avif 1080w, /images/marcos-luiz-photograph-R6xx6fnvPT8-unsplash-p-1600.avif 1600w, /images/hands-up.avif 2400w" alt="" src="/images/hands-up.avif" loading="lazy" class="header102_slide-image">
-              </div>
-              <div class="header102_slide-content">
-                <div class="header102_slide-content-wrapper">
-                  <div class="margin-bottom margin-tiny">
-                    <div class="heading-style-h6">Education &amp; training</div>
-                  </div>
-                  <p>Courses and workshops equipping citizens and leaders with modern money literacy skills.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="header102_slide w-slide">
-            <div class="header102_slide-wrapper">
-              <div class="header102_slide-image-wrapper">
-                <img loading="lazy" src="/images/yp-hero.avif" alt="" class="header102_slide-image">
-              </div>
-              <div class="header102_slide-content">
-                <div class="header102_slide-content-wrapper">
-                  <div class="margin-bottom margin-tiny">
-                    <div class="heading-style-h6">Community outreach</div>
-                  </div>
-                  <p>Events, collaborations, and campaigns connecting research with real community priorities across Britain.</p>
-                </div>
-              </div>
-            </div>
-          </div>
+            );
+          })}
         </div>
         <div class="header102_arrow is-left w-slider-arrow-left">
           <div class="product-header7_arrow-icon-copy w-embed">
@@ -86,9 +96,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <div class="header46_component">
             <div class="max-width-large">
               <div class="margin-bottom margin-small">
-                <h2 class="heading-style-h2 left">Academic Research</h2>
+                <h2 class="heading-style-h2 left">{pageData.research_section.heading}</h2>
               </div>
-              <p class="text-size-medium left-justified">Strategic research and targeted advocacy to transform Britain's economic landscape through innovative policy frameworks</p>
+              <p class="text-size-medium left-justified">{pageData.research_section.description}</p>
             </div>
           </div>
         </div>
@@ -109,13 +119,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                   </div>
                 </div>
                 <div class="margin-bottom margin-small">
-                  <h3 class="heading-style-h4">The Job Guarantee</h3>
+                  <h3 class="heading-style-h4">{pageData.research_section.card_1_heading}</h3>
                 </div>
-                <p>Our UK-focused proposal is in advanced draft form. It demonstrates how MMT can achieve full employment and price stability.</p>
+                <p>{pageData.research_section.card_1_body}</p>
                 <div class="margin-top margin-medium">
                   <div class="button-group">
-                    <a href="/job-guarantee" class="button-2 is-link is-icon w-inline-block">
-                      <div>Read more</div>
+                    <a href={pageData.research_section.card_1_href} class="button-2 is-link is-icon w-inline-block">
+                      <div>{pageData.research_section.card_1_button_label}</div>
                       <div class="icon-embed-xxsmall w-embed">
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <path d="M6 3L11 8L6 13" stroke="CurrentColor" stroke-width="1.5"></path>
@@ -132,13 +142,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                   </div>
                 </div>
                 <div class="margin-bottom margin-small">
-                  <h3 class="heading-style-h4">Zero Interest Rate Policy (ZIRP)</h3>
+                  <h3 class="heading-style-h4">{pageData.research_section.card_2_heading}</h3>
                 </div>
-                <p>A UK framework for a standing 0% policy rate, with fiscal stabilisers managing demand and prices.</p>
+                <p>{pageData.research_section.card_2_body}</p>
                 <div class="margin-top margin-medium">
                   <div class="button-group">
-                    <a href="/research" class="button-2 is-link is-icon w-inline-block">
-                      <div>Read more</div>
+                    <a href={pageData.research_section.card_2_href} class="button-2 is-link is-icon w-inline-block">
+                      <div>{pageData.research_section.card_2_button_label}</div>
                       <div class="icon-embed-xxsmall w-embed">
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <path d="M6 3L11 8L6 13" stroke="CurrentColor" stroke-width="1.5"></path>
@@ -163,9 +173,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <div class="header46_component">
             <div class="max-width-large">
               <div class="margin-bottom margin-small">
-                <h2 class="heading-style-h2 left">Education &amp; Training</h2>
+                <h2 class="heading-style-h2 left">{pageData.education_section.heading}</h2>
               </div>
-              <p class="text-size-medium left-justified">Explore our library and briefings for clear, practical guides to UK macro-economic policy.</p>
+              <p class="text-size-medium left-justified">{pageData.education_section.description}</p>
             </div>
           </div>
         </div>
@@ -186,13 +196,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                   </div>
                 </div>
                 <div class="margin-bottom margin-small">
-                  <h3 class="heading-style-h4">The MMTUK library</h3>
+                  <h3 class="heading-style-h4">{pageData.education_section.card_1_heading}</h3>
                 </div>
-                <p>Searchable library of papers, podcasts, articles and more on economics through the lens of MMT.</p>
+                <p>{pageData.education_section.card_1_body}</p>
                 <div class="margin-top margin-medium">
                   <div class="button-group">
                     <span class="button-2 is-link is-icon" style="cursor: default; opacity: 0.6;">
-                      <div>Coming soon</div>
+                      <div>{pageData.education_section.card_1_button_label}</div>
                     </span>
                   </div>
                 </div>
@@ -204,13 +214,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                   </div>
                 </div>
                 <div class="margin-bottom margin-small">
-                  <h3 class="heading-style-h4">Our Briefings</h3>
+                  <h3 class="heading-style-h4">{pageData.education_section.card_2_heading}</h3>
                 </div>
-                <p>Concise briefings from MMTUK and our guests explaining UK macro policy with practical, actionable insights.</p>
+                <p>{pageData.education_section.card_2_body}</p>
                 <div class="margin-top margin-medium">
                   <div class="button-group">
-                    <a href="/research/briefings" class="button-2 is-link is-icon w-inline-block">
-                      <div>Read more</div>
+                    <a href={pageData.education_section.card_2_href} class="button-2 is-link is-icon w-inline-block">
+                      <div>{pageData.education_section.card_2_button_label}</div>
                       <div class="icon-embed-xxsmall w-embed">
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <path d="M6 3L11 8L6 13" stroke="CurrentColor" stroke-width="1.5"></path>
@@ -235,9 +245,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <div class="header46_component">
             <div class="max-width-large">
               <div class="margin-bottom margin-small">
-                <h2 class="heading-style-h2 left">Community &amp; Network</h2>
+                <h2 class="heading-style-h2 left">{pageData.community_section.heading}</h2>
               </div>
-              <p class="text-size-medium left-justified">Connect with other people interested in MMT by joining local groups, public events and active online discussions.</p>
+              <p class="text-size-medium left-justified">{pageData.community_section.description}</p>
             </div>
           </div>
         </div>
@@ -258,13 +268,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                   </div>
                 </div>
                 <div class="margin-bottom margin-small">
-                  <h3 class="heading-style-h4">Local Groups</h3>
+                  <h3 class="heading-style-h4">{pageData.community_section.card_1_heading}</h3>
                 </div>
-                <p>Join or start local MMT groups, supported and connected nationwide.</p>
+                <p>{pageData.community_section.card_1_body}</p>
                 <div class="margin-top margin-medium">
                   <div class="button-group">
-                    <a href="/community#Network" class="button-2 is-link is-icon w-inline-block">
-                      <div>Read more</div>
+                    <a href={pageData.community_section.card_1_href} class="button-2 is-link is-icon w-inline-block">
+                      <div>{pageData.community_section.card_1_button_label}</div>
                       <div class="icon-embed-xxsmall w-embed">
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <path d="M6 3L11 8L6 13" stroke="CurrentColor" stroke-width="1.5"></path>
@@ -281,13 +291,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                   </div>
                 </div>
                 <div class="margin-bottom margin-small">
-                  <h3 class="heading-style-h4">Events</h3>
+                  <h3 class="heading-style-h4">{pageData.community_section.card_2_heading}</h3>
                 </div>
-                <p>Join talks, workshops, and conferences we host and attend nationwide.</p>
+                <p>{pageData.community_section.card_2_body}</p>
                 <div class="margin-top margin-medium">
                   <div class="button-group">
-                    <a href="/community#Events" class="button-2 is-link is-icon w-inline-block">
-                      <div>Read more</div>
+                    <a href={pageData.community_section.card_2_href} class="button-2 is-link is-icon w-inline-block">
+                      <div>{pageData.community_section.card_2_button_label}</div>
                       <div class="icon-embed-xxsmall w-embed">
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <path d="M6 3L11 8L6 13" stroke="CurrentColor" stroke-width="1.5"></path>
@@ -304,13 +314,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                   </div>
                 </div>
                 <div class="margin-bottom margin-small">
-                  <h3 class="heading-style-h4">Online</h3>
+                  <h3 class="heading-style-h4">{pageData.community_section.card_3_heading}</h3>
                 </div>
-                <p>Debate, learn, and organise together in our moderated online community.</p>
+                <p>{pageData.community_section.card_3_body}</p>
                 <div class="margin-top margin-medium">
                   <div class="button-group">
-                    <a href="/community#discord" class="button-2 is-link is-icon w-inline-block">
-                      <div>Read more</div>
+                    <a href={pageData.community_section.card_3_href} class="button-2 is-link is-icon w-inline-block">
+                      <div>{pageData.community_section.card_3_button_label}</div>
                       <div class="icon-embed-xxsmall w-embed">
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <path d="M6 3L11 8L6 13" stroke="CurrentColor" stroke-width="1.5"></path>
@@ -333,33 +343,17 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div class="container-large">
         <div class="padding-section-large">
           <div class="testimonial-grid">
-            <div class="testimonial-card">
-              <p class="testimonial-quote">"MMTUK turns complex monetary operations into plain English, empowering people to see policy choices clearly and demand better, more humane economics."</p>
-              <div class="testimonial-author">
-                <div class="testimonial-author-info">
-                  <span class="testimonial-author-name">Patricia Pino</span>
-                  <span class="testimonial-author-title">Executive Director & Academic Researcher, MMTUK</span>
+            {pageData.testimonials.items.map((t) => (
+              <div class="testimonial-card">
+                <p class="testimonial-quote">"{t.quote}"</p>
+                <div class="testimonial-author">
+                  <div class="testimonial-author-info">
+                    <span class="testimonial-author-name">{t.name}</span>
+                    <span class="testimonial-author-title">{t.title}</span>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="testimonial-card">
-              <p class="testimonial-quote">"A rare mix of heterodox depth and public pedagogy. MMTUK elevates debate and equips citizens to challenge harmful myths."</p>
-              <div class="testimonial-author">
-                <div class="testimonial-author-info">
-                  <span class="testimonial-author-name">Dr Phil Armstrong</span>
-                  <span class="testimonial-author-title">Founder, MMTUK</span>
-                </div>
-              </div>
-            </div>
-            <div class="testimonial-card">
-              <p class="testimonial-quote">"MMTUK marries rigorous scholarship with practical organising. It's a hub where democratic priorities and monetary reality finally meet."</p>
-              <div class="testimonial-author">
-                <div class="testimonial-author-info">
-                  <span class="testimonial-author-name">Dr David Merrill</span>
-                  <span class="testimonial-author-title">Founder, MMTUK</span>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>
@@ -377,9 +371,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                 <div class="contact15_content-left">
                   <div class="max-width-large">
                     <div class="margin-bottom margin-small">
-                      <h2 class="heading-style-h2-4">Contact Us</h2>
+                      <h2 class="heading-style-h2-4">{pageData.contact.heading}</h2>
                     </div>
-                    <p class="text-size-medium-2">Be part of the economic transformation that challenges conventional thinking and drives meaningful policy change</p>
+                    <p class="text-size-medium-2">{pageData.contact.tagline}</p>
                   </div>
                 </div>
                 <div class="contact15_content-right">

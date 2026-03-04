@@ -1,8 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import pageData from '../data/pages/education.json';
 ---
 
-<BaseLayout title="Education" description="Learn about Modern Monetary Theory with MMTUK's educational resources. Explore how money works, understand government spending, and get answers to common questions about MMT." currentPage="education">
+<BaseLayout title={pageData.meta.title} description={pageData.meta.description} currentPage="education">
 <header class="section_header54 text-color-white">
         <div class="padding-global">
           <div class="container-large">
@@ -10,9 +11,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               <div class="header54_component">
                 <div class="max-width-large">
                   <div class="margin-bottom margin-small">
-                    <h1 class="heading-style-h1">Education</h1>
+                    <h1 class="heading-style-h1">{pageData.hero.heading}</h1>
                   </div>
-                  <p class="text-size-medium-2 is-dark">Grounding public debate in a clearer understanding of how the economy works</p>
+                  <p class="text-size-medium-2 is-dark">{pageData.hero.tagline}</p>
                 </div>
               </div>
             </div>
@@ -30,11 +31,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                 <div class="w-layout-grid header2_content">
                   <div class="header2_content-left">
                     <div class="margin-bottom margin-small">
-                      <h2 class="heading-style-h2 left">The MMTUK Library</h2>
+                      <h2 class="heading-style-h2 left">{pageData.library.heading}</h2>
                     </div>
-                    <p class="text-size-medium-21">The MMTUK Library will help you explore Modern Monetary Theory through academic papers, podcasts and trusted MMT sources. Simply ask a question, receive a clear answer and explore the original sources cited so you can dig deeper and verify the evidence.</p>
+                    <p class="text-size-medium-21">{pageData.library.body}</p>
                     <div class="margin-top margin-medium">
-                      <p class="text-size-medium text-weight-semibold" style="color: #666;">Coming soon</p>
+                      <p class="text-size-medium text-weight-semibold" style="color: #666;">{pageData.library.coming_soon_label}</p>
                     </div>
                   </div>
                   <div class="header2_image-wrapper"><img loading="eager" src="/images/Ask-a-question.avif" alt="" class="header2_image"></div>
@@ -57,13 +58,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                 <div class="text-align-center">
                   <div class="max-width-large align-center">
                     <div class="margin-bottom margin-small">
-                      <h2 class="heading-style-h2 left">What is MMT?</h2>
+                      <h2 class="heading-style-h2 left">{pageData.what_is_mmt.heading}</h2>
                     </div>
                   </div>
                 </div>
                 <div class="max-width-large align-center">
-                  <p class="text-size-medium" style="text-align: left; margin-bottom: 1.5rem;">Modern Monetary Theory is a framework for understanding how money actually works in countries that issue their own currency, such as the United Kingdom. Rather than starting with abstract economic models, MMT examines the real-world mechanics of government spending, taxation and the banking system. Through careful observation of institutional arrangements and accounting flows, MMT reveals that currency-issuing governments operate fundamentally differently from households or businesses. They cannot "run out" of their own currency in the way a household can run out of income. The real constraints on government policy are not financial but relate to the availability of real resources: labour, materials, skills and productive capacity.</p>
-                  <p class="text-size-medium" style="text-align: left; margin-bottom: 1.5rem;">This understanding has profound implications for how we approach economic challenges. If money itself is not scarce for a sovereign currency issuer, then persistent unemployment, crumbling infrastructure and the climate crisis are political choices, not financial necessities. MMT draws on the work of economists including John Maynard Keynes, Wynne Godley and Hyman Minsky to provide a coherent framework for evaluating fiscal policy based on real-world outcomes, employment, inflation and sustainable resource use, rather than arbitrary deficit targets. It is not a call for reckless spending, but a demand that we ask the right questions: do we have the people, the skills and the materials to achieve what we want to achieve? If so, financing is never the obstacle.</p>
+                  <p class="text-size-medium" style="text-align: left; margin-bottom: 1.5rem;">{pageData.what_is_mmt.paragraph_1}</p>
+                  <p class="text-size-medium" style="text-align: left; margin-bottom: 1.5rem;">{pageData.what_is_mmt.paragraph_2}</p>
                 </div>
               </div>
             </div>
@@ -83,125 +84,32 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                 <div class="margin-bottom margin-xxlarge">
                   <div class="text-align-center">
                     <div class="max-width-large align-center">
-                      <h2 class="heading-style-h2 left">MMT Core Insights</h2>
+                      <h2 class="heading-style-h2 left">{pageData.core_insights.heading}</h2>
                     </div>
                   </div>
                 </div>
                 <div>
-                  <div class="accordion1_component">
-                    <div data-w-id="59f0a464-8771-a027-56b9-6530aadc4963" class="accordion1_top">
-                      <div class="text-size-medium-22 text-weight-bold">The Self-Financing State</div>
-                      <div class="accordion1_icon w-embed"><svg width="100%" height="100%" viewbox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path fill-rule="evenodd" clip-rule="evenodd" d="M16.5303 20.8839C16.2374 21.1768 15.7626 21.1768 15.4697 20.8839L7.82318 13.2374C7.53029 12.9445 7.53029 12.4697 7.82318 12.1768L8.17674 11.8232C8.46963 11.5303 8.9445 11.5303 9.2374 11.8232L16 18.5858L22.7626 11.8232C23.0555 11.5303 23.5303 11.5303 23.8232 11.8232L24.1768 12.1768C24.4697 12.4697 24.4697 12.9445 24.1768 13.2374L16.5303 20.8839Z" fill="currentColor"></path>
-                        </svg></div>
-                    </div>
-                    <div style="height:0px" class="accordion1_bottom">
-                      <div class="margin-bottom margin-small" style="display: flex; justify-content: space-between; align-items: flex-end; gap: 1rem;">
-                        <p style="margin: 0;">A country like the UK, which has its own currency, never has to worry about running out of money. The government always creates new money when it spends, and that's how it pays for everything, not from taxes or by borrowing.</p>
-                        <a href="/education/articles/self-financing-state" class="button is-link is-icon w-inline-block" style="flex-shrink: 0;">
-                          <div>Read more</div>
-                          <div class="icon-embed-xxsmall w-embed"><svg width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M6 3L11 8L6 13" stroke="CurrentColor" stroke-width="1.5"></path>
+                  {pageData.core_insights.items.map((item) => (
+                    <div class="accordion1_component">
+                      <div class="accordion1_top">
+                        <div class="text-size-medium-22 text-weight-bold">{item.title}</div>
+                        <div class="accordion1_icon w-embed"><svg width="100%" height="100%" viewbox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M16.5303 20.8839C16.2374 21.1768 15.7626 21.1768 15.4697 20.8839L7.82318 13.2374C7.53029 12.9445 7.53029 12.4697 7.82318 12.1768L8.17674 11.8232C8.46963 11.5303 8.9445 11.5303 9.2374 11.8232L16 18.5858L22.7626 11.8232C23.0555 11.5303 23.5303 11.5303 23.8232 11.8232L24.1768 12.1768C24.4697 12.4697 24.4697 12.9445 24.1768 13.2374L16.5303 20.8839Z" fill="currentColor"></path>
                           </svg></div>
-                        </a>
+                      </div>
+                      <div style="height:0px" class="accordion1_bottom">
+                        <div class="margin-bottom margin-small" style="display: flex; justify-content: space-between; align-items: flex-end; gap: 1rem;">
+                          <p style="margin: 0;">{item.body}</p>
+                          <a href={item.link_href} class="button is-link is-icon w-inline-block" style="flex-shrink: 0;">
+                            <div>Read more</div>
+                            <div class="icon-embed-xxsmall w-embed"><svg width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M6 3L11 8L6 13" stroke="CurrentColor" stroke-width="1.5"></path>
+                            </svg></div>
+                          </a>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div class="accordion1_component">
-                    <div data-w-id="c730c73a-20dd-e83a-86f7-83281335e67b" class="accordion1_top">
-                      <div class="text-size-medium-23 text-weight-bold">The UK National Debt</div>
-                      <div class="accordion1_icon w-embed"><svg width="100%" height="100%" viewbox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path fill-rule="evenodd" clip-rule="evenodd" d="M16.5303 20.8839C16.2374 21.1768 15.7626 21.1768 15.4697 20.8839L7.82318 13.2374C7.53029 12.9445 7.53029 12.4697 7.82318 12.1768L8.17674 11.8232C8.46963 11.5303 8.9445 11.5303 9.2374 11.8232L16 18.5858L22.7626 11.8232C23.0555 11.5303 23.5303 11.5303 23.8232 11.8232L24.1768 12.1768C24.4697 12.4697 24.4697 12.9445 24.1768 13.2374L16.5303 20.8839Z" fill="currentColor"></path>
-                        </svg></div>
-                    </div>
-                    <div style="height:0px" class="accordion1_bottom">
-                      <div class="margin-bottom margin-small" style="display: flex; justify-content: space-between; align-items: flex-end; gap: 1rem;">
-                        <p style="margin: 0;">UK debt represents money the government invested in our economy but hasn't taxed back. It corresponds exactly to the net financial savings held by the private sector; effectively, the government's liability is our asset.</p>
-                        <a href="/education/articles/uk-national-debt" class="button is-link is-icon w-inline-block" style="flex-shrink: 0;">
-                          <div>Read more</div>
-                          <div class="icon-embed-xxsmall w-embed"><svg width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M6 3L11 8L6 13" stroke="CurrentColor" stroke-width="1.5"></path>
-                          </svg></div>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion1_component">
-                    <div data-w-id="ccf24299-5f11-1911-5232-74c36621d05b" class="accordion1_top">
-                      <div class="text-size-medium-24 text-weight-bold">The Role of Taxation in the UK</div>
-                      <div class="accordion1_icon w-embed"><svg width="100%" height="100%" viewbox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path fill-rule="evenodd" clip-rule="evenodd" d="M16.5303 20.8839C16.2374 21.1768 15.7626 21.1768 15.4697 20.8839L7.82318 13.2374C7.53029 12.9445 7.53029 12.4697 7.82318 12.1768L8.17674 11.8232C8.46963 11.5303 8.9445 11.5303 9.2374 11.8232L16 18.5858L22.7626 11.8232C23.0555 11.5303 23.5303 11.5303 23.8232 11.8232L24.1768 12.1768C24.4697 12.4697 24.4697 12.9445 24.1768 13.2374L16.5303 20.8839Z" fill="currentColor"></path>
-                        </svg></div>
-                    </div>
-                    <div style="height:0px" class="accordion1_bottom">
-                      <div class="margin-bottom margin-small" style="display: flex; justify-content: space-between; align-items: flex-end; gap: 1rem;">
-                        <p style="margin: 0;">The purpose of taxes is not to fund government spending; it is to create demand for the currency and to help manage the economy.</p>
-                        <a href="/education/articles/role-of-taxation" class="button is-link is-icon w-inline-block" style="flex-shrink: 0;">
-                          <div>Read more</div>
-                          <div class="icon-embed-xxsmall w-embed"><svg width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M6 3L11 8L6 13" stroke="CurrentColor" stroke-width="1.5"></path>
-                          </svg></div>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion1_component">
-                    <div data-w-id="9d6e7580-0ea2-3672-fa42-1bfee63e6107" class="accordion1_top">
-                      <div class="text-size-medium-25 text-weight-bold">Understanding UK Inflation</div>
-                      <div class="accordion1_icon w-embed"><svg width="100%" height="100%" viewbox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path fill-rule="evenodd" clip-rule="evenodd" d="M16.5303 20.8839C16.2374 21.1768 15.7626 21.1768 15.4697 20.8839L7.82318 13.2374C7.53029 12.9445 7.53029 12.4697 7.82318 12.1768L8.17674 11.8232C8.46963 11.5303 8.9445 11.5303 9.2374 11.8232L16 18.5858L22.7626 11.8232C23.0555 11.5303 23.5303 11.5303 23.8232 11.8232L24.1768 12.1768C24.4697 12.4697 24.4697 12.9445 24.1768 13.2374L16.5303 20.8839Z" fill="currentColor"></path>
-                        </svg></div>
-                    </div>
-                    <div style="height:0px" class="accordion1_bottom">
-                      <div class="margin-bottom margin-small" style="display: flex; justify-content: space-between; align-items: flex-end; gap: 1rem;">
-                        <p style="margin: 0;">Inflation is defined as a sustained rise in the general price level. In the UK, inflation is not primarily caused by government spending creating "too much money" but by supply constraints, energy costs, and market power limiting how much the economy can actually produce.</p>
-                        <a href="/education/articles/understanding-inflation" class="button is-link is-icon w-inline-block" style="flex-shrink: 0;">
-                          <div>Read more</div>
-                          <div class="icon-embed-xxsmall w-embed"><svg width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M6 3L11 8L6 13" stroke="CurrentColor" stroke-width="1.5"></path>
-                          </svg></div>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion1_component">
-                    <div data-w-id="1c20c0ae-a8e9-f6bf-f612-e3ecb7dacfe7" class="accordion1_top">
-                      <div class="text-size-medium-25 text-weight-bold">The UK Government vs the Bond Market</div>
-                      <div class="accordion1_icon w-embed"><svg width="100%" height="100%" viewbox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path fill-rule="evenodd" clip-rule="evenodd" d="M16.5303 20.8839C16.2374 21.1768 15.7626 21.1768 15.4697 20.8839L7.82318 13.2374C7.53029 12.9445 7.53029 12.4697 7.82318 12.1768L8.17674 11.8232C8.46963 11.5303 8.9445 11.5303 9.2374 11.8232L16 18.5858L22.7626 11.8232C23.0555 11.5303 23.5303 11.5303 23.8232 11.8232L24.1768 12.1768C24.4697 12.4697 24.4697 12.9445 24.1768 13.2374L16.5303 20.8839Z" fill="currentColor"></path>
-                        </svg></div>
-                    </div>
-                    <div style="height:0px" class="accordion1_bottom">
-                      <div class="margin-bottom margin-small" style="display: flex; justify-content: space-between; align-items: flex-end; gap: 1rem;">
-                        <p style="margin: 0;">The UK government cannot be forced into bankruptcy by rising bond yields because it creates the money required to pay bondholders.</p>
-                        <a href="/education/articles/government-vs-bond-market" class="button is-link is-icon w-inline-block" style="flex-shrink: 0;">
-                          <div>Read more</div>
-                          <div class="icon-embed-xxsmall w-embed"><svg width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M6 3L11 8L6 13" stroke="CurrentColor" stroke-width="1.5"></path>
-                          </svg></div>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion1_component">
-                    <div data-w-id="2d27e85b-1a6c-2b0a-d906-882c4bb0f0e2" class="accordion1_top">
-                      <div class="text-size-medium-25 text-weight-bold">How Money Actually Works: Step-by-Step</div>
-                      <div class="accordion1_icon w-embed"><svg width="100%" height="100%" viewbox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path fill-rule="evenodd" clip-rule="evenodd" d="M16.5303 20.8839C16.2374 21.1768 15.7626 21.1768 15.4697 20.8839L7.82318 13.2374C7.53029 12.9445 7.53029 12.4697 7.82318 12.1768L8.17674 11.8232C8.46963 11.5303 8.9445 11.5303 9.2374 11.8232L16 18.5858L22.7626 11.8232C23.0555 11.5303 23.5303 11.5303 23.8232 11.8232L24.1768 12.1768C24.4697 12.4697 24.4697 12.9445 24.1768 13.2374L16.5303 20.8839Z" fill="currentColor"></path>
-                        </svg></div>
-                    </div>
-                    <div style="height:0px" class="accordion1_bottom">
-                      <div class="margin-bottom margin-small" style="display: flex; justify-content: space-between; align-items: flex-end; gap: 1rem;">
-                        <p style="margin: 0;">Once you understand that money is created by the state and that taxes create demand for it, the rest of how the economy works follows as a matter of pure logic.</p>
-                        <a href="/education/articles/how-money-works" class="button is-link is-icon w-inline-block" style="flex-shrink: 0;">
-                          <div>Read more</div>
-                          <div class="icon-embed-xxsmall w-embed"><svg width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M6 3L11 8L6 13" stroke="CurrentColor" stroke-width="1.5"></path>
-                          </svg></div>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
+                  ))}
                 </div>
               </div>
             </div>
@@ -222,203 +130,34 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                   <div class="text-align-center">
                     <div class="max-width-large align-center">
                       <div class="margin-bottom margin-small">
-                        <h2 class="heading-style-h2 left">But what about...?</h2>
+                        <h2 class="heading-style-h2 left">{pageData.objections.heading}</h2>
                       </div>
-                      <p class="text-size-medium approach">Common questions and misconceptions about Modern Monetary Theory</p>
+                      <p class="text-size-medium approach">{pageData.objections.description}</p>
                     </div>
                   </div>
                 </div>
                 <div>
-                  <div class="accordion1_component">
-                    <div data-w-id="objection-accordion-1" class="accordion1_top">
-                      <div class="text-size-medium-22 text-weight-bold">The National Debt is unsustainable</div>
-                      <div class="accordion1_icon w-embed"><svg width="100%" height="100%" viewbox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path fill-rule="evenodd" clip-rule="evenodd" d="M16.5303 20.8839C16.2374 21.1768 15.7626 21.1768 15.4697 20.8839L7.82318 13.2374C7.53029 12.9445 7.53029 12.4697 7.82318 12.1768L8.17674 11.8232C8.46963 11.5303 8.9445 11.5303 9.2374 11.8232L16 18.5858L22.7626 11.8232C23.0555 11.5303 23.5303 11.5303 23.8232 11.8232L24.1768 12.1768C24.4697 12.4697 24.4697 12.9445 24.1768 13.2374L16.5303 20.8839Z" fill="currentColor"></path>
-                        </svg></div>
-                    </div>
-                    <div style="height:0px" class="accordion1_bottom">
-                      <div class="margin-bottom margin-small" style="display: flex; justify-content: space-between; align-items: flex-end; gap: 1rem;">
-                        <p style="margin: 0;">No, any nation that issues its own currency and has a floating exchange rate can always pay any bill presented in its own currency. This insight lies at the heart of MMT thinking. It is based on a precise understanding of what the UK national debt is – and what it isn't.</p>
-                        <a href="/education/articles/national-debt-unsustainable" class="button is-link is-icon w-inline-block" style="flex-shrink: 0;">
-                          <div>Read more</div>
-                          <div class="icon-embed-xxsmall w-embed"><svg width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M6 3L11 8L6 13" stroke="CurrentColor" stroke-width="1.5"></path>
+                  {pageData.objections.items.map((item) => (
+                    <div class="accordion1_component">
+                      <div class="accordion1_top">
+                        <div class="text-size-medium-22 text-weight-bold">{item.title}</div>
+                        <div class="accordion1_icon w-embed"><svg width="100%" height="100%" viewbox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M16.5303 20.8839C16.2374 21.1768 15.7626 21.1768 15.4697 20.8839L7.82318 13.2374C7.53029 12.9445 7.53029 12.4697 7.82318 12.1768L8.17674 11.8232C8.46963 11.5303 8.9445 11.5303 9.2374 11.8232L16 18.5858L22.7626 11.8232C23.0555 11.5303 23.5303 11.5303 23.8232 11.8232L24.1768 12.1768C24.4697 12.4697 24.4697 12.9445 24.1768 13.2374L16.5303 20.8839Z" fill="currentColor"></path>
                           </svg></div>
-                        </a>
+                      </div>
+                      <div style="height:0px" class="accordion1_bottom">
+                        <div class="margin-bottom margin-small" style="display: flex; justify-content: space-between; align-items: flex-end; gap: 1rem;">
+                          <p style="margin: 0;">{item.body}</p>
+                          <a href={item.link_href} class="button is-link is-icon w-inline-block" style="flex-shrink: 0;">
+                            <div>Read more</div>
+                            <div class="icon-embed-xxsmall w-embed"><svg width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M6 3L11 8L6 13" stroke="CurrentColor" stroke-width="1.5"></path>
+                            </svg></div>
+                          </a>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div class="accordion1_component">
-                    <div data-w-id="objection-accordion-4" class="accordion1_top">
-                      <div class="text-size-medium-22 text-weight-bold">Won't this cause inflation?</div>
-                      <div class="accordion1_icon w-embed"><svg width="100%" height="100%" viewbox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path fill-rule="evenodd" clip-rule="evenodd" d="M16.5303 20.8839C16.2374 21.1768 15.7626 21.1768 15.4697 20.8839L7.82318 13.2374C7.53029 12.9445 7.53029 12.4697 7.82318 12.1768L8.17674 11.8232C8.46963 11.5303 8.9445 11.5303 9.2374 11.8232L16 18.5858L22.7626 11.8232C23.0555 11.5303 23.5303 11.5303 23.8232 11.8232L24.1768 12.1768C24.4697 12.4697 24.4697 12.9445 24.1768 13.2374L16.5303 20.8839Z" fill="currentColor"></path>
-                        </svg></div>
-                    </div>
-                    <div style="height:0px" class="accordion1_bottom">
-                      <div class="margin-bottom margin-small" style="display: flex; justify-content: space-between; align-items: flex-end; gap: 1rem;">
-                        <p style="margin: 0;">Inflation is caused by spending beyond the economy's productive capacity, not by government spending itself. MMT provides a framework for understanding when spending becomes inflationary and how to prevent it.</p>
-                        <a href="/education/articles/wont-this-cause-inflation" class="button is-link is-icon w-inline-block" style="flex-shrink: 0;">
-                          <div>Read more</div>
-                          <div class="icon-embed-xxsmall w-embed"><svg width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M6 3L11 8L6 13" stroke="CurrentColor" stroke-width="1.5"></path>
-                          </svg></div>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion1_component">
-                    <div data-w-id="objection-accordion-5" class="accordion1_top">
-                      <div class="text-size-medium-22 text-weight-bold">It's just like a household budget</div>
-                      <div class="accordion1_icon w-embed"><svg width="100%" height="100%" viewbox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path fill-rule="evenodd" clip-rule="evenodd" d="M16.5303 20.8839C16.2374 21.1768 15.7626 21.1768 15.4697 20.8839L7.82318 13.2374C7.53029 12.9445 7.53029 12.4697 7.82318 12.1768L8.17674 11.8232C8.46963 11.5303 8.9445 11.5303 9.2374 11.8232L16 18.5858L22.7626 11.8232C23.0555 11.5303 23.5303 11.5303 23.8232 11.8232L24.1768 12.1768C24.4697 12.4697 24.4697 12.9445 24.1768 13.2374L16.5303 20.8839Z" fill="currentColor"></path>
-                        </svg></div>
-                    </div>
-                    <div style="height:0px" class="accordion1_bottom">
-                      <div class="margin-bottom margin-small" style="display: flex; justify-content: space-between; align-items: flex-end; gap: 1rem;">
-                        <p style="margin: 0;">A currency-issuing government is fundamentally different from a household. Households must earn or borrow currency before they can spend. The UK government creates the currency that households and businesses use.</p>
-                        <a href="/education/articles/household-budget" class="button is-link is-icon w-inline-block" style="flex-shrink: 0;">
-                          <div>Read more</div>
-                          <div class="icon-embed-xxsmall w-embed"><svg width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M6 3L11 8L6 13" stroke="CurrentColor" stroke-width="1.5"></path>
-                          </svg></div>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion1_component">
-                    <div data-w-id="objection-accordion-6" class="accordion1_top">
-                      <div class="text-size-medium-22 text-weight-bold">The markets will punish us</div>
-                      <div class="accordion1_icon w-embed"><svg width="100%" height="100%" viewbox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path fill-rule="evenodd" clip-rule="evenodd" d="M16.5303 20.8839C16.2374 21.1768 15.7626 21.1768 15.4697 20.8839L7.82318 13.2374C7.53029 12.9445 7.53029 12.4697 7.82318 12.1768L8.17674 11.8232C8.46963 11.5303 8.9445 11.5303 9.2374 11.8232L16 18.5858L22.7626 11.8232C23.0555 11.5303 23.5303 11.5303 23.8232 11.8232L24.1768 12.1768C24.4697 12.4697 24.4697 12.9445 24.1768 13.2374L16.5303 20.8839Z" fill="currentColor"></path>
-                        </svg></div>
-                    </div>
-                    <div style="height:0px" class="accordion1_bottom">
-                      <div class="margin-bottom margin-small" style="display: flex; justify-content: space-between; align-items: flex-end; gap: 1rem;">
-                        <p style="margin: 0;">Bond markets do not control currency-issuing governments in the way commonly portrayed. The UK government can always meet its obligations in sterling. Market reactions reflect expectations about future policy, not genuine solvency concerns.</p>
-                        <a href="/education/articles/markets-will-punish-us" class="button is-link is-icon w-inline-block" style="flex-shrink: 0;">
-                          <div>Read more</div>
-                          <div class="icon-embed-xxsmall w-embed"><svg width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M6 3L11 8L6 13" stroke="CurrentColor" stroke-width="1.5"></path>
-                          </svg></div>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion1_component">
-                    <div data-w-id="objection-accordion-7" class="accordion1_top">
-                      <div class="text-size-medium-22 text-weight-bold">It will destroy the currency</div>
-                      <div class="accordion1_icon w-embed"><svg width="100%" height="100%" viewbox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path fill-rule="evenodd" clip-rule="evenodd" d="M16.5303 20.8839C16.2374 21.1768 15.7626 21.1768 15.4697 20.8839L7.82318 13.2374C7.53029 12.9445 7.53029 12.4697 7.82318 12.1768L8.17674 11.8232C8.46963 11.5303 8.9445 11.5303 9.2374 11.8232L16 18.5858L22.7626 11.8232C23.0555 11.5303 23.5303 11.5303 23.8232 11.8232L24.1768 12.1768C24.4697 12.4697 24.4697 12.9445 24.1768 13.2374L16.5303 20.8839Z" fill="currentColor"></path>
-                        </svg></div>
-                    </div>
-                    <div style="height:0px" class="accordion1_bottom">
-                      <div class="margin-bottom margin-small" style="display: flex; justify-content: space-between; align-items: flex-end; gap: 1rem;">
-                        <p style="margin: 0;">Exchange rates are influenced by many factors including trade balances, interest rate differentials, and investor sentiment. Government spending on productive capacity can strengthen rather than weaken a currency's long-term value.</p>
-                        <a href="/education/articles/destroy-the-currency" class="button is-link is-icon w-inline-block" style="flex-shrink: 0;">
-                          <div>Read more</div>
-                          <div class="icon-embed-xxsmall w-embed"><svg width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M6 3L11 8L6 13" stroke="CurrentColor" stroke-width="1.5"></path>
-                          </svg></div>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion1_component">
-                    <div data-w-id="objection-accordion-8" class="accordion1_top">
-                      <div class="text-size-medium-22 text-weight-bold">What about Zimbabwe / Venezuela / Weimar Germany?</div>
-                      <div class="accordion1_icon w-embed"><svg width="100%" height="100%" viewbox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path fill-rule="evenodd" clip-rule="evenodd" d="M16.5303 20.8839C16.2374 21.1768 15.7626 21.1768 15.4697 20.8839L7.82318 13.2374C7.53029 12.9445 7.53029 12.4697 7.82318 12.1768L8.17674 11.8232C8.46963 11.5303 8.9445 11.5303 9.2374 11.8232L16 18.5858L22.7626 11.8232C23.0555 11.5303 23.5303 11.5303 23.8232 11.8232L24.1768 12.1768C24.4697 12.4697 24.4697 12.9445 24.1768 13.2374L16.5303 20.8839Z" fill="currentColor"></path>
-                        </svg></div>
-                    </div>
-                    <div style="height:0px" class="accordion1_bottom">
-                      <div class="margin-bottom margin-small" style="display: flex; justify-content: space-between; align-items: flex-end; gap: 1rem;">
-                        <p style="margin: 0;">These cases involved political collapse, war, destruction of productive capacity, or loss of monetary sovereignty. They are not examples of normal fiscal policy causing hyperinflation.</p>
-                        <a href="/education/articles/zimbabwe-venezuela-weimar" class="button is-link is-icon w-inline-block" style="flex-shrink: 0;">
-                          <div>Read more</div>
-                          <div class="icon-embed-xxsmall w-embed"><svg width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M6 3L11 8L6 13" stroke="CurrentColor" stroke-width="1.5"></path>
-                          </svg></div>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion1_component">
-                    <div data-w-id="objection-accordion-9" class="accordion1_top">
-                      <div class="text-size-medium-22 text-weight-bold">It's just communism / socialism</div>
-                      <div class="accordion1_icon w-embed"><svg width="100%" height="100%" viewbox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path fill-rule="evenodd" clip-rule="evenodd" d="M16.5303 20.8839C16.2374 21.1768 15.7626 21.1768 15.4697 20.8839L7.82318 13.2374C7.53029 12.9445 7.53029 12.4697 7.82318 12.1768L8.17674 11.8232C8.46963 11.5303 8.9445 11.5303 9.2374 11.8232L16 18.5858L22.7626 11.8232C23.0555 11.5303 23.5303 11.5303 23.8232 11.8232L24.1768 12.1768C24.4697 12.4697 24.4697 12.9445 24.1768 13.2374L16.5303 20.8839Z" fill="currentColor"></path>
-                        </svg></div>
-                    </div>
-                    <div style="height:0px" class="accordion1_bottom">
-                      <div class="margin-bottom margin-small" style="display: flex; justify-content: space-between; align-items: flex-end; gap: 1rem;">
-                        <p style="margin: 0;">MMT is a description of how monetary systems actually operate, not a political ideology. It is compatible with a range of policy positions. Understanding the system accurately does not dictate what policies you should support.</p>
-                        <a href="/education/articles/communism-socialism" class="button is-link is-icon w-inline-block" style="flex-shrink: 0;">
-                          <div>Read more</div>
-                          <div class="icon-embed-xxsmall w-embed"><svg width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M6 3L11 8L6 13" stroke="CurrentColor" stroke-width="1.5"></path>
-                          </svg></div>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion1_component">
-                    <div data-w-id="objection-accordion-10" class="accordion1_top">
-                      <div class="text-size-medium-22 text-weight-bold">No serious economist believes this</div>
-                      <div class="accordion1_icon w-embed"><svg width="100%" height="100%" viewbox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path fill-rule="evenodd" clip-rule="evenodd" d="M16.5303 20.8839C16.2374 21.1768 15.7626 21.1768 15.4697 20.8839L7.82318 13.2374C7.53029 12.9445 7.53029 12.4697 7.82318 12.1768L8.17674 11.8232C8.46963 11.5303 8.9445 11.5303 9.2374 11.8232L16 18.5858L22.7626 11.8232C23.0555 11.5303 23.5303 11.5303 23.8232 11.8232L24.1768 12.1768C24.4697 12.4697 24.4697 12.9445 24.1768 13.2374L16.5303 20.8839Z" fill="currentColor"></path>
-                        </svg></div>
-                    </div>
-                    <div style="height:0px" class="accordion1_bottom">
-                      <div class="margin-bottom margin-small" style="display: flex; justify-content: space-between; align-items: flex-end; gap: 1rem;">
-                        <p style="margin: 0;">MMT builds on established traditions in monetary economics including Keynes, Minsky, Lerner, and institutional analysis of central banking. Its description of monetary operations aligns with how central bankers describe their own systems.</p>
-                        <a href="/education/articles/no-serious-economist" class="button is-link is-icon w-inline-block" style="flex-shrink: 0;">
-                          <div>Read more</div>
-                          <div class="icon-embed-xxsmall w-embed"><svg width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M6 3L11 8L6 13" stroke="CurrentColor" stroke-width="1.5"></path>
-                          </svg></div>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion1_component">
-                    <div data-w-id="objection-accordion-11" class="accordion1_top">
-                      <div class="text-size-medium-22 text-weight-bold">It's never been tried</div>
-                      <div class="accordion1_icon w-embed"><svg width="100%" height="100%" viewbox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path fill-rule="evenodd" clip-rule="evenodd" d="M16.5303 20.8839C16.2374 21.1768 15.7626 21.1768 15.4697 20.8839L7.82318 13.2374C7.53029 12.9445 7.53029 12.4697 7.82318 12.1768L8.17674 11.8232C8.46963 11.5303 8.9445 11.5303 9.2374 11.8232L16 18.5858L22.7626 11.8232C23.0555 11.5303 23.5303 11.5303 23.8232 11.8232L24.1768 12.1768C24.4697 12.4697 24.4697 12.9445 24.1768 13.2374L16.5303 20.8839Z" fill="currentColor"></path>
-                        </svg></div>
-                    </div>
-                    <div style="height:0px" class="accordion1_bottom">
-                      <div class="margin-bottom margin-small" style="display: flex; justify-content: space-between; align-items: flex-end; gap: 1rem;">
-                        <p style="margin: 0;">MMT describes how monetary systems already operate. Governments have always spent by creating money. The question is whether policy is designed with accurate understanding of this reality.</p>
-                        <a href="/education/articles/never-been-tried" class="button is-link is-icon w-inline-block" style="flex-shrink: 0;">
-                          <div>Read more</div>
-                          <div class="icon-embed-xxsmall w-embed"><svg width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M6 3L11 8L6 13" stroke="CurrentColor" stroke-width="1.5"></path>
-                          </svg></div>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion1_component">
-                    <div data-w-id="objection-accordion-12" class="accordion1_top">
-                      <div class="text-size-medium-22 text-weight-bold">What about interest rates and debt servicing costs?</div>
-                      <div class="accordion1_icon w-embed"><svg width="100%" height="100%" viewbox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path fill-rule="evenodd" clip-rule="evenodd" d="M16.5303 20.8839C16.2374 21.1768 15.7626 21.1768 15.4697 20.8839L7.82318 13.2374C7.53029 12.9445 7.53029 12.4697 7.82318 12.1768L8.17674 11.8232C8.46963 11.5303 8.9445 11.5303 9.2374 11.8232L16 18.5858L22.7626 11.8232C23.0555 11.5303 23.5303 11.5303 23.8232 11.8232L24.1768 12.1768C24.4697 12.4697 24.4697 12.9445 24.1768 13.2374L16.5303 20.8839Z" fill="currentColor"></path>
-                        </svg></div>
-                    </div>
-                    <div style="height:0px" class="accordion1_bottom">
-                      <div class="margin-bottom margin-small" style="display: flex; justify-content: space-between; align-items: flex-end; gap: 1rem;">
-                        <p style="margin: 0;">A currency-issuing government can always meet interest payments in its own currency. Interest rates are a policy choice, not a market constraint. Higher debt does not automatically mean higher interest costs.</p>
-                        <a href="/education/articles/interest-rates-debt-servicing" class="button is-link is-icon w-inline-block" style="flex-shrink: 0;">
-                          <div>Read more</div>
-                          <div class="icon-embed-xxsmall w-embed"><svg width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M6 3L11 8L6 13" stroke="CurrentColor" stroke-width="1.5"></path>
-                          </svg></div>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
+                  ))}
                 </div>
               </div>
             </div>
@@ -438,13 +177,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                 <div class="text-align-center">
                   <div class="max-width-large align-center">
                     <div class="margin-bottom margin-small">
-                      <h2 class="heading-style-h2 left">Advisory Services</h2>
+                      <h2 class="heading-style-h2 left">{pageData.advisory_services.heading}</h2>
                     </div>
                   </div>
                 </div>
                 <div class="max-width-large align-center">
                   <p class="text-size-medium" style="text-align: left; margin-bottom: 1.5rem;">
-                    MMTUK offers tailored support for policymakers, researchers and organisations seeking to apply macroeconomic insights to their work. Whether you are a local authority exploring fiscal options, a political party developing economic policy, or a research institute examining public spending frameworks, we can help you understand how MMT principles relate to your specific context and objectives.
+                    {pageData.advisory_services.paragraph_1}
                   </p>
                   <p class="text-size-medium" style="text-align: left;">
                     Our services include workshops, training sessions, policy review and ongoing advisory relationships, each designed to build internal capacity and inform evidence-based decision-making. If you are interested in working with us, please email us at <a href="#" class="text-style-link obfuscated-email" data-user="contact" data-domain="mmtuk.org"><span class="email-fallback">contact [at] mmtuk [dot] org</span></a>.

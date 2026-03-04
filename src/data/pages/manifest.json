@@ -7,6 +7,9 @@
     { "key": "community", "title": "Community", "route": "/community" },
     { "key": "join", "title": "Join", "route": "/join" },
     { "key": "research", "title": "Research", "route": "/research" },
-    { "key": "about-us", "title": "About Us", "route": "/about-us" }
+    { "key": "about-us", "title": "About Us", "route": "/about-us" },
+    { "key": "home", "title": "Home", "route": "/" },
+    { "key": "education", "title": "Education", "route": "/education" },
+    { "key": "donate", "title": "Donate", "route": "/donate" }
   ]
 }

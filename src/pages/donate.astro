@@ -2,9 +2,10 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import MilestoneProgress from '../components/MilestoneProgress.astro';
 import siteConfig from '../data/pages/site-config.json';
+import pageData from '../data/pages/donate.json';
 ---
 
-<BaseLayout title="Donate" description="Support MMTUK's mission to promote understanding of Modern Monetary Theory. Your donation funds independent research, education programmes and community outreach across the UK." currentPage="donate">
+<BaseLayout title={pageData.meta.title} description={pageData.meta.description} currentPage="donate">
 <header class="section_header54 text-color-white">
         <div class="header54_background-image-wrapper">
           <div class="image-overlay-layer"></div><img sizes="(max-width: 2400px) 100vw, 2400px" srcset="/images/matt-seymour-RI1x1DpqEH4-unsplash-p-500.avif 500w, images/matt-seymour-RI1x1DpqEH4-unsplash-p-800.avif 800w, images/Donate-decoration.avif 2400w" alt="" src="/images/Donate-decoration.avif" loading="eager" class="header54_background-image">
@@ -15,10 +16,10 @@ import siteConfig from '../data/pages/site-config.json';
               <div class="header54_component">
                 <div class="max-width-large">
                   <div class="margin-bottom margin-small">
-                    <h1 class="heading-style-h1">Support modern economics</h1>
+                    <h1 class="heading-style-h1">{pageData.hero.heading}</h1>
                   </div>
                   <div class="margin-bottom">
-                    <p class="text-size-medium-2">Join our mission to advance progressive economic thinking through research, collaboration, and innovative funding strategies.</p>
+                    <p class="text-size-medium-2">{pageData.hero.tagline}</p>
                   </div>
                 </div>
               </div>
@@ -39,14 +40,14 @@ import siteConfig from '../data/pages/site-config.json';
                         </svg></div>
                     </div>
                     <div class="margin-bottom margin-small">
-                      <h2 class="heading-style-h2 left">founder member scheme</h2>
+                      <h2 class="heading-style-h2 left">{pageData.founder_section.heading}</h2>
                     </div>
                     <div class="margin-bottom">
-                      <p class="text-size-medium-2">Calling 100 visionary donors to make a difference</p>
+                      <p class="text-size-medium-2">{pageData.founder_section.tagline}</p>
                     </div>
                     <div class="padding-smallish"></div>
                     <div class="margin-bottom">
-                      <p class="text-size-medium-2">Be among the first 100 donors to contribute £100 or more within 100 days and be recognised as a founding supporter of MMTUK.</p>
+                      <p class="text-size-medium-2">{pageData.founder_section.body}</p>
                     </div>
                   </div>
                   <div class="support_feature-1_image-wrapper"><img sizes="(max-width: 2400px) 100vw, 2400px" srcset="/images/diana-light-lK_nxI17h-U-unsplash-p-500.avif 500w, images/diana-light-lK_nxI17h-U-unsplash-p-800.avif 800w, images/diana-light-lK_nxI17h-U-unsplash-p-1080.avif 1080w, images/envelopes.avif 2400w" alt="" src="/images/envelopes.avif" loading="lazy" class="support_feature-1_image"></div>
@@ -74,7 +75,7 @@ import siteConfig from '../data/pages/site-config.json';
                   <div class="founder-member-scheme_feature-2_title-wrapper">
                     <div class="margin-bottom margin-medium"></div>
                     <div class="margin-bottom margin-small">
-                      <h1 class="heading-style-h3">fuel our foundations</h1>
+                      <h1 class="heading-style-h3">{pageData.founder_cta.heading}</h1>
                     </div>
                     <div class="margin-top margin-small">
                       <div class="founder-member-scheme_feature-2_details-wrapper">
@@ -127,11 +128,11 @@ import siteConfig from '../data/pages/site-config.json';
     // Check if the target date has already passed
     if (distance < 0) {
       clearInterval(interval); // Stop the countdown timer
-				document.getElementById('days').innerText = '0';
-				document.getElementById('hours').innerText = '0';
-				document.getElementById('minutes').innerText = '0';
-				document.getElementById('seconds').innerText = '0';
-      // You can display an element at the end of the countdown with this ID  
+			document.getElementById('days').innerText = '0';
+			document.getElementById('hours').innerText = '0';
+			document.getElementById('minutes').innerText = '0';
+			document.getElementById('seconds').innerText = '0';
+      // You can display an element at the end of the countdown with this ID
         document.getElementById('message').style.display = 'block';
     }
   };
@@ -163,11 +164,11 @@ import siteConfig from '../data/pages/site-config.json';
                     <div class="founder-member-scheme_cta_content-top">
                       <div class="founder-member-scheme_cta_top-left">
                         <div class="margin-bottom margin-xxsmall">
-                          <div class="heading-style-h5">Founder Member donation</div>
+                          <div class="heading-style-h5">{pageData.founder_cta.plan_label}</div>
                         </div>
                       </div>
                       <div class="founder-member-scheme_cta_top-right">
-                        <div class="heading-style-h2 heading-join">£100</div>
+                        <div class="heading-style-h2 heading-join">{pageData.founder_cta.plan_amount}</div>
                       </div>
                     </div>
                     <div class="margin-vertical margin-medium">
@@ -175,7 +176,7 @@ import siteConfig from '../data/pages/site-config.json';
                     </div>
                     <div class="margin-bottom margin-xsmall"></div>
                     <div class="margin-vertical margin-medium"></div>
-                    <a href={siteConfig.stripe_links.founder} target="_blank" class="button-2 max-width-full w-button">Join as a Founder Member of MMTUK</a>
+                    <a href={siteConfig.stripe_links.founder} target="_blank" class="button-2 max-width-full w-button">{pageData.founder_cta.button_label}</a>
                   </div>
                 </div>
               </div>
@@ -194,20 +195,20 @@ import siteConfig from '../data/pages/site-config.json';
                   <div id="w-node-f7d07a1c-fbbc-e0ec-c1e6-f8245b94a6a9-1bc33e5e" class="support_feature-2_content-right">
                     <div class="support_feature-1_icon-wrapper"><img src="/images/gift.svg" loading="lazy" alt="" class="icon-1x1-large founder"></div>
                     <div class="margin-bottom margin-small">
-                      <h2 class="heading-style-h2 left">research Donations</h2>
+                      <h2 class="heading-style-h2 left">{pageData.research_donations.heading}</h2>
                     </div>
                     <div class="margin-bottom margin-small">
-                      <p class="text-size-medium-2">Support our research projects. Every contribution drives meaningful change.</p>
+                      <p class="text-size-medium-2">{pageData.research_donations.body}</p>
                     </div>
                     <ul role="list" class="support_feature-2_list">
                       <li class="support_feature-2_item">
-                        <p>Fund groundbreaking research initiatives</p>
+                        <p>{pageData.research_donations.bullet_1}</p>
                       </li>
                       <li class="support_feature-2_item">
-                        <p>Support emerging economic scholars</p>
+                        <p>{pageData.research_donations.bullet_2}</p>
                       </li>
                       <li class="support_feature-2_item">
-                        <p>Advance progressive economic thinking</p>
+                        <p>{pageData.research_donations.bullet_3}</p>
                       </li>
                     </ul>
                     <div class="margin-top margin-medium"></div>
@@ -227,9 +228,9 @@ import siteConfig from '../data/pages/site-config.json';
                   <div class="text-align-center">
                     <div class="max-width-large align-center">
                       <div class="margin-bottom margin-small">
-                        <h2 class="heading-style-h2">Research Donation levels</h2>
+                        <h2 class="heading-style-h2">{pageData.pricing.heading}</h2>
                       </div>
-                      <p class="text-size-medium-2 align-center">Choose a contribution that matches your commitment to economic research</p>
+                      <p class="text-size-medium-2 align-center">{pageData.pricing.tagline}</p>
                     </div>
                   </div>
                 </div>
@@ -239,17 +240,17 @@ import siteConfig from '../data/pages/site-config.json';
                       <div class="margin-bottom margin-medium">
                         <div class="text-align-center">
                           <div class="margin-bottom margin-xxsmall">
-                            <div class="heading-style-h6">Supporter</div>
+                            <div class="heading-style-h6">{pageData.pricing.supporter_label}</div>
                           </div>
                           <div class="margin-bottom margin-xxsmall">
-                            <div class="heading-style-h1">£5</div>
+                            <div class="heading-style-h1">{pageData.pricing.supporter_amount}</div>
                           </div>
-                          <div>Monthly contribution</div>
+                          <div>{pageData.pricing.supporter_period}</div>
                         </div>
                       </div>
                     </div>
                     <div class="margin-top margin-medium">
-                      <a href={siteConfig.stripe_links.supporter} class="button-2 max-width-full w-button">Donate now</a>
+                      <a href={siteConfig.stripe_links.supporter} class="button-2 max-width-full w-button">{pageData.pricing.supporter_button}</a>
                     </div>
                   </div>
                   <div class="founder-member-scheme_cta_plan">
@@ -257,17 +258,17 @@ import siteConfig from '../data/pages/site-config.json';
                       <div class="margin-bottom margin-medium">
                         <div class="text-align-center">
                           <div class="margin-bottom margin-xxsmall">
-                            <div class="heading-style-h6">Founder</div>
+                            <div class="heading-style-h6">{pageData.pricing.founder_label}</div>
                           </div>
                           <div class="margin-bottom margin-xxsmall">
-                            <div class="heading-style-h1">£100</div>
+                            <div class="heading-style-h1">{pageData.pricing.founder_amount}</div>
                           </div>
-                          <div>One-off donation</div>
+                          <div>{pageData.pricing.founder_period}</div>
                         </div>
                       </div>
                     </div>
                     <div class="margin-top margin-medium">
-                      <a href={siteConfig.stripe_links.founder} target="_blank" class="button-2 max-width-full w-button">Donate now</a>
+                      <a href={siteConfig.stripe_links.founder} target="_blank" class="button-2 max-width-full w-button">{pageData.pricing.founder_button}</a>
                     </div>
                   </div>
                   <div class="donate-support_pricing_plan patron">
@@ -275,17 +276,17 @@ import siteConfig from '../data/pages/site-config.json';
                       <div class="margin-bottom margin-medium">
                         <div class="text-align-center">
                           <div class="margin-bottom margin-xxsmall">
-                            <div class="heading-style-h6">Patron</div>
+                            <div class="heading-style-h6">{pageData.pricing.patron_label}</div>
                           </div>
                           <div class="margin-bottom margin-xxsmall">
-                            <div class="heading-style-h1">£?</div>
+                            <div class="heading-style-h1">{pageData.pricing.patron_amount}</div>
                           </div>
-                          <div>One-off donation</div>
+                          <div>{pageData.pricing.patron_period}</div>
                         </div>
                       </div>
                     </div>
                     <div class="margin-top margin-medium research-donation-buttons">
-                      <a href={siteConfig.stripe_links.patron} target="_blank" class="button-2 max-width-full w-button">Donate now</a>
+                      <a href={siteConfig.stripe_links.patron} target="_blank" class="button-2 max-width-full w-button">{pageData.pricing.patron_button}</a>
                     </div>
                   </div>
                 </div>
@@ -303,9 +304,9 @@ import siteConfig from '../data/pages/site-config.json';
                 <div class="w-layout-grid support_feature-1_content">
                   <div class="support_feature-1_content-left">
                     <div class="margin-bottom margin-small">
-                      <h2 class="heading-style-h3">thank you for Transforming economics with us</h2>
+                      <h2 class="heading-style-h3">{pageData.thank_you.heading}</h2>
                     </div>
-                    <p class="text-size-medium-2">Your contribution matters. Help us reshape economic understanding through collaborative, progressive research.</p>
+                    <p class="text-size-medium-2">{pageData.thank_you.body}</p>
                     <div class="margin-top margin-medium"></div>
                   </div>
                   <div class="support_feature-1_image-wrapper"><img loading="lazy" src="/images/owl.avif" alt="Owl photo" class="support_feature-1_image"></div>
