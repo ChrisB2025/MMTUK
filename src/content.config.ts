@@ -36,6 +36,7 @@ const news = defineCollection({
     thumbnail: nullableStr(),
     mainImage: nullableStr(),
     registrationLink: nullableStr(),
+    headerVideo: nullableStr(),
   }),
 });
 
