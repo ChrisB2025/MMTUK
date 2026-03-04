@@ -6,6 +6,22 @@ category: Press Release
 summary: New organisation challenges fiscal balance as a policy objective and reframes economic constraints around real resources
 ---
 
+<div style="padding:56.25% 0 0 0;position:relative;">
+  <iframe src="https://player.vimeo.com/video/1169129147?h=897742445e&badge=0&autopause=0&player_id=0&app_id=58479"
+    allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;border-radius:8px;"
+    title="MMTUK Launch Event — 25 February 2026">
+  </iframe>
+</div>
+<script src="https://player.vimeo.com/api/player.js"></script>
+
+<div style="margin-top:1rem;">
+  <a href="/docs/launch-event-transcript.pdf" class="button-2 is-link is-icon" download data-umami-event="launch-transcript-download">
+    <div>Download full event transcript (PDF)</div>
+  </a>
+</div>
+
 **FOR IMMEDIATE RELEASE**
 
 - New organisation challenges fiscal balance as a policy objective and reframes economic constraints around real resources
