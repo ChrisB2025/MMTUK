@@ -16,6 +16,9 @@ summary: New organisation challenges fiscal balance as a policy objective and re
     </iframe>
   </div>
   <script src="https://player.vimeo.com/api/player.js"></script>
+
+> This event took place on Wednesday 25 February 2026. Video and full transcript are available on this page.
+
   <div style="margin-top:0.75rem;">
     <a href="/docs/launch-event-transcript.pdf" class="button-2 is-link is-icon" download data-umami-event="launch-transcript-download">
       <div>Download full event transcript (PDF)</div>
