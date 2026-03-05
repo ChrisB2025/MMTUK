@@ -6,24 +6,12 @@ category: Press Release
 summary: New organisation challenges fiscal balance as a policy objective and reframes economic constraints around real resources
 ---
 
-<div style="float:right;width:45%;min-width:260px;margin:0 0 1.5rem 2rem;">
-  <div style="padding:56.25% 0 0 0;position:relative;">
-    <iframe src="https://player.vimeo.com/video/1169129147?h=897742445e&badge=0&autopause=0&player_id=0&app_id=58479"
-      allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-      referrerpolicy="strict-origin-when-cross-origin"
-      style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;border-radius:8px;"
-      title="MMTUK Launch Event — 25 February 2026">
-    </iframe>
-  </div>
-  <script src="https://player.vimeo.com/api/player.js"></script>
+> *This event took place on Wednesday 25 February 2026. Video and full transcript are available on this page.*
 
-> This event took place on Wednesday 25 February 2026. Video and full transcript are available on this page.
-
-  <div style="margin-top:0.75rem;">
-    <a href="/docs/launch-event-transcript.pdf" class="button-2 is-link is-icon" download data-umami-event="launch-transcript-download">
-      <div>Download full event transcript (PDF)</div>
-    </a>
-  </div>
+<div style="margin-bottom:1.5rem;">
+  <a href="/docs/launch-event-transcript.pdf" class="button-2 is-link is-icon" download data-umami-event="launch-transcript-download">
+    <div>Download full event transcript (PDF)</div>
+  </a>
 </div>
 
 **FOR IMMEDIATE RELEASE**
@@ -43,8 +31,6 @@ MMTUK works across three core areas:
 - Independent macroeconomic research on how the monetary system, fiscal policy, and real resources shape the UK economy.
 - Public education and training to strengthen economic literacy and policy debate.
 - Community outreach linking research to real-world issues such as cost of living, housing, health, climate, and employment.
-
-<div style="clear:both;"></div>
 
 ## Official Launch Event
 
