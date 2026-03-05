@@ -4,9 +4,8 @@ slug: "mmtuk-policy-research-group-officially-launches"
 date: "2026-02-17T00:00:00.000Z"
 category: Press Release
 summary: New organisation challenges fiscal balance as a policy objective and reframes economic constraints around real resources
+headerVideo: "https://player.vimeo.com/video/1169129147?h=897742445e&badge=0&autopause=0&player_id=0&app_id=58479"
 ---
-
-> *This event took place on Wednesday 25 February 2026. Video and full transcript are available on this page.*
 
 > *This event took place on Wednesday 25 February 2026. Video and full transcript are available on this page.*
 
